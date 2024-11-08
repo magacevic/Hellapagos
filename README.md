@@ -2,7 +2,7 @@
 
 Hellapagos je vrlo interesantna igra karaktera koja vas stavlja na pusto ostrvo, nakon brodoloma. Cilj vam je da izvučete žive glave. Ali zapravo svakom je cilj da sa sigurnošću izvuče svoju glavu, dok ga za ostale nije preterano briga, bar što se tiče igre. U igri ćete birati šta ćete raditi tokom dana, možete skupljati hranu, vodu,ili praviti splav. 
 Na kraju svakog dana se održava plemensko glasanje. Treba napojiti sve i nahraniti. Nije problem ukoliko ima vode i hrane. Problemi nastaju kada ih nema dovoljno. Tada ostajete na milosti i nemilosti svih članova plemena.
-Bitno je da pre nego što uragan dođe, pobegnete sa ostrva! Srecno!
+Bitno je da pre nego što uragan dođe, pobegnete sa ostrva! 
 
 Članovi:
  - <a href="https://gitlab.com/mi19135">Ksenija Ivanovic 135/2019</a>
