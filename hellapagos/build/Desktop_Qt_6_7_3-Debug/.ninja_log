@@ -1,0 +1,14 @@
+# ninja log v5
+0	479	1731430711392514623	hellapagos_autogen/timestamp	ac3a158ecfa40564
+0	479	1731430711392514623	hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+0	479	1731430711392514623	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp	ac3a158ecfa40564
+0	479	1731430711392514623	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+2	626	1731431466947978447	hellapagos_autogen/timestamp	ac3a158ecfa40564
+2	626	1731431466947978447	hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+2	626	1731431466947978447	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp	ac3a158ecfa40564
+2	626	1731431466947978447	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+628	4994	1731431471324021710	CMakeFiles/hellapagos.dir/client.cpp.o	4856ca0a0cb3dcbf
+626	5270	1731431471600024439	CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.o	a66a34917eea3982
+627	5364	1731431471692025348	CMakeFiles/hellapagos.dir/mainwindow.cpp.o	100a484847c39293
+627	5550	1731431471880027207	CMakeFiles/hellapagos.dir/main.cpp.o	ed061b3a45b3f0b2
+5550	6193	1731431472520033535	hellapagos	66da02dda91e2b45
