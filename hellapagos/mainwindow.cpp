@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent)
     // Povezivanje dugmadi na stranici 2 sa slotovima
     connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::onSettingsButtonClicked);
     connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::onRulesButtonClicked);
+    connect(ui->pushButton_3, &QPushButton::clicked, this, &MainWindow::onStartGameButtonClicked);  // Povezivanje Start Game dugmeta
 }
 
 MainWindow::~MainWindow()
@@ -42,4 +43,11 @@ void MainWindow::onRulesButtonClicked()
 {
     // Ovde možeš dodati kod za otvaranje prozora sa pravilima
     qDebug() << "Rules clicked!";
+}
+
+// Slot za start game dugme
+void MainWindow::onStartGameButtonClicked()
+{
+    // Ovde možeš dodati kod za početak igre
+    qDebug() << "Start Game clicked!";
 }

@@ -26,6 +26,7 @@ private slots:
     void onJoinButtonClicked();  // Slot za join dugme
     void onSettingsButtonClicked();  // Slot za settings dugme
     void onRulesButtonClicked();  // Slot za rules dugme
+    void onStartGameButtonClicked();  // Slot za start game dugme
 };
 
 #endif // MAINWINDOW_H
