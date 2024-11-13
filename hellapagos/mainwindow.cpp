@@ -10,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     client->connectToServer();
 
+    // Centriranje teksta unutar QLineEdit
+    ui->playerNameLineEdit->setAlignment(Qt::AlignCenter);
+
     // Povezivanje join dugmeta sa slotom
     connect(ui->joinButton, &QPushButton::clicked, this, &MainWindow::onJoinButtonClicked);
     // Povezivanje dugmadi na stranici 2 sa slotovima
@@ -30,7 +33,6 @@ void MainWindow::onJoinButtonClicked()
     client->sendJoinCommand(playerName);  // Pošaljemo JOIN komandu sa imenom igrača
     ui->stackedWidget->setCurrentIndex(1);  // Prebacimo na stranicu 2
 }
-
 // Slot za settings dugme (radiš sa podešavanjima)
 void MainWindow::onSettingsButtonClicked()
 {
