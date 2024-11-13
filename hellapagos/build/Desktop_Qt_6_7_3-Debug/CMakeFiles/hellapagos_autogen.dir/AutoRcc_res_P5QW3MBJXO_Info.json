@@ -1,0 +1,22 @@
+{
+	"BUILD_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen",
+	"CMAKE_BINARY_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos",
+	"CMAKE_SOURCE_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include",
+	"INPUTS" : [],
+	"LOCK_FILE" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos_autogen.dir/AutoRcc_res_P5QW3MBJXO_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "res" ],
+	"OUTPUT_CHECKSUM" : "P5QW3MBJXO",
+	"OUTPUT_NAME" : "qrc_res.cpp",
+	"RCC_EXECUTABLE" : "/home/ksenija/Qt/6.7.3/gcc_64/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos_autogen.dir/AutoRcc_res_P5QW3MBJXO_Used.txt",
+	"SOURCE" : "/home/ksenija/Desktop/Hellapagos/hellapagos/imgs/res.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

@@ -27,6 +27,13 @@ void Client::sendMessage(const QString &message)
     }
 }
 
+void Client::sendJoinCommand(const QString &playerName)
+{
+    QString command = "JOIN:" + playerName;
+    sendMessage(command); // Send JOIN command to the server
+}
+
+
 void Client::onConnected()
 {
     qDebug() << "Connected to server!";

@@ -35,8 +35,19 @@ void Server::onNewConnection()
 void Server::onReadyRead()
 {
     QByteArray data = clientSocket->readAll();
-    qDebug() << "Received data:" << data;
-    clientSocket->write("Hello from server!");
+    QString message = QString::fromUtf8(data).trimmed();
+    qDebug() << "Received data:" << message;
+
+    // Check if the message starts with "JOIN:"
+    if (message.startsWith("JOIN:")) {
+        // Extract the player's name after "JOIN:"
+        QString playerName = message.section("JOIN:", 1, 1).trimmed();
+        qDebug() << "Hi," << playerName;  // Greet the player by name
+
+        // Optionally, send a response to the client
+        QString response = "Hello, " + playerName + "! Welcome to the server!";
+        clientSocket->write(response.toUtf8());
+    }
 }
 
 void Server::onDisconnected()

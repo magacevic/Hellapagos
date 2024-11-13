@@ -1752,6 +1752,9 @@
 			"isCMake" : true,
 			"isExternal" : true,
 			"path" : "/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
+		},
+		{
+			"path" : "imgs.qrc"
 		}
 	],
 	"kind" : "cmakeFiles",

@@ -417,7 +417,8 @@
 		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake",
 		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake",
 		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake",
-		"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake"
+		"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake",
+		"/home/ksenija/Desktop/Hellapagos/hellapagos/imgs.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos",
 	"CROSS_CONFIG" : false,

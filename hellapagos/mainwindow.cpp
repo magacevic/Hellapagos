@@ -9,6 +9,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     client->connectToServer();
+
+
+    connect(ui->joinButton, &QPushButton::clicked, this, [this]() {
+        QString playerName = ui->playerNameLineEdit->text();
+        client->sendJoinCommand(playerName); // Send JOIN command with the player name
+    });
 }
 
 MainWindow::~MainWindow()
