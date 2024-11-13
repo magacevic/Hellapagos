@@ -1,5 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
+
 #include "client.h"
 #include <QMainWindow>
 
@@ -20,5 +21,11 @@ public:
 private:
     Ui::MainWindow *ui;
     Client *client;
+
+private slots:
+    void onJoinButtonClicked();  // Slot za join dugme
+    void onSettingsButtonClicked();  // Slot za settings dugme
+    void onRulesButtonClicked();  // Slot za rules dugme
 };
+
 #endif // MAINWINDOW_H
