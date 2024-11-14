@@ -14,6 +14,7 @@ public:
 
     void playBackgroundMusic(const QString &filePath);
     void stopBackgroundMusic();
+    void setVolume(float volume);
 
 private:
     QSoundEffect *backgroundMusic;  // The QSoundEffect for background music

@@ -26,20 +26,20 @@
 		],
 		"files" : 
 		[
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
 			"CMakeLists.txt",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/FindOpenGL.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/FindWrapOpenGL.cmake",
-			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
-			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/FindThreads.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Dependencies.cmake"
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake",
+			"/home/ana/Qt/Tools/CMake/share/cmake-3.29/Modules/FindOpenGL.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/FindWrapOpenGL.cmake",
+			"/home/ana/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake",
+			"/home/ana/Qt/Tools/CMake/share/cmake-3.29/Modules/FindThreads.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Dependencies.cmake"
 		],
 		"nodes" : 
 		[
@@ -73,13 +73,13 @@
 			{
 				"command" : 4,
 				"file" : 1,
-				"line" : 75,
+				"line" : 76,
 				"parent" : 0
 			},
 			{
 				"command" : 5,
 				"file" : 1,
-				"line" : 58,
+				"line" : 59,
 				"parent" : 0
 			},
 			{
@@ -304,42 +304,42 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include"
+					"path" : "/home/ana/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include"
 				},
 				{
 					"backtrace" : 30,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtCore"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtCore"
 				},
 				{
 					"backtrace" : 30,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include"
 				},
 				{
 					"backtrace" : 30,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtWidgets"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtWidgets"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtGui"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtGui"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtNetwork"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtMultimedia"
 				}
 			],
 			"language" : "CXX",
@@ -359,7 +359,8 @@
 				2,
 				5,
 				9,
-				12
+				13,
+				14
 			]
 		}
 	],
@@ -401,22 +402,22 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/ksenija/Qt/6.7.3/gcc_64/lib:",
+				"fragment" : "-Wl,-rpath,/home/ana/Qt/6.7.3/gcc_64/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3",
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3",
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 13,
-				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3",
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
@@ -431,12 +432,12 @@
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 30,
-				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
@@ -465,7 +466,8 @@
 				2,
 				5,
 				9,
-				12
+				13,
+				14
 			]
 		},
 		{
@@ -475,7 +477,7 @@
 				3,
 				6,
 				8,
-				10
+				11
 			]
 		},
 		{
@@ -484,15 +486,17 @@
 			[
 				4,
 				7,
-				11
+				10,
+				12
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				13,
-				14
+				15,
+				16,
+				17
 			]
 		}
 	],
@@ -555,6 +559,11 @@
 			"sourceGroupIndex" : 0
 		},
 		{
+			"backtrace" : 4,
+			"path" : "audio.qrc",
+			"sourceGroupIndex" : 2
+		},
+		{
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include/ui_mainwindow.h",
@@ -575,6 +584,13 @@
 		},
 		{
 			"backtrace" : 0,
+			"compileGroupIndex" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp.rule",
 			"sourceGroupIndex" : 3
@@ -583,6 +599,12 @@
 			"backtrace" : 0,
 			"isGenerated" : true,
 			"path" : "build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.rule",
+			"sourceGroupIndex" : 3
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.rule",
 			"sourceGroupIndex" : 3
 		}
 	],

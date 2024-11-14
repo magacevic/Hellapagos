@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-4862cdca0789ee34a871.json",
+					"jsonFile" : "directory-.-Debug-de7d5303bbe2e38492cf.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "hellapagos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-hellapagos-Debug-8b82418f99ac8ff963ae.json",
+					"jsonFile" : "target-hellapagos-Debug-fdce6665181f6c3f19a3.json",
 					"name" : "hellapagos",
 					"projectIndex" : 0
 				},
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
-		"source" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
+		"build" : "/home/ana/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/ana/Desktop/Hellapagos/hellapagos"
 	},
 	"version" : 
 	{

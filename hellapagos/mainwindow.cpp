@@ -193,3 +193,10 @@ void MainWindow::onPrevious_8ButtonClicked(){
 }
 
 
+// Promena jacine zvuka
+void MainWindow::on_horizontalSlider_valueChanged(int value)
+{
+    float volume = value / 100.0f;
+    soundManager->setVolume(volume);
+}
+

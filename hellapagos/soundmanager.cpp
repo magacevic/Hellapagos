@@ -25,3 +25,13 @@ void SoundManager::stopBackgroundMusic()
 {
     backgroundMusic->stop();  // Stop the background music
 }
+
+void SoundManager::setVolume(float volume)
+{
+
+    if (volume < 0.0f) volume = 0.0f;
+    if (volume > 1.0f) volume = 1.0f;
+
+    backgroundMusic->setVolume(volume); // Adjust volume
+}
+
