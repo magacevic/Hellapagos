@@ -114,6 +114,7 @@ C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_6
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtversionchecks.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtypeinfo.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qtypes.h \
+  C:/Qt/6.7.3/mingw_64/include/QtCore/qurl.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qutf8stringview.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qvariant.h \
   C:/Qt/6.7.3/mingw_64/include/QtCore/qvarlengtharray.h \
@@ -145,6 +146,12 @@ C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_6
   C:/Qt/6.7.3/mingw_64/include/QtGui/qtransform.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.3/mingw_64/include/QtGui/qwindowdefs_win.h \
+  C:/Qt/6.7.3/mingw_64/include/QtMultimedia/QSoundEffect \
+  C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qaudio.h \
+  C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qsoundeffect.h \
+  C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimedia-config.h \
+  C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimediaexports.h \
+  C:/Qt/6.7.3/mingw_64/include/QtMultimedia/qtmultimediaglobal.h \
   C:/Qt/6.7.3/mingw_64/include/QtNetwork/QTcpSocket \
   C:/Qt/6.7.3/mingw_64/include/QtNetwork/qabstractsocket.h \
   C:/Qt/6.7.3/mingw_64/include/QtNetwork/qhostaddress.h \
@@ -359,4 +366,5 @@ C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_6
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/client.h
+  C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/client.h \
+  C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/soundmanager.h

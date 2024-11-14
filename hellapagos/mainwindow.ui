@@ -29,7 +29,7 @@
     <property name="styleSheet">
      <string notr="true"/>
     </property>
-    <widget class="QWidget" name="page">
+    <widget class="QWidget" name="mainPage">
      <property name="styleSheet">
       <string notr="true">background-image: url(:/steamuserimages-a.akamaihd.jpeg);</string>
      </property>
@@ -66,11 +66,11 @@ border:none;</string>
        <string notr="true">background-color: rgb(0, 0, 0);
 background-image: url(:/light-wood-grain-texture_303714-25017.jpg);
 border-color: rgb(85, 170, 0);
-color: rgb(255, 255, 255);</string>
+color: rgb(0, 0, 0);</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_2">
+    <widget class="QWidget" name="settingsRulesStart">
      <property name="styleSheet">
       <string notr="true">background-image: url(:/steamuserimages-a.akamaihd.jpeg);</string>
      </property>
@@ -135,15 +135,679 @@ border:none;</string>
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="page_3">
+    <widget class="QWidget" name="rules">
      <property name="styleSheet">
       <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
      </property>
+     <widget class="QPlainTextEdit" name="plainTextEdit">
+      <property name="geometry">
+       <rect>
+        <x>133</x>
+        <y>100</y>
+        <width>201</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;
+</string>
+      </property>
+      <property name="plainText">
+       <string>Summary of a round:
+1. Change the first player
+2. Reveal the Weather card
+3. Each player takes one action
+4. Check for survival
+5. Check for game end</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>143</x>
+        <y>220</y>
+        <width>471</width>
+        <height>201</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;</string>
+      </property>
+      <property name="plainText">
+       <string>1. Change the first player
+(Skip this phase in the first round.)
+Each time the first player’s turn comes around, this player passes
+the First Player card to the right. If the First Player is ever eliminated,
+the First Player card passes to the player on the right.
+
+
+2. Reveal the Weather card
+With each new round, the first player reveals
+the topmost Weather card from the deck, so the
+“precipitation” side is face up.</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_1">
+      <property name="geometry">
+       <rect>
+        <x>460</x>
+        <y>30</y>
+        <width>181</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
     </widget>
-    <widget class="QWidget" name="page_4">
+    <widget class="QWidget" name="rules_1">
      <property name="styleSheet">
       <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
      </property>
+     <widget class="QTextEdit" name="textEdit">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>90</y>
+        <width>481</width>
+        <height>331</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;</string>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;3. Each player takes one action&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;In turn order, starting with the first player, each player chooses&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;the action they wish to perform, among four possible actions (see&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Action Details, p. 6):&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;• Catch fish&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;• Collect water&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;• Gather wood to build the raft&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;4. Check for survival&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Once every player has performed one action, each survivor (player&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;still in the game, including the sick) must receive 1 ration of water and 1 ration of food.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If there are at least as many rations of water as there are survivors,&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;subtract 1 ration on the survival track for each survivor.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;At the end of the round, there are 6 players, and the water marker (Droplet) indicates 8 rations; so there is enough&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;for everyone. The marker moves to 2, and the players move on to Consuming Food.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_2">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>20</y>
+        <width>131</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_2">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>20</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rules_3">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
+     <widget class="QTextEdit" name="textEdit_2">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>90</y>
+        <width>481</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;
+</string>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If there is not enough,&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;a vote is held to determine who will be deprived&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;of water. After the vote, only a&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;number of players equal to the number of available&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;water rations will be allowed to remain. The others&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;tragically die of thirst, and leave the game.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;B. Consuming Food (Fish marker):&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Once the water rations have been “distributed”, the players are ready&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;to consume food.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If there are at least as many rations of food as there are survivors,&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;subtract 1 ration for each survivor, and the round ends.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;If there is not enough, a vote&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;is held to determine who will be deprived of food. After the vote, only a number&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;of players equal to the number of available food&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;rations will be allowed to remain. The others&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;tragically die of hunger, and leave the game.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_3">
+      <property name="geometry">
+       <rect>
+        <x>24</x>
+        <y>13</y>
+        <width>131</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_3">
+      <property name="geometry">
+       <rect>
+        <x>480</x>
+        <y>20</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rules_4">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
+     <widget class="QPlainTextEdit" name="plainTextEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>100</y>
+        <width>491</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;</string>
+      </property>
+      <property name="plainText">
+       <string>5. Check for game end
+After any votes, and adjusting the markers according to the number
+of rations consumed, check to see if the game ends. If not, the surviving players begin a new round with
+the First Player card passing to the right.
+
+1. Catch Fish
+When you choose this action, draw a ball from the bag. The number
+of fish on the ball (1 ,2 ,3 ) indicates how many fish you
+caught. Advance the Food marker that many spaces
+on the survival track on the board. Then return the ball to the bag.
+
+2. Collect water
+When you choose this action, look at the number in the water
+droplet on the Weather card for this turn (it will range from 0 to 3)
+and advance the Water marker (Droplet ) that many spaces on the
+survival track on the board. Note that you cannot collect any water
+on an extremely sunny day (when the droplet depicts 0 0 ): so be
+careful and plan for it!</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>131</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_4">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>30</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rules_5">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
+     <widget class="QPlainTextEdit" name="TextLabel">
+      <property name="geometry">
+       <rect>
+        <x>113</x>
+        <y>70</y>
+        <width>491</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;</string>
+      </property>
+      <property name="plainText">
+       <string>Note: For both Fishing and Collecting Water, the limit
+of your reserves is 36: The survivors cannot collect any
+more than that
+
+3. Collect wood to build the raft
+To collect wood, you go to the forest, which is infested with snakes!
+You will safely find the first bit of wood at the edge of the forest;
+when you choose to take this action, you automatically advance
+the Wood disc 1 step on the Raft track.
+
+Next, decide whether to explore
+deeper into the forest, taking your
+chances with the snakes. Announce
+how many more pieces of wood you wish to collect (from 1 to 5)
+and draw that many balls, all at once. If all of the balls
+are white, you advance the Wood disc a number of spaces equal to
+the number of balls you drew.
+
+If you draw the black ball, you have been bitten by a snake, and you
+become sick for one round (see Sick, p. 12). You do not advance the
+Wood disc (beyond the 1 free wood for taking the action).</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_5">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>10</y>
+        <width>131</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_5">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>20</y>
+        <width>141</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rules_6">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
+     <widget class="QTextEdit" name="textEdit_3">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>90</y>
+        <width>481</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;</string>
+      </property>
+      <property name="html">
+       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+hr { height: 1px; border-width: 0; }
+li.unchecked::marker { content: &quot;\2610&quot;; }
+li.checked::marker { content: &quot;\2612&quot;; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Whether you are bitten by a snake or succeed in&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;collecting more wood, return the balls to the bag.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The Wood disc will circulate around the Raft track&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(from 0 to 6). As soon as it reaches the 6th space,&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;add a Raft card to the Raft card space, and move the&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;disc back to space 0. Each Raft card allows one surviving player to&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;escape the island &lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Votes are necessary in the event of a water or food shortage&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;(or if the players must leave the island, but do not have enough seats&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;on the raft). everyone votes against another player by clicking on that player.&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Whichever player has the most votes against him is eliminated.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;While you are sick, you cannot vote at the end of this round (but of course&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;you can be eliminated), and you cannot take an action.&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_6">
+      <property name="geometry">
+       <rect>
+        <x>4</x>
+        <y>13</y>
+        <width>131</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_6">
+      <property name="geometry">
+       <rect>
+        <x>520</x>
+        <y>30</y>
+        <width>121</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rules_7">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
+     <widget class="QPlainTextEdit" name="plainTextEdit_5">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>80</y>
+        <width>491</width>
+        <height>351</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;</string>
+      </property>
+      <property name="plainText">
+       <string>The game can end 3 ways:
+
+Leaving the island
+At the end of any round, the surviving players can board the raft. In
+order to embark, the following conditions must be met:
+• The water and food rations must have been distributed already.
+• There must be at least as many Raft cards built as there are
+survivors.
+• There must be at least
+1 ration of water and
+food remaining for
+each survivor (for
+the Trip).
+
+Example: There are 4 players remaining at the end of the round,
+and the survival track indicates 8 water and 9 food. The players
+distribute the food, reducing the supplies to 4 water and 5 food.
+There are 4 Raft cards on the Raft card space on the board. The
+4 players have everything they need to embark and win the game
+(it is entirely possible for every player to survive and win).
+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_7">
+      <property name="geometry">
+       <rect>
+        <x>14</x>
+        <y>23</y>
+        <width>141</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_7">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>30</y>
+        <width>141</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="rules_8">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
+     <widget class="QPlainTextEdit" name="plainTextEdit_6">
+      <property name="geometry">
+       <rect>
+        <x>123</x>
+        <y>90</y>
+        <width>481</width>
+        <height>321</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border: transparent;
+background: transparent;</string>
+      </property>
+      <property name="plainText">
+       <string>Arrival of the hurricane
+As soon as the Hurricane Weather card (with the hourglass
+crossed out) is revealed, the raft must leave the island at
+the end of the round; otherwise, all players lose! In order to
+embark, the same conditions to leave the island must be met; however, you are allowed to (and must) vote and
+make sacrifices in order to meet them:
+• The water and food rations must have been distributed already.
+• There must be at least as many Raft cards as survivors;
+otherwise, hold votes to sacrifice enough players to make room.
+• There must be at least 1 additional ration of water and food
+for each survivor (for the trip); otherwise, hold votes to eliminate
+enough players until you have sufficient supplies for the voyage.
+
+The players who succeed in boarding the raft win the game.
+
+Total failure
+The game can also end if everyone dies of thirst or hunger at the
+end of a round. In this case, everyone loses!</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_8">
+      <property name="geometry">
+       <rect>
+        <x>14</x>
+        <y>23</y>
+        <width>141</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_8">
+      <property name="geometry">
+       <rect>
+        <x>510</x>
+        <y>30</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
     </widget>
     <widget class="QWidget" name="settings">
      <property name="styleSheet">

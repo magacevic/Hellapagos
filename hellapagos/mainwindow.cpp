@@ -43,7 +43,7 @@ void MainWindow::onJoinButtonClicked()
 // Slot za settings dugme (radiš sa podešavanjima)
 void MainWindow::onSettingsButtonClicked()
 {
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->stackedWidget->setCurrentIndex(10);
     qDebug() << "Settings clicked!";
 }
 
@@ -70,3 +70,4 @@ void MainWindow::onStartGameButtonClicked()
 
     qDebug() << "Start Game clicked!";
 }
+

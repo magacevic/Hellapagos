@@ -270,8 +270,29 @@
 		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake",
 		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake",
 		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfigVersion.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfigVersionImpl.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaDependencies.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaTargets.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaAdditionalTargetInfo.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaVersionlessTargets.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6MultimediaPlugins.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginTargets.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginAdditionalTargetInfo.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QWindowsMediaPluginConfig.cmake",
+		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QWindowsMediaPluginTargets.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QWindowsMediaPluginTargets-relwithdebinfo.cmake",
+		"C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Multimedia/Qt6QWindowsMediaPluginAdditionalTargetInfo.cmake",
 		"C:/Qt/Tools/CMake_64/share/cmake-3.29/Modules/GNUInstallDirs.cmake",
-		"C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/imgs.qrc"
+		"C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/imgs.qrc",
+		"C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/audio.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "C:/Users/Korisnik/Downloads/Hellapagos/hellapagos",
 	"CROSS_CONFIG" : false,
@@ -290,6 +311,12 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/soundmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_soundmanager.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
@@ -300,6 +327,7 @@
 		"MINGW_HAS_SECURE_API=1",
 		"QT_CORE_LIB",
 		"QT_GUI_LIB",
+		"QT_MULTIMEDIA_LIB",
 		"QT_NEEDS_QMAIN",
 		"QT_NETWORK_LIB",
 		"QT_WIDGETS_LIB",
@@ -325,6 +353,7 @@
 		"C:/Qt/6.7.3/mingw_64/include/QtWidgets",
 		"C:/Qt/6.7.3/mingw_64/include/QtGui",
 		"C:/Qt/6.7.3/mingw_64/include/QtNetwork",
+		"C:/Qt/6.7.3/mingw_64/include/QtMultimedia",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32",
 		"C:/Qt/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward",
@@ -377,6 +406,11 @@
 		],
 		[
 			"C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/soundmanager.cpp",
 			"MU",
 			null
 		]
