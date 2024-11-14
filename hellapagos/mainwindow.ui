@@ -145,6 +145,51 @@ border:none;</string>
       <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
      </property>
     </widget>
+    <widget class="QWidget" name="settings">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/steamuserimages-a.akamaihd.jpeg);</string>
+     </property>
+     <widget class="QSlider" name="horizontalSlider">
+      <property name="geometry">
+       <rect>
+        <x>220</x>
+        <y>250</y>
+        <width>371</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:none;
+background-color: rgb(193, 125, 17);
+color: rgb(204, 0, 0);
+background-image: url(:/light-wood-grain-texture_303714-25017.jpg);
+border-color: rgb(32, 74, 135);</string>
+      </property>
+      <property name="orientation">
+       <enum>Qt::Orientation::Horizontal</enum>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mainmenuButton">
+      <property name="geometry">
+       <rect>
+        <x>310</x>
+        <y>320</y>
+        <width>221</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
+      </property>
+     </widget>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

@@ -30,6 +30,7 @@ private slots:
     void onSettingsButtonClicked();  // Slot za settings dugme
     void onRulesButtonClicked();  // Slot za rules dugme
     void onStartGameButtonClicked();  // Slot za start game dugme
+    void onMainMenuButtonClicked();
 };
 
 #endif // MAINWINDOW_H
