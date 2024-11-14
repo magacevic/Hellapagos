@@ -31,6 +31,22 @@ private slots:
     void onRulesButtonClicked();  // Slot za rules dugme
     void onStartGameButtonClicked();  // Slot za start game dugme
     void onMainMenuButtonClicked();
+    void onNext_1ButtonClicked();
+    void onNext_2ButtonClicked();
+    void onNext_3ButtonClicked();
+    void onNext_4ButtonClicked();
+    void onNext_5ButtonClicked();
+    void onNext_6ButtonClicked();
+    void onNext_7ButtonClicked();
+    void onPrevious_1ButtonClicked();
+    void onPrevious_2ButtonClicked();
+    void onPrevious_3ButtonClicked();
+    void onPrevious_4ButtonClicked();
+    void onPrevious_5ButtonClicked();
+    void onPrevious_6ButtonClicked();
+    void onPrevious_7ButtonClicked();
+    void onPrevious_8ButtonClicked();
+
 };
 
 #endif // MAINWINDOW_H

@@ -788,26 +788,6 @@ border:none;</string>
        <string>Previous</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="next_8">
-      <property name="geometry">
-       <rect>
-        <x>510</x>
-        <y>30</y>
-        <width>141</width>
-        <height>51</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background:transparent;
-color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
-image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
-border:none;</string>
-      </property>
-      <property name="text">
-       <string>Next</string>
-      </property>
-     </widget>
     </widget>
     <widget class="QWidget" name="settings">
      <property name="styleSheet">
