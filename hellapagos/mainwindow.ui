@@ -128,6 +128,16 @@ border:none;</string>
       </property>
      </widget>
     </widget>
+    <widget class="QWidget" name="page_3">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/pap_wood-1.jpg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/pap_wood-1.jpg);</string>
+     </property>
+    </widget>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
