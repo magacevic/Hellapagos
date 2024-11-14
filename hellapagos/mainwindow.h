@@ -3,6 +3,7 @@
 
 #include "client.h"
 #include <QMainWindow>
+#include "soundmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -21,6 +22,8 @@ public:
 private:
     Ui::MainWindow *ui;
     Client *client;
+    SoundManager *soundManager;
+
 
 private slots:
     void onJoinButtonClicked();  // Slot za join dugme

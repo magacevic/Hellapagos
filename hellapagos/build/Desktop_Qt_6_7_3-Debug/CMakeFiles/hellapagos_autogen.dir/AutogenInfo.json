@@ -417,8 +417,29 @@
 		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets.cmake",
 		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginTargets-relwithdebinfo.cmake",
 		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network/Qt6QTlsBackendOpenSSLPluginAdditionalTargetInfo.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfigVersion.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfigVersionImpl.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaConfig.cmake",
+		"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaDependencies.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaTargets.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaTargets-relwithdebinfo.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaAdditionalTargetInfo.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaVersionlessTargets.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6MultimediaPlugins.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginConfig.cmake",
+		"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginTargets.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginTargets-relwithdebinfo.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QFFmpegMediaPluginAdditionalTargetInfo.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QGstreamerMediaPluginConfig.cmake",
+		"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QGstreamerMediaPluginTargets.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QGstreamerMediaPluginTargets-relwithdebinfo.cmake",
+		"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia/Qt6QGstreamerMediaPluginAdditionalTargetInfo.cmake",
 		"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake",
-		"/home/ksenija/Desktop/Hellapagos/hellapagos/imgs.qrc"
+		"/home/ksenija/Desktop/Hellapagos/hellapagos/imgs.qrc",
+		"/home/ksenija/Desktop/Hellapagos/hellapagos/audio.qrc"
 	],
 	"CMAKE_SOURCE_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos",
 	"CROSS_CONFIG" : false,
@@ -437,12 +458,25 @@
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
+		],
+		[
+			"/home/ksenija/Desktop/Hellapagos/hellapagos/soundmanager.h",
+			"MU",
+			"EWIEGA46WW/moc_soundmanager.cpp",
+			null
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
 	"INCLUDE_DIR" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include",
 	"MOC_COMPILATION_FILE" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp",
-	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_NETWORK_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEFINITIONS" : 
+	[
+		"QT_CORE_LIB",
+		"QT_GUI_LIB",
+		"QT_MULTIMEDIA_LIB",
+		"QT_NETWORK_LIB",
+		"QT_WIDGETS_LIB"
+	],
 	"MOC_DEPEND_FILTERS" : 
 	[
 		[
@@ -458,6 +492,7 @@
 		"/home/ksenija/Qt/6.7.3/gcc_64/include/QtWidgets",
 		"/home/ksenija/Qt/6.7.3/gcc_64/include/QtGui",
 		"/home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork",
+		"/home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia",
 		"/usr/include",
 		"/usr/include/c++/10",
 		"/usr/include/x86_64-linux-gnu/c++/10",
@@ -503,6 +538,11 @@
 		[ "/home/ksenija/Desktop/Hellapagos/hellapagos/main.cpp", "MU", null ],
 		[
 			"/home/ksenija/Desktop/Hellapagos/hellapagos/mainwindow.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/ksenija/Desktop/Hellapagos/hellapagos/soundmanager.cpp",
 			"MU",
 			null
 		]

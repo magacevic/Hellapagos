@@ -1,14 +1,19 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "client.h"
+#include "soundmanager.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , client(new Client(this))
+    , soundManager(new SoundManager(this))
 {
     ui->setupUi(this);
     client->connectToServer();
+    soundManager->playBackgroundMusic(":/audio/uke.wav");  // Update path as needed
+
 
     // Centriranje teksta unutar QLineEdit
     ui->playerNameLineEdit->setAlignment(Qt::AlignCenter);
@@ -36,8 +41,7 @@ void MainWindow::onJoinButtonClicked()
 // Slot za settings dugme (radiš sa podešavanjima)
 void MainWindow::onSettingsButtonClicked()
 {
-    // Ovde možeš dodati kod za otvaranje prozora sa podešavanjima
-    qDebug() << "Settings clicked!";
+   qDebug() << "Settings clicked!";
 }
 
 // Slot za rules dugme (radiš sa pravilima)

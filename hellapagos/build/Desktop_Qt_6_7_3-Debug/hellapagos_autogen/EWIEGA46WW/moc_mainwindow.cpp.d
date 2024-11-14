@@ -1,6 +1,7 @@
 /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/ksenija/Desktop/Hellapagos/hellapagos/mainwindow.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/moc_predefs.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/client.h \
+  /home/ksenija/Desktop/Hellapagos/hellapagos/soundmanager.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QString \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
@@ -115,6 +116,7 @@
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtversionchecks.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtypeinfo.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtypes.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qurl.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qutf8stringview.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qvariant.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qvarlengtharray.h \
@@ -145,6 +147,12 @@
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui/qtguiglobal.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui/qtransform.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia/QSoundEffect \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia/qaudio.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia/qsoundeffect.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia/qtmultimedia-config.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia/qtmultimediaexports.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia/qtmultimediaglobal.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/QTcpSocket \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qabstractsocket.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qhostaddress.h \

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/audio">
+        <file>uke.wav</file>
+    </qresource>
+</RCC>
