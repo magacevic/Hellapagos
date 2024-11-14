@@ -44,6 +44,7 @@ void MainWindow::onSettingsButtonClicked()
 void MainWindow::onRulesButtonClicked()
 {
     // Ovde možeš dodati kod za otvaranje prozora sa pravilima
+    ui->stackedWidget->setCurrentIndex(2);
     qDebug() << "Rules clicked!";
 }
 
