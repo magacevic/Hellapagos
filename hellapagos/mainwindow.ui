@@ -836,6 +836,32 @@ border:none;</string>
        <string>Main Menu</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="MuteSoundButton">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>240</y>
+        <width>161</width>
+        <height>71</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Mute</string>
+      </property>
+      <property name="checkable">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <zorder>MuteSoundButton</zorder>
+     <zorder>horizontalSlider</zorder>
+     <zorder>mainmenuButton</zorder>
     </widget>
    </widget>
   </widget>

@@ -3,6 +3,8 @@
 #include "client.h"
 #include "soundmanager.h"
 
+#include <QTimer>
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -41,6 +43,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->previous_7, &QPushButton::clicked, this, &MainWindow::onPrevious_7ButtonClicked);
     connect(ui->previous_8, &QPushButton::clicked, this, &MainWindow::onPrevious_8ButtonClicked);
 
+    connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::on_horizontalSlider_valueChanged);
+    connect(ui->MuteSoundButton, &QPushButton::toggled, this, &MainWindow::on_MuteSoundButton_toggled);
 
 }
 
@@ -193,10 +197,60 @@ void MainWindow::onPrevious_8ButtonClicked(){
 }
 
 
-// Promena jacine zvuka
+// Volume control
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
     float volume = value / 100.0f;
+
+    if (soundManager->getPreviousVolume() == 0.0f && volume > 0.0f) {
+        soundManager->toggleMute();  // Unmute
+        ui->MuteSoundButton->setText("Mute");
+        ui->MuteSoundButton->setChecked(false);
+        qDebug() << "Sound unmuted with slider!";
+    }
+
     soundManager->setVolume(volume);
+
+    if (volume == 0.0f) {
+        ui->MuteSoundButton->setText("Unmute");
+        ui->MuteSoundButton->setChecked(true);
+        qDebug() << "Sound muted with slider!";
+    }
+}
+
+// Mute/Unmute button
+void MainWindow::on_MuteSoundButton_toggled(bool checked)
+{
+    static bool alreadyToggled = false;
+    if (alreadyToggled) return;  // Ignore the second toggle
+    alreadyToggled = true;
+
+    qDebug() << "Mute button pressed!";
+
+    soundManager->toggleMute();
+
+    if (checked) {
+        // mute
+        ui->MuteSoundButton->setText("Unmute");
+        ui->horizontalSlider->setValue(0);
+        qDebug() << "Sound is muted!";
+    } else {
+        // unmute
+        ui->MuteSoundButton->setText("Mute");
+        float previousVolume = soundManager->getPreviousVolume();
+
+        if (previousVolume == 0.0f) {
+            ui->horizontalSlider->setValue(10);  // Set slider to minimal value
+            soundManager->setVolume(0.1f);
+        } else {
+            // Restore the previous volume
+            ui->horizontalSlider->setValue(static_cast<int>(previousVolume * 100));
+            soundManager->setVolume(previousVolume);
+        }
+
+        qDebug() << "Sound is unmuted!";
+    }
+    QTimer::singleShot(100, [this](){ alreadyToggled = false; });
+
 }
 

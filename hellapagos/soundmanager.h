@@ -15,9 +15,16 @@ public:
     void playBackgroundMusic(const QString &filePath);
     void stopBackgroundMusic();
     void setVolume(float volume);
+    void toggleMute();
+
+    float getPreviousVolume() const;
+
 
 private:
     QSoundEffect *backgroundMusic;  // The QSoundEffect for background music
+    bool isMuted;                   // Flag to check if the sound is muted
+    float previousVolume;           // To store the volume before muting
+
 };
 
 #endif // SOUNDMANAGER_H
