@@ -18,7 +18,7 @@ public:
     void toggleMute();
 
     float getPreviousVolume() const;
-
+    bool isSoundMuted() const;
 
 private:
     QSoundEffect *backgroundMusic;  // The QSoundEffect for background music

@@ -22,11 +22,11 @@
 		"files" : 
 		[
 			"CMakeLists.txt",
-			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/FindThreads.cmake",
-			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
-			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake"
+			"/home/ana/Qt/Tools/CMake/share/cmake-3.29/Modules/FindThreads.cmake",
+			"/home/ana/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
+			"/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake"
 		],
 		"nodes" : 
 		[
@@ -36,19 +36,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 15,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 23,
+				"line" : 29,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 20,
+				"line" : 26,
 				"parent" : 0
 			},
 			{
@@ -123,28 +123,37 @@
 				{
 					"backtrace" : 3,
 					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_NETWORK_LIB"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
+					"path" : "/home/ana/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtCore"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtCore"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/home/ana/Qt/6.7.3/gcc_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -203,12 +212,17 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/ksenija/Qt/6.7.3/gcc_64/lib:",
+				"fragment" : "-Wl,-rpath,/home/ana/Qt/6.7.3/gcc_64/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/home/ana/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
 				"role" : "libraries"
 			},
 			{

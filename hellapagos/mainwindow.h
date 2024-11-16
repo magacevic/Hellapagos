@@ -46,6 +46,7 @@ private slots:
     void onPrevious_6ButtonClicked();
     void onPrevious_7ButtonClicked();
     void onPrevious_8ButtonClicked();
+    void on_mainmenuButton_2_clicked();
 
     void on_horizontalSlider_valueChanged(int value);
     void on_MuteSoundButton_toggled(bool checked);

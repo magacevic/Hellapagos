@@ -153,6 +153,9 @@ border:none;</string>
 border: transparent;
 </string>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
       <property name="plainText">
        <string>Summary of a round:
 1. Change the first player
@@ -163,6 +166,9 @@ border: transparent;
       </property>
      </widget>
      <widget class="QPlainTextEdit" name="plainTextEdit_2">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="geometry">
        <rect>
         <x>143</x>
@@ -171,9 +177,15 @@ border: transparent;
         <height>201</height>
        </rect>
       </property>
+      <property name="acceptDrops">
+       <bool>true</bool>
+      </property>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="plainText">
        <string>1. Change the first player
@@ -212,10 +224,10 @@ border:none;</string>
      <widget class="QPushButton" name="next_1">
       <property name="geometry">
        <rect>
-        <x>460</x>
-        <y>30</y>
-        <width>181</width>
-        <height>41</height>
+        <x>490</x>
+        <y>20</y>
+        <width>191</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -246,6 +258,9 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -298,10 +313,10 @@ border:none;</string>
      <widget class="QPushButton" name="next_2">
       <property name="geometry">
        <rect>
-        <x>480</x>
+        <x>500</x>
         <y>20</y>
-        <width>131</width>
-        <height>41</height>
+        <width>151</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -333,6 +348,9 @@ border:none;</string>
        <string notr="true">background: transparent;
 border: transparent;
 </string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -387,8 +405,8 @@ border:none;</string>
        <rect>
         <x>480</x>
         <y>20</y>
-        <width>131</width>
-        <height>41</height>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
@@ -419,6 +437,9 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="plainText">
        <string>5. Check for game end
@@ -464,8 +485,8 @@ border:none;</string>
      <widget class="QPushButton" name="next_4">
       <property name="geometry">
        <rect>
-        <x>510</x>
-        <y>30</y>
+        <x>500</x>
+        <y>20</y>
         <width>141</width>
         <height>51</height>
        </rect>
@@ -498,6 +519,9 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="plainText">
        <string>Note: For both Fishing and Collecting Water, the limit
@@ -546,7 +570,7 @@ border:none;</string>
      <widget class="QPushButton" name="next_5">
       <property name="geometry">
        <rect>
-        <x>510</x>
+        <x>500</x>
         <y>20</y>
         <width>141</width>
         <height>61</height>
@@ -580,6 +604,9 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="html">
        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
@@ -630,9 +657,9 @@ border:none;</string>
      <widget class="QPushButton" name="next_6">
       <property name="geometry">
        <rect>
-        <x>520</x>
-        <y>30</y>
-        <width>121</width>
+        <x>530</x>
+        <y>20</y>
+        <width>131</width>
         <height>61</height>
        </rect>
       </property>
@@ -664,6 +691,9 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;</string>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
       </property>
       <property name="plainText">
        <string>The game can end 3 ways:
@@ -747,6 +777,9 @@ border:none;</string>
        <string notr="true">border: transparent;
 background: transparent;</string>
       </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
       <property name="plainText">
        <string>Arrival of the hurricane
 As soon as the Hurricane Weather card (with the hourglass
@@ -786,6 +819,26 @@ border:none;</string>
       </property>
       <property name="text">
        <string>Previous</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="mainmenuButton_2">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>20</y>
+        <width>201</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:transparent;
+color: rgb(0, 0, 0);
+font: 700 italic 20pt &quot;aakar&quot;;
+image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
+border:none;</string>
+      </property>
+      <property name="text">
+       <string>Main Menu</string>
       </property>
      </widget>
     </widget>

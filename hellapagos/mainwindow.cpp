@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->previous_6, &QPushButton::clicked, this, &MainWindow::onPrevious_6ButtonClicked);
     connect(ui->previous_7, &QPushButton::clicked, this, &MainWindow::onPrevious_7ButtonClicked);
     connect(ui->previous_8, &QPushButton::clicked, this, &MainWindow::onPrevious_8ButtonClicked);
+    connect(ui->mainmenuButton_2, &QPushButton::clicked, this, &MainWindow::on_mainmenuButton_2_clicked);
 
     connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::on_horizontalSlider_valueChanged);
     connect(ui->MuteSoundButton, &QPushButton::toggled, this, &MainWindow::on_MuteSoundButton_toggled);
@@ -196,18 +197,25 @@ void MainWindow::onPrevious_8ButtonClicked(){
     qDebug()<< "Previous_8 clicked!";
 }
 
+void MainWindow::on_mainmenuButton_2_clicked()
+{
+    ui->stackedWidget->setCurrentIndex(1);
+    qDebug() << "Main menu clicked!";
+}
+
 
 // Volume control
 void MainWindow::on_horizontalSlider_valueChanged(int value)
 {
     float volume = value / 100.0f;
 
-    if (soundManager->getPreviousVolume() == 0.0f && volume > 0.0f) {
+    if ((soundManager->getPreviousVolume() == 0.0f || soundManager->isSoundMuted()) && volume > 0.0f) {
         soundManager->toggleMute();  // Unmute
         ui->MuteSoundButton->setText("Mute");
         ui->MuteSoundButton->setChecked(false);
         qDebug() << "Sound unmuted with slider!";
     }
+
 
     soundManager->setVolume(volume);
 
