@@ -26,8 +26,8 @@ MainWindow::MainWindow(QWidget *parent)
     // Povezivanje join dugmeta sa slotom
     connect(ui->joinButton, &QPushButton::clicked, this, &MainWindow::onJoinButtonClicked);
     // Povezivanje dugmadi na stranici 2 sa slotovima
-    connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::onSettingsButtonClicked);
-    connect(ui->pushButton_2, &QPushButton::clicked, this, &MainWindow::onRulesButtonClicked);
+    connect(ui->settingsButton, &QPushButton::clicked, this, &MainWindow::onSettingsButtonClicked);
+    connect(ui->rulesButton, &QPushButton::clicked, this, &MainWindow::onRulesButtonClicked);
     connect(ui->pushButton_3, &QPushButton::clicked, this, &MainWindow::onStartGameButtonClicked);  // Povezivanje Start Game dugmeta
     connect(ui->mainmenuButton, &QPushButton::clicked, this, &MainWindow::onMainMenuButtonClicked);
     connect(ui->next_1, &QPushButton::clicked, this, &MainWindow::onNext_1ButtonClicked);
