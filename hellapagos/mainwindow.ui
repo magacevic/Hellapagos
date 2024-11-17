@@ -74,7 +74,7 @@ color: rgb(0, 0, 0);</string>
      <property name="styleSheet">
       <string notr="true">background-image: url(:/steamuserimages-a.akamaihd.jpeg);</string>
      </property>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="settingsButton">
       <property name="geometry">
        <rect>
         <x>110</x>
@@ -94,7 +94,7 @@ border:none;</string>
        <string>Settings</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="rulesButton">
       <property name="geometry">
        <rect>
         <x>450</x>
