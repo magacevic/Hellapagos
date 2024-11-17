@@ -114,7 +114,7 @@ border:none;</string>
        <string>Rules</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="startGameButton">
       <property name="geometry">
        <rect>
         <x>280</x>
@@ -869,7 +869,7 @@ border-color: rgb(32, 74, 135);</string>
        <enum>Qt::Orientation::Horizontal</enum>
       </property>
      </widget>
-     <widget class="QPushButton" name="mainmenuButton">
+     <widget class="QPushButton" name="mainMenuButton">
       <property name="geometry">
        <rect>
         <x>310</x>
