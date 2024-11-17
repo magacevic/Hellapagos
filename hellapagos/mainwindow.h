@@ -3,6 +3,9 @@
 
 #include "client.h"
 #include <QMainWindow>
+#include <QLabel>
+#include <QPixmap>
+#include <QTimer>
 #include "soundmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -23,10 +26,13 @@ private:
     Ui::MainWindow *ui;
     Client *client;
     SoundManager *soundManager;
+    QLabel *errorLabel;
+    void setFixedWindowSize();
 
 
 private slots:
     void onJoinButtonClicked();  // Slot za join dugme
+    void showErrorMessage();
     void onSettingsButtonClicked();  // Slot za settings dugme
     void onRulesButtonClicked();  // Slot za rules dugme
     void onStartGameButtonClicked();  // Slot za start game dugme

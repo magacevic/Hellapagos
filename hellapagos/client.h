@@ -18,7 +18,7 @@ public:
     void connectToServer();
     void sendJoinCommand(const QString &playerName); // New function
 
-   // void sendMessage(const QString &message);
+    // void sendMessage(const QString &message);
 
 private slots:
     void onConnected();
