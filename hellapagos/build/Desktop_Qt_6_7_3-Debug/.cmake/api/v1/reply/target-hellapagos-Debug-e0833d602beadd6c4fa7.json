@@ -26,18 +26,18 @@
 		],
 		"files" : 
 		[
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core/Qt6CoreMacros.cmake",
 			"CMakeLists.txt",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake",
-			"/home/mina/Qt/Tools/CMake/share/cmake-3.29/Modules/FindOpenGL.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6/FindWrapOpenGL.cmake",
-			"/home/mina/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
-			"/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake"
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsTargets.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsConfig.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake",
+			"/usr/share/cmake/Modules/FindOpenGL.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6/FindWrapOpenGL.cmake",
+			"/usr/share/cmake/Modules/CMakeFindDependencyMacro.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiDependencies.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui/Qt6GuiConfig.cmake",
+			"/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets/Qt6WidgetsDependencies.cmake"
 		],
 		"nodes" : 
 		[
@@ -193,13 +193,13 @@
 			{
 				"command" : 9,
 				"file" : 5,
-				"line" : 712,
+				"line" : 673,
 				"parent" : 27
 			},
 			{
 				"command" : 6,
 				"file" : 5,
-				"line" : 710,
+				"line" : 671,
 				"parent" : 27
 			},
 			{
@@ -250,42 +250,42 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/mina/folder1/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include"
+					"path" : "/home/tamara/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include"
 				},
 				{
 					"backtrace" : 30,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtCore"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtCore"
 				},
 				{
 					"backtrace" : 30,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include"
 				},
 				{
 					"backtrace" : 30,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtWidgets"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtWidgets"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtGui"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtGui"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtNetwork"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtNetwork"
 				},
 				{
 					"backtrace" : 6,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtMultimedia"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtMultimedia"
 				}
 			],
 			"language" : "CXX",
@@ -348,42 +348,42 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/mina/Qt/6.7.3/gcc_64/lib:",
+				"fragment" : "-Wl,-rpath,/home/tamara/Qt/6.7.3/gcc_64/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 13,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 28,
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"fragment" : "/usr/lib/libGLX.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 29,
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"fragment" : "/usr/lib/libOpenGL.so",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 6,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 30,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
 				"role" : "libraries"
 			}
 		],

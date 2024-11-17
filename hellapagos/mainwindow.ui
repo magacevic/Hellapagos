@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>818</width>
-    <height>634</height>
+    <width>749</width>
+    <height>629</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,13 +21,25 @@
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>-20</y>
-      <width>1280</width>
-      <height>811</height>
+      <y>0</y>
+      <width>1281</width>
+      <height>801</height>
      </rect>
     </property>
+    <property name="minimumSize">
+     <size>
+      <width>1281</width>
+      <height>801</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>1281</width>
+      <height>801</height>
+     </size>
+    </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">image: url(:\pap_wood-1_resized.png);</string>
     </property>
     <widget class="QWidget" name="mainPage">
      <property name="styleSheet">
@@ -37,7 +49,7 @@
       <property name="geometry">
        <rect>
         <x>220</x>
-        <y>480</y>
+        <y>380</y>
         <width>311</width>
         <height>91</height>
        </rect>
@@ -45,7 +57,7 @@
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 25pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -57,7 +69,7 @@ border:none;</string>
       <property name="geometry">
        <rect>
         <x>290</x>
-        <y>400</y>
+        <y>290</y>
         <width>181</width>
         <height>41</height>
        </rect>
@@ -66,7 +78,8 @@ border:none;</string>
        <string notr="true">background-color: rgb(0, 0, 0);
 background-image: url(:/light-wood-grain-texture_303714-25017.jpg);
 border-color: rgb(85, 170, 0);
-color: rgb(0, 0, 0);</string>
+color: rgb(0, 0, 0);
+font: 700 italic 15pt &quot;aakar&quot;;</string>
       </property>
      </widget>
     </widget>
@@ -77,16 +90,16 @@ color: rgb(0, 0, 0);</string>
      <widget class="QPushButton" name="settingsButton">
       <property name="geometry">
        <rect>
-        <x>110</x>
-        <y>270</y>
-        <width>211</width>
-        <height>71</height>
+        <x>40</x>
+        <y>520</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -97,16 +110,16 @@ border:none;</string>
      <widget class="QPushButton" name="rulesButton">
       <property name="geometry">
        <rect>
-        <x>450</x>
-        <y>270</y>
-        <width>241</width>
-        <height>71</height>
+        <x>40</x>
+        <y>460</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -117,16 +130,16 @@ border:none;</string>
      <widget class="QPushButton" name="startGameButton">
       <property name="geometry">
        <rect>
-        <x>280</x>
-        <y>350</y>
-        <width>231</width>
-        <height>81</height>
+        <x>210</x>
+        <y>290</y>
+        <width>311</width>
+        <height>91</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 25pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -142,8 +155,8 @@ border:none;</string>
      <widget class="QPlainTextEdit" name="plainTextEdit">
       <property name="geometry">
        <rect>
-        <x>133</x>
-        <y>100</y>
+        <x>130</x>
+        <y>90</y>
         <width>201</width>
         <height>121</height>
        </rect>
@@ -151,6 +164,7 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;
 </string>
       </property>
       <property name="readOnly">
@@ -171,8 +185,8 @@ border: transparent;
       </property>
       <property name="geometry">
        <rect>
-        <x>143</x>
-        <y>220</y>
+        <x>130</x>
+        <y>210</y>
         <width>471</width>
         <height>201</height>
        </rect>
@@ -182,7 +196,9 @@ border: transparent;
       </property>
       <property name="styleSheet">
        <string notr="true">background: transparent;
-border: transparent;</string>
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot; ;
+</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -194,7 +210,6 @@ Each time the first player’s turn comes around, this player passes
 the First Player card to the right. If the First Player is ever eliminated,
 the First Player card passes to the player on the right.
 
-
 2. Reveal the Weather card
 With each new round, the first player reveals
 the topmost Weather card from the deck, so the
@@ -204,16 +219,16 @@ the topmost Weather card from the deck, so the
      <widget class="QPushButton" name="previous_1">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>141</width>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -224,16 +239,16 @@ border:none;</string>
      <widget class="QPushButton" name="next_1">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>20</y>
-        <width>191</width>
+        <x>510</x>
+        <y>500</y>
+        <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -246,63 +261,19 @@ border:none;</string>
      <property name="styleSheet">
       <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
      </property>
-     <widget class="QTextEdit" name="textEdit">
-      <property name="geometry">
-       <rect>
-        <x>123</x>
-        <y>90</y>
-        <width>481</width>
-        <height>331</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: transparent;
-border: transparent;</string>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Sans'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;3. Each player takes one action&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;In turn order, starting with the first player, each player chooses&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;the action they wish to perform, among four possible actions (see&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;Action Details, p. 6):&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;• Catch fish&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;• Collect water&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;• Gather wood to build the raft&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;4. Check for survival&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;Once every player has performed one action, each survivor (player&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;still in the game, including the sick) must receive 1 ration of water and 1 ration of food.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;If there are at least as many rations of water as there are survivors,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;subtract 1 ration on the survival track for each survivor.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;At the end of the round, there are 6 players, and the water marker (Droplet) indicates 8 rations; so there is enough&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;for everyone. The marker moves to 2, and the players move on to Consuming Food.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="previous_2">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>20</y>
-        <width>131</width>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -313,16 +284,16 @@ border:none;</string>
      <widget class="QPushButton" name="next_2">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>20</y>
-        <width>151</width>
+        <x>510</x>
+        <y>500</y>
+        <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -330,69 +301,58 @@ border:none;</string>
        <string>Next</string>
       </property>
      </widget>
-    </widget>
-    <widget class="QWidget" name="rules_3">
-     <property name="styleSheet">
-      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
-     </property>
-     <widget class="QTextEdit" name="textEdit_2">
+     <widget class="QPlainTextEdit" name="plainTextEdit_4">
       <property name="geometry">
        <rect>
-        <x>123</x>
+        <x>130</x>
         <y>90</y>
         <width>481</width>
-        <height>321</height>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background: transparent;
 border: transparent;
-</string>
+font: 500 italic 10pt &quot;aakra&quot;;</string>
       </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Sans'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;If there is not enough,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;a vote is held to determine who will be deprived&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;of water. After the vote, only a&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;number of players equal to the number of available&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;water rations will be allowed to remain. The others&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;tragically die of thirst, and leave the game.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;B. Consuming Food (Fish marker):&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;Once the water rations have been “distributed”, the players are ready&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;to consume food.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;If there are at least as many rations of food as there are survivors,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;subtract 1 ration for each survivor, and the round ends.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;If there is not enough, a vote&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;is held to determine who will be deprived of food. After the vote, only a number&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;of players equal to the number of available food&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;rations will be allowed to remain. The others&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;tragically die of hunger, and leave the game.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <property name="plainText">
+       <string>3. Each player takes one action
+In turn order, starting with the first player, each player chooses
+the action they wish to perform, among four possible actions (see
+Action Details, p. 6):
+• Catch fish
+• Collect water
+• Gather wood to build the raft
+
+4. Check for survival
+Once every player has performed one action, each survivor (player
+still in the game, including the sick) must receive 1 ration of water and 1 ration of food.
+
+If there are at least as many rations of water as there are survivors,
+subtract 1 ration on the survival track for each survivor.
+
+At the end of the round, there are 6 players, and the water marker (Droplet) indicates 8 rations; so there is enough
+for everyone. The marker moves to 2, and the players move on to Consuming Food.</string>
       </property>
      </widget>
+    </widget>
+    <widget class="QWidget" name="rules_3">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
+     </property>
      <widget class="QPushButton" name="previous_3">
       <property name="geometry">
        <rect>
-        <x>24</x>
-        <y>13</y>
-        <width>131</width>
-        <height>61</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -403,8 +363,8 @@ border:none;</string>
      <widget class="QPushButton" name="next_3">
       <property name="geometry">
        <rect>
-        <x>480</x>
-        <y>20</y>
+        <x>510</x>
+        <y>500</y>
         <width>161</width>
         <height>51</height>
        </rect>
@@ -412,12 +372,47 @@ border:none;</string>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
       <property name="text">
        <string>Next</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_7">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>90</y>
+        <width>481</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;</string>
+      </property>
+      <property name="plainText">
+       <string>If there is not enough,
+a vote is held to determine who will be deprived
+of water. After the vote, only a
+number of players equal to the number of available
+water rations will be allowed to remain. The others
+tragically die of thirst, and leave the game.
+
+B. Consuming Food (Fish marker):
+Once the water rations have been “distributed”, the players are ready
+to consume food.
+If there are at least as many rations of food as there are survivors,
+subtract 1 ration for each survivor, and the round ends.
+
+If there is not enough, a vote
+is held to determine who will be deprived of food. After the vote, only a number
+of players equal to the number of available food
+rations will be allowed to remain. The others
+tragically die of hunger, and leave the game.</string>
       </property>
      </widget>
     </widget>
@@ -428,15 +423,16 @@ border:none;</string>
      <widget class="QPlainTextEdit" name="plainTextEdit_3">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>100</y>
-        <width>491</width>
-        <height>321</height>
+        <x>130</x>
+        <y>90</y>
+        <width>481</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background: transparent;
-border: transparent;</string>
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -465,16 +461,16 @@ careful and plan for it!</string>
      <widget class="QPushButton" name="previous_4">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>20</y>
-        <width>131</width>
-        <height>71</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -485,16 +481,16 @@ border:none;</string>
      <widget class="QPushButton" name="next_4">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>20</y>
-        <width>141</width>
+        <x>510</x>
+        <y>500</y>
+        <width>161</width>
         <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -510,15 +506,16 @@ border:none;</string>
      <widget class="QPlainTextEdit" name="TextLabel">
       <property name="geometry">
        <rect>
-        <x>113</x>
-        <y>70</y>
-        <width>491</width>
-        <height>351</height>
+        <x>130</x>
+        <y>90</y>
+        <width>481</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background: transparent;
-border: transparent;</string>
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -550,16 +547,16 @@ Wood disc (beyond the 1 free wood for taking the action).</string>
      <widget class="QPushButton" name="previous_5">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>131</width>
-        <height>71</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -570,16 +567,16 @@ border:none;</string>
      <widget class="QPushButton" name="next_5">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>20</y>
-        <width>141</width>
-        <height>61</height>
+        <x>510</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -592,61 +589,19 @@ border:none;</string>
      <property name="styleSheet">
       <string notr="true">background-image: url(:/pap_wood-1.jpg);</string>
      </property>
-     <widget class="QTextEdit" name="textEdit_3">
-      <property name="geometry">
-       <rect>
-        <x>123</x>
-        <y>90</y>
-        <width>481</width>
-        <height>321</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background: transparent;
-border: transparent;</string>
-      </property>
-      <property name="readOnly">
-       <bool>true</bool>
-      </property>
-      <property name="html">
-       <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;meta charset=&quot;utf-8&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-hr { height: 1px; border-width: 0; }
-li.unchecked::marker { content: &quot;\2610&quot;; }
-li.checked::marker { content: &quot;\2612&quot;; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Ubuntu Sans'; font-size:11pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;Whether you are bitten by a snake or succeed in&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;collecting more wood, return the balls to the bag.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;The Wood disc will circulate around the Raft track&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;(from 0 to 6). As soon as it reaches the 6th space,&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;add a Raft card to the Raft card space, and move the&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;disc back to space 0. Each Raft card allows one surviving player to&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;escape the island &lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;Votes are necessary in the event of a water or food shortage&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;(or if the players must leave the island, but do not have enough seats&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;on the raft). everyone votes against another player by clicking on that player.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;Whichever player has the most votes against him is eliminated.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;While you are sick, you cannot vote at the end of this round (but of course&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;you can be eliminated), and you cannot take an action.&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'Segoe UI'; font-size:9pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-      </property>
-     </widget>
      <widget class="QPushButton" name="previous_6">
       <property name="geometry">
        <rect>
-        <x>4</x>
-        <y>13</y>
-        <width>131</width>
-        <height>81</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -657,21 +612,54 @@ border:none;</string>
      <widget class="QPushButton" name="next_6">
       <property name="geometry">
        <rect>
-        <x>530</x>
-        <y>20</y>
-        <width>131</width>
-        <height>61</height>
+        <x>510</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
       <property name="text">
        <string>Next</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="plainTextEdit_8">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>90</y>
+        <width>481</width>
+        <height>311</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;</string>
+      </property>
+      <property name="plainText">
+       <string>Whether you are bitten by a snake or succeed in
+collecting more wood, return the balls to the bag.
+The Wood disc will circulate around the Raft track
+(from 0 to 6). As soon as it reaches the 6th space,
+add a Raft card to the Raft card space, and move the
+disc back to space 0. Each Raft card allows one surviving player to
+escape the island 
+
+Votes are necessary in the event of a water or food shortage
+(or if the players must leave the island, but do not have enough seats
+on the raft). everyone votes against another player by clicking on that player.
+Whichever player has the most votes against him is eliminated.
+
+While you are sick, you cannot vote at the end of this round (but of course
+you can be eliminated), and you cannot take an action.
+</string>
       </property>
      </widget>
     </widget>
@@ -682,15 +670,16 @@ border:none;</string>
      <widget class="QPlainTextEdit" name="plainTextEdit_5">
       <property name="geometry">
        <rect>
-        <x>123</x>
-        <y>80</y>
-        <width>491</width>
-        <height>351</height>
+        <x>130</x>
+        <y>90</y>
+        <width>481</width>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background: transparent;
-border: transparent;</string>
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -722,16 +711,16 @@ There are 4 Raft cards on the Raft card space on the board. The
      <widget class="QPushButton" name="previous_7">
       <property name="geometry">
        <rect>
-        <x>14</x>
-        <y>23</y>
-        <width>141</width>
-        <height>71</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -743,15 +732,15 @@ border:none;</string>
       <property name="geometry">
        <rect>
         <x>510</x>
-        <y>30</y>
-        <width>141</width>
-        <height>61</height>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -767,15 +756,16 @@ border:none;</string>
      <widget class="QPlainTextEdit" name="plainTextEdit_6">
       <property name="geometry">
        <rect>
-        <x>123</x>
+        <x>130</x>
         <y>90</y>
         <width>481</width>
-        <height>321</height>
+        <height>311</height>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">border: transparent;
-background: transparent;</string>
+       <string notr="true">background: transparent;
+border: transparent;
+font: 500 italic 10pt &quot;aakra&quot;;</string>
       </property>
       <property name="readOnly">
        <bool>true</bool>
@@ -804,16 +794,16 @@ end of a round. In this case, everyone loses!</string>
      <widget class="QPushButton" name="previous_8">
       <property name="geometry">
        <rect>
-        <x>14</x>
-        <y>23</y>
-        <width>141</width>
-        <height>61</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -824,16 +814,16 @@ border:none;</string>
      <widget class="QPushButton" name="mainmenuButton_2">
       <property name="geometry">
        <rect>
-        <x>490</x>
-        <y>20</y>
-        <width>201</width>
-        <height>61</height>
+        <x>510</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -872,16 +862,16 @@ border-color: rgb(32, 74, 135);</string>
      <widget class="QPushButton" name="mainMenuButton">
       <property name="geometry">
        <rect>
-        <x>310</x>
-        <y>320</y>
-        <width>221</width>
-        <height>71</height>
+        <x>40</x>
+        <y>500</y>
+        <width>161</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -892,16 +882,16 @@ border:none;</string>
      <widget class="QPushButton" name="MuteSoundButton">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>240</y>
-        <width>161</width>
-        <height>71</height>
+        <x>100</x>
+        <y>250</y>
+        <width>111</width>
+        <height>51</height>
        </rect>
       </property>
       <property name="styleSheet">
        <string notr="true">background:transparent;
 color: rgb(0, 0, 0);
-font: 700 italic 20pt &quot;aakar&quot;;
+font: 700 italic 15pt &quot;aakar&quot;;
 image: url(:/wooden-badge-banner-wooden-plank-plate-png.png);
 border:none;</string>
       </property>
@@ -912,9 +902,9 @@ border:none;</string>
        <bool>true</bool>
       </property>
      </widget>
+     <zorder>mainMenuButton</zorder>
      <zorder>MuteSoundButton</zorder>
      <zorder>horizontalSlider</zorder>
-     <zorder>mainmenuButton</zorder>
     </widget>
    </widget>
   </widget>
@@ -923,7 +913,7 @@ border:none;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>818</width>
+     <width>749</width>
      <height>23</height>
     </rect>
    </property>

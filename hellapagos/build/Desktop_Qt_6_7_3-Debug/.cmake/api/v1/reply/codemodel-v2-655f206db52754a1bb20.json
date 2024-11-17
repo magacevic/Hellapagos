@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-08c20b2c6f5c85fb40d0.json",
+					"jsonFile" : "directory-.-Debug-de7d5303bbe2e38492cf.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -30,7 +30,7 @@
 					[
 						0
 					],
-					"name" : "server",
+					"name" : "hellapagos",
 					"targetIndexes" : 
 					[
 						0,
@@ -43,23 +43,23 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server-Debug-ee7b0f04b14631d161a1.json",
-					"name" : "server",
+					"id" : "hellapagos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos-Debug-e0833d602beadd6c4fa7.json",
+					"name" : "hellapagos",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "server_autogen::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server_autogen-Debug-36556cd72651f81b1bda.json",
-					"name" : "server_autogen",
+					"id" : "hellapagos_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen-Debug-72b77b3fa98d61a2351c.json",
+					"name" : "hellapagos_autogen",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "server_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server_autogen_timestamp_deps-Debug-312e1484bc5042ad6af1.json",
-					"name" : "server_autogen_timestamp_deps",
+					"id" : "hellapagos_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen_timestamp_deps-Debug-431f694c9ddc872440d0.json",
+					"name" : "hellapagos_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
 			]
@@ -68,12 +68,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/mina/folder1/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug",
-		"source" : "/home/mina/folder1/Hellapagos/server"
+		"build" : "/home/tamara/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/tamara/Hellapagos/hellapagos"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 7
+		"minor" : 6
 	}
 }

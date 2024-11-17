@@ -71,27 +71,27 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/mina/folder1/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
+					"path" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtCore"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtCore"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtNetwork"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -150,17 +150,17 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/mina/Qt/6.7.3/gcc_64/lib:",
+				"fragment" : "-Wl,-rpath,/home/tamara/Qt/6.7.3/gcc_64/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
 				"role" : "libraries"
 			}
 		],

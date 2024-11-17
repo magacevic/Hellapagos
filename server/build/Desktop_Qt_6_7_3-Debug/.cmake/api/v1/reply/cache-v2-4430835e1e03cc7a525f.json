@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/folder1/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "29"
+			"value" : "28"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/Qt/Tools/CMake/bin/cmake"
+			"value" : "/usr/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/Qt/Tools/CMake/bin/cpack"
+			"value" : "/usr/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/Qt/Tools/CMake/bin/ctest"
+			"value" : "/usr/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -171,7 +171,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-10"
+			"value" : "/usr/bin/gcc-ar"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -187,7 +187,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-10"
+			"value" : "/usr/bin/gcc-ranlib"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -343,7 +343,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/Qt/Tools/CMake/bin/ccmake"
+			"value" : "/usr/bin/ccmake"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/mina/folder1/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -535,7 +535,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/folder1/Hellapagos/server"
+			"value" : "/home/tamara/Hellapagos/server"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -799,7 +799,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : "0"
 		},
 		{
 			"name" : "CMAKE_INSTALL_SYSCONFDIR",
@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/mina/Qt/Tools/Ninja/ninja"
+			"value" : "/usr/bin/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1011,7 +1011,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",
@@ -1047,7 +1047,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/mina/folder1/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1103,7 +1103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/mina/Qt/Tools/CMake/share/cmake-3.29"
+			"value" : "/usr/share/cmake"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1439,7 +1439,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "QT_FEATURE_aesni",
@@ -3863,7 +3863,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64/bin/qmake"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64/bin/qmake"
 		},
 		{
 			"name" : "Qt6CoreTools_DIR",
@@ -3875,7 +3875,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
 		},
 		{
 			"name" : "Qt6Core_DIR",
@@ -3887,7 +3887,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
 		},
 		{
 			"name" : "Qt6Network_DIR",
@@ -3899,7 +3899,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
 		},
 		{
 			"name" : "Qt6_DIR",
@@ -3911,7 +3911,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
+			"value" : "/home/tamara/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -3947,7 +3947,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/mina/folder1/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "server_IS_TOP_LEVEL",
@@ -3971,7 +3971,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/mina/folder1/Hellapagos/server"
+			"value" : "/home/tamara/Hellapagos/server"
 		}
 	],
 	"kind" : "cache",
