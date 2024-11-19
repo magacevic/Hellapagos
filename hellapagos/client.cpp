@@ -1,6 +1,6 @@
 #include "client.h"
 #include <QDebug>
-
+#include <QCoreApplication>
 Client::Client(QObject *parent)
     : QObject(parent), tcpSocket(new QTcpSocket(this))
 {
@@ -44,6 +44,13 @@ void Client::onReadyRead()
 {
     QByteArray data = tcpSocket->readAll();
     qDebug() << "Received from server:" << data;
+
+    if (QString::fromUtf8(data) == "Server full. Connection rejected.") {
+        qDebug() << "Server is full. Closing the client...";
+
+        emit serverFullSignal();  // Emit the signal to close the window
+        QCoreApplication::quit();  // Optionally, close the application
+    }
 }
 
 void Client::onDisconnected()

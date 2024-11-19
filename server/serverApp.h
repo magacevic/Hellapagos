@@ -22,7 +22,9 @@ private slots:
 
 private:
     QTcpServer *tcpServer;
-    QTcpSocket *clientSocket;
+    QList<QTcpSocket*> clientSockets;     // List of connected clients
+
+    void broadcastMessage(const QString& message);
 };
 
 #endif // SERVER_H

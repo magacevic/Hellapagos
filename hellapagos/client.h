@@ -19,6 +19,11 @@ public:
     void sendJoinCommand(const QString &playerName); // New function
 
     // void sendMessage(const QString &message);
+    // In client.h
+
+signals:
+    void serverFullSignal();  // Signal to notify the server is full
+
 
 private slots:
     void onConnected();

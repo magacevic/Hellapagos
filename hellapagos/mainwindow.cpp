@@ -50,11 +50,21 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->horizontalSlider, &QSlider::valueChanged, this, &MainWindow::on_horizontalSlider_valueChanged);
     connect(ui->MuteSoundButton, &QPushButton::toggled, this, &MainWindow::on_MuteSoundButton_toggled);
 
+
+    connect(client, &Client::serverFullSignal, this, &MainWindow::closeWindow);
+
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+
+void MainWindow::closeWindow()
+{
+    qDebug() << "Closing client window due to server being full.";
+    close();  // This will close the window
 }
 
 // Slot za join dugme

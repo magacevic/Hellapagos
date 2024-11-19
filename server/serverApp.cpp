@@ -2,14 +2,16 @@
 #include <QDebug>
 
 Server::Server(QObject *parent)
-    : QObject(parent), tcpServer(new QTcpServer(this)), clientSocket(nullptr)
+    : QObject(parent), tcpServer(new QTcpServer(this))
 {
 }
 
 Server::~Server()
 {
-    if (clientSocket) {
-        clientSocket->disconnectFromHost();
+
+    for (QTcpSocket* socket : clientSockets) {
+        socket->disconnectFromHost();
+        socket->deleteLater();
     }
 }
 
@@ -25,34 +27,63 @@ void Server::startServer()
 
 void Server::onNewConnection()
 {
-    clientSocket = tcpServer->nextPendingConnection();
-    connect(clientSocket, &QTcpSocket::readyRead, this, &Server::onReadyRead);
-    connect(clientSocket, &QTcpSocket::disconnected, this, &Server::onDisconnected);
+    if (clientSockets.size() >= 2) {
+        QTcpSocket* extraClient = tcpServer->nextPendingConnection();
+        qDebug() << "Rejected connection: Maximum players reached!";
+        extraClient->write("Server full. Connection rejected.");
+        extraClient->flush();
+        extraClient->disconnectFromHost();
+        extraClient->deleteLater();
+        return;
+    }
 
-    qDebug() << "New client connected!";
+    QTcpSocket* newClient = tcpServer->nextPendingConnection();
+    clientSockets.append(newClient);
+    connect(newClient, &QTcpSocket::readyRead, this, &Server::onReadyRead);
+    connect(newClient, &QTcpSocket::disconnected, this, &Server::onDisconnected);
+
+    qDebug() << "New client connected! Total players:" << clientSockets.size();
+
+    if (clientSockets.size() == 2) {
+        qDebug() << "Game ready to start!";
+        broadcastMessage("All players connected. Game starting...");
+    }
 }
 
 void Server::onReadyRead()
 {
-    QByteArray data = clientSocket->readAll();
+    QTcpSocket* senderSocket = qobject_cast<QTcpSocket*>(sender());
+    if (!senderSocket) return;
+
+    QByteArray data = senderSocket->readAll();
     QString message = QString::fromUtf8(data).trimmed();
     qDebug() << "Received data:" << message;
 
-    // Check if the message starts with "JOIN:"
     if (message.startsWith("JOIN:")) {
-        // Extract the player's name after "JOIN:"
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
-        qDebug() << "Hi," << playerName;  // Greet the player by name
+        qDebug() << "Hi," << playerName;
 
-        // Optionally, send a response to the client
-        QString response = "Hello, " + playerName + "! Welcome to the server!";
-        clientSocket->write(response.toUtf8());
+        senderSocket->write(("Hello, " + playerName + "! Welcome to the server!").toUtf8());
     }
 }
 
 void Server::onDisconnected()
 {
+    QTcpSocket* senderSocket = qobject_cast<QTcpSocket*>(sender());
+    if (!senderSocket) return;
+
     qDebug() << "Client disconnected!";
-    clientSocket->deleteLater();
-    clientSocket = nullptr;
+    clientSockets.removeAll(senderSocket);
+    senderSocket->deleteLater();
+
+    qDebug() << "Total players now:" << clientSockets.size();
+
+    }
+
+void Server::broadcastMessage(const QString& message)
+{
+    QByteArray data = message.toUtf8();
+    for (QTcpSocket* socket : clientSockets) {
+        socket->write(data);
+    }
 }
