@@ -40,12 +40,22 @@ void Client::onConnected()
     sendMessage("Hello from client!");
 }
 
+void Client::sendReadySignal()
+{
+    sendMessage("Ready!");
+}
+
+
 void Client::onReadyRead()
 {
     QByteArray data = tcpSocket->readAll();
     qDebug() << "Received from server:" << data;
 
-    if (QString::fromUtf8(data) == "Server full. Connection rejected.") {
+    QString message = QString::fromUtf8(data).trimmed();
+
+    if (message == "AllReady") {
+        emit allPlayersReady(); }
+    else if (message == "Server full. Connection rejected.") {
         qDebug() << "Server is full. Closing the client...";
 
         emit serverFullSignal();  // Emit the signal to close the window

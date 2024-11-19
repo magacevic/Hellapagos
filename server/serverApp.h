@@ -25,6 +25,7 @@ private:
     QList<QTcpSocket*> clientSockets;     // List of connected clients
 
     void broadcastMessage(const QString& message);
+    int readyPlayers = 0;
 };
 
 #endif // SERVER_H

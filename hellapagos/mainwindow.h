@@ -7,6 +7,7 @@
 #include <QPixmap>
 #include <QTimer>
 #include "soundmanager.h"
+#include "gamewindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -28,6 +29,9 @@ private:
     SoundManager *soundManager;
     QLabel *errorLabel;
     void setFixedWindowSize();
+
+    GameWindow *gameWindow;
+
 
 
 private slots:
@@ -57,6 +61,7 @@ private slots:
     void on_horizontalSlider_valueChanged(int value);
     void on_MuteSoundButton_toggled(bool checked);
     void closeWindow();
+    void startGame();
 };
 
 #endif // MAINWINDOW_H

@@ -31,6 +31,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         soundmanager.h
         soundmanager.cpp
         audio.qrc
+        gamewindow.h gamewindow.cpp gamewindow.ui
 
 
 

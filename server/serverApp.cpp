@@ -64,6 +64,14 @@ void Server::onReadyRead()
         qDebug() << "Hi," << playerName;
 
         senderSocket->write(("Hello, " + playerName + "! Welcome to the server!").toUtf8());
+    }else if (message == "Ready!") {
+        readyPlayers++;
+        qDebug() << "Player is ready! Total ready players:" << readyPlayers;
+
+        if (readyPlayers == clientSockets.size()) {  // All players are ready
+            qDebug() << "All players are ready. Starting the game!";
+            broadcastMessage("AllReady");
+        }
     }
 }
 

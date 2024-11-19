@@ -1,6 +1,7 @@
 /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/moc_mainwindow.cpp: /home/ksenija/Desktop/Hellapagos/hellapagos/mainwindow.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/moc_predefs.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/client.h \
+  /home/ksenija/Desktop/Hellapagos/hellapagos/gamewindow.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/soundmanager.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QString \

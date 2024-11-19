@@ -5,7 +5,7 @@
 #include <QPixmap>
 #include <QLabel>
 #include <QTimer>
-
+#include "gamewindow.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -155,12 +155,26 @@ void MainWindow::onMainMenuButtonClicked()
 // Slot za start game dugme
 void MainWindow::onStartGameButtonClicked()
 {
-    // Ovde možeš dodati kod za početak igre
-
-
     qDebug() << "Start Game clicked!";
+    // Ovde možeš dodati kod za početak igre
+    ui->stackedWidget->setCurrentIndex(11);
+    client->sendReadySignal();
+
+    connect(client, &Client::allPlayersReady, this, &MainWindow::startGame);
+
 }
 
+void MainWindow::startGame()
+{
+    // Close the current window
+    this->close();
+
+    // Open the game UI
+    gameWindow = new GameWindow();
+    gameWindow->show();
+
+    qDebug() << "Game started!";
+}
 void MainWindow::onNext_1ButtonClicked(){
 
     ui->stackedWidget->setCurrentIndex(3);

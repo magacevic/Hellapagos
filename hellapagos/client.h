@@ -17,18 +17,19 @@ public:
 
     void connectToServer();
     void sendJoinCommand(const QString &playerName); // New function
-
+    void sendReadySignal();
     // void sendMessage(const QString &message);
     // In client.h
 
 signals:
     void serverFullSignal();  // Signal to notify the server is full
-
+    void allPlayersReady();
 
 private slots:
     void onConnected();
     void onReadyRead();
     void onDisconnected();
+
 
 private:
     QTcpSocket *tcpSocket;
