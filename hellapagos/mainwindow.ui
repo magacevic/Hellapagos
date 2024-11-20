@@ -7,14 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>749</width>
-    <height>629</height>
+    <height>604</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(85, 87, 83);</string>
+   <string notr="true">
+background-color: rgb(246, 245, 244);</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QStackedWidget" name="stackedWidget">
@@ -910,14 +911,31 @@ border:none;</string>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>250</x>
-        <y>130</y>
-        <width>67</width>
-        <height>17</height>
+        <x>0</x>
+        <y>-1</y>
+        <width>751</width>
+        <height>571</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <pointsize>20</pointsize>
+        <italic>true</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-image: url(:/pap_wood-1.jpg);
+border-image: url(:/pap_wood-1.jpg);
+background-repeat: no-repeat;
+background-position: center;
+background-size: contain;</string>
+      </property>
       <property name="text">
-       <string>waittt</string>
+       <string>Waiting for other players...</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignmentFlag::AlignCenter</set>
       </property>
      </widget>
     </widget>
@@ -929,7 +947,7 @@ border:none;</string>
      <x>0</x>
      <y>0</y>
      <width>749</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
