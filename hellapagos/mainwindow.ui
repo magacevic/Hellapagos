@@ -39,7 +39,7 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">image: url(:\pap_wood-1_resized.png);</string>
+     <string notr="true">background-image: url(:/light-wood-grain-texture_303714-25017.jpg);</string>
     </property>
     <widget class="QWidget" name="mainPage">
      <property name="styleSheet">
@@ -910,14 +910,19 @@ border:none;</string>
      <widget class="QLabel" name="label">
       <property name="geometry">
        <rect>
-        <x>250</x>
+        <x>126</x>
         <y>130</y>
-        <width>67</width>
-        <height>17</height>
+        <width>431</width>
+        <height>121</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background: transparent;
+color: rgb(170, 0, 0);
+font: 28pt &quot;Tempus Sans ITC&quot;;</string>
+      </property>
       <property name="text">
-       <string>waittt</string>
+       <string>Waiting for other players...</string>
       </property>
      </widget>
     </widget>
