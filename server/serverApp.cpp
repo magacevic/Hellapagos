@@ -68,7 +68,7 @@ void Server::onReadyRead()
         readyPlayers++;
         qDebug() << "Player is ready! Total ready players:" << readyPlayers;
 
-        if (readyPlayers == clientSockets.size()) {  // All players are ready
+        if (readyPlayers == 2) {  // All players are ready
             qDebug() << "All players are ready. Starting the game!";
             broadcastMessage("AllReady");
         }
