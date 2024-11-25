@@ -1,8 +1,8 @@
 #include "serverApp.h"
 #include <QDebug>
-
+#include "gameserver.h"
 Server::Server(QObject *parent)
-    : QObject(parent), tcpServer(new QTcpServer(this))
+    : QObject(parent), tcpServer(new QTcpServer(this)), gameServer(new GameServer(this))
 {
 }
 
@@ -34,6 +34,7 @@ void Server::onNewConnection()
         extraClient->flush();
         extraClient->disconnectFromHost();
         extraClient->deleteLater();
+        qDebug() << "Rejected new connection: server is full.";
         return;
     }
 
@@ -62,6 +63,9 @@ void Server::onReadyRead()
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;
+
+        gameServer->addPlayer(playerName);
+        qDebug() << "Current players:" << gameServer->getPlayers();
 
         senderSocket->write(("Hello, " + playerName + "! Welcome to the server!").toUtf8());
     }else if (message == "Ready!") {

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include"gameserver.h"
 
 class Server : public QObject
 {
@@ -23,7 +24,7 @@ private slots:
 private:
     QTcpServer *tcpServer;
     QList<QTcpSocket*> clientSockets;     // List of connected clients
-
+    GameServer* gameServer;
     void broadcastMessage(const QString& message);
     int readyPlayers = 0;
 };

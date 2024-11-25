@@ -22,6 +22,7 @@ add_executable(server
   main.cpp
   serverApp.cpp
   serverApp.h
+  gameserver.h gameserver.cpp
 )
 target_link_libraries(server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 

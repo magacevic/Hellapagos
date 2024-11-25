@@ -1011,7 +1011,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64;/home/tamara/Qt/6.7.3/gcc_64"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64;/home/jelena/Qt/6.7.3/gcc_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",

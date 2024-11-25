@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-08c20b2c6f5c85fb40d0.json",
+					"jsonFile" : "directory-.-Debug-cdab57aec42c8fc367e3.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -30,7 +30,7 @@
 					[
 						0
 					],
-					"name" : "server",
+					"name" : "hellapagos",
 					"targetIndexes" : 
 					[
 						0,
@@ -43,23 +43,23 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server-Debug-17fc63035dc565ace4e3.json",
-					"name" : "server",
+					"id" : "hellapagos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos-Debug-553938252bb705643b96.json",
+					"name" : "hellapagos",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "server_autogen::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server_autogen-Debug-36556cd72651f81b1bda.json",
-					"name" : "server_autogen",
+					"id" : "hellapagos_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen-Debug-72b77b3fa98d61a2351c.json",
+					"name" : "hellapagos_autogen",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
-					"id" : "server_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server_autogen_timestamp_deps-Debug-312e1484bc5042ad6af1.json",
-					"name" : "server_autogen_timestamp_deps",
+					"id" : "hellapagos_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen_timestamp_deps-Debug-e6e652c7c2c41e012ff7.json",
+					"name" : "hellapagos_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
 			]
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/jelena/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug",
-		"source" : "/home/jelena/Desktop/Hellapagos/server"
+		"build" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
 	},
 	"version" : 
 	{
