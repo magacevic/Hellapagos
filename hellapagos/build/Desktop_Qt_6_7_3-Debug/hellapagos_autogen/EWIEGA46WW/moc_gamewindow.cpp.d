@@ -1,6 +1,8 @@
 /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/moc_gamewindow.cpp: /home/ksenija/Desktop/Hellapagos/hellapagos/gamewindow.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/moc_predefs.h \
+  /home/ksenija/Desktop/Hellapagos/hellapagos/client.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/player.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QString \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \
@@ -46,6 +48,7 @@
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qglobalstatic.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qhash.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qhashfunctions.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiodevice.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiodevicebase.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiterable.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiterator.h \
@@ -143,6 +146,13 @@
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui/qtguiglobal.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui/qtransform.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui/qwindowdefs.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/QTcpSocket \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qabstractsocket.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qhostaddress.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qtcpsocket.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qtnetwork-config.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qtnetworkexports.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork/qtnetworkglobal.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtWidgets/QMainWindow \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtWidgets/qmainwindow.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtWidgets/qsizepolicy.h \

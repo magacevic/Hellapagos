@@ -18,12 +18,15 @@ public:
     void connectToServer();
     void sendJoinCommand(const QString &playerName); // New function
     void sendReadySignal();
+    void sendWeatherCardChange(int index);
     // void sendMessage(const QString &message);
     // In client.h
 
 signals:
     void serverFullSignal();  // Signal to notify the server is full
     void allPlayersReady();
+    void weatherCardUpdated(int newIndex);
+
 
 private slots:
     void onConnected();

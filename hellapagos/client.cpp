@@ -53,6 +53,11 @@ void Client::onReadyRead()
 
     QString message = QString::fromUtf8(data).trimmed();
 
+    if (message.startsWith("WEATHER_CARD:")) {
+        int index = message.split(":").last().toInt();
+        emit weatherCardUpdated(index);
+    }
+
     if (message == "AllReady") {
         emit allPlayersReady(); }
     else if (message == "Server full. Connection rejected.") {
@@ -67,3 +72,16 @@ void Client::onDisconnected()
 {
     qDebug() << "Disconnected from server!";
 }
+/*
+void Client::sendWeatherCardChange(int index)
+{
+    sendMessage(QString("WeatherCard:%1").arg(index));
+}*/
+// In Client class
+void Client::sendWeatherCardChange(int index)
+{
+    QString message = QString("WEATHER_CARD:%1").arg(index);
+    // Send to server (assuming `tcpSocket` is connected to the server)
+    tcpSocket->write(message.toUtf8());
+}
+

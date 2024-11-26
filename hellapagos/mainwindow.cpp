@@ -172,7 +172,7 @@ void MainWindow::startGame()
     this->close();
 
     // Open the game UI
-    gameWindow = new GameWindow(player);
+    gameWindow = new GameWindow(player,client);
     gameWindow->show();
 
     qDebug() << "Game started!";

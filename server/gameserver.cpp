@@ -7,6 +7,9 @@ GameServer::GameServer(QObject* parent)
     resources.insert("food", 0);
     resources.insert("water", 0);
     resources.insert("wood", 0);
+
+    //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
+
 }
 
 void GameServer::addPlayer(const QString& playerName)
@@ -28,3 +31,15 @@ QMap<QString, int> GameServer::getResources() const
 {
     return resources;
 }
+
+void GameServer::changeWeatherCard(int newIndex)
+{
+    currentWeatherCardIndex = newIndex;
+    emit weatherCardChanged(newIndex); // Signal for serverApp to notify clients
+}
+
+int GameServer::getWeatherCardIndex() const
+{
+    return currentWeatherCardIndex;
+}
+

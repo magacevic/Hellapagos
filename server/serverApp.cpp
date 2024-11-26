@@ -4,6 +4,9 @@
 Server::Server(QObject *parent)
     : QObject(parent), tcpServer(new QTcpServer(this)), gameServer(new GameServer(this))
 {
+    connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
+
+
 }
 
 Server::~Server()
@@ -24,6 +27,11 @@ void Server::startServer()
         qDebug() << "Server could not start!";
     }
 }
+/*
+void Server::onWeatherCardChanged(int newIndex)
+{
+    broadcastMessage(QString("WeatherCard:%1").arg(newIndex));
+}*/
 
 void Server::onNewConnection()
 {
@@ -59,6 +67,11 @@ void Server::onReadyRead()
     QByteArray data = senderSocket->readAll();
     QString message = QString::fromUtf8(data).trimmed();
     qDebug() << "Received data:" << message;
+
+    if (message.startsWith("WEATHER_CARD:")) {
+        int index = message.split(":").last().toInt();
+        broadcastWeatherCardChange(index);
+    }
 
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
@@ -99,3 +112,19 @@ void Server::broadcastMessage(const QString& message)
         socket->write(data);
     }
 }
+void Server::onWeatherCardChanged(int newIndex) {
+    broadcastWeatherCardChange(newIndex);
+}
+
+void Server::broadcastWeatherCardChange(int index) {
+    QString message = QString("WEATHER_CARD:%1").arg(index);
+   /* for (QTcpSocket* client : clientSockets) {
+        client->write(message.toUtf8());
+    }*/
+    for (QTcpSocket *clientSocket : clientSockets) {
+        if (clientSocket->isOpen()) {
+            clientSocket->write(message.toUtf8());
+        }
+    }
+}
+

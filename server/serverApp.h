@@ -15,6 +15,8 @@ public:
     ~Server();
 
     void startServer();
+    void onWeatherCardChanged(int newIndex);
+    void broadcastWeatherCardChange(int index);
 
 private slots:
     void onNewConnection();

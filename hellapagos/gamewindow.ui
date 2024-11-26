@@ -29,7 +29,7 @@
    <property name="styleSheet">
     <string notr="true">background-image: url(:/background-island.jpg);</string>
    </property>
-   <widget class="QStackedWidget" name="stackedWidget">
+   <widget class="QStackedWidget" name="weatherCards">
     <property name="geometry">
      <rect>
       <x>50</x>
@@ -51,6 +51,61 @@ border-color: rgb(32, 74, 135);</string>
     <widget class="QWidget" name="page_2">
      <property name="styleSheet">
       <string notr="true">image: url(:/cards/sunny.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_3">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/sunny.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_4">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/sunny.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_5">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/cloudy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_6">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/cloudy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_7">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/cloudy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_8">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/cloudy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_9">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/cloudy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_10">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/cloudy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_11">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/rainy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_12">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/rainy.jpeg);</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="page_13">
+     <property name="styleSheet">
+      <string notr="true">image: url(:/cards/hurricane.jpeg);</string>
      </property>
     </widget>
    </widget>
@@ -88,6 +143,27 @@ color: rgb(193, 125, 17);</string>
     </property>
     <property name="text">
      <string>Me:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="revealButton">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>190</y>
+      <width>81</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(46, 52, 54);
+border-color: rgb(0, 0, 0);
+border-image: url(:/light-wood-grain-texture_303714-25017.jpg);
+background-color: rgb(114, 159, 207);
+font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
+</string>
+    </property>
+    <property name="text">
+     <string>Reveal</string>
     </property>
    </widget>
   </widget>
