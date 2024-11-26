@@ -77,6 +77,8 @@ void MainWindow::onJoinButtonClicked()
     } else {
         // Ako nije prazno, šaljemo JOIN komandu sa imenom
         client->sendJoinCommand(playerName);  // Pošaljemo JOIN komandu sa imenom igrača
+        player = new Player(playerName);  // Store the player's name
+
         ui->stackedWidget->setCurrentIndex(1);  // Prebacimo na stranicu 2
     }
 }
@@ -170,7 +172,7 @@ void MainWindow::startGame()
     this->close();
 
     // Open the game UI
-    gameWindow = new GameWindow();
+    gameWindow = new GameWindow(player);
     gameWindow->show();
 
     qDebug() << "Game started!";

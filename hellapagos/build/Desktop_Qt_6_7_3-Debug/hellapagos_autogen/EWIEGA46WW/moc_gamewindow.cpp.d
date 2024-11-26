@@ -1,5 +1,7 @@
 /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/moc_gamewindow.cpp: /home/ksenija/Desktop/Hellapagos/hellapagos/gamewindow.h \
   /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/moc_predefs.h \
+  /home/ksenija/Desktop/Hellapagos/hellapagos/player.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QString \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20type_traits.h \

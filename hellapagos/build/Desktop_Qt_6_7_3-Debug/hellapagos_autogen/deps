@@ -13,6 +13,8 @@ hellapagos_autogen/timestamp: \
 	/home/ksenija/Desktop/Hellapagos/hellapagos/main.cpp \
 	/home/ksenija/Desktop/Hellapagos/hellapagos/mainwindow.cpp \
 	/home/ksenija/Desktop/Hellapagos/hellapagos/mainwindow.h \
+	/home/ksenija/Desktop/Hellapagos/hellapagos/player.cpp \
+	/home/ksenija/Desktop/Hellapagos/hellapagos/player.h \
 	/home/ksenija/Desktop/Hellapagos/hellapagos/soundmanager.cpp \
 	/home/ksenija/Desktop/Hellapagos/hellapagos/soundmanager.h \
 	/home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \

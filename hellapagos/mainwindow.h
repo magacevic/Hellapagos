@@ -8,7 +8,7 @@
 #include <QTimer>
 #include "soundmanager.h"
 #include "gamewindow.h"
-
+#include "player.h"
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class MainWindow;
@@ -32,6 +32,7 @@ private:
 
     GameWindow *gameWindow;
 
+    Player *player;
 
 
 private slots:

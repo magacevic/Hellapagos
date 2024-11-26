@@ -54,6 +54,42 @@ border-color: rgb(32, 74, 135);</string>
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="playerNameLabel">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>320</y>
+      <width>101</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">font: 700 italic 20pt &quot;Ubuntu Condensed&quot;;
+background:none;</string>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>310</y>
+      <width>51</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: none;
+border-color: rgb(0, 0, 0);
+font: 700 italic 16pt &quot;Ubuntu Condensed&quot;;
+color: rgb(193, 125, 17);</string>
+    </property>
+    <property name="text">
+     <string>Me:</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

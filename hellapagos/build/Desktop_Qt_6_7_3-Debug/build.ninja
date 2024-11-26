@@ -97,6 +97,14 @@ build CMakeFiles/hellapagos.dir/gamewindow.cpp.o: CXX_COMPILER__hellapagos_unsca
   OBJECT_DIR = CMakeFiles/hellapagos.dir
   OBJECT_FILE_DIR = CMakeFiles/hellapagos.dir
 
+build CMakeFiles/hellapagos.dir/player.cpp.o: CXX_COMPILER__hellapagos_unscanned_Debug /home/ksenija/Desktop/Hellapagos/hellapagos/player.cpp || cmake_object_order_depends_target_hellapagos
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/hellapagos.dir/player.cpp.o.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always -fPIC -pthread
+  INCLUDES = -I/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include -isystem /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore -isystem /home/ksenija/Qt/6.7.3/gcc_64/include -isystem /home/ksenija/Qt/6.7.3/gcc_64/mkspecs/linux-g++ -isystem /home/ksenija/Qt/6.7.3/gcc_64/include/QtWidgets -isystem /home/ksenija/Qt/6.7.3/gcc_64/include/QtGui -isystem /home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork -isystem /home/ksenija/Qt/6.7.3/gcc_64/include/QtMultimedia
+  OBJECT_DIR = CMakeFiles/hellapagos.dir
+  OBJECT_FILE_DIR = CMakeFiles/hellapagos.dir
+
 build CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.o: CXX_COMPILER__hellapagos_unscanned_Debug /home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp || cmake_object_order_depends_target_hellapagos
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_MULTIMEDIA_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.o.d
@@ -121,7 +129,7 @@ build CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.o: C
 #############################################
 # Link the executable hellapagos
 
-build hellapagos: CXX_EXECUTABLE_LINKER__hellapagos_Debug CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.o CMakeFiles/hellapagos.dir/main.cpp.o CMakeFiles/hellapagos.dir/mainwindow.cpp.o CMakeFiles/hellapagos.dir/client.cpp.o CMakeFiles/hellapagos.dir/soundmanager.cpp.o CMakeFiles/hellapagos.dir/gamewindow.cpp.o CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.o CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.o | /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3 /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3 /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3 /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3 || hellapagos_autogen hellapagos_autogen_timestamp_deps
+build hellapagos: CXX_EXECUTABLE_LINKER__hellapagos_Debug CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.o CMakeFiles/hellapagos.dir/main.cpp.o CMakeFiles/hellapagos.dir/mainwindow.cpp.o CMakeFiles/hellapagos.dir/client.cpp.o CMakeFiles/hellapagos.dir/soundmanager.cpp.o CMakeFiles/hellapagos.dir/gamewindow.cpp.o CMakeFiles/hellapagos.dir/player.cpp.o CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.o CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.o | /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3 /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3 /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3 /usr/lib/x86_64-linux-gnu/libGLX.so /usr/lib/x86_64-linux-gnu/libOpenGL.so /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3 /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3 || hellapagos_autogen hellapagos_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_LIBRARIES = -Wl,-rpath,/home/ksenija/Qt/6.7.3/gcc_64/lib:  /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3  /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3  /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Gui.so.6.7.3  /usr/lib/x86_64-linux-gnu/libGLX.so  /usr/lib/x86_64-linux-gnu/libOpenGL.so  /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3  /home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3  -pthread
   OBJECT_DIR = CMakeFiles/hellapagos.dir
