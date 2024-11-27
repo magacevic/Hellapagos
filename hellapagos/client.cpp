@@ -80,8 +80,17 @@ void Client::sendWeatherCardChange(int index)
 // In Client class
 void Client::sendWeatherCardChange(int index)
 {
-    QString message = QString("WEATHER_CARD:%1").arg(index);
+   // QString message = QString("WEATHER_CARD:%1").arg(index);
     // Send to server (assuming `tcpSocket` is connected to the server)
-    tcpSocket->write(message.toUtf8());
-}
+    QString message = "WEATHER_CARD:" + QString::number(index);
+    sendMessage(message);  // Send the revealed card index to the server
 
+    //tcpSocket->write(message.toUtf8());
+}
+void Client::sendWeatherCardRequest() {
+    if (tcpSocket) {  // Use tcpSocket instead of socket
+        QByteArray data = "REQUEST_WEATHER_CARD";
+        tcpSocket->write(data);  // Send the request to the server
+        tcpSocket->flush();  // Ensure the data is sent
+    }
+}

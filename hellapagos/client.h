@@ -19,6 +19,7 @@ public:
     void sendJoinCommand(const QString &playerName); // New function
     void sendReadySignal();
     void sendWeatherCardChange(int index);
+    void sendWeatherCardRequest();
     // void sendMessage(const QString &message);
     // In client.h
 

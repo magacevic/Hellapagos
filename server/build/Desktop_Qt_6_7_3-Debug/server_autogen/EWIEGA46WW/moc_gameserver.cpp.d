@@ -2,6 +2,7 @@
   /home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/moc_predefs.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QMap \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QSet \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QString \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \
@@ -41,6 +42,7 @@
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qgenericatomic.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qglobal.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qglobalstatic.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qhash.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qhashfunctions.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiodevicebase.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiterable.h \
@@ -66,6 +68,7 @@
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qrefcount.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qscopedpointer.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qscopeguard.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qset.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qshareddata.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qshareddata_impl.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstring.h \

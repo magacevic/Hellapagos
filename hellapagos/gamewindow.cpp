@@ -28,10 +28,12 @@ GameWindow::~GameWindow()
 }
 void GameWindow::updateWeatherCard(int index)
 {
-    if (index < 0 || index >= ui->weatherCards->count()) {
+   /* if (index < 0 || index >= ui->weatherCards->count()) {
         qDebug() << "Invalid weather card index:" << index;
         return;
-    }
+    }*/
+    qDebug() << "Revealing weather card with index:" << index;
+
     ui->weatherCards->setCurrentIndex(index);
 }
 
@@ -41,7 +43,7 @@ void GameWindow::onWeatherCardClicked()
         qDebug() << "Not enough weather cards to reveal.";
         return; // Exit early if there are not enough cards
     }
-    qDebug()<< "Num cards:"<< ui->weatherCards->count();
+   /* qDebug()<< "Num cards:"<< ui->weatherCards->count();
     int randomIndex = QRandomGenerator::global()->bounded(1, ui->weatherCards->count()); // Avoid first and last
     qDebug() << "Revealing weather card with index:" << randomIndex;
 
@@ -50,6 +52,13 @@ void GameWindow::onWeatherCardClicked()
 
     if (m_client) {
         m_client->sendWeatherCardChange(randomIndex);
+    } else {
+        qDebug() << "Client object is null!";
+    }*/
+
+    qDebug() << "Requesting card reveal from server";
+    if (m_client) {
+        m_client->sendWeatherCardRequest();  // Placeholder; server will decide the actual card
     } else {
         qDebug() << "Client object is null!";
     }

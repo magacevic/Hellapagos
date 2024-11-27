@@ -73,6 +73,11 @@ void Server::onReadyRead()
         broadcastWeatherCardChange(index);
     }
 
+    if (message == "REQUEST_WEATHER_CARD") {
+        // Pass the request to the GameServer to handle the logic
+        gameServer->onWeatherCardRequest();
+    }
+
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;

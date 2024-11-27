@@ -3,6 +3,7 @@
   /home/ksenija/Desktop/Hellapagos/server/gameserver.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QMap \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QSet \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QString \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
   /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \

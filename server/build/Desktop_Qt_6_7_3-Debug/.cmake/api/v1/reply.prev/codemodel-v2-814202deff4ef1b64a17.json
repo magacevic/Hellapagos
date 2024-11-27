@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-08c20b2c6f5c85fb40d0.json",
+					"jsonFile" : "directory-.-Debug-8b7b93ba6ffd07513ff3.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server-Debug-5a962569c43ee2f6bae3.json",
+					"jsonFile" : "target-server-Debug-6a7ca5dbe9985f6ff35d.json",
 					"name" : "server",
 					"projectIndex" : 0
 				},

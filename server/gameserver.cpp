@@ -1,5 +1,8 @@
 #include "gameserver.h"
 #include <QDebug>
+
+#include <QSet>
+
 GameServer::GameServer(QObject* parent)
     : QObject(parent)
 {
@@ -10,6 +13,9 @@ GameServer::GameServer(QObject* parent)
 
     //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
 
+    for (int i = 1; i < 13; ++i) {
+        availableCards.insert(i);
+    }
 }
 
 void GameServer::addPlayer(const QString& playerName)
@@ -31,15 +37,32 @@ QMap<QString, int> GameServer::getResources() const
 {
     return resources;
 }
-
+/*
 void GameServer::changeWeatherCard(int newIndex)
 {
     currentWeatherCardIndex = newIndex;
     emit weatherCardChanged(newIndex); // Signal for serverApp to notify clients
 }
-
+*/
 int GameServer::getWeatherCardIndex() const
 {
     return currentWeatherCardIndex;
 }
 
+
+void GameServer::changeWeatherCard() {
+    if (availableCards.isEmpty()) {
+        qDebug() << "No cards left to reveal!";
+        return;
+    }
+
+    // Pick a random card from the set
+    int randomIndex = *availableCards.begin();
+    availableCards.remove(randomIndex);  // Remove the chosen card
+
+    emit weatherCardChanged(randomIndex);  // Notify the clients with the revealed card
+}
+void GameServer::onWeatherCardRequest() {
+    // Trigger the card reveal logic when the client requests it
+    changeWeatherCard();
+}
