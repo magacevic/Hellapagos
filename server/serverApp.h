@@ -22,6 +22,7 @@ private slots:
     void onNewConnection();
     void onReadyRead();
     void onDisconnected();
+    void onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
 
 private:
     QTcpServer *tcpServer;

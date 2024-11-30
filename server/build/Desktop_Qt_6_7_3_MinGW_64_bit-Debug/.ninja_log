@@ -1,0 +1,17 @@
+# ninja log v6
+7	1096	7546787090192146	server_autogen/timestamp	4c185154f39b4354
+7	1096	7546787090192146	server_autogen/mocs_compilation.cpp	4c185154f39b4354
+7	1096	7546787090192146	C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/server_autogen/timestamp	4c185154f39b4354
+7	1096	7546787090192146	C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/server_autogen/mocs_compilation.cpp	4c185154f39b4354
+1107	5078	7546787091126554	CMakeFiles/server.dir/main.cpp.obj	e187cf3604152e43
+1118	5548	7546787091237919	CMakeFiles/server.dir/roundmanager.cpp.obj	5856c4c88a1156ba
+1104	5859	7546787091094865	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.obj	7b21b5affeaa5d52
+1114	6134	7546787091196369	CMakeFiles/server.dir/gameserver.cpp.obj	d6637024e329f619
+1111	6316	7546787091156477	CMakeFiles/server.dir/serverApp.cpp.obj	7678a0539bd0eba
+6316	6856	7546787143209860	server.exe	e206da810173eb92
+17	225	7546799699323113	server_autogen/timestamp	4c185154f39b4354
+17	225	7546799699323113	server_autogen/mocs_compilation.cpp	4c185154f39b4354
+17	225	7546799699323113	C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/server_autogen/timestamp	4c185154f39b4354
+17	225	7546799699323113	C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/server_autogen/mocs_compilation.cpp	4c185154f39b4354
+226	3005	7546799701407573	CMakeFiles/server.dir/gameserver.cpp.obj	d6637024e329f619
+3005	3555	7546799729206366	server.exe	e206da810173eb92

@@ -5,7 +5,7 @@ Server::Server(QObject *parent)
     : QObject(parent), tcpServer(new QTcpServer(this)), gameServer(new GameServer(this))
 {
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
-
+    connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
 
 }
 
@@ -119,6 +119,13 @@ void Server::broadcastMessage(const QString& message)
 }
 void Server::onWeatherCardChanged(int newIndex) {
     broadcastWeatherCardChange(newIndex);
+}
+
+void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer)
+{
+    // Obaveštavamo sve klijente o trenutnom i narednom igraču
+    QString message = QString("Current Player: %1, Next Player: %2").arg(currentPlayer).arg(nextPlayer);
+    broadcastMessage(message);
 }
 
 void Server::broadcastWeatherCardChange(int index) {
