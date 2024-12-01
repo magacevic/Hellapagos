@@ -24,7 +24,6 @@ GameServer::GameServer(QObject* parent)
     }
 }
 
-//DODALA
 RoundManager* GameServer::getRoundManager() const {
     return roundManager;
 }
