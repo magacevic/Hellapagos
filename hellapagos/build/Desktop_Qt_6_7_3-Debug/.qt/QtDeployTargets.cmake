@@ -1,2 +1,2 @@
-set(__QT_DEPLOY_TARGET_hellapagos_FILE /home/ana/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos)
+set(__QT_DEPLOY_TARGET_hellapagos_FILE /home/mina/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos)
 set(__QT_DEPLOY_TARGET_hellapagos_TYPE EXECUTABLE)

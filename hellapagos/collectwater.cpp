@@ -1,0 +1,49 @@
+#include "collectwater.h"
+#include <QStackedWidget>
+#include <QWidget>
+#include <QDebug>
+
+CollectWater::CollectWater(QStackedWidget *weatherCards, QObject *parent)
+    : QObject(parent), weatherCards(weatherCards), waterCollected(0)
+{
+
+}
+
+void CollectWater::collectWaterFromCard(QWidget *card)
+{
+    if (!card) {
+        qDebug() << "Invalid card!";
+        return;
+    }
+
+    if (card->objectName()=="page_2" || card->objectName()=="page_6"
+        ||  card->objectName()=="page_9") {
+        //1 kapljica
+        waterCollected++;
+    } else if (card->objectName()=="page_3"  ||
+               card->objectName()=="page_4"  ||
+               card->objectName()=="page_10" ) {
+        //2 kapljice
+        waterCollected+=2;
+    } else if (card->objectName()=="page_5"  || card->objectName()=="page_7"
+               || card->objectName()=="page_8") {
+        //0 kapljica
+        // qDebug() << "Total collected water:" << waterCollected;
+    } else if (card->objectName()=="page_11" || card->objectName()=="page_12" ) {
+        //3 kapljice
+        waterCollected+=3;
+    } else {
+        //uragan
+        waterCollected+=2;
+    }
+}
+
+int CollectWater::getCollectedWater() const
+{
+    return waterCollected;
+}
+
+
+
+
+
