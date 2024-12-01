@@ -35,6 +35,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         player.h player.cpp
         collectwood.h collectwood.cpp
         collectwater.h collectwater.cpp
+        collectfood.h collectfood.cpp
 
 
 

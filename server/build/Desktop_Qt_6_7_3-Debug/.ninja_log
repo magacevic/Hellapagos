@@ -1,10 +1,10 @@
-# ninja log v6
-5	908	1733066977462477256	server_autogen/timestamp	679a08ad2d083a78
-5	908	1733066977462477256	server_autogen/mocs_compilation.cpp	679a08ad2d083a78
-5	908	1733066977462477256	/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/timestamp	679a08ad2d083a78
-5	908	1733066977462477256	/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/mocs_compilation.cpp	679a08ad2d083a78
-908	6334	1733066977485477073	CMakeFiles/server.dir/main.cpp.o	aa2499f3e83d60d5
-908	6541	1733066977485477073	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	9c667de7606ee5c0
-909	6776	1733066977486477065	CMakeFiles/server.dir/serverApp.cpp.o	a12109506245a3f3
-911	6943	1733066977488477049	CMakeFiles/server.dir/gameserver.cpp.o	2addd046e3a42030
-6943	7280	1733066983520429020	server	aa1a8db2966be1ef
+# ninja log v5
+0	374	1733069582214282164	server_autogen/timestamp	164b609fa0a4e557
+0	374	1733069582214282164	server_autogen/mocs_compilation.cpp	164b609fa0a4e557
+0	374	1733069582214282164	/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/timestamp	164b609fa0a4e557
+0	374	1733069582214282164	/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/mocs_compilation.cpp	164b609fa0a4e557
+375	2032	1733069583873982276	CMakeFiles/server.dir/main.cpp.o	b7e59120762373fc
+375	2047	1733069583889979452	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	95cf2a5b15debfb2
+376	2217	1733069584057950264	CMakeFiles/server.dir/gameserver.cpp.o	327baca87200a3fb
+375	2488	1733069584329904557	CMakeFiles/server.dir/serverApp.cpp.o	d0faa02491872c10
+2488	2709	1733069584549867588	server	490857da68f52584
