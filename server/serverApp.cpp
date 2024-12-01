@@ -97,7 +97,6 @@ void Server::onReadyRead()
             qDebug() << "All players are ready. Starting the game!";
             broadcastMessage("AllReady");
             
-            //Ovo sam ja dodala
             gameServer->getRoundManager()->nextTurn();  // Pozovi početak prve runde
             qDebug() << "First turn started";
         }
