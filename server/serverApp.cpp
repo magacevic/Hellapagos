@@ -1,11 +1,14 @@
 #include "serverApp.h"
 #include <QDebug>
 #include "gameserver.h"
+
 Server::Server(QObject *parent)
     : QObject(parent), tcpServer(new QTcpServer(this)), gameServer(new GameServer(this))
 {
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
-    connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
+    //connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
+    connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
+    
 
 }
 
@@ -93,6 +96,10 @@ void Server::onReadyRead()
         if (readyPlayers == clientSockets.size()) {  // All players are ready
             qDebug() << "All players are ready. Starting the game!";
             broadcastMessage("AllReady");
+            
+            //Ovo sam ja dodala
+            gameServer->getRoundManager()->nextTurn();  // Pozovi početak prve runde
+            qDebug() << "First turn started";
         }
     }
 }
@@ -126,6 +133,8 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
     // Obaveštavamo sve klijente o trenutnom i narednom igraču
     QString message = QString("Current Player: %1, Next Player: %2").arg(currentPlayer).arg(nextPlayer);
     broadcastMessage(message);
+    
+    qDebug() << "Current Player:" << currentPlayer << ", Next Player:" << nextPlayer;
 }
 
 void Server::broadcastWeatherCardChange(int index) {

@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/addr2line"
+			"value" : "/usr/bin/x86_64-linux-gnu-addr2line"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ar"
+			"value" : "/usr/bin/x86_64-linux-gnu-ar"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cmake"
+			"value" : "/home/jelena/Qt/Tools/CMake/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cpack"
+			"value" : "/home/jelena/Qt/Tools/CMake/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ctest"
+			"value" : "/home/jelena/Qt/Tools/CMake/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -155,7 +155,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/usr/bin/g++"
+			"value" : "/usr/bin/x86_64-linux-gnu-g++"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -171,7 +171,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-10"
+			"value" : "/usr/bin/x86_64-linux-gnu-gcc-ar-11"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -187,7 +187,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-10"
+			"value" : "/usr/bin/x86_64-linux-gnu-gcc-ranlib-11"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -343,7 +343,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ccmake"
+			"value" : "/home/jelena/Qt/Tools/CMake/bin/ccmake"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -523,7 +523,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : ""
+			"value" : "1"
 		},
 		{
 			"name" : "CMAKE_HOME_DIRECTORY",
@@ -535,7 +535,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
+			"value" : "/home/jelena/Desktop/Hellapagos/hellapagos"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ld"
+			"value" : "/usr/bin/x86_64-linux-gnu-ld"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ninja"
+			"value" : "/home/jelena/Qt/Tools/Ninja/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -943,7 +943,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/nm"
+			"value" : "/usr/bin/x86_64-linux-gnu-nm"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -971,7 +971,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/objcopy"
+			"value" : "/usr/bin/x86_64-linux-gnu-objcopy"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -987,7 +987,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/objdump"
+			"value" : "/usr/bin/x86_64-linux-gnu-objdump"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -1011,7 +1011,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",
@@ -1047,7 +1047,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1135,7 +1135,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ranlib"
+			"value" : "/usr/bin/x86_64-linux-gnu-ranlib"
 		},
 		{
 			"name" : "CMAKE_READELF",
@@ -1151,7 +1151,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/readelf"
+			"value" : "/usr/bin/x86_64-linux-gnu-readelf"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1163,7 +1163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/share/cmake-3.29"
+			"value" : "/home/jelena/Qt/Tools/CMake/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1371,7 +1371,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/strip"
+			"value" : "/usr/bin/x86_64-linux-gnu-strip"
 		},
 		{
 			"name" : "CMAKE_TAPI",
@@ -1466,30 +1466,6 @@
 			"value" : "[ON][v()]"
 		},
 		{
-			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_WrapVulkanHeaders",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Details about finding WrapVulkanHeaders"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "[/usr/include][v()]"
-		},
-		{
-			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_XKB",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Details about finding XKB"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "[/usr/lib/x86_64-linux-gnu/libxkbcommon.so][/usr/include][v0.10.0(0.5.0)]"
-		},
-		{
 			"name" : "HAVE_STDATOMIC",
 			"properties" : 
 			[
@@ -1563,7 +1539,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/include"
+			"value" : "OPENGL_GLU_INCLUDE_DIR-NOTFOUND"
 		},
 		{
 			"name" : "OPENGL_GLX_INCLUDE_DIR",
@@ -1659,7 +1635,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libGLU.so"
+			"value" : "OPENGL_glu_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "OPENGL_glx_LIBRARY",
@@ -1751,7 +1727,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "-I/usr/include"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_CFLAGS_I",
@@ -1787,46 +1763,10 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_INCLUDEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "PKG_XKB_INCLUDE_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "PKG_XKB_LDFLAGS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "-L/usr/lib/x86_64-linux-gnu;-lxkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_LDFLAGS_OTHER",
 			"properties" : 
 			[
 				{
@@ -1847,31 +1787,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
-		},
-		{
-			"name" : "PKG_XKB_LIBRARIES",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "xkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_LIBRARY_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_LIBS",
@@ -1931,7 +1847,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "xkbcommon"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_PREFIX",
@@ -1943,7 +1859,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_STATIC_CFLAGS",
@@ -1955,7 +1871,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "-I/usr/include"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_STATIC_CFLAGS_I",
@@ -1982,42 +1898,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "PKG_XKB_STATIC_INCLUDE_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LDFLAGS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "-L/usr/lib/x86_64-linux-gnu;-lxkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LDFLAGS_OTHER",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
 			"name" : "PKG_XKB_STATIC_LIBDIR",
 			"properties" : 
 			[
@@ -2028,30 +1908,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : ""
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LIBRARIES",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "xkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LIBRARY_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
 		},
 		{
 			"name" : "PKG_XKB_STATIC_LIBS",
@@ -2111,7 +1967,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "0.10.0"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_xkbcommon_INCLUDEDIR",
@@ -2207,7 +2063,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "QT_FEATURE_abstractbutton",
@@ -7235,7 +7091,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/bin/qmake"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/bin/qmake"
 		},
 		{
 			"name" : "Qt6CoreTools_DIR",
@@ -7247,7 +7103,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
 		},
 		{
 			"name" : "Qt6Core_DIR",
@@ -7259,7 +7115,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
 		},
 		{
 			"name" : "Qt6DBusTools_DIR",
@@ -7271,7 +7127,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBusTools"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBusTools"
 		},
 		{
 			"name" : "Qt6DBus_DIR",
@@ -7283,7 +7139,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBus"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBus"
 		},
 		{
 			"name" : "Qt6GuiTools_DIR",
@@ -7295,7 +7151,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6GuiTools"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6GuiTools"
 		},
 		{
 			"name" : "Qt6Gui_DIR",
@@ -7307,7 +7163,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui"
 		},
 		{
 			"name" : "Qt6Multimedia_DIR",
@@ -7319,7 +7175,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia"
 		},
 		{
 			"name" : "Qt6Network_DIR",
@@ -7331,7 +7187,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
 		},
 		{
 			"name" : "Qt6WidgetsTools_DIR",
@@ -7343,7 +7199,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6WidgetsTools"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6WidgetsTools"
 		},
 		{
 			"name" : "Qt6Widgets_DIR",
@@ -7355,7 +7211,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets"
 		},
 		{
 			"name" : "Qt6_DIR",
@@ -7367,19 +7223,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
-		},
-		{
-			"name" : "THREADS_HAVE_PTHREAD_ARG",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Result of TRY_COMPILE"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "TRUE"
+			"value" : "/home/jelena/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "Vulkan_GLSLANG_VALIDATOR_EXECUTABLE",
@@ -7427,7 +7271,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/include"
+			"value" : "Vulkan_INCLUDE_DIR-NOTFOUND"
 		},
 		{
 			"name" : "Vulkan_LIBRARY",
@@ -7443,7 +7287,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libvulkan.so"
+			"value" : "Vulkan_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "XKB_INCLUDE_DIR",
@@ -7455,7 +7299,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/include"
+			"value" : "XKB_INCLUDE_DIR-NOTFOUND"
 		},
 		{
 			"name" : "XKB_LIBRARY",
@@ -7467,7 +7311,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libxkbcommon.so"
+			"value" : "XKB_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -7494,18 +7338,6 @@
 			"value" : "/usr/local"
 		},
 		{
-			"name" : "__pkg_config_arguments_PKG_XKB",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "QUIET;xkbcommon"
-		},
-		{
 			"name" : "__pkg_config_checked_PKG_XKB",
 			"properties" : 
 			[
@@ -7527,7 +7359,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "hellapagos_IS_TOP_LEVEL",
@@ -7551,35 +7383,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
-		},
-		{
-			"name" : "pkgcfg_lib_PKG_XKB_xkbcommon",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a library."
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libxkbcommon.so"
-		},
-		{
-			"name" : "prefix_result",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
+			"value" : "/home/jelena/Desktop/Hellapagos/hellapagos"
 		}
 	],
 	"kind" : "cache",

@@ -21,6 +21,12 @@ public:
     void changeWeatherCard();
     int getWeatherCardIndex() const;
     void onWeatherCardRequest();
+    //DODALA
+    RoundManager* getRoundManager() const;
+    
+public slots:
+    // Slot koji prihvata signal za promenu igrača
+    void onPlayerChanged(int newPlayerId);
 
 signals:
     void weatherCardChanged(int newIndex);

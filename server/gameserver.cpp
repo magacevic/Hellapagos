@@ -15,11 +15,20 @@ GameServer::GameServer(QObject* parent)
     //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
     connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
             this, &GameServer::currentAndNextPlayerUpdated);
+            
+    // Poveži signal za promenu igrača
+    connect(roundManager, &RoundManager::playerChanged, this, &GameServer::onPlayerChanged);
 
     for (int i = 1; i < 13; ++i) {
         availableCards.insert(i);
     }
 }
+
+//DODALA
+RoundManager* GameServer::getRoundManager() const {
+    return roundManager;
+}
+
 
 void GameServer::addPlayer(const QString& playerName)
 {
@@ -68,4 +77,19 @@ void GameServer::changeWeatherCard() {
 void GameServer::onWeatherCardRequest() {
     // Trigger the card reveal logic when the client requests it
     changeWeatherCard();
+}
+
+// Slot koji prihvata signal za promenu igrača
+void GameServer::onPlayerChanged(int newPlayerId)
+{
+    // Logika kada se promeni igrač (prihvatamo ID igrača)
+    qDebug() << "Igrač promenjen. Novi igrač ID:" << newPlayerId;
+
+    // Dobijamo ime trenutnog igrača prema ID-u (indeksu)
+    QString currentPlayer = players.at(newPlayerId);
+    qDebug() << "Trenutni igrač:" << currentPlayer;
+
+    // Možemo implementirati logiku za sledeće akcije (npr. emitovanje novih podataka o igraču)
+    QString nextPlayer = players.at((newPlayerId + 1) % players.size());  // Sledeći igrač
+    emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
 }
