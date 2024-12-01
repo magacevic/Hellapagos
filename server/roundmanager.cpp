@@ -12,7 +12,6 @@ void RoundManager::addToTurnPlayer(const QString& playerName)
 
 void RoundManager::nextTurn()
 {
-	//Ovo sam dodala
 	if (players.isEmpty()) return;
 	
     // Premesti indeks na narednog igrača (cirkularno)
@@ -22,7 +21,6 @@ void RoundManager::nextTurn()
     QString current = currentPlayer();
     QString next = nextPlayer();
     
-    //Ovo sam dodala
     qDebug() << "Emitting currentAndNextPlayerUpdated with"
              << "current:" << current << "and next:" << next;
 
