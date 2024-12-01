@@ -3,8 +3,8 @@
 #include <QWidget>
 #include <QDebug>
 
-CollectWater::CollectWater(QStackedWidget *weatherCards, QObject *parent)
-    : QObject(parent), weatherCards(weatherCards), waterCollected(0)
+CollectWater::CollectWater(QObject *parent)
+    : QObject(parent), waterCollected(0)
 {
 
 }

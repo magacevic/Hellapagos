@@ -1,0 +1,9 @@
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/server.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/edit_cache.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/rebuild_cache.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/list_install_components.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/install.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/install/local.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/install/strip.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/server_autogen_timestamp_deps.dir
+/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/CMakeFiles/server_autogen.dir

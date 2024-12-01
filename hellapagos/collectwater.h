@@ -10,13 +10,12 @@ class CollectWater : public QObject
     Q_OBJECT
 
 public:
-    explicit CollectWater(QStackedWidget *weatherCards, QObject *parent = nullptr);
+    explicit CollectWater(QObject *parent = nullptr);
 
     void collectWaterFromCard(QWidget *card);
     int getCollectedWater() const;
 
 private:
-    QStackedWidget *weatherCards; // Promenjen tip na QStackedWidget
     int waterCollected;
 };
 

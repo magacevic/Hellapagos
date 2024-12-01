@@ -1,0 +1,2 @@
+set(__QT_DEPLOY_TARGET_hellapagos_FILE /Users/mihailosretenovic/Documents/RS/Hellapagos/hellapagos/build/Qt_6_7_3_for_macOS-Debug/hellapagos.app/Contents/MacOS/hellapagos)
+set(__QT_DEPLOY_TARGET_hellapagos_TYPE EXECUTABLE)
