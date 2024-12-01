@@ -166,6 +166,19 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <string>Reveal</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="collectWoodButton">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>360</y>
+      <width>201</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Collect Wood</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -173,7 +186,7 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

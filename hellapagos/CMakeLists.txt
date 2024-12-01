@@ -33,6 +33,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         audio.qrc
         gamewindow.h gamewindow.cpp gamewindow.ui
         player.h player.cpp
+        collectwood.h collectwood.cpp
 
 
 

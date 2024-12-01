@@ -1,6 +1,9 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
 #include <QRandomGenerator>
+#include <QInputDialog>
+#include <QMessageBox>
+
 /*GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::GameWindow)
@@ -65,3 +68,31 @@ void GameWindow::onWeatherCardClicked()
     // Notify server
    // m_client->sendWeatherCardChange(randomIndex);
 }
+
+void GameWindow::on_collectWoodButton_clicked()
+{
+    // Always collect 1 wood
+    collectWood.performAction();  // Collect 1 wood
+
+    // Ask the player if they want to collect more wood
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Go To Forest",
+                                  "You have collected 1 wood. Do you want to go to the forest and collect more?",
+                                  QMessageBox::Yes | QMessageBox::No);
+
+    if (reply == QMessageBox::Yes) {
+        // Ask how many more pieces of wood they want to collect (1-5)
+        bool ok;
+        int additionalWood = QInputDialog::getInt(this, "Collect More",
+                                                  "Select number of wood (1-5):",
+                                                  1, 1, 5, 1, &ok);
+
+        if (ok) {
+            // Perform action based on the number of additional wood the player wants to collect
+            collectWood.goToForest(additionalWood);
+        }
+    }
+    // Total collected wood
+    collectWood.getCollectedWood();
+}
+
