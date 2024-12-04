@@ -130,10 +130,12 @@ void Server::onWeatherCardChanged(int newIndex) {
 void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer)
 {
     // Obaveštavamo sve klijente o trenutnom i narednom igraču
-    QString message = QString("Current Player: %1, Next Player: %2").arg(currentPlayer).arg(nextPlayer);
-    broadcastMessage(message);
+    //QString message = QString("Current Player: %1, Next Player: %2").arg(currentPlayer).arg(nextPlayer);
+    //broadcastMessage(message);
     
-    qDebug() << "Current Player:" << currentPlayer << ", Next Player:" << nextPlayer;
+    //qDebug() << "Current Player:" << currentPlayer << ", Next Player:" << nextPlayer;
+    qDebug() << "Type and value of currentPlayer:" << currentPlayer;
+    qDebug() << "Type and value of nextPlayer:" << nextPlayer;
 }
 
 void Server::broadcastWeatherCardChange(int index) {
