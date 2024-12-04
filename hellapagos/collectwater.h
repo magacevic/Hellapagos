@@ -11,12 +11,12 @@ class CollectWater : public QObject
 
 public:
     explicit CollectWater(QObject *parent = nullptr);
-
     void collectWaterFromCard(QWidget *card);
-    int getCollectedWater() const;
+    int performAction();
 
 private:
     int waterCollected;
+    int currentWater;
 };
 
 #endif // COLLECTWATER_H

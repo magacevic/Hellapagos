@@ -9,6 +9,7 @@ public:
     explicit CollectWood(QObject *parent = nullptr);
 
     int woodCollected;
+
     bool playerGotSick;
     int additionalWood;
 

@@ -3,6 +3,7 @@
 #include <QRandomGenerator>
 #include <QInputDialog>
 #include <QMessageBox>
+#include <QTimer>
 
 /*GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +22,8 @@ GameWindow::GameWindow(Player *player,Client *client, QWidget *parent)
     ui->playerNameLabel->setText(currentPlayer->getName());
     connect(m_client, &Client::weatherCardUpdated, this, &GameWindow::updateWeatherCard);
     connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
+    connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
+
 
 
 }
@@ -29,6 +32,9 @@ GameWindow::~GameWindow()
 {
     delete ui;
 }
+
+
+
 void GameWindow::updateWeatherCard(int index)
 {
    /* if (index < 0 || index >= ui->weatherCards->count()) {
@@ -96,3 +102,33 @@ void GameWindow::on_collectWoodButton_clicked()
     collectWood.getCollectedWood();
 }
 
+
+void GameWindow::on_collectWaterButton_clicked()
+{
+
+    if (isCollectingWater) {
+        qDebug() << "Already collecting water, ignoring the click."; // Debugging
+        return;
+    }
+
+    isCollectingWater = true;
+    qDebug() << "Started collecting water.";  // Debugging
+
+     ui->collectWaterButton->setEnabled(false);
+
+    QWidget *currentCard = ui->weatherCards->currentWidget();
+
+    if (currentCard) {
+        collectWater.collectWaterFromCard(currentCard);
+
+        qDebug() << "- Total collected water:" << collectWater.performAction();
+    } else {
+        qDebug() << "No active card available to collect water from!";
+    }
+
+    // Re-enable the button after a short delay and reset the flag
+    QTimer::singleShot(500, this, [this]() {
+        ui->collectWaterButton->setEnabled(true);  // Re-enable the button
+        isCollectingWater = false;  // Reset the flag
+    });
+}

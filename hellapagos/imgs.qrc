@@ -10,5 +10,9 @@
         <file>cards/hurricane.jpeg</file>
         <file>cards/rainy.jpeg</file>
         <file>cards/sunny.jpeg</file>
+        <file>cards/0.jpeg</file>
+        <file>cards/1.jpeg</file>
+        <file>cards/2.jpeg</file>
+        <file>cards/3.jpeg</file>
     </qresource>
 </RCC>

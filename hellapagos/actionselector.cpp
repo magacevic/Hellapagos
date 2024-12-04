@@ -29,7 +29,7 @@ void ActionSelector::selectAction(ActionType actionType)
         break;
     case COLLECT_WATER:
         qDebug() << "Selected action: Collect Water";
-        collectWaterAction->getCollectedWater();
+        collectWaterAction->performAction();
     case COLLECT_WOOD: // 2 znači "Collect Wood"
         qDebug() << "Selected action: Collect Wood";
         collectFoodAction->performAction();
