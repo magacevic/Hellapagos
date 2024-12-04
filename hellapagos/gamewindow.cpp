@@ -23,6 +23,7 @@ GameWindow::GameWindow(Player *player,Client *client, QWidget *parent)
     connect(m_client, &Client::weatherCardUpdated, this, &GameWindow::updateWeatherCard);
     connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
     connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
+    connect(ui->collectFoodButton, &QPushButton::clicked, this, &GameWindow::on_collectFoodButton_clicked);
 
 
 
@@ -130,5 +131,25 @@ void GameWindow::on_collectWaterButton_clicked()
     QTimer::singleShot(500, this, [this]() {
         ui->collectWaterButton->setEnabled(true);  // Re-enable the button
         isCollectingWater = false;  // Reset the flag
+    });
+}
+
+void GameWindow::on_collectFoodButton_clicked()
+{
+    if (isCollectingFood) {
+        qDebug() << "Already collecting the food, ignoring the click.";
+        return;
+    }
+
+    isCollectingFood = true;
+    qDebug() << "Started collecting food.";
+
+    ui->collectFoodButton->setEnabled(false); // Disable the button after a click, to prevent multiple inputs
+    collectFood.performAction();
+    collectFood.getCollectedFood();
+
+    QTimer::singleShot(500, this, [this]() {
+        ui->collectFoodButton->setEnabled(true); // Re-enable the button;
+        isCollectingFood = false;
     });
 }

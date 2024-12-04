@@ -6,6 +6,7 @@
 #include "client.h"
 #include "collectwood.h"
 #include "collectwater.h"
+#include "collectfood.h"
 
 namespace Ui {
 class GameWindow;
@@ -25,6 +26,7 @@ public:
 private slots:
     void on_collectWoodButton_clicked();
     void on_collectWaterButton_clicked();
+    void on_collectFoodButton_clicked();
 
 private:
     Ui::GameWindow *ui;
@@ -32,7 +34,9 @@ private:
     Client* m_client;
     CollectWood collectWood;
     CollectWater collectWater;
+    CollectFood collectFood;
     bool isCollectingWater = false;
+    bool isCollectingFood = false;
 };
 
 #endif // GAMEWINDOW_H

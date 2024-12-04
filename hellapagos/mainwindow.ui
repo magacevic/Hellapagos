@@ -76,7 +76,7 @@ border:none;</string>
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">background-color: rgb(0, 0, 0);
+       <string notr="true">background-color: rgb(0,0,0);
 background-image: url(:/light-wood-grain-texture_303714-25017.jpg);
 border-color: rgb(85, 170, 0);
 color: rgb(0, 0, 0);
@@ -947,7 +947,7 @@ background-size: contain;</string>
      <x>0</x>
      <y>0</y>
      <width>749</width>
-     <height>26</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

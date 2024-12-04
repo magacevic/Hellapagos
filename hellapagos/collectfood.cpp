@@ -20,13 +20,14 @@ void CollectFood::performAction() {
     // add new food
     currentFood += this->foodCollected;
 
-    qDebug() << "Food collected: " << this->foodCollected;
-    qDebug() << "Total food: " << currentFood;
+    //qDebug() << "Food collected: " << this->foodCollected;
+    //qDebug() << "Total food: " << currentFood;
 }
 
 int CollectFood::getCollectedFood() {
     int food = this->foodCollected;
     this->foodCollected = 0;
+    qDebug() << "Food collected: " << food;
     return food;
 }
 
