@@ -17,6 +17,7 @@ GameWindow::GameWindow(Player *player,Client *client, QWidget *parent)
 {
     ui->setupUi(this);  // Always call setupUi in the constructor
     qDebug() << "Player's Name in GameWindow:" << currentPlayer->getName();
+    actionSelector = new ActionSelector(currentPlayer, this);
 
     // Optionally, display player's name on a QLabel or similar widget in the UI
     ui->playerNameLabel->setText(currentPlayer->getName());
@@ -32,6 +33,7 @@ GameWindow::GameWindow(Player *player,Client *client, QWidget *parent)
 GameWindow::~GameWindow()
 {
     delete ui;
+    delete actionSelector;
 }
 
 
@@ -115,22 +117,22 @@ void GameWindow::on_collectWaterButton_clicked()
     isCollectingWater = true;
     qDebug() << "Started collecting water.";  // Debugging
 
-     ui->collectWaterButton->setEnabled(false);
+     ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
 
     QWidget *currentCard = ui->weatherCards->currentWidget();
 
     if (currentCard) {
-        collectWater.collectWaterFromCard(currentCard);
+        actionSelector->selectAction(COLLECT_WATER, currentCard);
 
-        qDebug() << "- Total collected water:" << collectWater.performAction();
+        qDebug() << "- Total collected water:" << currentPlayer->getTotalWater();
     } else {
         qDebug() << "No active card available to collect water from!";
     }
 
-    // Re-enable the button after a short delay and reset the flag
+
     QTimer::singleShot(500, this, [this]() {
-        ui->collectWaterButton->setEnabled(true);  // Re-enable the button
-        isCollectingWater = false;  // Reset the flag
+        ui->collectWaterButton->setEnabled(true);
+        isCollectingWater = false;  // Resetujemo flag
     });
 }
 
@@ -144,12 +146,14 @@ void GameWindow::on_collectFoodButton_clicked()
     isCollectingFood = true;
     qDebug() << "Started collecting food.";
 
-    ui->collectFoodButton->setEnabled(false); // Disable the button after a click, to prevent multiple inputs
-    collectFood.performAction();
-    collectFood.getCollectedFood();
+    ui->collectFoodButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
+    actionSelector->selectAction(COLLECT_FOOD);
+
+    int totalFood = currentPlayer->getTotalFood();
+    qDebug() << "Total food collected so far: " << totalFood;
 
     QTimer::singleShot(500, this, [this]() {
-        ui->collectFoodButton->setEnabled(true); // Re-enable the button;
-        isCollectingFood = false;
+        ui->collectFoodButton->setEnabled(true);
+        isCollectingFood = false;  // Resetujemo flag
     });
 }

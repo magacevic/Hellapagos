@@ -41,7 +41,10 @@ void CollectWater::collectWaterFromCard(QWidget *card)
 
 int CollectWater::performAction()
 {
-    return waterCollected;
+    //Reset the collected water in a turn to 0
+    int waterCollectedInRound = waterCollected;
+    waterCollected = 0;
+    return waterCollectedInRound;
 }
 
 

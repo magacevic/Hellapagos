@@ -1,41 +1,30 @@
 #include "actionselector.h"
-#include "collectwater.h"
 #include <QStackedWidget>
 #include <QDebug>
-#include <QWidget>
+#include "player.h"
 
-ActionSelector::ActionSelector(QObject *parent) : QObject(parent)
-{
-    // Kreiramo objekte za svaku od akcija
-    collectFoodAction = new CollectFood(this);
-    collectWaterAction = new CollectWater(this);
-    collectWoodAction = new CollectWood(this);
+ActionSelector::ActionSelector(Player *player, QObject *parent) : QObject(parent), player(player) {
+    // Instanca Player-a se prosledjuje u konstruktoru, nema potrebe da pravimo novu ovde.
 }
 
-// Implementacija destruktora
-ActionSelector::~ActionSelector()
-{
-    // Ako je potrebno, možemo osloboditi resurse ili izvršiti čišćenje
-    // U ovom slučaju, Qt će automatski obrisati collectFoodAction jer je postavljen za roditeljsku instancu
-    qDebug() << "ActionSelector destructor called.";
+ActionSelector::~ActionSelector() {
+    // Brisanje obavlja gameWindow
 }
 
-void ActionSelector::selectAction(ActionType actionType)
-{
+void ActionSelector::selectAction(ActionType actionType, QWidget *card) {
     switch (actionType) {
-    case COLLECT_FOOD:  // 0 znači "Collect Food"
-        qDebug() << "Selected action: Collect Food";
-        collectFoodAction->performAction();  // Pozivamo funkciju za sakupljanje hrane
+    case COLLECT_FOOD:
+        player->collectFood();
         break;
     case COLLECT_WATER:
-        qDebug() << "Selected action: Collect Water";
-        collectWaterAction->performAction();
-    case COLLECT_WOOD: // 2 znači "Collect Wood"
-        qDebug() << "Selected action: Collect Wood";
-        collectFoodAction->performAction();
+        player->collectWater(card);
+        break;
+    case COLLECT_WOOD:
+        //player->collectWood();
+        break;
     default:
-        qDebug() << "Invalid action selected!";
         break;
     }
 }
+
 

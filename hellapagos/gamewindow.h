@@ -7,6 +7,7 @@
 #include "collectwood.h"
 #include "collectwater.h"
 #include "collectfood.h"
+#include "actionselector.h"
 
 namespace Ui {
 class GameWindow;
@@ -35,6 +36,7 @@ private:
     CollectWood collectWood;
     CollectWater collectWater;
     CollectFood collectFood;
+    ActionSelector *actionSelector;
     bool isCollectingWater = false;
     bool isCollectingFood = false;
 };

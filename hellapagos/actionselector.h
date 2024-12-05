@@ -2,9 +2,7 @@
 #define ACTIONSELECTOR_H
 
 #include <QObject>
-#include "collectfood.h"
-#include "collectwater.h"
-#include "collectwood.h"
+#include <QWidget>
 
 // Enum za različite tipove akcija
 enum ActionType {
@@ -13,23 +11,24 @@ enum ActionType {
     COLLECT_WOOD = 2
 };
 
+class Player;
+
+
 class ActionSelector : public QObject
 {
     Q_OBJECT
 
 public:
-    // Konstruktor i destruktor
-    explicit ActionSelector(QObject *parent = nullptr);
+    // Konstruktor koji prihvata postojeceg igraca.
+    explicit ActionSelector(Player *player, QObject *parent = nullptr);
     ~ActionSelector();
 
-    // Metoda koja omogućava selektovanje akcije (sakupljanje hrane, drveta, vode)
-    void selectAction(ActionType actionType);  // Parametar koji odredjuje koju akciju da izvrši
+    // Metod za biranje akcije
+    void selectAction(ActionType actionType, QWidget *card = nullptr);
 
 private:
-    // Pokazivači na objekte koji predstavljaju svaku akciju
-    CollectFood *collectFoodAction;
-    CollectWater *collectWaterAction;
-    CollectWood *collectWoodAction;
+    Player *player;
+
 };
 
 #endif // ACTIONSELECTOR_H
