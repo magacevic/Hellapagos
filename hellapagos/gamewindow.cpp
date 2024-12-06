@@ -12,12 +12,22 @@
     ui->setupUi(this);
 }
 */
-GameWindow::GameWindow(Player *player,Client *client, QWidget *parent)
+GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     : QMainWindow(parent), currentPlayer(player),m_client(client), ui(new Ui::GameWindow)
 {
     ui->setupUi(this);  // Always call setupUi in the constructor
     qDebug() << "Player's Name in GameWindow:" << currentPlayer->getName();
     actionSelector = new ActionSelector(currentPlayer, this);
+
+
+    voting = new Voting(this);
+
+    // Connect signals related to voting
+    connect(voting, &Voting::votingStarted, this, &GameWindow::onVotingStarted);
+    connect(voting, &Voting::votingConcluded, this, &GameWindow::onVotingConcluded);
+    connect(ui->castVoteButton, &QPushButton::clicked, voting, &Voting::on_castVoteButton_clicked);
+
+
 
     // Optionally, display player's name on a QLabel or similar widget in the UI
     ui->playerNameLabel->setText(currentPlayer->getName());
@@ -157,3 +167,78 @@ void GameWindow::on_collectFoodButton_clicked()
         isCollectingFood = false;  // Resetujemo flag
     });
 }
+
+void GameWindow::checkForWaterShortage()
+{
+    voting->checkForWaterShortage();
+}
+
+void GameWindow::checkForFoodShortage()
+{
+    voting->checkForFoodShortage();
+}
+
+void GameWindow::onVotingStarted()
+{
+    QMessageBox::information(this, "Voting Started", "Voting has started! Please cast your votes.");
+}
+
+void GameWindow::onVotingConcluded()
+{
+    Player* eliminatedPlayer = voting->getEliminatedPlayer();  // Use the getter
+
+    if (eliminatedPlayer) {
+        QMessageBox::information(this, "Voting Concluded",
+                                 "Player " + eliminatedPlayer->getName() + " has been eliminated.");
+    } else {
+        QMessageBox::information(this, "Voting Concluded", "No player was eliminated.");
+    }
+}
+
+
+void GameWindow::on_castVoteButton_clicked()
+{
+    /*
+    if (voting && voting->votingInProgress) {
+        QList<Player*> otherPlayers;
+
+        for (Player* player : allPlayers) {  // Assuming `allPlayers` contains all players
+            if (player != currentPlayer) {
+                otherPlayers.append(player);
+            }
+        }
+
+        if (otherPlayers.isEmpty()) {
+            qDebug() << "No players available to vote for.";
+            return;
+        }
+
+        bool ok;
+        QStringList playerNames;
+        for (Player* player : otherPlayers) {
+            playerNames.append(player->getName());
+        }
+
+        QString selectedPlayerName = QInputDialog::getItem(this, "Select Player to Vote For",
+                                                           "Choose a player to vote for:", playerNames, 0, false, &ok);
+
+        if (ok && !selectedPlayerName.isEmpty()) {
+            Player* selectedPlayer = nullptr;
+            for (Player* player : otherPlayers) {
+                if (player->getName() == selectedPlayerName) {
+                    selectedPlayer = player;
+                    break;
+                }
+            }
+
+            if (selectedPlayer) {
+                int voteValue = 1; // You can customize the vote value (1 means vote for elimination, for example)
+                voting->castVote(selectedPlayer, voteValue);
+                qDebug() << "Voted for player:" << selectedPlayer->getName();
+            }
+        }
+    }
+*/
+}
+
+

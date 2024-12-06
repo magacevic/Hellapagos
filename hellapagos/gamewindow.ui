@@ -433,6 +433,19 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <string>Collect Food</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="castVoteButton">
+    <property name="geometry">
+     <rect>
+      <x>270</x>
+      <y>130</y>
+      <width>88</width>
+      <height>26</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Vote</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -440,7 +453,7 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>24</height>
+     <height>23</height>
     </rect>
    </property>
   </widget>

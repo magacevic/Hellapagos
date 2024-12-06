@@ -8,6 +8,7 @@
 #include "collectwater.h"
 #include "collectfood.h"
 #include "actionselector.h"
+#include "voting.h"
 
 namespace Ui {
 class GameWindow;
@@ -23,11 +24,16 @@ public:
 
     void updateWeatherCard(int index);
     void onWeatherCardClicked();
+    void onVotingStarted();
+    void onVotingConcluded();
+    void checkForWaterShortage();
+    void checkForFoodShortage();
 
 private slots:
     void on_collectWoodButton_clicked();
     void on_collectWaterButton_clicked();
     void on_collectFoodButton_clicked();
+    void on_castVoteButton_clicked();
 
 private:
     Ui::GameWindow *ui;
@@ -39,6 +45,7 @@ private:
     ActionSelector *actionSelector;
     bool isCollectingWater = false;
     bool isCollectingFood = false;
+    Voting* voting;
 };
 
 #endif // GAMEWINDOW_H

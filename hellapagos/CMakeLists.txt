@@ -37,6 +37,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         collectwater.h collectwater.cpp
         collectfood.h collectfood.cpp
         actionselector.h actionselector.cpp
+        voting.h voting.cpp
 
 
 
