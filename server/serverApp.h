@@ -17,11 +17,16 @@ public:
     void startServer();
     void onWeatherCardChanged(int newIndex);
     void broadcastWeatherCardChange(int index);
+    
+signals:
+    // Signal koji obaveštava klijente o trenutnom i narednom igraču
+    void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
 
 private slots:
     void onNewConnection();
     void onReadyRead();
     void onDisconnected();
+    void onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
 
 private:
     QTcpServer *tcpServer;

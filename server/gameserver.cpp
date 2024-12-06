@@ -6,22 +6,34 @@
 GameServer::GameServer(QObject* parent)
     : QObject(parent)
 {
+    roundManager = new RoundManager(this);
     // Initialize resource counts to zero
     resources.insert("food", 0);
     resources.insert("water", 0);
     resources.insert("wood", 0);
 
     //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
+    connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
+            this, &GameServer::currentAndNextPlayerUpdated);
+            
+    // Poveži signal za promenu igrača
+    connect(roundManager, &RoundManager::playerChanged, this, &GameServer::onPlayerChanged);
 
     for (int i = 1; i < 13; ++i) {
         availableCards.insert(i);
     }
 }
 
+RoundManager* GameServer::getRoundManager() const {
+    return roundManager;
+}
+
+
 void GameServer::addPlayer(const QString& playerName)
 {
     if (!players.contains(playerName)) {
         players.append(playerName);
+        roundManager->addToTurnPlayer(playerName);
         qDebug() << "Player added:" << playerName;
     } else {
         qDebug() << "Player" << playerName << "already exists!";
@@ -49,7 +61,6 @@ int GameServer::getWeatherCardIndex() const
     return currentWeatherCardIndex;
 }
 
-
 void GameServer::changeWeatherCard() {
     if (availableCards.isEmpty()) {
         qDebug() << "No cards left to reveal!";
@@ -65,4 +76,19 @@ void GameServer::changeWeatherCard() {
 void GameServer::onWeatherCardRequest() {
     // Trigger the card reveal logic when the client requests it
     changeWeatherCard();
+}
+
+// Slot koji prihvata signal za promenu igrača
+void GameServer::onPlayerChanged(int newPlayerId)
+{
+    // Logika kada se promeni igrač (prihvatamo ID igrača)
+    qDebug() << "Igrač promenjen. Novi igrač ID:" << newPlayerId;
+
+    // Dobijamo ime trenutnog igrača prema ID-u (indeksu)
+    QString currentPlayer = players.at(newPlayerId);
+    qDebug() << "Trenutni igrač:" << currentPlayer;
+
+    // Možemo implementirati logiku za sledeće akcije (npr. emitovanje novih podataka o igraču)
+    QString nextPlayer = players.at((newPlayerId + 1) % players.size());  // Sledeći igrač
+    emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
 }
