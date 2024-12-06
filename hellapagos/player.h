@@ -31,9 +31,16 @@ public:
     int getTotalWater() const;
     void addWater(int water);
 
+    // Upravljanje drvima
+    int getTotalWood();
+    void addWood(int wood);
+
     // Metode za pozivanje akcija
     void collectFood();
     void collectWater(QWidget *card);
+    void collectWood();
+    void collectAdditionalWood(int trips);
+    void raftCreated();
 
 private:
     QString playerName;
@@ -43,6 +50,7 @@ private:
     int totalFood;
     int foodCollectedInRound;
     int totalWater;
+    int totalWood;
 
     QWidget getCurrentCard();
 

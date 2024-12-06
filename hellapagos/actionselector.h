@@ -8,7 +8,8 @@
 enum ActionType {
     COLLECT_FOOD = 0,
     COLLECT_WATER = 1,
-    COLLECT_WOOD = 2
+    COLLECT_WOOD = 2,
+    COLLECT_ADDITIONAL_WOOD = 3
 };
 
 class Player;
@@ -24,7 +25,7 @@ public:
     ~ActionSelector();
 
     // Metod za biranje akcije
-    void selectAction(ActionType actionType, QWidget *card = nullptr);
+    void selectAction(ActionType actionType, QWidget *card = nullptr, int trips = 0);
 
 private:
     Player *player;

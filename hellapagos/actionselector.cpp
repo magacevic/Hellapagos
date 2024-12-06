@@ -11,7 +11,7 @@ ActionSelector::~ActionSelector() {
     // Brisanje obavlja gameWindow
 }
 
-void ActionSelector::selectAction(ActionType actionType, QWidget *card) {
+void ActionSelector::selectAction(ActionType actionType, QWidget *card, int trips) {
     switch (actionType) {
     case COLLECT_FOOD:
         player->collectFood();
@@ -20,8 +20,10 @@ void ActionSelector::selectAction(ActionType actionType, QWidget *card) {
         player->collectWater(card);
         break;
     case COLLECT_WOOD:
-        //player->collectWood();
+        player->collectWood();
         break;
+    case COLLECT_ADDITIONAL_WOOD:
+        player->collectAdditionalWood(trips);
     default:
         break;
     }

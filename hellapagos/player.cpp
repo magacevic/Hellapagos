@@ -1,6 +1,8 @@
 // Player.cpp
 #include "player.h"
 #include "actionselector.h"
+#include <QMessageBox>
+#include <QInputDialog>
 
 Player::Player(const QString& name)
     : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), foodCollectedInRound(0)
@@ -44,12 +46,22 @@ int Player::getTotalWater() const {
     return totalWater;
 }
 
+int Player::getTotalWood() {
+    int woodInRound = totalWood;
+    totalWood = 0;
+    return woodInRound;
+}
+
 void Player::addFood(int food) {
     totalFood += food;
 }
 
 void Player::addWater(int water) {
     totalWater += water;
+}
+
+void Player::addWood(int wood) {
+    totalWood += wood;
 }
 
 //U zavisnosti od izabrane akcije u actionSelectoru, pozivamo odgovarajuce metode
@@ -63,3 +75,31 @@ void Player::collectWater(QWidget *card) {
     int waterCollectedInRound = collectWaterAction->performAction();
     addWater(waterCollectedInRound);
 }
+
+void Player::collectWood() {
+    collectWoodAction->performAction();
+    int woodCollected = collectWoodAction->woodCollected;
+    addWood(woodCollected);
+    qDebug() <<"Wood collected so far by this player: " << totalWood;
+    collectWoodAction->getCollectedWood();
+}
+
+void Player::collectAdditionalWood(int trips) {
+    collectWoodAction->goToForest(trips);
+    sick = collectWoodAction->playerGotSick;
+    int woodCollected = collectWoodAction->additionalWoodCollected;
+    addWood(woodCollected);
+    qDebug() <<"Wood collected so far by this player: " << totalWood;
+    collectWoodAction->getCollectedWood();
+}
+
+/*
+void Player::raftCreated() {
+    qDebug() << "Total wood collected: " << totalWood;
+
+    if (totalWood >= 6) {
+        totalWood -= 6;
+        qDebug() << "Raft created!";
+    }
+}
+*/

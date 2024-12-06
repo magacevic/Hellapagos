@@ -90,8 +90,18 @@ void GameWindow::onWeatherCardClicked()
 
 void GameWindow::on_collectWoodButton_clicked()
 {
+    if (isCollectingWood) {
+        qDebug() << "Already collecting wood, ignoring the click."; // Debugging
+        return;
+    }
+
+    isCollectingWood = true;
+    qDebug() << "Started collecting wood.";
+
+    ui->collectWoodButton->setEnabled(false);
+
     // Always collect 1 wood
-    collectWood.performAction();  // Collect 1 wood
+    actionSelector->selectAction(COLLECT_WOOD);
 
     // Ask the player if they want to collect more wood
     QMessageBox::StandardButton reply;
@@ -101,18 +111,25 @@ void GameWindow::on_collectWoodButton_clicked()
 
     if (reply == QMessageBox::Yes) {
         // Ask how many more pieces of wood they want to collect (1-5)
-        bool ok;
+        bool ok = true;
         int additionalWood = QInputDialog::getInt(this, "Collect More",
                                                   "Select number of wood (1-5):",
                                                   1, 1, 5, 1, &ok);
+        qDebug() << additionalWood;
 
         if (ok) {
             // Perform action based on the number of additional wood the player wants to collect
-            collectWood.goToForest(additionalWood);
+            actionSelector->selectAction(COLLECT_ADDITIONAL_WOOD, nullptr, additionalWood);
         }
     }
-    // Total collected wood
-    collectWood.getCollectedWood();
+    // Reset the current players total wood after round
+    qDebug() << "Wood collected by current player: " << currentPlayer->getTotalWood();
+
+    QTimer::singleShot(500, this, [this]() {
+        ui->collectWoodButton->setEnabled(true);
+        isCollectingWood = false;  // Resetujemo flag
+    });
+
 }
 
 
@@ -127,7 +144,7 @@ void GameWindow::on_collectWaterButton_clicked()
     isCollectingWater = true;
     qDebug() << "Started collecting water.";  // Debugging
 
-     ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
+    ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
 
     QWidget *currentCard = ui->weatherCards->currentWidget();
 

@@ -45,6 +45,7 @@ private:
     ActionSelector *actionSelector;
     bool isCollectingWater = false;
     bool isCollectingFood = false;
+    bool isCollectingWood = false;
     Voting* voting;
 };
 

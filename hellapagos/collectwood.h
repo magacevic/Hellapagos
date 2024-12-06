@@ -12,6 +12,8 @@ public:
 
     bool playerGotSick;
     int additionalWood;
+    int additionalWoodCollected;
+    int totalWoodCollected;
 
     void performAction();
     void goToForest(int additionalWood);
