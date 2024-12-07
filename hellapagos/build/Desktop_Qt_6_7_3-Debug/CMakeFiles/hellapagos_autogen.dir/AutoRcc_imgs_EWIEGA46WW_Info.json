@@ -1,0 +1,38 @@
+{
+	"BUILD_DIR" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen",
+	"CMAKE_BINARY_DIR" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/jelena/Desktop/Hellapagos/hellapagos",
+	"CMAKE_SOURCE_DIR" : "/home/jelena/Desktop/Hellapagos/hellapagos",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/include",
+	"INPUTS" : 
+	[
+		"/home/jelena/Desktop/Hellapagos/hellapagos/pap_wood-1.jpg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/steamuserimages-a.akamaihd.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/light-wood-grain-texture_303714-25017.jpg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/background-island.jpg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/wooden-badge-banner-wooden-plank-plate-png.png",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/hurricane.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/sunny.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/cloudy.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/0.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/rainy.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/2.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/3.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/1.jpeg",
+		"/home/jelena/Desktop/Hellapagos/hellapagos/cards/background.jpeg"
+	],
+	"LOCK_FILE" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos_autogen.dir/AutoRcc_imgs_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "imgs" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_imgs.cpp",
+	"RCC_EXECUTABLE" : "/home/jelena/Qt/6.7.3/gcc_64/libexec/rcc",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos_autogen.dir/AutoRcc_imgs_EWIEGA46WW_Used.txt",
+	"SOURCE" : "/home/jelena/Desktop/Hellapagos/hellapagos/imgs.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}
