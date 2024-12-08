@@ -6,6 +6,7 @@
 #include "collectfood.h"
 #include "collectwater.h"
 #include "collectwood.h"
+#include "eliminatedplayer.h"
 
 class ActionSelector;
 
@@ -42,6 +43,11 @@ public:
     void collectAdditionalWood(int trips);
     void raftCreated();
 
+    // Metoda za eliminaciju igrača
+    void eliminate();
+    // Getter za eliminisane igrače
+    EliminatedPlayer* getEliminatedPlayer() const;
+
 private:
     QString playerName;
     bool alive;
@@ -57,6 +63,8 @@ private:
     CollectFood *collectFoodAction;
     CollectWater *collectWaterAction;
     CollectWood *collectWoodAction;
+
+    EliminatedPlayer* eliminatedPlayer;
 
 };
 

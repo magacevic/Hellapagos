@@ -5,7 +5,7 @@
 #include <QInputDialog>
 
 Player::Player(const QString& name)
-    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), foodCollectedInRound(0)
+    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), foodCollectedInRound(0), eliminatedPlayer(nullptr)
 {
     // Inicijalizacija objekata za akcije
     collectFoodAction = new CollectFood();
@@ -101,3 +101,15 @@ void Player::raftCreated() {
     }
 }
 */
+
+void Player::eliminate() {
+    alive = false;
+    // Kreira novu instancu EliminatedPlayer kada je igrač eliminisan
+    if (eliminatedPlayer == nullptr) {
+        eliminatedPlayer = new EliminatedPlayer();
+    }
+}
+EliminatedPlayer* Player::getEliminatedPlayer() const {
+    return eliminatedPlayer;
+}
+

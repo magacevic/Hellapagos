@@ -1,0 +1,11 @@
+# ninja log v6
+1	1222	1733661589150669405	server_autogen/timestamp	853ac6b2c15c9f8a
+1	1222	1733661589150669405	server_autogen/mocs_compilation.cpp	853ac6b2c15c9f8a
+1	1222	1733661589150669405	/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/timestamp	853ac6b2c15c9f8a
+1	1222	1733661589150669405	/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/mocs_compilation.cpp	853ac6b2c15c9f8a
+1224	8196	1733661589170669641	CMakeFiles/server.dir/main.cpp.o	8d7acb7f74724376
+1224	8297	1733661589170669641	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	27c11c1f7dad65f5
+1224	9742	1733661589170669641	CMakeFiles/server.dir/serverApp.cpp.o	fade70b8600714cc
+8297	13141	1733661596244086715	CMakeFiles/server.dir/roundmanager.cpp.o	18b341041b92d151
+8196	13809	1733661596144085531	CMakeFiles/server.dir/gameserver.cpp.o	84d8999f1c4d80ec
+13809	14660	1733661601754151947	server	df87c7e57ac50a93
