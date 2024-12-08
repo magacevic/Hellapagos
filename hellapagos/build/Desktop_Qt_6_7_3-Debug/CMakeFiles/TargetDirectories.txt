@@ -1,9 +1,0 @@
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/edit_cache.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/rebuild_cache.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/list_install_components.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/install.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/install/local.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/install/strip.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos_autogen_timestamp_deps.dir
-/home/jelena/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/hellapagos_autogen.dir

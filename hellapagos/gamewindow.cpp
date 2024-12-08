@@ -1,5 +1,6 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
+#include "gamestatistics.h"
 #include <QRandomGenerator>
 #include <QInputDialog>
 #include <QMessageBox>
@@ -258,4 +259,31 @@ void GameWindow::on_castVoteButton_clicked()
 */
 }
 
+
+
+
+
+void GameWindow::on_statButton_clicked()
+{
+    GameStatistics gameStats;
+
+    gameStats.loadFromJson(gameStats.getFileName());
+
+    if (gameStats.getTotalGamesPlayed() == 0) {
+        QMessageBox::information(this, "No Data", "No game results available.");
+        return;
+    }
+
+    QString statsText;
+    statsText += "Game Statistics:\n\n";
+    for (const GameStatistics::GameResult& result : gameStats.getGameResults()) {
+        statsText += QString("Game Date: %1\n").arg(result.gameDate.toString(Qt::ISODate));
+        statsText += QString("Winners: %1\n").arg(result.winners.join(", "));
+        statsText += QString("Remaining Food: %1\n").arg(result.remainingFood);
+        statsText += QString("Remaining Water: %1\n").arg(result.remainingWater);
+        statsText += QString("Remaining Wood: %1\n\n").arg(result.remainingWood);
+    }
+
+    QMessageBox::information(this, "Game Statistics", statsText);
+}
 

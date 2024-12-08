@@ -446,6 +446,19 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <string>Vote</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="statButton">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>40</y>
+      <width>151</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Game Statistics</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -453,7 +466,7 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>23</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

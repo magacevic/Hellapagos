@@ -32,7 +32,7 @@ public:
     void addWater(int water);
 
     // Upravljanje drvima
-    int getTotalWood();
+    int getTotalWood() const;
     void addWood(int wood);
 
     // Metode za pozivanje akcija

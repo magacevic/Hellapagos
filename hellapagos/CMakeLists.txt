@@ -39,6 +39,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         actionselector.h actionselector.cpp
         voting.h voting.cpp
         sickplayer.h sickplayer.cpp
+        gamestatistics.h gamestatistics.cpp
 
 
 

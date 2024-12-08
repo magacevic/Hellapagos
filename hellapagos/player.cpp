@@ -5,7 +5,7 @@
 #include <QInputDialog>
 
 Player::Player(const QString& name)
-    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), foodCollectedInRound(0)
+    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), foodCollectedInRound(0)
 {
     // Inicijalizacija objekata za akcije
     collectFoodAction = new CollectFood();
@@ -46,10 +46,8 @@ int Player::getTotalWater() const {
     return totalWater;
 }
 
-int Player::getTotalWood() {
-    int woodInRound = totalWood;
-    totalWood = 0;
-    return woodInRound;
+int Player::getTotalWood() const {
+    return totalWood;
 }
 
 void Player::addFood(int food) {

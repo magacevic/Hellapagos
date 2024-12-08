@@ -2,6 +2,7 @@
 #include <QDebug>
 #include <cstdlib>
 #include <ctime>
+#include <QMessageBox>
 
 CollectWood::CollectWood(QObject *parent)
     : QObject(parent),
@@ -17,6 +18,7 @@ CollectWood::CollectWood(QObject *parent)
 void CollectWood::performAction()
 {
     woodCollected = 0;
+    totalWoodCollected = 0;
     // Player always collects one piece of wood
     woodCollected += 1;
     totalWoodCollected +=1;
@@ -29,6 +31,7 @@ void CollectWood::goToForest(int additionalWood) {
     if (checkForSnakeBite(additionalWood)) {
         //qDebug() << "You got bitten by a snake and got sick!";
         playerGotSick = true;
+        QMessageBox::critical(nullptr, "Snake Bite", "You got bitten by a snake and got sick!");
         qDebug() << "Player got bitten";
 
     } else {
