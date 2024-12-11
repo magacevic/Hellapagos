@@ -14,6 +14,7 @@ public:
     void collectWaterFromCard(QWidget *card);
     int performAction();
 
+
 private:
     int waterCollected;
     int currentWater;

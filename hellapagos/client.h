@@ -13,7 +13,7 @@ public:
     explicit Client(QObject *parent = nullptr);
     ~Client();
 
-
+    void sendMessage(const QString &message);
 
     void connectToServer();
     void sendJoinCommand(const QString &playerName); // New function
@@ -37,7 +37,6 @@ private slots:
 
 private:
     QTcpSocket *tcpSocket;
-    void sendMessage(const QString &message);
 
 };
 

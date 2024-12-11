@@ -80,6 +80,11 @@ void Server::onReadyRead()
         // Pass the request to the GameServer to handle the logic
         gameServer->onWeatherCardRequest();
     }
+\
+    if (message.startsWith("ACTION_COMPLETED:")) {
+        gameServer->getRoundManager()->nextTurn();
+    }
+
 
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();

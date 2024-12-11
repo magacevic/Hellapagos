@@ -44,6 +44,7 @@ int CollectWater::performAction()
     //Reset the collected water in a turn to 0
     int waterCollectedInRound = waterCollected;
     waterCollected = 0;
+    //emit actionCompleted("COLLECT_WATER");
     return waterCollectedInRound;
 }
 

@@ -153,6 +153,14 @@ void GameWindow::on_collectWaterButton_clicked()
         actionSelector->selectAction(COLLECT_WATER, currentCard);
 
         qDebug() << "- Total collected water:" << currentPlayer->getTotalWater();
+        if (m_client) {
+            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WATER");
+            m_client->sendMessage(actionMessage);
+            qDebug() << "Sent action completion message to server: " << actionMessage;
+        } else {
+            qDebug() << "Client object is null!";
+        }
+
     } else {
         qDebug() << "No active card available to collect water from!";
     }
