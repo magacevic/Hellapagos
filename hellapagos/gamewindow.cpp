@@ -123,6 +123,14 @@ void GameWindow::on_collectWoodButton_clicked()
             actionSelector->selectAction(COLLECT_ADDITIONAL_WOOD, nullptr, additionalWood);
         }
     }
+
+    if (m_client) {
+        QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WOOD");
+        m_client->sendMessage(actionMessage);
+        qDebug() << "Sent action completion message to server: " << actionMessage;
+    } else {
+        qDebug() << "Client object is null!";
+    }
     // Reset the current players total wood after round
     qDebug() << "Wood collected by current player: " << currentPlayer->getTotalWood();
 
@@ -187,6 +195,14 @@ void GameWindow::on_collectFoodButton_clicked()
 
     int totalFood = currentPlayer->getTotalFood();
     qDebug() << "Total food collected so far: " << totalFood;
+
+    if (m_client) {
+        QString actionMessage = QString("ACTION_COMPLETED:COLLECT_FOOD");
+        m_client->sendMessage(actionMessage);
+        qDebug() << "Sent action completion message to server: " << actionMessage;
+    } else {
+        qDebug() << "Client object is null!";
+    }
 
     QTimer::singleShot(500, this, [this]() {
         ui->collectFoodButton->setEnabled(true);

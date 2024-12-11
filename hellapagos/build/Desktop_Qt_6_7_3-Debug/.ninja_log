@@ -49,3 +49,10 @@
 26031	32456	1733876785149828303	CMakeFiles/hellapagos.dir/gamestatistics.cpp.o	fba292c649ed1fc4
 27035	97509	1733876850150496734	CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.o	37dbaf60a85c48a6
 97509	98592	1733876851278508320	hellapagos	a146d02ead3b2a01
+3	40	1733877148977554438	hellapagos_autogen/timestamp	ac3a158ecfa40564
+3	40	1733877148977554438	hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+3	40	1733877148977554438	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp	ac3a158ecfa40564
+3	40	1733877148977554438	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+43	6167	1733877158793654551	CMakeFiles/hellapagos.dir/mainwindow.cpp.o	79a1983895beff60
+44	6531	1733877159153658223	CMakeFiles/hellapagos.dir/gamewindow.cpp.o	481208e28d09c86b
+6532	7371	1733877159993666789	hellapagos	a146d02ead3b2a01
