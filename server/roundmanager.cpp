@@ -41,3 +41,6 @@ QString RoundManager::nextPlayer() const
     int nextIndex = (currentPlayerIndex + 1) % players.size();
     return players.at(nextIndex);
 }
+int RoundManager::getCurrentPlayerIndex() {
+    return currentPlayerIndex; // Replace with your actual logic
+}

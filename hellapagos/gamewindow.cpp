@@ -144,14 +144,26 @@ void GameWindow::on_collectWoodButton_clicked()
 
 void GameWindow::on_collectWaterButton_clicked()
 {
+    isCollectingWater = true;
+    qDebug() << "Started collecting water.";  // Debugging
+
 
     if (isCollectingWater) {
         qDebug() << "Already collecting water, ignoring the click."; // Debugging
         return;
     }
 
-    isCollectingWater = true;
-    qDebug() << "Started collecting water.";  // Debugging
+    if (m_client) {
+        QString actionMessage = "REQUEST_ACTION:COLLECT_WATER";
+        m_client->sendMessage(actionMessage);
+        qDebug() << "Sent action request message to server: " << actionMessage;
+    } else {
+        qDebug() << "Client object is null!";
+        return;
+    }
+
+    connect(m_client, &Client::collectWaterApproved, this, [this]() {
+
 
     ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
 
@@ -177,6 +189,7 @@ void GameWindow::on_collectWaterButton_clicked()
     QTimer::singleShot(500, this, [this]() {
         ui->collectWaterButton->setEnabled(true);
         isCollectingWater = false;  // Resetujemo flag
+    });
     });
 }
 

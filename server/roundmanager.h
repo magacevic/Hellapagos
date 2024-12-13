@@ -20,6 +20,7 @@ public:
     // Dohvati trenutnog i narednog igrača
     QString currentPlayer() const;
     QString nextPlayer() const;
+    int getCurrentPlayerIndex();
 
 signals:
     // Signal koji obaveštava server kada se promeni trenutni i naredni igrač

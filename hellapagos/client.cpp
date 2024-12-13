@@ -24,6 +24,7 @@ void Client::sendMessage(const QString &message)
 {
     if (tcpSocket->state() == QTcpSocket::ConnectedState) {
         tcpSocket->write(message.toUtf8());
+        //tcpSocket->flush();
     }
 }
 
@@ -56,6 +57,19 @@ void Client::onReadyRead()
     if (message.startsWith("WEATHER_CARD:")) {
         int index = message.split(":").last().toInt();
         emit weatherCardUpdated(index);
+    }
+
+    if (message.startsWith("ACTION_APPROVED:")) {
+        QString action = message.split(":").last();
+
+        // Trigger the corresponding action in the game
+        if (action == "COLLECT_WATER") {
+            emit collectWaterApproved();
+        }
+    } else if (message == "Sorry, not your turn.") {
+       // QMessageBox::information(nullptr, "Not Your Turn", "Sorry, it's not your turn to play.");
+        qDebug()<<"Not your turn...";
+
     }
 
     if (message == "AllReady") {

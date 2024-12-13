@@ -27,6 +27,7 @@ signals:
     void serverFullSignal();  // Signal to notify the server is full
     void allPlayersReady();
     void weatherCardUpdated(int newIndex);
+    void collectWaterApproved();
 
 
 private slots:

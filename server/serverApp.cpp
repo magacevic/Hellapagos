@@ -86,6 +86,26 @@ void Server::onReadyRead()
     }
 
 
+    if (message.startsWith("REQUEST_ACTION:")) {
+        QString action = message.split(":").last(); // Get action type (e.g., COLLECT_WATER)
+        int playerIndex = clientSockets.indexOf(senderSocket);
+
+        // Check if it's the current player's turn
+        QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
+        if (playerIndex == gameServer->getRoundManager()->getCurrentPlayerIndex()) {
+            qDebug() << "Action approved for current player:" << currentPlayer;
+
+            // Notify the client to proceed with the action
+            senderSocket->write(QString("ACTION_APPROVED:%1").arg(action).toUtf8());
+        } else {
+            qDebug() << "Action denied. Not current player's turn.";
+            //senderSocket->write(("Sorry, not your turn." + playerIndex).toUtf8());
+            senderSocket->write(QString("Sorry, not your turn. Player %1").arg(playerIndex).toUtf8());
+
+
+        }
+    }
+
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;
