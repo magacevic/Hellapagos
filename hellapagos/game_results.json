@@ -1,0 +1,109 @@
+{
+    "gameResults": [
+        {
+            "winners": ["Pera", "Žika"],
+            "gameDate": "2024-12-14T10:00:00Z",
+            "remainingFood": 120,
+            "remainingWater": 80,
+            "remainingWood": 50
+        },
+        {
+            "winners": ["Mika"],
+            "gameDate": "2024-12-14T12:15:00Z",
+            "remainingFood": 110,
+            "remainingWater": 75,
+            "remainingWood": 45
+        },
+        {
+            "winners": ["Pera", "Mika"],
+            "gameDate": "2024-12-14T14:30:00Z",
+            "remainingFood": 100,
+            "remainingWater": 65,
+            "remainingWood": 55
+        },
+        {
+            "winners": ["Žika", "Mika"],
+            "gameDate": "2024-12-14T16:45:00Z",
+            "remainingFood": 95,
+            "remainingWater": 70,
+            "remainingWood": 60
+        },
+        {
+            "winners": ["Pera"],
+            "gameDate": "2024-12-14T18:00:00Z",
+            "remainingFood": 85,
+            "remainingWater": 60,
+            "remainingWood": 50
+        },
+        {
+            "winners": ["Žika", "Mika"],
+            "gameDate": "2024-12-14T19:15:00Z",
+            "remainingFood": 90,
+            "remainingWater": 55,
+            "remainingWood": 65
+        },
+        {
+            "winners": ["Pera"],
+            "gameDate": "2024-12-15T09:00:00Z",
+            "remainingFood": 120,
+            "remainingWater": 80,
+            "remainingWood": 40
+        },
+        {
+            "winners": ["Žika"],
+            "gameDate": "2024-12-15T10:30:00Z",
+            "remainingFood": 110,
+            "remainingWater": 85,
+            "remainingWood": 50
+        },
+        {
+            "winners": ["Mika"],
+            "gameDate": "2024-12-15T12:00:00Z",
+            "remainingFood": 100,
+            "remainingWater": 60,
+            "remainingWood": 55
+        },
+        {
+            "winners": ["Pera", "Žika"],
+            "gameDate": "2024-12-15T13:30:00Z",
+            "remainingFood": 80,
+            "remainingWater": 70,
+            "remainingWood": 45
+        },
+        {
+            "winners": ["Mika", "Pera"],
+            "gameDate": "2024-12-15T15:00:00Z",
+            "remainingFood": 90,
+            "remainingWater": 75,
+            "remainingWood": 60
+        },
+        {
+            "winners": ["Žika"],
+            "gameDate": "2024-12-15T16:30:00Z",
+            "remainingFood": 95,
+            "remainingWater": 65,
+            "remainingWood": 50
+        },
+        {
+            "winners": ["Mika", "Žika"],
+            "gameDate": "2024-12-15T18:00:00Z",
+            "remainingFood": 100,
+            "remainingWater": 80,
+            "remainingWood": 55
+        },
+        {
+            "winners": ["Pera"],
+            "gameDate": "2024-12-15T19:30:00Z",
+            "remainingFood": 85,
+            "remainingWater": 50,
+            "remainingWood": 60
+        },
+        {
+            "winners": ["Žika", "Mika"],
+            "gameDate": "2024-12-16T09:00:00Z",
+            "remainingFood": 110,
+            "remainingWater": 90,
+            "remainingWood": 65
+        }
+    ]
+}

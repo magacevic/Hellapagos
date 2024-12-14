@@ -5,6 +5,8 @@
 #include <QInputDialog>
 #include <QMessageBox>
 #include <QTimer>
+#include <QVBoxLayout>
+#include <QScrollArea>
 
 /*GameWindow::GameWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -312,6 +314,8 @@ void GameWindow::on_statButton_clicked()
     }
 
     QString statsText;
+    statsText += QString("Total Games Played: %1\n\n").arg(gameStats.getTotalGamesPlayed());
+
     statsText += "Game Statistics:\n\n";
     for (const GameStatistics::GameResult& result : gameStats.getGameResults()) {
         statsText += QString("Game Date: %1\n").arg(result.gameDate.toString(Qt::ISODate));
@@ -321,6 +325,23 @@ void GameWindow::on_statButton_clicked()
         statsText += QString("Remaining Wood: %1\n\n").arg(result.remainingWood);
     }
 
-    QMessageBox::information(this, "Game Statistics", statsText);
+    // dizajn prozora za prikaz statistike
+    QWidget *statsWidget = new QWidget(this);
+    QVBoxLayout *layout = new QVBoxLayout(statsWidget);
+
+    QLabel *statsLabel = new QLabel(statsText, statsWidget);
+    statsLabel->setWordWrap(true);
+    layout->addWidget(statsLabel);
+
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setWidget(statsWidget);
+    scrollArea->setWidgetResizable(true);
+
+    QDialog *statsDialog = new QDialog(this);
+    statsDialog->setWindowTitle("Game Statistics");
+    QVBoxLayout *dialogLayout = new QVBoxLayout(statsDialog);
+    dialogLayout->addWidget(scrollArea);
+
+    statsDialog->exec();
 }
 

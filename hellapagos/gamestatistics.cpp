@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDateTime>
+#include <QDir>
 
 GameStatistics::GameStatistics() {
     fileName = "game_results.json";
@@ -58,7 +59,17 @@ void GameStatistics::saveToJson(const QString& filename) {
 
 void GameStatistics::loadFromJson(const QString& filename) {
 
-    QFile file(filename);
+    QDir dir = QDir::current();
+
+    // Vracanje dva foldera unazad (fajl nije u build nego u hellapagos folderu)
+    dir.cdUp();  // Go up one directory level
+    dir.cdUp();  // Go up another directory level
+
+    QString filePath = dir.filePath(filename);
+
+    //qDebug() << "Absolute file path:" << filePath;
+
+    QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly)) {
         qWarning("Couldn't open file for reading.");
         return;
