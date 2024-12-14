@@ -1,27 +1,28 @@
 #ifndef SICKPLAYER_H
 #define SICKPLAYER_H
 
-#include "collectwood.h"
 #include <QObject>
-#include <QWidget>
 
-class sickPlayer : public CollectWood
-{
-    Q_OBJECT
-public:
-    explicit sickPlayer(QObject *parent = nullptr);
 
-    // Methods for player actions
-    void enterForest(bool collectAdditional, int additionalWood = 0);
-    void inspectWreck();
-    void displayStatus();
-
+class SickPlayer {
 private:
-    bool isSick;                  // Tracks if the player is sick
-    int safeWood;                 // Wood that is always retained
-    QVector<int> wreckCards;      // Cards collected from inspecting the wreck
+    // Number of rounds until the player recovers
+    int recoveryRounds;
 
-    void checkRaftCreation();     // Check if a raft can be created
+public:
+    SickPlayer();
+
+    // Reduces the number of remaining rounds for recovery
+    void decrementRecovery();
+
+    // Check if the player can vote
+    bool canVote() const;
+
+    // Check if the player can perform actions
+    bool canPerformActions() const;
+
+    // Check if the player has recovered
+    bool isRecovered() const;
 };
 
 #endif // SICKPLAYER_H
