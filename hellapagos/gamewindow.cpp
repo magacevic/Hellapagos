@@ -25,6 +25,16 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
 
     voting = new Voting(this);
 
+    Player* player1 = new Player("player1");
+    Player* player2 = new Player("player2");
+    Player* player3 = new Player("player3");
+
+    allPlayers.append(player1);
+    allPlayers.append(player2);
+    allPlayers.append(player3);
+
+    currentPlayer = player1;
+
     // Connect signals related to voting
     connect(voting, &Voting::votingStarted, this, &GameWindow::onVotingStarted);
     connect(voting, &Voting::votingConcluded, this, &GameWindow::onVotingConcluded);
@@ -147,11 +157,11 @@ void GameWindow::on_collectWoodButton_clicked()
 void GameWindow::on_collectWaterButton_clicked()
 {
     isCollectingWater = true;
-    qDebug() << "Started collecting water.";  // Debugging
+    qDebug() << "Started collecting water.";
 
 
     if (isCollectingWater) {
-        qDebug() << "Already collecting water, ignoring the click."; // Debugging
+        qDebug() << "Already collecting water, ignoring the click.";
         return;
     }
 
@@ -255,11 +265,10 @@ void GameWindow::onVotingConcluded()
 
 void GameWindow::on_castVoteButton_clicked()
 {
-    /*
     if (voting && voting->votingInProgress) {
         QList<Player*> otherPlayers;
 
-        for (Player* player : allPlayers) {  // Assuming `allPlayers` contains all players
+        for (Player* player : allPlayers) {
             if (player != currentPlayer) {
                 otherPlayers.append(player);
             }
@@ -289,13 +298,15 @@ void GameWindow::on_castVoteButton_clicked()
             }
 
             if (selectedPlayer) {
-                int voteValue = 1; // You can customize the vote value (1 means vote for elimination, for example)
+                int voteValue = 1;
                 voting->castVote(selectedPlayer, voteValue);
                 qDebug() << "Voted for player:" << selectedPlayer->getName();
             }
         }
+    }else {
+        qDebug() << "Voting is not in progress.";
     }
-*/
+
 }
 
 

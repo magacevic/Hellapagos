@@ -41,6 +41,7 @@ private slots:
 private:
     Ui::GameWindow *ui;
     Player *currentPlayer;
+    QList<Player*> allPlayers;
     Client* m_client;
     CollectWood collectWood;
     CollectWater collectWater;

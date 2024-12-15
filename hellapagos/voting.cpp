@@ -58,6 +58,10 @@ void Voting::castVote(Player* player, int vote) {
     }
 
     if (isVoteValid(player)) {
+        if (votes.contains(player)) {
+            qDebug() << player->getName() << "has already voted.";
+            return;
+        }
         votes[player] = vote;
         qDebug() << player->getName() << "cast a vote: " << vote;
     } else {

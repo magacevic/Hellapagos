@@ -1,6 +1,5 @@
 #include "roundmanager.h"
-#include <QDebug>  // Za ispisivanje u terminalu
-
+#include <QDebug>
 RoundManager::RoundManager(QObject* parent) : QObject(parent), currentPlayerIndex(0)
 {
 }
