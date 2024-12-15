@@ -2,6 +2,8 @@
 #define GAMESTATE_H
 
 #include <QObject>
+#include <QString>
+#include <QDebug>
 
 class GameState
 {
@@ -14,8 +16,8 @@ private:
 public:
     GameState();
 
-    // Updating game state
     void updateState(int waterChange, int foodChange, int woodChange, int raftChange);
+    void printState(int roundNumber, int water, int food, int wood, int raftsMade);
 };
 
 #endif // GAMESTATE_H
