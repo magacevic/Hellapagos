@@ -7,6 +7,7 @@
 #include "collectwater.h"
 #include "collectwood.h"
 #include "eliminatedplayer.h"
+#include "sickplayer.h"
 
 class ActionSelector;
 
@@ -23,6 +24,9 @@ public:
 
     bool isSick() const;
     void setSick(bool sick);
+    
+    bool canPerformActions() const;
+    bool canVote() const;
 
     // Upravljanje hranom
     int getTotalFood() const;
@@ -42,6 +46,7 @@ public:
     void collectWood();
     void collectAdditionalWood(int trips);
     void raftCreated();
+    void recover();
 
     // Metoda za eliminaciju igrača
     void eliminate();
@@ -57,6 +62,8 @@ private:
     int foodCollectedInRound;
     int totalWater;
     int totalWood;
+    
+    SickPlayer* sickPlayer;
 
     QWidget getCurrentCard();
 
