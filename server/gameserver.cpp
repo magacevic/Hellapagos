@@ -82,9 +82,13 @@ void GameServer::onWeatherCardRequest() {
 void GameServer::onPlayerChanged(int newPlayerId)
 {
     // Logika kada se promeni igrač (prihvatamo ID igrača)
-    qDebug() << "Igrač promenjen. Novi igrač ID:" << newPlayerId;
+   // qDebug() << "Igrač promenjen. Novi igrač ID:" << newPlayerId;
 
-    // Dobijamo ime trenutnog igrača prema ID-u (indeksu)
+    if (newPlayerId < 0 || newPlayerId >= players.size()) {
+        qDebug() << "Invalid player ID";
+        return;
+    }
+
     QString currentPlayer = players.at(newPlayerId);
     qDebug() << "Trenutni igrač:" << currentPlayer;
 

@@ -145,14 +145,16 @@ void GameWindow::on_collectWoodButton_clicked()
 
 void GameWindow::on_collectWaterButton_clicked()
 {
-    isCollectingWater = true;
-    qDebug() << "Started collecting water.";
 
 
     if (isCollectingWater) {
         qDebug() << "Already collecting water, ignoring the click.";
         return;
     }
+
+    isCollectingWater = true;
+    qDebug() << "Started collecting water.";
+
 
     if (m_client) {
         QString actionMessage = "REQUEST_ACTION:COLLECT_WATER";

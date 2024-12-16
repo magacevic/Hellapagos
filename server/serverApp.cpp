@@ -88,19 +88,37 @@ void Server::onReadyRead()
 
     if (message.startsWith("REQUEST_ACTION:")) {
         QString action = message.split(":").last(); // Get action type (e.g., COLLECT_WATER)
-        int playerIndex = clientSockets.indexOf(senderSocket);
+       // int playerIndex = clientSockets.indexOf(senderSocket);
+/*
+        QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
 
         // Check if it's the current player's turn
-        QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
-        if (playerIndex == gameServer->getRoundManager()->getCurrentPlayerIndex()) {
-            qDebug() << "Action approved for current player:" << currentPlayer;
+       // QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
+        QString senderName;
+        for (const auto& name : gameServer->getPlayers()) {
+            int index = gameServer->getPlayers().indexOf(name);
+            if (clientSockets[index] == senderSocket) {
+                senderName = name;
+                break;
+            }
+        }
+
+*/
+        //if (playerIndex == gameServer->getRoundManager()->getCurrentPlayerIndex()) {
+        QString playerName = gameServer->getRoundManager()->currentPlayer();
+        QTcpSocket* currentSocket = clientSockets.at(gameServer->getRoundManager()->getCurrentPlayerIndex());
+
+
+        if (senderSocket == currentSocket) {
+
+            qDebug() << "Action approved for current player:" << playerName;
 
             // Notify the client to proceed with the action
             senderSocket->write(QString("ACTION_APPROVED:%1").arg(action).toUtf8());
         } else {
             qDebug() << "Action denied. Not current player's turn.";
             //senderSocket->write(("Sorry, not your turn." + playerIndex).toUtf8());
-            senderSocket->write(QString("Sorry, not your turn. Player %1").arg(playerIndex).toUtf8());
+            senderSocket->write(QString("Sorry, not your turn. Player %1").arg(playerName).toUtf8());
 
 
         }

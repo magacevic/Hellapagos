@@ -1,105 +1,105 @@
-/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/EWIEGA46WW/moc_roundmanager.cpp: /home/mina/Hellapagos/server/roundmanager.h \
-  /home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/moc_predefs.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/QObject \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/QStringList \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q20type_traits.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qalgorithms.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qanystringview.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qarraydata.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qarraydataops.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qarraydatapointer.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qassert.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qatomic.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qatomic_cxx11.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qbasicatomic.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qbindingstorage.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qbytearray.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qbytearraylist.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qbytearrayview.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qchar.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcompare.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcompare_impl.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcomparehelpers.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcompilerdetection.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qconfig.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qconstructormacros.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontainerfwd.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontainerinfo.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontainertools_impl.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qdarwinhelpers.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qdatastream.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qexceptionhandling.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qflags.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qfloat16.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qforeach.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qfunctionaltools_impl.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qfunctionpointer.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qgenericatomic.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qglobal.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qglobalstatic.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qhashfunctions.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiodevicebase.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiterable.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiterator.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qlatin1stringview.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qlist.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qlogging.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qmalloc.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qmath.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qmetacontainer.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qmetatype.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qminmax.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qnamespace.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qnumeric.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qobject.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qobject_impl.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qobjectdefs.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qoverload.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qpair.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qprocessordetection.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qrefcount.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qscopedpointer.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qscopeguard.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstring.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringalgorithms.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringbuilder.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringconverter.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringconverter_base.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringfwd.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringlist.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringliteral.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringmatcher.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringtokenizer.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringview.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qswap.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qsysinfo.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qsystemdetection.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtaggedpointer.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtclasshelpermacros.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtconfiginclude.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtconfigmacros.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtcore-config.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtcoreexports.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtdeprecationmarkers.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtenvironmentvariables.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtmetamacros.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtnoop.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtpreprocessorsupport.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtresource.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qttranslation.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qttypetraits.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtversion.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtversionchecks.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtypeinfo.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtypes.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qutf8stringview.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qversiontagging.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qxptype_traits.h \
-  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qyieldcpu.h \
+/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/EWIEGA46WW/moc_roundmanager.cpp: /home/ksenija/Desktop/Hellapagos/server/roundmanager.h \
+  /home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/moc_predefs.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QObject \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/QStringList \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/q20type_traits.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qalgorithms.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qanystringview.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qarraydata.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qarraydataops.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qarraydatapointer.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qassert.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qatomic.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qatomic_cxx11.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qbasicatomic.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qbindingstorage.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qbytearray.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qbytearrayalgorithms.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qbytearraylist.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qbytearrayview.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qchar.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcompare.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcompare_impl.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcomparehelpers.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcompilerdetection.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qconfig.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qconstructormacros.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcontainerfwd.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcontainerinfo.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qdarwinhelpers.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qdatastream.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qexceptionhandling.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qflags.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qfloat16.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qforeach.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qfunctionaltools_impl.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qfunctionpointer.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qgenericatomic.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qglobal.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qglobalstatic.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qhashfunctions.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiodevicebase.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiterable.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qiterator.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qlatin1stringview.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qlist.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qlogging.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qmalloc.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qmath.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qmetacontainer.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qmetatype.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qminmax.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qnamespace.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qnumeric.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qobject.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qobject_impl.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qobjectdefs.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qobjectdefs_impl.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qoverload.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qpair.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qprocessordetection.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qrefcount.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qscopedpointer.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qscopeguard.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstring.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringalgorithms.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringbuilder.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringconverter.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringconverter_base.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringfwd.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringlist.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringliteral.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringmatcher.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringtokenizer.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qstringview.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qswap.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qsysinfo.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qsystemdetection.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtaggedpointer.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtclasshelpermacros.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtconfiginclude.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtconfigmacros.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtcore-config.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtcoreexports.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtdeprecationmarkers.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtenvironmentvariables.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtmetamacros.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtnoop.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtpreprocessorsupport.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtresource.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qttranslation.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qttypetraits.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtversion.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtversionchecks.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtypeinfo.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qtypes.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qutf8stringview.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qversiontagging.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qxptype_traits.h \
+  /home/ksenija/Qt/6.7.3/gcc_64/include/QtCore/qyieldcpu.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
@@ -255,7 +255,6 @@
   /usr/include/c++/10/vector \
   /usr/include/ctype.h \
   /usr/include/errno.h \
-  /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/linux/errno.h \
   /usr/include/locale.h \
@@ -268,7 +267,6 @@
   /usr/include/time.h \
   /usr/include/wchar.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
-  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
@@ -278,7 +276,6 @@
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
-  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/sched.h \
@@ -286,6 +283,7 @@
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/sys_errlist.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -298,7 +296,6 @@
   /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
@@ -306,7 +303,6 @@
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
