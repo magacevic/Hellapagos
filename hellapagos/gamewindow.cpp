@@ -25,24 +25,13 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
 
     voting = new Voting(this);
 
-    Player* player1 = new Player("player1");
-    Player* player2 = new Player("player2");
-    Player* player3 = new Player("player3");
-
-    allPlayers.append(player1);
-    allPlayers.append(player2);
-    allPlayers.append(player3);
-
-    currentPlayer = player1;
-
-    // Connect signals related to voting
     connect(voting, &Voting::votingStarted, this, &GameWindow::onVotingStarted);
     connect(voting, &Voting::votingConcluded, this, &GameWindow::onVotingConcluded);
     connect(ui->castVoteButton, &QPushButton::clicked, voting, &Voting::on_castVoteButton_clicked);
 
 
 
-    // Optionally, display player's name on a QLabel or similar widget in the UI
+
     ui->playerNameLabel->setText(currentPlayer->getName());
     connect(m_client, &Client::weatherCardUpdated, this, &GameWindow::updateWeatherCard);
     connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
@@ -252,7 +241,7 @@ void GameWindow::onVotingStarted()
 
 void GameWindow::onVotingConcluded()
 {
-    Player* eliminatedPlayer = voting->getEliminatedPlayer();  // Use the getter
+    Player* eliminatedPlayer = voting->getEliminatedPlayer();
 
     if (eliminatedPlayer) {
         QMessageBox::information(this, "Voting Concluded",
