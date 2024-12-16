@@ -65,6 +65,10 @@ void Client::onReadyRead()
         // Trigger the corresponding action in the game
         if (action == "COLLECT_WATER") {
             emit collectWaterApproved();
+        } else if (action == "COLLECT_WOOD") {
+            emit collectWoodApproved();
+        }else if (action == "COLLECT_FOOD") {
+            emit collectFoodApproved();
         }
     } else if (message == "Sorry, not your turn.") {
        // QMessageBox::information(nullptr, "Not Your Turn", "Sorry, it's not your turn to play.");

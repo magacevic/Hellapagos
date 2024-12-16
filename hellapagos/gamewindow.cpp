@@ -100,46 +100,57 @@ void GameWindow::on_collectWoodButton_clicked()
     isCollectingWood = true;
     qDebug() << "Started collecting wood.";
 
-    ui->collectWoodButton->setEnabled(false);
-
-    // Always collect 1 wood
-    actionSelector->selectAction(COLLECT_WOOD);
-
-    // Ask the player if they want to collect more wood
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Go To Forest",
-                                  "You have collected 1 wood. Do you want to go to the forest and collect more?",
-                                  QMessageBox::Yes | QMessageBox::No);
-
-    if (reply == QMessageBox::Yes) {
-        // Ask how many more pieces of wood they want to collect (1-5)
-        bool ok = true;
-        int additionalWood = QInputDialog::getInt(this, "Collect More",
-                                                  "Select number of wood (1-5):",
-                                                  1, 1, 5, 1, &ok);
-        qDebug() << additionalWood;
-
-        if (ok) {
-            // Perform action based on the number of additional wood the player wants to collect
-            actionSelector->selectAction(COLLECT_ADDITIONAL_WOOD, nullptr, additionalWood);
-        }
-    }
-
     if (m_client) {
-        QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WOOD");
+        QString actionMessage = "REQUEST_ACTION:COLLECT_WOOD";
         m_client->sendMessage(actionMessage);
-        qDebug() << "Sent action completion message to server: " << actionMessage;
+        qDebug() << "Sent action request message to server: " << actionMessage;
     } else {
         qDebug() << "Client object is null!";
+        return;
     }
-    // Reset the current players total wood after round
-    qDebug() << "Wood collected by current player: " << currentPlayer->getTotalWood();
 
-    QTimer::singleShot(500, this, [this]() {
-        ui->collectWoodButton->setEnabled(true);
-        isCollectingWood = false;  // Resetujemo flag
+    connect(m_client, &Client::collectWoodApproved, this, [this]() {
+
+        ui->collectWoodButton->setEnabled(false);
+
+        // Always collect 1 wood
+        actionSelector->selectAction(COLLECT_WOOD);
+
+        // Ask the player if they want to collect more wood
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::question(this, "Go To Forest",
+                                      "You have collected 1 wood. Do you want to go to the forest and collect more?",
+                                      QMessageBox::Yes | QMessageBox::No);
+
+        if (reply == QMessageBox::Yes) {
+            // Ask how many more pieces of wood they want to collect (1-5)
+            bool ok = true;
+            int additionalWood = QInputDialog::getInt(this, "Collect More",
+                                                      "Select number of wood (1-5):",
+                                                      1, 1, 5, 1, &ok);
+            qDebug() << additionalWood;
+
+            if (ok) {
+                // Perform action based on the number of additional wood the player wants to collect
+                actionSelector->selectAction(COLLECT_ADDITIONAL_WOOD, nullptr, additionalWood);
+            }
+        }
+
+        if (m_client) {
+            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WOOD");
+            m_client->sendMessage(actionMessage);
+            qDebug() << "Sent action completion message to server: " << actionMessage;
+        } else {
+            qDebug() << "Client object is null!";
+        }
+        // Reset the current players total wood after round
+        qDebug() << "Wood collected by current player: " << currentPlayer->getTotalWood();
+
+        QTimer::singleShot(500, this, [this]() {
+            ui->collectWoodButton->setEnabled(true);
+            isCollectingWood = false;  // Resetujemo flag
+        });
     });
-
 }
 
 
@@ -206,23 +217,36 @@ void GameWindow::on_collectFoodButton_clicked()
     isCollectingFood = true;
     qDebug() << "Started collecting food.";
 
-    ui->collectFoodButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
-    actionSelector->selectAction(COLLECT_FOOD);
-
-    int totalFood = currentPlayer->getTotalFood();
-    qDebug() << "Total food collected so far: " << totalFood;
+   // Ovo radimo da bismo izbegli registraciju vise klikova
 
     if (m_client) {
-        QString actionMessage = QString("ACTION_COMPLETED:COLLECT_FOOD");
+        QString actionMessage = "REQUEST_ACTION:COLLECT_FOOD";
         m_client->sendMessage(actionMessage);
-        qDebug() << "Sent action completion message to server: " << actionMessage;
+        qDebug() << "Sent action request message to server: " << actionMessage;
     } else {
         qDebug() << "Client object is null!";
+        return;
     }
 
-    QTimer::singleShot(500, this, [this]() {
-        ui->collectFoodButton->setEnabled(true);
-        isCollectingFood = false;  // Resetujemo flag
+    connect(m_client, &Client::collectFoodApproved, this, [this]() {
+         ui->collectFoodButton->setEnabled(false);
+        actionSelector->selectAction(COLLECT_FOOD);
+
+        int totalFood = currentPlayer->getTotalFood();
+        qDebug() << "Total food collected so far: " << totalFood;
+
+        if (m_client) {
+            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_FOOD");
+            m_client->sendMessage(actionMessage);
+            qDebug() << "Sent action completion message to server: " << actionMessage;
+        } else {
+            qDebug() << "Client object is null!";
+        }
+
+        QTimer::singleShot(500, this, [this]() {
+            ui->collectFoodButton->setEnabled(true);
+            isCollectingFood = false;  // Resetujemo flag
+        });
     });
 }
 

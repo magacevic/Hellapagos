@@ -28,6 +28,8 @@ signals:
     void allPlayersReady();
     void weatherCardUpdated(int newIndex);
     void collectWaterApproved();
+    void collectWoodApproved();
+    void collectFoodApproved();
 
 
 private slots:
