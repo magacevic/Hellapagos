@@ -38,7 +38,7 @@ void Server::onWeatherCardChanged(int newIndex)
 
 void Server::onNewConnection()
 {
-    if (clientSockets.size() >= 2) {
+    if (clientSockets.size() >= 3) {
         QTcpSocket* extraClient = tcpServer->nextPendingConnection();
         qDebug() << "Rejected connection: Maximum players reached!";
         extraClient->write("Server full. Connection rejected.");
@@ -56,7 +56,7 @@ void Server::onNewConnection()
 
     qDebug() << "New client connected! Total players:" << clientSockets.size();
 
-    if (clientSockets.size() == 2) {
+    if (clientSockets.size() == 3) {
         qDebug() << "Game ready to start!";
         broadcastMessage("All players connected. Game starting...");
     }
@@ -105,20 +105,23 @@ void Server::onReadyRead()
 
 */
         //if (playerIndex == gameServer->getRoundManager()->getCurrentPlayerIndex()) {
-        QString playerName = gameServer->getRoundManager()->currentPlayer();
+     /*   QString playerName = gameServer->getRoundManager()->currentPlayer();
         QTcpSocket* currentSocket = clientSockets.at(gameServer->getRoundManager()->getCurrentPlayerIndex());
+*/
 
+        QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
+        QTcpSocket* currentPlayerSocket = playerSocketMap.value(currentPlayer);
 
-        if (senderSocket == currentSocket) {
+        if (senderSocket == currentPlayerSocket) {
 
-            qDebug() << "Action approved for current player:" << playerName;
+            qDebug() << "Action approved for current player:" << currentPlayer;
 
             // Notify the client to proceed with the action
             senderSocket->write(QString("ACTION_APPROVED:%1").arg(action).toUtf8());
         } else {
             qDebug() << "Action denied. Not current player's turn.";
             //senderSocket->write(("Sorry, not your turn." + playerIndex).toUtf8());
-            senderSocket->write(QString("Sorry, not your turn. Player %1").arg(playerName).toUtf8());
+            senderSocket->write(QString("Sorry, not your turn. Player %1").arg(currentPlayer).toUtf8());
 
 
         }
@@ -127,6 +130,15 @@ void Server::onReadyRead()
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;
+
+
+        if (playerSocketMap.contains(playerName)) {
+            senderSocket->write("Name already taken. Choose a different name.");
+            return;
+        }
+
+        // Add player to the map and GameServer
+        playerSocketMap[playerName] = senderSocket;
 
         gameServer->addPlayer(playerName);
         qDebug() << "Current players:" << gameServer->getPlayers();
@@ -151,6 +163,15 @@ void Server::onDisconnected()
     QTcpSocket* senderSocket = qobject_cast<QTcpSocket*>(sender());
     if (!senderSocket) return;
 
+    QString playerName;
+    for (auto it = playerSocketMap.begin(); it != playerSocketMap.end(); ++it) {
+        if (it.value() == senderSocket) {
+            playerName = it.key();
+            playerSocketMap.erase(it);
+            break;
+        }
+    }
+
     qDebug() << "Client disconnected!";
     clientSockets.removeAll(senderSocket);
     senderSocket->deleteLater();
@@ -162,9 +183,11 @@ void Server::onDisconnected()
 void Server::broadcastMessage(const QString& message)
 {
     QByteArray data = message.toUtf8();
-    for (QTcpSocket* socket : clientSockets) {
-        socket->write(data);
-    }
+    for (QTcpSocket* socket : playerSocketMap.values()) {
+        if (socket->isOpen()) {
+            socket->write(data);
+            socket->flush();
+        }}
 }
 void Server::onWeatherCardChanged(int newIndex) {
     broadcastWeatherCardChange(newIndex);

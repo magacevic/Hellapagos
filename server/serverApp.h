@@ -34,6 +34,8 @@ private:
     GameServer* gameServer;
     void broadcastMessage(const QString& message);
     int readyPlayers = 0;
+    QMap<QString, QTcpSocket*> playerSocketMap;
+
 };
 
 #endif // SERVER_H
