@@ -28,6 +28,7 @@ signals:
     
     // Signal koji obaveštava kada se igrač promeni
     void playerChanged(int newPlayerId);
+    void roundCompleted();
 
 private:
     QStringList players;      // List of player names

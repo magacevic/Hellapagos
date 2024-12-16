@@ -9,6 +9,8 @@ Server::Server(QObject *parent)
     //connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
     
+    connect(gameServer, &GameServer::roundStarted, this, &Server::onRoundStarted);
+
 
 }
 
@@ -215,4 +217,11 @@ void Server::broadcastWeatherCardChange(int index) {
         }
     }
 }
+
+void Server::onRoundStarted(int roundNumber)
+{
+    QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
+    broadcastMessage(message); // Notify all clients
+}
+
 

@@ -23,6 +23,7 @@ public:
     void onWeatherCardRequest();
     //DODALA
     RoundManager* getRoundManager() const;
+    void startNextRound();
     
 public slots:
     // Slot koji prihvata signal za promenu igrača
@@ -31,6 +32,7 @@ public slots:
 signals:
     void weatherCardChanged(int newIndex);
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
+    void roundStarted(int roundNumber);
 
 private:
     QStringList players;      // List of player names
@@ -38,6 +40,7 @@ private:
     int currentWeatherCardIndex = 0; // Default or initial weather card index
     QSet<int> availableCards;  // Set to store available card indices
     RoundManager* roundManager;
+    int roundCounter;
 };
 
 #endif // GAMESERVER_H

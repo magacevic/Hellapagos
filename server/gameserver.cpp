@@ -4,7 +4,7 @@
 #include <QSet>
 
 GameServer::GameServer(QObject* parent)
-    : QObject(parent)
+    : QObject(parent),roundCounter(0)
 {
     roundManager = new RoundManager(this);
     // Initialize resource counts to zero
@@ -18,6 +18,8 @@ GameServer::GameServer(QObject* parent)
             
     // Poveži signal za promenu igrača
     connect(roundManager, &RoundManager::playerChanged, this, &GameServer::onPlayerChanged);
+
+    connect(roundManager, &RoundManager::roundCompleted, this, &GameServer::startNextRound);
 
     for (int i = 1; i < 13; ++i) {
         availableCards.insert(i);
@@ -95,4 +97,12 @@ void GameServer::onPlayerChanged(int newPlayerId)
     // Možemo implementirati logiku za sledeće akcije (npr. emitovanje novih podataka o igraču)
     QString nextPlayer = players.at((newPlayerId + 1) % players.size());  // Sledeći igrač
     emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
+}
+
+void GameServer::startNextRound()
+{
+    roundCounter++;
+    qDebug() << "Starting Round:" << roundCounter;
+
+    emit roundStarted(roundCounter);
 }

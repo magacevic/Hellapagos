@@ -66,3 +66,11 @@
 1202	10829	1734369564605670328	CMakeFiles/hellapagos.dir/mainwindow.cpp.o	79a1983895beff60
 1204	11258	1734369565033677324	CMakeFiles/hellapagos.dir/gamewindow.cpp.o	481208e28d09c86b
 11258	12289	1734369566061694158	hellapagos	758db5167fa8fdbb
+3	43	1734383561489554054	hellapagos_autogen/timestamp	ac3a158ecfa40564
+3	43	1734383561489554054	hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+3	43	1734383561489554054	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp	ac3a158ecfa40564
+3	43	1734383561489554054	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+48	2711	1734383724890989333	CMakeFiles/hellapagos.dir/client.cpp.o	e1248685753bb5fa
+48	5583	1734383727759014907	CMakeFiles/hellapagos.dir/mainwindow.cpp.o	79a1983895beff60
+49	5835	1734383728011017155	CMakeFiles/hellapagos.dir/gamewindow.cpp.o	481208e28d09c86b
+5835	6683	1734383728855024684	hellapagos	758db5167fa8fdbb

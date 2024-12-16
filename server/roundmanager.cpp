@@ -28,6 +28,11 @@ void RoundManager::nextTurn()
     
     // Emituj signal sa ID-jem novog igrača
     emit playerChanged(currentPlayerIndex);
+
+    if (currentPlayerIndex == 0) {
+        emit roundCompleted(); // Signal that a round is completed
+    }
+
 }
 
 QString RoundManager::currentPlayer() const

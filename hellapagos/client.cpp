@@ -54,10 +54,20 @@ void Client::onReadyRead()
 
     QString message = QString::fromUtf8(data).trimmed();
 
+    if (message.startsWith("ROUND_STARTED:")) {
+        int roundNumber = message.split(":").last().toInt();
+        qDebug() << "New Round Started: Round" << roundNumber;
+
+        // Update the UI or perform any other logic
+       // gamewindow->ui->roundLabel->setText(QString("Round: %1").arg(roundNumber));
+    }
+
+
     if (message.startsWith("WEATHER_CARD:")) {
         int index = message.split(":").last().toInt();
         emit weatherCardUpdated(index);
     }
+
 
     if (message.startsWith("ACTION_APPROVED:")) {
         QString action = message.split(":").last();
