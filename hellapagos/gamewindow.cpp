@@ -100,6 +100,8 @@ void GameWindow::on_collectWoodButton_clicked()
     isCollectingWood = true;
     qDebug() << "Started collecting wood.";
 
+     ui->collectWoodButton->setEnabled(false);
+
     if (m_client) {
         QString actionMessage = "REQUEST_ACTION:COLLECT_WOOD";
         m_client->sendMessage(actionMessage);
@@ -109,9 +111,9 @@ void GameWindow::on_collectWoodButton_clicked()
         return;
     }
 
-    connect(m_client, &Client::collectWoodApproved, this, [this]() {
+    disconnect(m_client, &Client::collectWoodApproved, this, nullptr);
 
-        ui->collectWoodButton->setEnabled(false);
+    connect(m_client, &Client::collectWoodApproved, this, [this]() {
 
         // Always collect 1 wood
         actionSelector->selectAction(COLLECT_WOOD);
@@ -156,16 +158,18 @@ void GameWindow::on_collectWoodButton_clicked()
 
 void GameWindow::on_collectWaterButton_clicked()
 {
+    ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
 
-
+    qDebug() << "Button clicked!";
     if (isCollectingWater) {
         qDebug() << "Already collecting water, ignoring the click.";
         return;
     }
 
+    ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
+
     isCollectingWater = true;
     qDebug() << "Started collecting water.";
-
 
     if (m_client) {
         QString actionMessage = "REQUEST_ACTION:COLLECT_WATER";
@@ -176,43 +180,47 @@ void GameWindow::on_collectWaterButton_clicked()
         return;
     }
 
+    disconnect(m_client, &Client::collectWaterApproved, this, nullptr);
+
     connect(m_client, &Client::collectWaterApproved, this, [this]() {
 
+        QWidget *currentCard = ui->weatherCards->currentWidget();
 
-    ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
+        ui->collectWaterButton->setEnabled(false); // Ovo radimo da bismo izbegli registraciju vise klikova
 
-    QWidget *currentCard = ui->weatherCards->currentWidget();
+        if (currentCard) {
+            actionSelector->selectAction(COLLECT_WATER, currentCard);
 
-    if (currentCard) {
-        actionSelector->selectAction(COLLECT_WATER, currentCard);
+            qDebug() << "- Total collected water:" << currentPlayer->getTotalWater();
+            if (m_client) {
+                QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WATER");
+                m_client->sendMessage(actionMessage);
+                qDebug() << "Sent action completion message to server: " << actionMessage;
+            } else {
+                qDebug() << "Client object is null!";
+            }
 
-        qDebug() << "- Total collected water:" << currentPlayer->getTotalWater();
-        if (m_client) {
-            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WATER");
-            m_client->sendMessage(actionMessage);
-            qDebug() << "Sent action completion message to server: " << actionMessage;
         } else {
-            qDebug() << "Client object is null!";
+           qDebug() << "No active card available to collect water from!";
         }
 
-    } else {
-        qDebug() << "No active card available to collect water from!";
-    }
 
-
-    QTimer::singleShot(500, this, [this]() {
-        ui->collectWaterButton->setEnabled(true);
-        isCollectingWater = false;  // Resetujemo flag
-    });
+        QTimer::singleShot(500, this, [this]() {
+            ui->collectWaterButton->setEnabled(true);
+            isCollectingWater = false;  // Resetujemo flag
+        });
     });
 }
 
 void GameWindow::on_collectFoodButton_clicked()
 {
+    qDebug() << "Button clicked!";
     if (isCollectingFood) {
         qDebug() << "Already collecting the food, ignoring the click.";
         return;
     }
+
+     ui->collectFoodButton->setEnabled(false);
 
     isCollectingFood = true;
     qDebug() << "Started collecting food.";
@@ -228,8 +236,9 @@ void GameWindow::on_collectFoodButton_clicked()
         return;
     }
 
+    disconnect(m_client, &Client::collectFoodApproved, this, nullptr);
+
     connect(m_client, &Client::collectFoodApproved, this, [this]() {
-         ui->collectFoodButton->setEnabled(false);
         actionSelector->selectAction(COLLECT_FOOD);
 
         int totalFood = currentPlayer->getTotalFood();
