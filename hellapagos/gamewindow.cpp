@@ -23,14 +23,6 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     actionSelector = new ActionSelector(currentPlayer, this);
 
 
-    voting = new Voting(this);
-
-    connect(voting, &Voting::votingStarted, this, &GameWindow::onVotingStarted);
-    connect(voting, &Voting::votingConcluded, this, &GameWindow::onVotingConcluded);
-    connect(ui->castVoteButton, &QPushButton::clicked, voting, &Voting::on_castVoteButton_clicked);
-
-
-
 
     ui->playerNameLabel->setText(currentPlayer->getName());
     connect(m_client, &Client::weatherCardUpdated, this, &GameWindow::updateWeatherCard);
@@ -257,80 +249,6 @@ void GameWindow::on_collectFoodButton_clicked()
             isCollectingFood = false;  // Resetujemo flag
         });
     });
-}
-
-void GameWindow::checkForWaterShortage()
-{
-    voting->checkForWaterShortage();
-}
-
-void GameWindow::checkForFoodShortage()
-{
-    voting->checkForFoodShortage();
-}
-
-void GameWindow::onVotingStarted()
-{
-    QMessageBox::information(this, "Voting Started", "Voting has started! Please cast your votes.");
-}
-
-void GameWindow::onVotingConcluded()
-{
-    Player* eliminatedPlayer = voting->getEliminatedPlayer();
-
-    if (eliminatedPlayer) {
-        QMessageBox::information(this, "Voting Concluded",
-                                 "Player " + eliminatedPlayer->getName() + " has been eliminated.");
-    } else {
-        QMessageBox::information(this, "Voting Concluded", "No player was eliminated.");
-    }
-}
-
-
-void GameWindow::on_castVoteButton_clicked()
-{
-    if (voting && voting->votingInProgress) {
-        QList<Player*> otherPlayers;
-
-        for (Player* player : allPlayers) {
-            if (player != currentPlayer) {
-                otherPlayers.append(player);
-            }
-        }
-
-        if (otherPlayers.isEmpty()) {
-            qDebug() << "No players available to vote for.";
-            return;
-        }
-
-        bool ok;
-        QStringList playerNames;
-        for (Player* player : otherPlayers) {
-            playerNames.append(player->getName());
-        }
-
-        QString selectedPlayerName = QInputDialog::getItem(this, "Select Player to Vote For",
-                                                           "Choose a player to vote for:", playerNames, 0, false, &ok);
-
-        if (ok && !selectedPlayerName.isEmpty()) {
-            Player* selectedPlayer = nullptr;
-            for (Player* player : otherPlayers) {
-                if (player->getName() == selectedPlayerName) {
-                    selectedPlayer = player;
-                    break;
-                }
-            }
-
-            if (selectedPlayer) {
-                int voteValue = 1;
-                voting->castVote(selectedPlayer, voteValue);
-                qDebug() << "Voted for player:" << selectedPlayer->getName();
-            }
-        }
-    }else {
-        qDebug() << "Voting is not in progress.";
-    }
-
 }
 
 

@@ -1,0 +1,18 @@
+# ninja log v6
+2	1145	1734452008746648682	server_autogen/timestamp	679a08ad2d083a78
+2	1145	1734452008746648682	server_autogen/mocs_compilation.cpp	679a08ad2d083a78
+2	1145	1734452008746648682	/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/timestamp	679a08ad2d083a78
+2	1145	1734452008746648682	/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/mocs_compilation.cpp	679a08ad2d083a78
+1145	6018	1734452008763648616	CMakeFiles/server.dir/main.cpp.o	aa2499f3e83d60d5
+1147	6680	1734452008765648608	CMakeFiles/server.dir/roundmanager.cpp.o	907ecdbc1fd7cc46
+1145	7045	1734452008763648616	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	9c667de7606ee5c0
+1146	7094	1734452008764648612	CMakeFiles/server.dir/gameserver.cpp.o	2addd046e3a42030
+7338	7678	1734452014956622270	server	21602b110f370975
+1146	7338	1734452008764648612	CMakeFiles/server.dir/serverApp.cpp.o	a12109506245a3f3
+7	469	1734453048698513268	server_autogen/timestamp	679a08ad2d083a78
+7	469	1734453048698513268	server_autogen/mocs_compilation.cpp	679a08ad2d083a78
+7	469	1734453048698513268	/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/timestamp	679a08ad2d083a78
+7	469	1734453048698513268	/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/mocs_compilation.cpp	679a08ad2d083a78
+469	2989	1734453048713513357	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	9c667de7606ee5c0
+470	3023	1734453048714513363	CMakeFiles/server.dir/voting.cpp.o	257fc9e3e86059fd
+3023	3360	1734453051267528305	server	96b941b0ad7cc0f4
