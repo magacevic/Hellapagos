@@ -4,7 +4,7 @@
 #include <QSet>
 
 GameServer::GameServer(QObject* parent)
-    : QObject(parent),roundCounter(0)
+    : QObject(parent),roundCounter(1)
 {
     roundManager = new RoundManager(this);
     // Initialize resource counts to zero
@@ -69,15 +69,14 @@ void GameServer::changeWeatherCard() {
         return;
     }
 
-    // Pick a random card from the set
-    int randomIndex = *availableCards.begin();
-    availableCards.remove(randomIndex);  // Remove the chosen card
 
-    emit weatherCardChanged(randomIndex);  // Notify the clients with the revealed card
+    int randomIndex = *availableCards.begin();
+    availableCards.remove(randomIndex);
+
+    emit weatherCardChanged(randomIndex);
 }
 void GameServer::onWeatherCardRequest() {
-    // Trigger the card reveal logic when the client requests it
-    changeWeatherCard();
+      changeWeatherCard();
 }
 
 // Slot koji prihvata signal za promenu igrača

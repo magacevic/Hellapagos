@@ -21,6 +21,7 @@ public:
     QString currentPlayer() const;
     QString nextPlayer() const;
     int getCurrentPlayerIndex();
+    void actionCompleted();
 
 signals:
     // Signal koji obaveštava server kada se promeni trenutni i naredni igrač

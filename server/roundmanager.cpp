@@ -29,9 +29,6 @@ void RoundManager::nextTurn()
     // Emituj signal sa ID-jem novog igrača
     emit playerChanged(currentPlayerIndex);
 
-    if (currentPlayerIndex == 0) {
-        emit roundCompleted(); // Signal that a round is completed
-    }
 
 }
 
@@ -47,4 +44,23 @@ QString RoundManager::nextPlayer() const
 }
 int RoundManager::getCurrentPlayerIndex() {
     return currentPlayerIndex; // Replace with your actual logic
+}
+
+
+void RoundManager::actionCompleted()
+{
+    static int completedTurns = 0;
+    completedTurns++;
+
+    qDebug() << "Player turn completed. Total completed turns:" << completedTurns;
+
+     if (completedTurns >= players.size()) {
+        qDebug() << "All players completed their actions. Starting next round.";
+
+        emit roundCompleted();
+        completedTurns = 0;
+    }
+
+
+    nextTurn();
 }

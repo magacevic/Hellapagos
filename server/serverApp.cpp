@@ -84,32 +84,12 @@ void Server::onReadyRead()
     }
 \
     if (message.startsWith("ACTION_COMPLETED:")) {
-        gameServer->getRoundManager()->nextTurn();
+        gameServer->getRoundManager()->actionCompleted();
     }
 
 
     if (message.startsWith("REQUEST_ACTION:")) {
         QString action = message.split(":").last(); // Get action type (e.g., COLLECT_WATER)
-       // int playerIndex = clientSockets.indexOf(senderSocket);
-/*
-        QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
-
-        // Check if it's the current player's turn
-       // QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
-        QString senderName;
-        for (const auto& name : gameServer->getPlayers()) {
-            int index = gameServer->getPlayers().indexOf(name);
-            if (clientSockets[index] == senderSocket) {
-                senderName = name;
-                break;
-            }
-        }
-
-*/
-        //if (playerIndex == gameServer->getRoundManager()->getCurrentPlayerIndex()) {
-     /*   QString playerName = gameServer->getRoundManager()->currentPlayer();
-        QTcpSocket* currentSocket = clientSockets.at(gameServer->getRoundManager()->getCurrentPlayerIndex());
-*/
 
         QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
         QTcpSocket* currentPlayerSocket = playerSocketMap.value(currentPlayer);
@@ -185,7 +165,7 @@ void Server::onDisconnected()
 void Server::broadcastMessage(const QString& message)
 {
     QByteArray data = message.toUtf8();
-    for (QTcpSocket* socket : playerSocketMap.values()) {
+    for (QTcpSocket* socket : clientSockets) {
         if (socket->isOpen()) {
             socket->write(data);
             socket->flush();
