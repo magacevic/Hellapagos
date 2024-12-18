@@ -182,10 +182,10 @@ void GameWindow::on_collectWaterButton_clicked()
 
         if (currentCard) {
             actionSelector->selectAction(COLLECT_WATER, currentCard);
-
-            qDebug() << "- Total collected water:" << currentPlayer->getTotalWater();
+            int collectedWater=currentPlayer->getTotalWater();
+            qDebug() << "- Total collected water:" << collectedWater;
             if (m_client) {
-                QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WATER");
+                QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WATER %1").arg(collectedWater);
                 m_client->sendMessage(actionMessage);
                 qDebug() << "Sent action completion message to server: " << actionMessage;
             } else {

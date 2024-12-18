@@ -76,6 +76,16 @@ void Server::onReadyRead()
 
     if (message.startsWith("ACTION_COMPLETED:")) {
         gameServer->getRoundManager()->actionCompleted();
+
+        if(message.startsWith("ACTION_COMPLETED:COLLECT_WATER")){
+            QString numberString = message.split(' ').last();
+            int collectedWater=numberString.toInt();
+           // gameServer->resources["water"]+=collectedWater;
+            gameServer->addResource("water", collectedWater);
+
+           // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
+
+        }
     }
 
     if (message.startsWith("REQUEST_ACTION:")) {

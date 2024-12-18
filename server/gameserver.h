@@ -29,6 +29,8 @@ public:
     void broadcastFoodUpdate(const QString& playerName, int foodAmount);
     QList<QTcpSocket*> clientSockets;
     void collectFoodFromPlayer(const QString& playerName, int foodAmount);
+    void addResource(const QString& resourceName, int amount);
+
 
     
 public slots:

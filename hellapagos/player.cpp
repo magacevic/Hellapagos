@@ -67,7 +67,7 @@ void Player::addFood(int food) {
 }
 
 void Player::addWater(int water) {
-    totalWater += water;
+    totalWater = water;
 }
 
 void Player::addWood(int wood) {
@@ -102,9 +102,11 @@ void Player::collectWater(QWidget *card) {
     	collectWaterAction->collectWaterFromCard(card);
     	int waterCollectedInRound = collectWaterAction->performAction();
     	addWater(waterCollectedInRound);
+
     } else {
     
     	qDebug() << "Player is sick and cannot collect water!";
+
     }
 }
 

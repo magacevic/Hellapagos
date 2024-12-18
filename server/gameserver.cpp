@@ -36,6 +36,10 @@ RoundManager* GameServer::getRoundManager() const {
     return roundManager;
 }
 
+void GameServer::addResource(const QString& resourceName, int amount) {
+    resources[resourceName] += amount;
+    qDebug() << "Resource" << resourceName << "updated. New amount:" << resources[resourceName];
+}
 
 void GameServer::addPlayer(const QString& playerName)
 {
