@@ -1,5 +1,7 @@
 #include "gameserver.h"
 #include <QDebug>
+#include <QTcpSocket>
+#include <QTcpServer>
 
 #include <QSet>
 
@@ -15,7 +17,9 @@ GameServer::GameServer(QObject* parent)
     //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
     connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
             this, &GameServer::currentAndNextPlayerUpdated);
-            
+
+
+
     // Poveži signal za promenu igrača
     connect(roundManager, &RoundManager::playerChanged, this, &GameServer::onPlayerChanged);
 
@@ -24,6 +28,8 @@ GameServer::GameServer(QObject* parent)
     for (int i = 1; i < 13; ++i) {
         availableCards.insert(i);
     }
+
+
 }
 
 RoundManager* GameServer::getRoundManager() const {
@@ -82,21 +88,30 @@ void GameServer::onWeatherCardRequest() {
 // Slot koji prihvata signal za promenu igrača
 void GameServer::onPlayerChanged(int newPlayerId)
 {
-    // Logika kada se promeni igrač (prihvatamo ID igrača)
-   // qDebug() << "Igrač promenjen. Novi igrač ID:" << newPlayerId;
-
+    // Validate the player ID before accessing the list
     if (newPlayerId < 0 || newPlayerId >= players.size()) {
-        qDebug() << "Invalid player ID";
+        qDebug() << "Invalid player ID:" << newPlayerId;
         return;
     }
 
     QString currentPlayer = players.at(newPlayerId);
-    qDebug() << "Trenutni igrač:" << currentPlayer;
+    qDebug() << "Current Player:" << currentPlayer;
 
-    // Možemo implementirati logiku za sledeće akcije (npr. emitovanje novih podataka o igraču)
-    QString nextPlayer = players.at((newPlayerId + 1) % players.size());  // Sledeći igrač
+    // Calculate the next player safely
+    QString nextPlayer;
+    if (players.size() > 1) {
+        int nextPlayerId = (newPlayerId + 1) % players.size();
+        nextPlayer = players.at(nextPlayerId);
+    } else {
+        nextPlayer = "None";  // If only one player exists, no next player
+    }
+
+    qDebug() << "Next Player:" << nextPlayer;
+
+    // Emit signal for the current and next player update
     emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
 }
+
 
 void GameServer::startNextRound()
 {
@@ -105,3 +120,66 @@ void GameServer::startNextRound()
 
     emit roundStarted(roundCounter);
 }
+
+
+
+
+void GameServer::collectFoodFromPlayer(const QString& playerName, int foodAmount)
+{
+    if (resources.contains("food")) {
+        resources["food"] += foodAmount;  // Add collected food to total food on the server
+        qDebug() << playerName << "collected" << foodAmount << "food. Total food: " << resources["food"];
+
+        // Optionally broadcast the food collection update to all clients
+        broadcastFoodUpdate(playerName, foodAmount);
+    } else {
+        qDebug() << "Resources map does not contain 'food'!";
+    }
+}
+
+
+void GameServer::broadcastFoodUpdate(const QString& playerName, int foodAmount)
+{
+    QString message = QString("%1 collected %2 food. Total food on server: %3")
+    .arg(playerName)
+        .arg(foodAmount)
+        .arg(resources["food"]);
+
+    // Send the message to all connected clients
+    for (QTcpSocket* clientSocket : clientSockets) {
+        if (clientSocket->state() == QTcpSocket::ConnectedState) {
+            clientSocket->write(message.toUtf8());
+        }
+    }
+}
+
+
+// Assuming you have a QTcpServer in your class
+void GameServer::onNewClientConnected()
+{
+    QTcpSocket* clientSocket = tcpServer->nextPendingConnection();  // Get the next pending connection
+    clientSockets.append(clientSocket);  // Add the socket to the list of clients
+
+    // Connect necessary signals for the client
+    connect(clientSocket, &QTcpSocket::disconnected, this, &GameServer::onClientDisconnected);
+    connect(clientSocket, &QTcpSocket::readyRead, this, &GameServer::onReadyRead);
+}
+
+void GameServer::onClientDisconnected()
+{
+    QTcpSocket* clientSocket = qobject_cast<QTcpSocket*>(sender());
+    if (clientSocket) {
+        clientSockets.removeOne(clientSocket);  // Remove the client socket from the list when disconnected
+        clientSocket->deleteLater();  // Clean up the socket
+    }
+}
+void GameServer::onReadyRead()
+{
+    QTcpSocket* clientSocket = qobject_cast<QTcpSocket*>(sender());
+    if (clientSocket) {
+        QByteArray data = clientSocket->readAll();  // Read all data sent by the client
+        qDebug() << "Received from client:" << data;
+        // Handle the received data here...
+    }
+}
+

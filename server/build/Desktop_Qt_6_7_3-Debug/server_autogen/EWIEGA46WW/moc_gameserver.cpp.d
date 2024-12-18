@@ -9,6 +9,7 @@
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q20functional.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q20memory.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q20type_traits.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/q23utility.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qalgorithms.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qanystringview.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qarraydata.h \
@@ -33,8 +34,10 @@
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontainerfwd.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontainerinfo.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontainertools_impl.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qcontiguouscache.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qdarwinhelpers.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qdatastream.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qdebug.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qexceptionhandling.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qflags.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qfloat16.h \
@@ -46,6 +49,7 @@
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qglobalstatic.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qhash.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qhashfunctions.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiodevice.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiodevicebase.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiterable.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qiterator.h \
@@ -73,6 +77,8 @@
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qset.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qshareddata.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qshareddata_impl.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qsharedpointer.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qsharedpointer_impl.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstring.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringalgorithms.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qstringbuilder.h \
@@ -95,6 +101,7 @@
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtcoreexports.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtdeprecationmarkers.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtenvironmentvariables.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtextstream.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtmetamacros.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtnoop.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtpreprocessorsupport.h \
@@ -106,9 +113,20 @@
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtypeinfo.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qtypes.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qutf8stringview.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qvariant.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qvarlengtharray.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qversiontagging.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qxptype_traits.h \
   /home/mina/Qt/6.7.3/gcc_64/include/QtCore/qyieldcpu.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/QTcpServer \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/QTcpSocket \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qabstractsocket.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qhostaddress.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qtcpserver.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qtcpsocket.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qtnetwork-config.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qtnetworkexports.h \
+  /home/mina/Qt/6.7.3/gcc_64/include/QtNetwork/qtnetworkglobal.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
@@ -200,6 +218,7 @@
   /usr/include/c++/10/cctype \
   /usr/include/c++/10/cerrno \
   /usr/include/c++/10/chrono \
+  /usr/include/c++/10/climits \
   /usr/include/c++/10/clocale \
   /usr/include/c++/10/cmath \
   /usr/include/c++/10/concepts \
@@ -339,7 +358,9 @@
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/lib/gcc/x86_64-linux-gnu/10/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/10/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/10/include/stdbool.h \
   /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/10/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/10/include/syslimits.h

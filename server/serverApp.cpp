@@ -6,17 +6,13 @@ Server::Server(QObject *parent)
     : QObject(parent), tcpServer(new QTcpServer(this)), gameServer(new GameServer(this))
 {
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
-    //connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
-    
     connect(gameServer, &GameServer::roundStarted, this, &Server::onRoundStarted);
-
-
 }
 
 Server::~Server()
 {
-
+    // Properly disconnect and delete sockets when the server is destroyed
     for (QTcpSocket* socket : clientSockets) {
         socket->disconnectFromHost();
         socket->deleteLater();
@@ -32,14 +28,10 @@ void Server::startServer()
         qDebug() << "Server could not start!";
     }
 }
-/*
-void Server::onWeatherCardChanged(int newIndex)
-{
-    broadcastMessage(QString("WeatherCard:%1").arg(newIndex));
-}*/
 
 void Server::onNewConnection()
 {
+    // Reject connections if the maximum number of players is reached
     if (clientSockets.size() >= 3) {
         QTcpSocket* extraClient = tcpServer->nextPendingConnection();
         qDebug() << "Rejected connection: Maximum players reached!";
@@ -47,10 +39,10 @@ void Server::onNewConnection()
         extraClient->flush();
         extraClient->disconnectFromHost();
         extraClient->deleteLater();
-        qDebug() << "Rejected new connection: server is full.";
         return;
     }
 
+    // Accept new connections
     QTcpSocket* newClient = tcpServer->nextPendingConnection();
     clientSockets.append(newClient);
     connect(newClient, &QTcpSocket::readyRead, this, &Server::onReadyRead);
@@ -79,62 +71,54 @@ void Server::onReadyRead()
     }
 
     if (message == "REQUEST_WEATHER_CARD") {
-        // Pass the request to the GameServer to handle the logic
         gameServer->onWeatherCardRequest();
     }
-\
+
     if (message.startsWith("ACTION_COMPLETED:")) {
         gameServer->getRoundManager()->actionCompleted();
     }
 
-
     if (message.startsWith("REQUEST_ACTION:")) {
-        QString action = message.split(":").last(); // Get action type (e.g., COLLECT_WATER)
-
+        QString action = message.split(":").last();
         QString currentPlayer = gameServer->getRoundManager()->currentPlayer();
         QTcpSocket* currentPlayerSocket = playerSocketMap.value(currentPlayer);
 
         if (senderSocket == currentPlayerSocket) {
-
-            qDebug() << "Action approved for current player:" << currentPlayer;
-
-            // Notify the client to proceed with the action
             senderSocket->write(QString("ACTION_APPROVED:%1").arg(action).toUtf8());
         } else {
-            qDebug() << "Action denied. Not current player's turn.";
-            //senderSocket->write(("Sorry, not your turn." + playerIndex).toUtf8());
             senderSocket->write(QString("Sorry, not your turn. Player %1").arg(currentPlayer).toUtf8());
-
-
         }
+    }
+
+    if (message.startsWith("ACTION_COMPLETED:COLLECT_FOOD")) {
+        QString playerName = message.split(":").at(1);
+        int foodAmount = message.split(":").at(2).toInt();
+        gameServer->collectFoodFromPlayer(playerName, foodAmount);
     }
 
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;
 
-
+        // Check if the name is already taken
         if (playerSocketMap.contains(playerName)) {
             senderSocket->write("Name already taken. Choose a different name.");
             return;
         }
 
-        // Add player to the map and GameServer
         playerSocketMap[playerName] = senderSocket;
-
         gameServer->addPlayer(playerName);
-        qDebug() << "Current players:" << gameServer->getPlayers();
 
         senderSocket->write(("Hello, " + playerName + "! Welcome to the server!").toUtf8());
-    }else if (message == "Ready!") {
+    }
+    else if (message == "Ready!") {
         readyPlayers++;
         qDebug() << "Player is ready! Total ready players:" << readyPlayers;
 
-        if (readyPlayers == clientSockets.size()) {  // All players are ready
+        if (readyPlayers == clientSockets.size()) {
             qDebug() << "All players are ready. Starting the game!";
             broadcastMessage("AllReady");
-            
-            gameServer->getRoundManager()->nextTurn();  // Pozovi početak prve runde
+            gameServer->getRoundManager()->nextTurn();
             qDebug() << "First turn started";
         }
     }
@@ -145,6 +129,7 @@ void Server::onDisconnected()
     QTcpSocket* senderSocket = qobject_cast<QTcpSocket*>(sender());
     if (!senderSocket) return;
 
+    // Properly disconnect and remove client from map
     QString playerName;
     for (auto it = playerSocketMap.begin(); it != playerSocketMap.end(); ++it) {
         if (it.value() == senderSocket) {
@@ -157,51 +142,48 @@ void Server::onDisconnected()
     qDebug() << "Client disconnected!";
     clientSockets.removeAll(senderSocket);
     senderSocket->deleteLater();
-
-    qDebug() << "Total players now:" << clientSockets.size();
-
-    }
+}
 
 void Server::broadcastMessage(const QString& message)
 {
     QByteArray data = message.toUtf8();
     for (QTcpSocket* socket : clientSockets) {
-        if (socket->isOpen()) {
+        if (socket && socket->isOpen()) {
             socket->write(data);
             socket->flush();
-        }}
+        }
+    }
 }
-void Server::onWeatherCardChanged(int newIndex) {
+
+void Server::broadcastWeatherCardChange(int index)
+{
+    QString message = QString("WEATHER_CARD:%1").arg(index);
+    for (QTcpSocket* socket : clientSockets) {
+        if (socket && socket->isOpen()) {
+            socket->write(message.toUtf8());
+        }
+    }
+}
+
+void Server::onWeatherCardChanged(int newIndex)
+{
     broadcastWeatherCardChange(newIndex);
 }
 
 void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer)
 {
-    // Obaveštavamo sve klijente o trenutnom i narednom igraču
-    //QString message = QString("Current Player: %1, Next Player: %2").arg(currentPlayer).arg(nextPlayer);
-    //broadcastMessage(message);
-    
-    //qDebug() << "Current Player:" << currentPlayer << ", Next Player:" << nextPlayer;
-    qDebug() << "Type and value of currentPlayer:" << currentPlayer;
-    qDebug() << "Type and value of nextPlayer:" << nextPlayer;
-}
+    qDebug() << "Current Player:" << currentPlayer << ", Next Player:" << nextPlayer;
 
-void Server::broadcastWeatherCardChange(int index) {
-    QString message = QString("WEATHER_CARD:%1").arg(index);
-   /* for (QTcpSocket* client : clientSockets) {
-        client->write(message.toUtf8());
-    }*/
-    for (QTcpSocket *clientSocket : clientSockets) {
-        if (clientSocket->isOpen()) {
-            clientSocket->write(message.toUtf8());
-        }
+    if (playerSocketMap.contains(nextPlayer)) {
+        QTcpSocket* nextPlayerSocket = playerSocketMap[nextPlayer];
+        // Notify the next player or update their turn
+    } else {
+        qDebug() << "Next player not found in the map!";
     }
 }
 
 void Server::onRoundStarted(int roundNumber)
 {
     QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
-    broadcastMessage(message); // Notify all clients
+    broadcastMessage(message);
 }
-
-

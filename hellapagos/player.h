@@ -8,6 +8,7 @@
 #include "collectwood.h"
 #include "eliminatedplayer.h"
 #include "sickplayer.h"
+#include "client.h"
 
 class ActionSelector;
 
@@ -72,6 +73,7 @@ private:
     CollectWood *collectWoodAction;
 
     EliminatedPlayer* eliminatedPlayer;
+    Client* m_client = nullptr;
 
 };
 

@@ -1,6 +1,8 @@
 #ifndef GAMESERVER_H
 #define GAMESERVER_H
 
+#include <QTcpSocket>
+#include <QTcpServer>
 #include <QObject>
 #include <QString>
 #include <QMap>
@@ -24,10 +26,17 @@ public:
     //DODALA
     RoundManager* getRoundManager() const;
     void startNextRound();
+    void broadcastFoodUpdate(const QString& playerName, int foodAmount);
+    QList<QTcpSocket*> clientSockets;
+    void collectFoodFromPlayer(const QString& playerName, int foodAmount);
+
     
 public slots:
     // Slot koji prihvata signal za promenu igrača
     void onPlayerChanged(int newPlayerId);
+    void onNewClientConnected();
+    void onClientDisconnected();
+    void onReadyRead();
 
 signals:
     void weatherCardChanged(int newIndex);
@@ -41,6 +50,7 @@ private:
     QSet<int> availableCards;  // Set to store available card indices
     RoundManager* roundManager;
     int roundCounter;
+    QTcpServer* tcpServer;
 };
 
 #endif // GAMESERVER_H

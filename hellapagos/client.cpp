@@ -8,7 +8,11 @@ Client::Client(QObject *parent)
 
 Client::~Client()
 {
+    if (tcpSocket->state() == QTcpSocket::ConnectedState) {
+        tcpSocket->flush();  // Make sure all data is sent before disconnecting
+    }
     tcpSocket->disconnectFromHost();
+    tcpSocket->waitForDisconnected();
 }
 
 void Client::connectToServer()
@@ -25,6 +29,8 @@ void Client::sendMessage(const QString &message)
     if (tcpSocket->state() == QTcpSocket::ConnectedState) {
         tcpSocket->write(message.toUtf8());
         //tcpSocket->flush();
+    } else {
+        qDebug() << "Cannot send message. Socket is not connected.";
     }
 }
 
@@ -93,12 +99,18 @@ void Client::onReadyRead()
 
         emit serverFullSignal();  // Emit the signal to close the window
         QCoreApplication::quit();  // Optionally, close the application
+    } else if (message == "DISCONNECT") {
+        qDebug() << "Server requested a disconnect.";
+        tcpSocket->disconnectFromHost();
     }
 }
 
 void Client::onDisconnected()
 {
     qDebug() << "Disconnected from server!";
+    if (tcpSocket->state() == QTcpSocket::UnconnectedState) {
+        qDebug() << "Socket is unconnected.";
+    }
 }
 /*
 void Client::sendWeatherCardChange(int index)
