@@ -18,6 +18,7 @@ public:
     void onWeatherCardChanged(int newIndex);
     void broadcastWeatherCardChange(int index);
     void onRoundStarted(int roundNumber);
+    void broadcastResourcesInfo();
     
 signals:
     // Signal koji obaveštava klijente o trenutnom i narednom igraču

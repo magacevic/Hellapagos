@@ -41,6 +41,15 @@ void GameServer::addResource(const QString& resourceName, int amount) {
     qDebug() << "Resource" << resourceName << "updated. New amount:" << resources[resourceName];
 }
 
+
+int GameServer::getResourceAmount(const QString& resourceName) const {
+    if (resources.contains(resourceName)) {
+        return resources[resourceName];
+    }
+    return 0; // Return 0 if the resource does not exist
+}
+
+
 void GameServer::addPlayer(const QString& playerName)
 {
     if (!players.contains(playerName)) {

@@ -66,8 +66,34 @@ void Client::onReadyRead()
 
         // Update the UI or perform any other logic
        // gamewindow->ui->roundLabel->setText(QString("Round: %1").arg(roundNumber));
+
     }
 
+    if (message.startsWith("RESOURCES:")) {
+        QString resourceData = message.mid(QString("RESOURCES:").length());
+        QStringList resourceList = resourceData.split(',');
+
+        int water = 0, food = 0, wood = 0;
+
+        // Loop through the resourceList to extract values
+        for (const QString& resource : resourceList) {
+            QStringList keyValue = resource.split(':');
+            if (keyValue.size() == 2) {
+                QString key = keyValue[0].trimmed();
+                int value = keyValue[1].toInt();
+                if (key == "water") {
+                    water = value;
+                } else if (key == "food") {
+                    food = value;
+                } else if (key == "wood") {
+                    wood = value;
+                }
+            }
+        }
+
+        qDebug() << "Resources updated - Water:" << water << ", Food:" << food << ", Wood:" << wood;
+
+    }
 
     if (message.startsWith("WEATHER_CARD:")) {
         int index = message.split(":").last().toInt();

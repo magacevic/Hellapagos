@@ -75,17 +75,21 @@ void Server::onReadyRead()
     }
 
     if (message.startsWith("ACTION_COMPLETED:")) {
-        gameServer->getRoundManager()->actionCompleted();
 
         if(message.startsWith("ACTION_COMPLETED:COLLECT_WATER")){
             QString numberString = message.split(' ').last();
             int collectedWater=numberString.toInt();
            // gameServer->resources["water"]+=collectedWater;
             gameServer->addResource("water", collectedWater);
-
+            int waterAmount = gameServer->getResourceAmount("water");
+            qDebug() << "Current amount of water:" << waterAmount;
+            broadcastResourcesInfo();
            // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
 
         }
+
+        gameServer->getRoundManager()->actionCompleted();
+
     }
 
     if (message.startsWith("REQUEST_ACTION:")) {
@@ -130,6 +134,8 @@ void Server::onReadyRead()
             broadcastMessage("AllReady");
             gameServer->getRoundManager()->nextTurn();
             qDebug() << "First turn started";
+           // broadcastResourcesInfo();
+
         }
     }
 }
@@ -192,8 +198,19 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
     }
 }
 
+void Server::broadcastResourcesInfo(){
+
+    QString resourceMessage = QString(" RESOURCES:water:%1,food:%2,wood:%3")
+    .arg(gameServer->getResourceAmount("water"))
+        .arg(gameServer->getResourceAmount("food"))
+        .arg(gameServer->getResourceAmount("wood"));
+    broadcastMessage(resourceMessage);
+
+}
+
 void Server::onRoundStarted(int roundNumber)
 {
+
     QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
     broadcastMessage(message);
-}
+   }

@@ -30,6 +30,7 @@ public:
     QList<QTcpSocket*> clientSockets;
     void collectFoodFromPlayer(const QString& playerName, int foodAmount);
     void addResource(const QString& resourceName, int amount);
+    int getResourceAmount(const QString& resourceName) const;
 
 
     
