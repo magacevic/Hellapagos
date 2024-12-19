@@ -3,7 +3,10 @@
 #include "gameserver.h"
 
 Server::Server(QObject *parent)
-    : QObject(parent), tcpServer(new QTcpServer(this)), gameServer(new GameServer(this))
+    :   QObject(parent),
+        tcpServer(new QTcpServer(this)),
+        gameServer(new GameServer(this)),
+        maxPlayers(3)
 {
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
@@ -32,7 +35,7 @@ void Server::startServer()
 void Server::onNewConnection()
 {
     // Reject connections if the maximum number of players is reached
-    if (clientSockets.size() >= 3) {
+    if (clientSockets.size() >= maxPlayers) {
         QTcpSocket* extraClient = tcpServer->nextPendingConnection();
         qDebug() << "Rejected connection: Maximum players reached!";
         extraClient->write("Server full. Connection rejected.");
@@ -50,7 +53,7 @@ void Server::onNewConnection()
 
     qDebug() << "New client connected! Total players:" << clientSockets.size();
 
-    if (clientSockets.size() == 3) {
+    if (clientSockets.size() == maxPlayers) {
         qDebug() << "Game ready to start!";
         broadcastMessage("All players connected. Game starting...");
     }
@@ -64,6 +67,10 @@ void Server::onReadyRead()
     QByteArray data = senderSocket->readAll();
     QString message = QString::fromUtf8(data).trimmed();
     qDebug() << "Received data:" << message;
+
+
+    int currentPlayerIndex = gameServer->getRoundManager()->getCurrentPlayerIndex();
+    qDebug() << "Current Player Index:" << currentPlayerIndex;
 
     if (message.startsWith("WEATHER_CARD:")) {
         int index = message.split(":").last().toInt();
@@ -133,6 +140,10 @@ void Server::onReadyRead()
             qDebug() << "All players are ready. Starting the game!";
             broadcastMessage("AllReady");
             gameServer->getRoundManager()->nextTurn();
+            if(!weatherCardRevealed && clientSockets.size() == maxPlayers) {
+                gameServer->changeWeatherCard();  // reveal first weather card
+                weatherCardRevealed = true;
+            }
             qDebug() << "First turn started";
            // broadcastResourcesInfo();
 
@@ -213,4 +224,7 @@ void Server::onRoundStarted(int roundNumber)
 
     QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
     broadcastMessage(message);
+
+    // weather card can be revealed only once per round
+    //weatherCardRevealed = false;
    }

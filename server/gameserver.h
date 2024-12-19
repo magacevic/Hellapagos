@@ -54,6 +54,7 @@ private:
     RoundManager* roundManager;
     int roundCounter;
     QTcpServer* tcpServer;
+    //bool weatherCardRevealed = false; // Flag to track if weather card has been revealed this round
 };
 
 #endif // GAMESERVER_H

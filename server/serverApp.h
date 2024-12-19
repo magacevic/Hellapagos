@@ -31,13 +31,15 @@ private slots:
     void onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
 
 private:
+    int maxPlayers;
+
     QTcpServer *tcpServer;
     QList<QTcpSocket*> clientSockets;     // List of connected clients
     GameServer* gameServer;
     void broadcastMessage(const QString& message);
     int readyPlayers = 0;
     QMap<QString, QTcpSocket*> playerSocketMap;
-
+    bool weatherCardRevealed = false;
 };
 
 #endif // SERVER_H

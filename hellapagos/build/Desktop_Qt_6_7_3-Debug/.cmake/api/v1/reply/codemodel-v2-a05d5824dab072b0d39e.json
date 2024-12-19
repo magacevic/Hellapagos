@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "hellapagos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-hellapagos-Debug-531c3aa08003605bbc9e.json",
+					"jsonFile" : "target-hellapagos-Debug-d118d89d77d1c3ebc472.json",
 					"name" : "hellapagos",
 					"projectIndex" : 0
 				},
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
-		"source" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
+		"build" : "/home/ana/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/ana/Desktop/Hellapagos/hellapagos"
 	},
 	"version" : 
 	{

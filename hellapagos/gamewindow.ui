@@ -374,6 +374,9 @@ color: rgb(193, 125, 17);</string>
     </property>
    </widget>
    <widget class="QPushButton" name="revealButton">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -479,7 +482,7 @@ font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

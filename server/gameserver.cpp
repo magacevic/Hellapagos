@@ -18,6 +18,7 @@ GameServer::GameServer(QObject* parent)
     connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
             this, &GameServer::currentAndNextPlayerUpdated);
 
+    connect(roundManager, &RoundManager::changeWeatherCard, this, &GameServer::onWeatherCardRequest);
 
 
     // Poveži signal za promenu igrača
@@ -88,14 +89,13 @@ void GameServer::changeWeatherCard() {
         return;
     }
 
-
     int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
 
     emit weatherCardChanged(randomIndex);
 }
 void GameServer::onWeatherCardRequest() {
-      changeWeatherCard();
+    changeWeatherCard();
 }
 
 // Slot koji prihvata signal za promenu igrača
