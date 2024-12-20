@@ -1,6 +1,7 @@
 #include "serverApp.h"
 #include <QDebug>
 #include "gameserver.h"
+#include <QTimer>
 
 Server::Server(QObject *parent)
     :   QObject(parent),
@@ -69,8 +70,8 @@ void Server::onReadyRead()
     qDebug() << "Received data:" << message;
 
 
-    int currentPlayerIndex = gameServer->getRoundManager()->getCurrentPlayerIndex();
-    qDebug() << "Current Player Index:" << currentPlayerIndex;
+    //int currentPlayerIndex = gameServer->getRoundManager()->getCurrentPlayerIndex();
+    //qDebug() << "Current Player Index:" << currentPlayerIndex;
 
     if (message.startsWith("WEATHER_CARD:")) {
         int index = message.split(":").last().toInt();
@@ -138,15 +139,21 @@ void Server::onReadyRead()
 
         if (readyPlayers == clientSockets.size()) {
             qDebug() << "All players are ready. Starting the game!";
-            broadcastMessage("AllReady");
-            gameServer->getRoundManager()->nextTurn();
-            if(!weatherCardRevealed && clientSockets.size() == maxPlayers) {
-                gameServer->changeWeatherCard();  // reveal first weather card
-                weatherCardRevealed = true;
-            }
-            qDebug() << "First turn started";
-           // broadcastResourcesInfo();
 
+            broadcastMessage("AllReady");
+
+            QTimer::singleShot(1000, this, [this]() {
+                // Reveal the first weather card
+                if (!weatherCardRevealed && clientSockets.size() == maxPlayers) {
+                    gameServer->changeWeatherCard();
+                    weatherCardRevealed = true;
+
+                }
+
+                // Start the first round
+                qDebug() << "First turn started";
+                gameServer->getRoundManager()->nextTurn();
+            });
         }
     }
 }
@@ -188,6 +195,7 @@ void Server::broadcastWeatherCardChange(int index)
     for (QTcpSocket* socket : clientSockets) {
         if (socket && socket->isOpen()) {
             socket->write(message.toUtf8());
+            socket->flush();
         }
     }
 }
@@ -225,6 +233,7 @@ void Server::onRoundStarted(int roundNumber)
     QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
     broadcastMessage(message);
 
-    // weather card can be revealed only once per round
-    //weatherCardRevealed = false;
+    QTimer::singleShot(1000, this, [this]() {
+        gameServer->changeWeatherCard();
+    });
    }

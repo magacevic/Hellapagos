@@ -58,8 +58,6 @@ void RoundManager::actionCompleted()
      if (completedTurns >= players.size()) {
         qDebug() << "All players completed their actions. Starting next round.";
 
-         //reveal the weather card at the begining of round
-        emit changeWeatherCard();
 
         emit roundCompleted();
         completedTurns = 0;

@@ -30,7 +30,7 @@ signals:
     // Signal koji obaveštava kada se igrač promeni
     void playerChanged(int newPlayerId);
     void roundCompleted();
-    void changeWeatherCard();
+    //void changeWeatherCard();
 
 private:
     QStringList players;      // List of player names

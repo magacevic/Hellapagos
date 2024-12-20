@@ -18,7 +18,7 @@ GameServer::GameServer(QObject* parent)
     connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
             this, &GameServer::currentAndNextPlayerUpdated);
 
-    connect(roundManager, &RoundManager::changeWeatherCard, this, &GameServer::onWeatherCardRequest);
+    //connect(roundManager, &RoundManager::changeWeatherCard, this,&GameServer::onWeatherCardRequest);
 
 
     // Poveži signal za promenu igrača
