@@ -39,6 +39,8 @@ GameWindow::~GameWindow()
     delete ui;
     delete actionSelector;
 }
+// U vašem prozoru ili glavnoj funkciji
+
 
 
 

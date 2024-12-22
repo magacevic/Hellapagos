@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-ae848d08bc6a277cd10c.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "hellapagos",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "hellapagos::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos-Debug-44f62f16caedbad7357e.json",
+					"name" : "hellapagos",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hellapagos_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen-Debug-72b77b3fa98d61a2351c.json",
+					"name" : "hellapagos_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hellapagos_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen_timestamp_deps-Debug-e6e652c7c2c41e012ff7.json",
+					"name" : "hellapagos_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/tamara/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/tamara/Hellapagos/hellapagos"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-163592497400bf2eceef.json",
+					"jsonFile" : "directory-.-Debug-ae848d08bc6a277cd10c.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.16"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "hellapagos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-hellapagos-Debug-42ae13fc6bc559d28e54.json",
+					"jsonFile" : "target-hellapagos-Debug-7f9539ffe53ce4bfe86f.json",
 					"name" : "hellapagos",
 					"projectIndex" : 0
 				},
