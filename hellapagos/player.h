@@ -36,7 +36,7 @@ public:
     // Upravljanje vodom
     int getTotalWater() const;
     void addWater(int water);
-
+    void resetWood();
     // Upravljanje drvima
     int getTotalWood() const;
     void addWood(int wood);

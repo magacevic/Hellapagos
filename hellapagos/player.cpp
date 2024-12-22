@@ -5,7 +5,7 @@
 #include <QInputDialog>
 
 Player::Player(const QString& name)
-    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), foodCollectedInRound(0), eliminatedPlayer(nullptr), sickPlayer(nullptr)
+    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), eliminatedPlayer(nullptr), sickPlayer(nullptr)
 {
     // Inicijalizacija objekata za akcije
     collectFoodAction = new CollectFood();
@@ -63,13 +63,16 @@ int Player::getTotalWood() const {
 }
 
 void Player::addFood(int food) {
-    totalFood += food;
+    totalFood = food;
 }
 
 void Player::addWater(int water) {
     totalWater = water;
 }
 
+void Player::resetWood(){
+    totalWood=0;
+}
 void Player::addWood(int wood) {
     totalWood += wood;
 }
@@ -78,17 +81,9 @@ void Player::addWood(int wood) {
 void Player::collectFood() {
 	
 	if (canPerformActions()) {
-    	foodCollectedInRound = collectFoodAction->performAction();
+        int foodCollectedInRound = collectFoodAction->performAction();
     	addFood(foodCollectedInRound);
-        if (m_client) {
-            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_FOOD:%1:%2")
-            .arg(playerName)
-                .arg(foodCollectedInRound);
-            m_client->sendMessage(actionMessage);
-            qDebug() << "Sent food collection update to server:" << actionMessage;
-        } else {
-            qDebug() << "Client object is null!";
-        }
+
     } else {
     
     	qDebug() << "Player is sick and cannot collect food!";

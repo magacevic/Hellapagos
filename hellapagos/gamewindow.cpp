@@ -84,6 +84,7 @@ void GameWindow::onWeatherCardClicked()
 
 void GameWindow::on_collectWoodButton_clicked()
 {
+    currentPlayer->resetWood();
     if (isCollectingWood) {
         qDebug() << "Already collecting wood, ignoring the click."; // Debugging
         return;
@@ -130,10 +131,14 @@ void GameWindow::on_collectWoodButton_clicked()
             }
         }
 
+        int collectedWood=currentPlayer->getTotalWood();
+        qDebug() << "- Total collected wood:" << collectedWood;
+
         if (m_client) {
-            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WOOD");
+            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_WOOD %1").arg(collectedWood);
             m_client->sendMessage(actionMessage);
             qDebug() << "Sent action completion message to server: " << actionMessage;
+
         } else {
             qDebug() << "Client object is null!";
         }
@@ -145,6 +150,7 @@ void GameWindow::on_collectWoodButton_clicked()
             isCollectingWood = false;  // Resetujemo flag
         });
     });
+
 }
 
 
@@ -237,7 +243,7 @@ void GameWindow::on_collectFoodButton_clicked()
         qDebug() << "Total food collected so far: " << totalFood;
 
         if (m_client) {
-            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_FOOD");
+            QString actionMessage = QString("ACTION_COMPLETED:COLLECT_FOOD %1").arg(totalFood);
             m_client->sendMessage(actionMessage);
             qDebug() << "Sent action completion message to server: " << actionMessage;
         } else {

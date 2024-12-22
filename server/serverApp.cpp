@@ -93,10 +93,39 @@ void Server::onReadyRead()
             qDebug() << "Current amount of water:" << waterAmount;
             broadcastResourcesInfo();
            // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
+            QTimer::singleShot(500, this, [this]() {
 
+                gameServer->getRoundManager()->actionCompleted();
+            });
+
+        } else if(message.startsWith("ACTION_COMPLETED:COLLECT_WOOD")){
+            QString numberString = message.split(' ').last();
+            int collectedWood=numberString.toInt();
+            // gameServer->resources["water"]+=collectedWater;
+            gameServer->addResource("wood", collectedWood);
+            int woodAmount = gameServer->getResourceAmount("wood");
+            qDebug() << "Current amount of wood:" << woodAmount;
+            broadcastResourcesInfo();
+            // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
+            QTimer::singleShot(500, this, [this]() {
+
+                gameServer->getRoundManager()->actionCompleted();
+            });
+
+        }else if(message.startsWith("ACTION_COMPLETED:COLLECT_FOOD")){
+            QString numberString = message.split(' ').last();
+            int collectedFood=numberString.toInt();
+            // gameServer->resources["water"]+=collectedWater;
+            gameServer->addResource("food", collectedFood);
+            int foodAmount = gameServer->getResourceAmount("food");
+            qDebug() << "Current amount of food:" << foodAmount;
+            broadcastResourcesInfo();
+            // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
+            QTimer::singleShot(500, this, [this]() {
+
+                gameServer->getRoundManager()->actionCompleted();
+            });
         }
-
-        gameServer->getRoundManager()->actionCompleted();
 
     }
 
@@ -111,13 +140,13 @@ void Server::onReadyRead()
             senderSocket->write(QString("Sorry, not your turn. Player %1").arg(currentPlayer).toUtf8());
         }
     }
-
+/*
     if (message.startsWith("ACTION_COMPLETED:COLLECT_FOOD")) {
         QString playerName = message.split(":").at(1);
         int foodAmount = message.split(":").at(2).toInt();
         gameServer->collectFoodFromPlayer(playerName, foodAmount);
     }
-
+*/
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;

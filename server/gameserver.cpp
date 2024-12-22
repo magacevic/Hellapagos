@@ -136,7 +136,7 @@ void GameServer::startNextRound()
 
 
 
-
+/*
 void GameServer::collectFoodFromPlayer(const QString& playerName, int foodAmount)
 {
     if (resources.contains("food")) {
@@ -149,7 +149,7 @@ void GameServer::collectFoodFromPlayer(const QString& playerName, int foodAmount
         qDebug() << "Resources map does not contain 'food'!";
     }
 }
-
+*/
 
 void GameServer::broadcastFoodUpdate(const QString& playerName, int foodAmount)
 {
