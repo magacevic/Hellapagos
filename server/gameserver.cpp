@@ -9,6 +9,8 @@ GameServer::GameServer(QObject* parent)
     : QObject(parent),roundCounter(1)
 {
     roundManager = new RoundManager(this);
+    votingSystem = new Voting(this);
+
     // Initialize resource counts to zero
     resources.insert("food", 0);
     resources.insert("water", 0);
@@ -27,6 +29,13 @@ GameServer::GameServer(QObject* parent)
 
     connect(roundManager, &RoundManager::roundCompleted, this, &GameServer::startNextRound);
 
+    // Povezi signale za glasanje
+   // connect(votingSystem, &Voting::votingStarted, this, &GameServer::onVotingStarted);
+    //connect(votingSystem, &Voting::votingConcluded, this &GameServer::onVotingConcluded);
+
+    // Povezi signal za eliminaciju igraca, Voting i RoundManager
+    connect(votingSystem, &Voting::playerEliminatedForRoundManager, roundManager, &RoundManager::handlePlayerEliminated);
+
     for (int i = 1; i < 13; ++i) {
         availableCards.insert(i);
     }
@@ -37,6 +46,8 @@ GameServer::GameServer(QObject* parent)
 RoundManager* GameServer::getRoundManager() const {
     return roundManager;
 }
+
+
 
 void GameServer::addResource(const QString& resourceName, int amount) {
     resources[resourceName] += amount;

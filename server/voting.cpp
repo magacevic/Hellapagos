@@ -1,4 +1,5 @@
 #include "voting.h"
+#include "gameserver.h"
 #include <QDebug>
 
 Voting::Voting(QObject* parent) : QObject(parent), votingInProgress(false)
@@ -91,4 +92,10 @@ void Voting::handleVotingOutcome()
     eliminatePlayer = playerToEliminate;
     reason = "Eliminated due to majority vote.";
     qDebug() << "Player to eliminate: " << eliminatePlayer << " with " << highestVotes << " votes.";
+
+    emit playerEliminated(eliminatePlayer);    // Emituj signal da je igrac eliminisan
+
+    emit playerEliminatedForRoundManager(eliminatePlayer);  // Emituje signal Round Manageru kog igraca treba da izbrise
+
+
 }

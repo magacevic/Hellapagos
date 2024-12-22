@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QString>  // Include QString to handle names
+#include "eliminatedplayer.h"
 
 class Client : public QObject
 {
@@ -36,10 +37,13 @@ private slots:
     void onConnected();
     void onReadyRead();
     void onDisconnected();
+    //void onPlayerEliminated(const QString& playerName); // Slot za prijem eliminisanog igraca
 
 
 private:
     QTcpSocket *tcpSocket;
+
+    EliminatedPlayer* player;  // Instanca eliminisanog igraca
 
 };
 

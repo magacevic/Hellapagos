@@ -56,8 +56,8 @@ void RoundManager::actionCompleted()
     qDebug() << "Player turn completed. Total completed turns:" << completedTurns;
 
      if (completedTurns >= players.size()) {
-        qDebug() << "All players completed their actions. Starting next round.";
 
+        qDebug() << "All players completed their actions. Starting next round.";
 
         emit roundCompleted();
         completedTurns = 0;
@@ -66,3 +66,13 @@ void RoundManager::actionCompleted()
 
     nextTurn();
 }
+
+void RoundManager::handlePlayerEliminated(const QString& playerName)
+{
+    players.removeAll(playerName);
+    qDebug() << "Player eliminated:" << playerName;
+
+    emit playerListUpdated(players);
+}
+
+

@@ -8,6 +8,7 @@
 #include <QMap>
 #include "QSet"
 #include "roundmanager.h"
+#include "voting.h"
 
 
 class GameServer : public QObject
@@ -33,6 +34,7 @@ public:
     int getResourceAmount(const QString& resourceName) const;
     void checkRafts();
 
+
     
 public slots:
     // Slot koji prihvata signal za promenu igrača
@@ -56,6 +58,7 @@ private:
     int roundCounter;
     QTcpServer* tcpServer;
     //bool weatherCardRevealed = false; // Flag to track if weather card has been revealed this round
+    Voting* votingSystem;
 };
 
 #endif // GAMESERVER_H

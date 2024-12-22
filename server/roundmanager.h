@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QStringList>
 
+
 class RoundManager : public QObject
 {
     Q_OBJECT
@@ -23,6 +24,8 @@ public:
     int getCurrentPlayerIndex();
     void actionCompleted();
 
+
+
 signals:
     // Signal koji obaveštava server kada se promeni trenutni i naredni igrač
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
@@ -32,9 +35,17 @@ signals:
     void roundCompleted();
     //void changeWeatherCard();
 
+    //Signal za azuriranje liste igraca
+    void playerListUpdated(const QVector<QString>& updatePlayers);
+
+public slots:
+    void handlePlayerEliminated(const QString& playerName);  // Rukuje eliminacijom igraca
+
 private:
     QStringList players;      // List of player names
     int currentPlayerIndex;   // Trenutni indeks igrača
+
+
 };
 
 #endif // ROUNDMANAGER_H

@@ -2,32 +2,26 @@
 #define ELIMINATEDPLAYER_H
 
 #include <vector>
+#include <QString>
 
 class EliminatedPlayer {
 public:
     // Konstruktor
-    EliminatedPlayer();
+    EliminatedPlayer(const QString& name = "");
 
-    // Set funkcija za spectating status
-    void setSpectating(bool spectate);
 
-    // Funkcija koja proverava da li može da glasa
-    bool canVote() const;
+    void setSpectating(bool spectate);  // Postavlja igraca u rezim gledanja
+    bool canVote() const;              // Funkcija koja proverava da li može da glasa
+    bool canPerformActions() const;    // Funkcija koja proverava da li može da izvodi akcije
+    bool wantsToSpectate() const;     // Funkcija koja proverava da li želi da gleda igru
+    bool canCollect() const;         // Funkcija koja proverava da li može da prikuplja resurse
 
-    // Funkcija koja proverava da li može da izvodi akcije
-    bool canPerformActions() const;
+    QString getPlayerName() const;   //Funkcija za dobijanje imena igraca
 
-    // Funkcija koja proverava da li želi da gleda igru
-    bool wantsToSpectate() const;
-
-    // Funkcija koja proverava da li može da prikuplja resurse
-    bool canCollect() const;
-
-    // Funkcija koja briše igrača iz liste aktivnih igrača
-    static void deleteFromPlayerList(std::vector<EliminatedPlayer>& playerList, const EliminatedPlayer& player);
 
 private:
     bool isSpectating; // Status da li igrač gleda
+    QString playerName; //Ime eliminisanog igraca
 };
 
 #endif // ELIMINATEDPLAYER_H

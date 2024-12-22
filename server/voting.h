@@ -6,6 +6,7 @@
 #include <QStringList>
 #include <QMap>
 
+
 class Voting : public QObject
 {
     Q_OBJECT
@@ -20,9 +21,14 @@ public:
     void checkForWaterShortage();
     void checkForFoodShortage();
 
+
 signals:
     void votingStarted();
     void votingConcluded();
+    void playerEliminated(const QString& playerName);  //Signal za eliminisanje igraca
+    void playerEliminatedForRoundManager(const QString& playerName); // Signal da je igrac eliminisan Round Menageru
+
+
 
 private:
     QMap<QString, int> votes;
