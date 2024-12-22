@@ -13,6 +13,7 @@ GameServer::GameServer(QObject* parent)
     resources.insert("food", 0);
     resources.insert("water", 0);
     resources.insert("wood", 0);
+    resources.insert("rafts",0);
 
     //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
     connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
@@ -196,3 +197,18 @@ void GameServer::onReadyRead()
     }
 }
 
+
+void GameServer::checkRafts()
+{
+    const int woodRequired = 6;
+
+    if(resources["wood"] >= woodRequired ) {
+        resources["wood"] -= woodRequired;
+        resources["rafts"] += 1;
+
+        qDebug() << "Converted 6 wood into 1 raft.";
+        qDebug() << "Wood left:" << resources["wood"] << ", rafts available:" << resources["rafts"];
+
+    }
+
+}

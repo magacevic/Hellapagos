@@ -31,7 +31,7 @@ public:
     void collectFoodFromPlayer(const QString& playerName, int foodAmount);
     void addResource(const QString& resourceName, int amount);
     int getResourceAmount(const QString& resourceName) const;
-
+    void checkRafts();
 
     
 public slots:
@@ -40,6 +40,7 @@ public slots:
     void onNewClientConnected();
     void onClientDisconnected();
     void onReadyRead();
+
 
 signals:
     void weatherCardChanged(int newIndex);

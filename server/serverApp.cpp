@@ -105,6 +105,7 @@ void Server::onReadyRead()
             gameServer->addResource("wood", collectedWood);
             int woodAmount = gameServer->getResourceAmount("wood");
             qDebug() << "Current amount of wood:" << woodAmount;
+            gameServer->checkRafts();
             broadcastResourcesInfo();
             // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
             QTimer::singleShot(500, this, [this]() {
@@ -248,10 +249,11 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
 
 void Server::broadcastResourcesInfo(){
 
-    QString resourceMessage = QString(" RESOURCES:water:%1,food:%2,wood:%3")
+    QString resourceMessage = QString(" RESOURCES:water:%1,food:%2,wood:%3,rafts:%4")
     .arg(gameServer->getResourceAmount("water"))
         .arg(gameServer->getResourceAmount("food"))
-        .arg(gameServer->getResourceAmount("wood"));
+        .arg(gameServer->getResourceAmount("wood"))
+        .arg(gameServer->getResourceAmount("rafts"));
     broadcastMessage(resourceMessage);
 
 }
@@ -265,4 +267,5 @@ void Server::onRoundStarted(int roundNumber)
     QTimer::singleShot(1000, this, [this]() {
         gameServer->changeWeatherCard();
     });
-   }
+}
+

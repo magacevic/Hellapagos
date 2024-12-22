@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/mina/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -79,7 +79,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "29"
+			"value" : "28"
 		},
 		{
 			"name" : "CMAKE_CACHE_PATCH_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cmake"
+			"value" : "/usr/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cpack"
+			"value" : "/usr/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ctest"
+			"value" : "/usr/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -334,18 +334,6 @@
 			"value" : "CMAKE_DLLTOOL-NOTFOUND"
 		},
 		{
-			"name" : "CMAKE_EDIT_COMMAND",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to cache edit program executable."
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ccmake"
-		},
-		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
 			"properties" : 
 			[
@@ -463,7 +451,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/mina/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -523,7 +511,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : ""
+			"value" : "1"
 		},
 		{
 			"name" : "CMAKE_HOME_DIRECTORY",
@@ -535,7 +523,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
+			"value" : "/home/mina/Hellapagos/hellapagos"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -847,7 +835,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ninja"
+			"value" : "/home/mina/Qt/Tools/Ninja/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -1011,7 +999,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",
@@ -1047,7 +1035,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "/home/mina/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1163,7 +1151,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/share/cmake-3.29"
+			"value" : "/usr/share/cmake-3.28"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1487,7 +1475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[/usr/lib/x86_64-linux-gnu/libxkbcommon.so][/usr/include][v0.10.0(0.5.0)]"
+			"value" : "[/usr/lib/x86_64-linux-gnu/libxkbcommon.so][/usr/include][v(0.5.0)]"
 		},
 		{
 			"name" : "HAVE_STDATOMIC",
@@ -1531,7 +1519,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/include"
+			"value" : "OPENGL_GLES2_INCLUDE_DIR-NOTFOUND"
 		},
 		{
 			"name" : "OPENGL_GLES3_INCLUDE_DIR",
@@ -1547,23 +1535,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "OPENGL_GLU_INCLUDE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a file."
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/include"
+			"value" : "OPENGL_GLES3_INCLUDE_DIR-NOTFOUND"
 		},
 		{
 			"name" : "OPENGL_GLX_INCLUDE_DIR",
@@ -1627,7 +1599,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libGLESv2.so"
+			"value" : "OPENGL_gles2_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "OPENGL_gles3_LIBRARY",
@@ -1643,7 +1615,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libGLESv2.so"
+			"value" : "OPENGL_gles3_LIBRARY-NOTFOUND"
 		},
 		{
 			"name" : "OPENGL_glu_LIBRARY",
@@ -1739,7 +1711,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/pkg-config"
+			"value" : "PKG_CONFIG_EXECUTABLE-NOTFOUND"
 		},
 		{
 			"name" : "PKG_XKB_CFLAGS",
@@ -1751,7 +1723,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "-I/usr/include"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_CFLAGS_I",
@@ -1787,46 +1759,10 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_INCLUDEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "PKG_XKB_INCLUDE_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "PKG_XKB_LDFLAGS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "-L/usr/lib/x86_64-linux-gnu;-lxkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_LDFLAGS_OTHER",
 			"properties" : 
 			[
 				{
@@ -1847,31 +1783,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
-		},
-		{
-			"name" : "PKG_XKB_LIBRARIES",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "xkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_LIBRARY_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_LIBS",
@@ -1931,7 +1843,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "xkbcommon"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_PREFIX",
@@ -1943,7 +1855,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/usr"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_STATIC_CFLAGS",
@@ -1955,7 +1867,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "-I/usr/include"
+			"value" : ""
 		},
 		{
 			"name" : "PKG_XKB_STATIC_CFLAGS_I",
@@ -1982,42 +1894,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "PKG_XKB_STATIC_INCLUDE_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/include"
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LDFLAGS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "-L/usr/lib/x86_64-linux-gnu;-lxkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LDFLAGS_OTHER",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
 			"name" : "PKG_XKB_STATIC_LIBDIR",
 			"properties" : 
 			[
@@ -2028,30 +1904,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : ""
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LIBRARIES",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "xkbcommon"
-		},
-		{
-			"name" : "PKG_XKB_STATIC_LIBRARY_DIRS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
 		},
 		{
 			"name" : "PKG_XKB_STATIC_LIBS",
@@ -2111,54 +1963,6 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "0.10.0"
-		},
-		{
-			"name" : "PKG_XKB_xkbcommon_INCLUDEDIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
-			"name" : "PKG_XKB_xkbcommon_LIBDIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
-			"name" : "PKG_XKB_xkbcommon_PREFIX",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : ""
-		},
-		{
-			"name" : "PKG_XKB_xkbcommon_VERSION",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
 			"value" : ""
 		},
 		{
@@ -2207,7 +2011,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "QT_FEATURE_abstractbutton",
@@ -7235,7 +7039,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/bin/qmake"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/bin/qmake"
 		},
 		{
 			"name" : "Qt6CoreTools_DIR",
@@ -7247,7 +7051,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
 		},
 		{
 			"name" : "Qt6Core_DIR",
@@ -7259,7 +7063,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
 		},
 		{
 			"name" : "Qt6DBusTools_DIR",
@@ -7271,7 +7075,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBusTools"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBusTools"
 		},
 		{
 			"name" : "Qt6DBus_DIR",
@@ -7283,7 +7087,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBus"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6DBus"
 		},
 		{
 			"name" : "Qt6GuiTools_DIR",
@@ -7295,7 +7099,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6GuiTools"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6GuiTools"
 		},
 		{
 			"name" : "Qt6Gui_DIR",
@@ -7307,7 +7111,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Gui"
 		},
 		{
 			"name" : "Qt6Multimedia_DIR",
@@ -7319,7 +7123,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Multimedia"
 		},
 		{
 			"name" : "Qt6Network_DIR",
@@ -7331,7 +7135,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
 		},
 		{
 			"name" : "Qt6WidgetsTools_DIR",
@@ -7343,7 +7147,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6WidgetsTools"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6WidgetsTools"
 		},
 		{
 			"name" : "Qt6Widgets_DIR",
@@ -7355,7 +7159,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6Widgets"
 		},
 		{
 			"name" : "Qt6_DIR",
@@ -7367,19 +7171,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
-		},
-		{
-			"name" : "THREADS_HAVE_PTHREAD_ARG",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Result of TRY_COMPILE"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "TRUE"
+			"value" : "/home/mina/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "Vulkan_GLSLANG_VALIDATOR_EXECUTABLE",
@@ -7494,18 +7286,6 @@
 			"value" : "/usr/local"
 		},
 		{
-			"name" : "__pkg_config_arguments_PKG_XKB",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "QUIET;xkbcommon"
-		},
-		{
 			"name" : "__pkg_config_checked_PKG_XKB",
 			"properties" : 
 			[
@@ -7527,7 +7307,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/mina/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "hellapagos_IS_TOP_LEVEL",
@@ -7551,35 +7331,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
-		},
-		{
-			"name" : "pkgcfg_lib_PKG_XKB_xkbcommon",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Path to a library."
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/libxkbcommon.so"
-		},
-		{
-			"name" : "prefix_result",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "/usr/lib/x86_64-linux-gnu"
+			"value" : "/home/mina/Hellapagos/hellapagos"
 		}
 	],
 	"kind" : "cache",

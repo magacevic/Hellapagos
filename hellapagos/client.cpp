@@ -73,7 +73,7 @@ void Client::onReadyRead()
         QString resourceData = message.mid(QString("RESOURCES:").length());
         QStringList resourceList = resourceData.split(',');
 
-        int water = 0, food = 0, wood = 0;
+        int water = 0, food = 0, wood = 0, rafts = 0;
 
         // Loop through the resourceList to extract values
         for (const QString& resource : resourceList) {
@@ -87,11 +87,13 @@ void Client::onReadyRead()
                     food = value;
                 } else if (key == "wood") {
                     wood = value;
+                } else if (key == "rafts") {
+                    rafts = value;
                 }
             }
         }
 
-        qDebug() << "Resources updated - Water:" << water << ", Food:" << food << ", Wood:" << wood;
+        qDebug() << "Resources updated - Water:" << water << ", Food:" << food << ", Wood:" << wood << ", Rafts:" << rafts;
 
     }
 

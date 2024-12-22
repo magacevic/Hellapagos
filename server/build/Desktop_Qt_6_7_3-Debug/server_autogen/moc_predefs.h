@@ -204,6 +204,7 @@
 #define __FLT32_MANT_DIG__ 24
 #define __FLOAT_WORD_ORDER__ __ORDER_LITTLE_ENDIAN__
 #define SIZEOF_DPTR (sizeof(void*))
+#define __STDC_IEC_60559_COMPLEX__ 201404L
 #define __cpp_aggregate_bases 201603L
 #define __FLT128_HAS_DENORM__ 1
 #define __FLT32_DECIMAL_DIG__ 9
@@ -234,6 +235,7 @@
 #define __FLT32X_MIN__ 2.22507385850720138309023271733240406e-308F32x
 #define __SIG_ATOMIC_MAX__ 0x7fffffff
 #define __GCC_ATOMIC_WCHAR_T_LOCK_FREE 2
+#define __STDC_IEC_60559_BFP__ 201404L
 #define __SIZEOF_PTRDIFF_T__ 8
 #define __LDBL_DIG__ 18
 #define __x86_64__ 1

@@ -12,12 +12,9 @@ void GameState::updateState(int waterChange, int foodChange, int woodChange, int
     water += waterChange;
     food += foodChange;
     wood += woodChange;
-    raftsMade += raftChange;
 
-    if (wood >= 6) {
-        raftsMade++;
-        wood = 0;
-    }
+
+
 }
 
 void GameState::printState(int roundNumber, int water, int food, int wood, int raftsMade){
