@@ -153,6 +153,10 @@ void GameWindow::on_collectWoodButton_clicked()
         });
     });
 
+    QTimer::singleShot(1000, this, [this]() {
+        ui->collectWoodButton->setEnabled(true);
+        isCollectingWood = false;  // Resetujemo flag
+    });
 }
 
 
@@ -210,6 +214,10 @@ void GameWindow::on_collectWaterButton_clicked()
             isCollectingWater = false;  // Resetujemo flag
         });
     });
+    QTimer::singleShot(1000, this, [this]() {
+        ui->collectWaterButton->setEnabled(true);
+        isCollectingWater = false;  // Resetujemo flag
+    });
 }
 
 void GameWindow::on_collectFoodButton_clicked()
@@ -236,7 +244,7 @@ void GameWindow::on_collectFoodButton_clicked()
         return;
     }
 
-    disconnect(m_client, &Client::collectFoodApproved, this, nullptr);
+   // disconnect(m_client, &Client::collectFoodApproved, this, nullptr);
 
     connect(m_client, &Client::collectFoodApproved, this, [this]() {
         actionSelector->selectAction(COLLECT_FOOD);
@@ -256,6 +264,11 @@ void GameWindow::on_collectFoodButton_clicked()
             ui->collectFoodButton->setEnabled(true);
             isCollectingFood = false;  // Resetujemo flag
         });
+    });
+
+    QTimer::singleShot(1000, this, [this]() {
+        ui->collectFoodButton->setEnabled(true);
+        isCollectingFood = false;  // Resetujemo flag
     });
 }
 

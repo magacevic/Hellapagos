@@ -125,7 +125,7 @@ void Client::onReadyRead()
         }else if (action == "COLLECT_FOOD") {
             emit collectFoodApproved();
         }
-    } else if (message == "Sorry, not your turn.") {
+    } else if (message.startsWith("Sorry, not your turn.")) {
        // QMessageBox::information(nullptr, "Not Your Turn", "Sorry, it's not your turn to play.");
         qDebug()<<"Not your turn...";
 

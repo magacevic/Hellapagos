@@ -138,8 +138,8 @@ void Server::onReadyRead()
         if (senderSocket == currentPlayerSocket) {
             senderSocket->write(QString("ACTION_APPROVED:%1").arg(action).toUtf8());
         } else {
-            senderSocket->write(QString("Sorry, not your turn. Player %1").arg(currentPlayer).toUtf8());
-        }
+            senderSocket->write(QString("Sorry, not your turn.ACTION DENIED: %1").arg(action).toUtf8());
+            }
     }
 /*
     if (message.startsWith("ACTION_COMPLETED:COLLECT_FOOD")) {

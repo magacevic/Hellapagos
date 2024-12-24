@@ -12,11 +12,21 @@
 		[
 			"add_executable",
 			"install",
-			"target_link_libraries"
+			"target_link_libraries",
+			"set_property",
+			"find_package",
+			"find_dependency",
+			"_qt_internal_find_third_party_dependencies",
+			"include"
 		],
 		"files" : 
 		[
-			"CMakeLists.txt"
+			"CMakeLists.txt",
+			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/FindThreads.cmake",
+			"/home/ksenija/Qt/Tools/CMake/share/cmake-3.29/Modules/CMakeFindDependencyMacro.cmake",
+			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/QtPublicDependencyHelpers.cmake",
+			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Dependencies.cmake",
+			"/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6/Qt6Config.cmake"
 		],
 		"nodes" : 
 		[
@@ -40,6 +50,54 @@
 				"file" : 0,
 				"line" : 29,
 				"parent" : 0
+			},
+			{
+				"command" : 4,
+				"file" : 0,
+				"line" : 12,
+				"parent" : 0
+			},
+			{
+				"file" : 5,
+				"parent" : 4
+			},
+			{
+				"command" : 7,
+				"file" : 5,
+				"line" : 124,
+				"parent" : 5
+			},
+			{
+				"file" : 4,
+				"parent" : 6
+			},
+			{
+				"command" : 6,
+				"file" : 4,
+				"line" : 27,
+				"parent" : 7
+			},
+			{
+				"command" : 5,
+				"file" : 3,
+				"line" : 36,
+				"parent" : 8
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 76,
+				"parent" : 9
+			},
+			{
+				"file" : 1,
+				"parent" : 10
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 238,
+				"parent" : 11
 			}
 		]
 	},
@@ -54,6 +112,10 @@
 				{
 					"backtrace" : 3,
 					"fragment" : "-fPIC"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-pthread"
 				}
 			],
 			"defines" : 
@@ -71,27 +133,27 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
+					"path" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtCore"
+					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtCore"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include"
+					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/tamara/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtNetwork"
+					"path" : "/home/ksenija/Qt/6.7.3/gcc_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -153,17 +215,22 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/tamara/Qt/6.7.3/gcc_64/lib:",
+				"fragment" : "-Wl,-rpath,/home/ksenija/Qt/6.7.3/gcc_64/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
+				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"fragment" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 12,
+				"fragment" : "-pthread",
 				"role" : "libraries"
 			}
 		],
