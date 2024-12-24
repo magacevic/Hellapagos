@@ -12,8 +12,8 @@ GameServer::GameServer(QObject* parent)
     votingSystem = new Voting(this);
 
     // Initialize resource counts to zero
-    resources.insert("food", 0);
-    resources.insert("water", 0);
+    resources.insert("food", 8);
+    resources.insert("water", 10);
     resources.insert("wood", 0);
     resources.insert("rafts",0);
 
@@ -36,7 +36,7 @@ GameServer::GameServer(QObject* parent)
     // Povezi signal za eliminaciju igraca, Voting i RoundManager
     connect(votingSystem, &Voting::playerEliminatedForRoundManager, roundManager, &RoundManager::handlePlayerEliminated);
 
-    for (int i = 1; i < 13; ++i) {
+    for (int i = 1; i < 12; ++i) {
         availableCards.insert(i);
     }
 
@@ -101,8 +101,14 @@ void GameServer::changeWeatherCard() {
         return;
     }
 
+    if(roundCounter==7){
+        availableCards.insert(13);
+    }
     int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
+
+
+   // availableCards.remove(randomIndex);
 
     emit weatherCardChanged(randomIndex);
 }
