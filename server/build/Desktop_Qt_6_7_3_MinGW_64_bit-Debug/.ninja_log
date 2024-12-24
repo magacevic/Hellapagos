@@ -33,3 +33,14 @@
 304	5222	7567653381448443	CMakeFiles/server.dir/gameserver.cpp.obj	d6637024e329f619
 300	5235	7567653381418559	CMakeFiles/server.dir/serverApp.cpp.obj	7678a0539bd0eba
 5235	6181	7567653430759628	server.exe	e8aa9ffb35ea9ce
+23	1575	7567672904789816	server_autogen/timestamp	4c185154f39b4354
+23	1575	7567672904789816	server_autogen/mocs_compilation.cpp	4c185154f39b4354
+23	1575	7567672904789816	C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/server_autogen/timestamp	4c185154f39b4354
+23	1575	7567672904789816	C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/server_autogen/mocs_compilation.cpp	4c185154f39b4354
+1581	6830	7567672905891452	CMakeFiles/server.dir/main.cpp.obj	e187cf3604152e43
+1592	7137	7567672905972988	CMakeFiles/server.dir/roundmanager.cpp.obj	5856c4c88a1156ba
+1596	7656	7567672906048396	CMakeFiles/server.dir/voting.cpp.obj	644a8d27d18ec534
+1577	8016	7567672905861573	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.obj	7b21b5affeaa5d52
+1585	8458	7567672905931347	CMakeFiles/server.dir/serverApp.cpp.obj	7678a0539bd0eba
+1588	8545	7567672905972988	CMakeFiles/server.dir/gameserver.cpp.obj	d6637024e329f619
+8545	9485	7567672975534621	server.exe	e8aa9ffb35ea9ce

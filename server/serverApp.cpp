@@ -265,6 +265,9 @@ void Server::onRoundStarted(int roundNumber)
     QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
     broadcastMessage(message);
 
+    gameServer->decreaseResources();
+    broadcastResourcesInfo();
+
     QTimer::singleShot(1000, this, [this]() {
         gameServer->changeWeatherCard();
     });
