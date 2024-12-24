@@ -28,6 +28,7 @@ GameServer::GameServer(QObject* parent)
     connect(roundManager, &RoundManager::playerChanged, this, &GameServer::onPlayerChanged);
 
     connect(roundManager, &RoundManager::roundCompleted, this, &GameServer::startNextRound);
+    connect(roundManager, &RoundManager::roundCompleted, this, &GameServer::decreaseResources);
 
     // Povezi signale za glasanje
    // connect(votingSystem, &Voting::votingStarted, this, &GameServer::onVotingStarted);
@@ -228,4 +229,8 @@ void GameServer::checkRafts()
 
     }
 
+}
+
+void GameServer::decreaseResources(){
+    qDebug()<<"Decreasing resources after round";
 }

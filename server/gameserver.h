@@ -33,6 +33,7 @@ public:
     void addResource(const QString& resourceName, int amount);
     int getResourceAmount(const QString& resourceName) const;
     void checkRafts();
+    void decreaseResources();
 
 
     

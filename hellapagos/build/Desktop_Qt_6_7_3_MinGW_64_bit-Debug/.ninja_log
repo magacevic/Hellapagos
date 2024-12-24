@@ -1,0 +1,27 @@
+# ninja log v6
+14	2648	7567641821708976	hellapagos_autogen/timestamp	6ae08a76dbdf875c
+14	2648	7567641821708976	hellapagos_autogen/mocs_compilation.cpp	6ae08a76dbdf875c
+14	2648	7567641821708976	C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/hellapagos_autogen/timestamp	6ae08a76dbdf875c
+14	2648	7567641821708976	C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/hellapagos_autogen/mocs_compilation.cpp	6ae08a76dbdf875c
+2658	2853	7567641824575131	hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp	cc4c6f70abcc7306
+2658	2853	7567641824575131	C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp	cc4c6f70abcc7306
+2661	4971	7567641845687297	hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp	ace3cd83e3ec59bd
+2661	4971	7567641845687297	C:/Users/Korisnik/Downloads/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp	ace3cd83e3ec59bd
+4993	12340	7567641846071690	CMakeFiles/hellapagos.dir/collectwater.cpp.obj	a0334fa0a538ede3
+4973	12772	7567641845912875	CMakeFiles/hellapagos.dir/main.cpp.obj	4bcf772a34f665b8
+4989	14953	7567641846071690	CMakeFiles/hellapagos.dir/collectwood.cpp.obj	52ad140f90744554
+4977	15201	7567641845952773	CMakeFiles/hellapagos.dir/client.cpp.obj	4493ad2b23e7d377
+4996	15240	7567641846071690	CMakeFiles/hellapagos.dir/collectfood.cpp.obj	354b8681452b98d7
+4980	15406	7567641845982701	CMakeFiles/hellapagos.dir/soundmanager.cpp.obj	367b540691f28840
+4975	16326	7567641845932825	CMakeFiles/hellapagos.dir/mainwindow.cpp.obj	3735f1ab504c69ae
+4985	17622	7567641846032562	CMakeFiles/hellapagos.dir/player.cpp.obj	892f3d24300a233
+4971	17889	7567641845893519	CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.obj	431af5df8d586e72
+12773	19223	7567641923915983	CMakeFiles/hellapagos.dir/sickplayer.cpp.obj	d5f607e5752ff1ab
+12340	20180	7567641919587214	CMakeFiles/hellapagos.dir/actionselector.cpp.obj	6d411fb000db4efe
+15202	20200	7567641948204835	CMakeFiles/hellapagos.dir/eliminatedplayer.cpp.obj	628112559fa772ec
+4982	20252	7567641846012615	CMakeFiles/hellapagos.dir/gamewindow.cpp.obj	9f501aff241a16b4
+15240	21578	7567641948591937	CMakeFiles/hellapagos.dir/gamestate.cpp.obj	bcafe1ddff03c167
+15407	22792	7567641950255292	CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.obj	94ddf1d8e35e63d7
+14954	23110	7567641945723483	CMakeFiles/hellapagos.dir/gamestatistics.cpp.obj	4218a5666c0f1ecb
+16328	113198	7567641959465206	CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.obj	827afe2f24a0b4bf
+113198	115131	7567642928160275	hellapagos.exe	3bcfd359f595e22f
