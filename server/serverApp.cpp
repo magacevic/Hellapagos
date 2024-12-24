@@ -36,7 +36,7 @@ void Server::startServer()
 void Server::onNewConnection()
 {
     // Reject connections if the maximum number of players is reached
-    if (clientSockets.size() >= maxPlayers) {
+    if (clientSockets.size() > maxPlayers) {
         QTcpSocket* extraClient = tcpServer->nextPendingConnection();
         qDebug() << "Rejected connection: Maximum players reached!";
         extraClient->write("Server full. Connection rejected.");
@@ -45,16 +45,17 @@ void Server::onNewConnection()
         extraClient->deleteLater();
         return;
     }
+    else if (clientSockets.size()<maxPlayers){
+        // Accept new connections
+        QTcpSocket* newClient = tcpServer->nextPendingConnection();
+        clientSockets.append(newClient);
+        connect(newClient, &QTcpSocket::readyRead, this, &Server::onReadyRead);
+        connect(newClient, &QTcpSocket::disconnected, this, &Server::onDisconnected);
 
-    // Accept new connections
-    QTcpSocket* newClient = tcpServer->nextPendingConnection();
-    clientSockets.append(newClient);
-    connect(newClient, &QTcpSocket::readyRead, this, &Server::onReadyRead);
-    connect(newClient, &QTcpSocket::disconnected, this, &Server::onDisconnected);
+        qDebug() << "New client connected! Total players:" << clientSockets.size();
+    }
 
-    qDebug() << "New client connected! Total players:" << clientSockets.size();
-
-    if (clientSockets.size() == maxPlayers) {
+    else if (clientSockets.size() == maxPlayers) {
         qDebug() << "Game ready to start!";
         broadcastMessage("All players connected. Game starting...");
     }
@@ -167,7 +168,7 @@ void Server::onReadyRead()
         readyPlayers++;
         qDebug() << "Player is ready! Total ready players:" << readyPlayers;
 
-        if (readyPlayers == clientSockets.size()) {
+        if (readyPlayers == maxPlayers) {
             qDebug() << "All players are ready. Starting the game!";
 
             broadcastMessage("AllReady");
