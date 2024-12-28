@@ -237,4 +237,12 @@ void GameServer::decreaseResources(){
     int numOfPlayers = players.size();
     resources["water"] -= numOfPlayers;
     resources["food"] -= numOfPlayers;
+
+    if(resources["wood"] >=6){
+        resources["rafts"] +=1;
+        qDebug()<<"You have created a raft.";
+        resources["wood"] -=6;
+        //qDebug()<<"Number of wood available: " << resources["wood"];
+        //qDebug()<<"Number of rafts available: "<<resources["rafts"];
+    }
 }
