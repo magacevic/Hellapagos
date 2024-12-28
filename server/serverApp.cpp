@@ -262,8 +262,11 @@ void Server::broadcastResourcesInfo(){
 void Server::onRoundStarted(int roundNumber)
 {
     //qDebug()<<"Starting round: "<<gameServer->roundCounter;
-    QString message = QString("ROUND_STARTED:%1").arg(roundNumber);
+    QString message = QString(" ROUND_STARTED:%1 ").arg(roundNumber);
     broadcastMessage(message);
+
+    QString resourcemessage = QString(" Decreasing resources after round ");
+    broadcastMessage(resourcemessage);
 
     gameServer->decreaseResources();
     broadcastResourcesInfo();

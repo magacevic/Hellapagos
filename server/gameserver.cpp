@@ -232,7 +232,7 @@ void GameServer::checkRafts()
 }
 
 void GameServer::decreaseResources(){
-    qDebug()<<"Decreasing resources after round";
+    //qDebug()<<"Decreasing resources after round";
 
     int numOfPlayers = players.size();
     resources["water"] -= numOfPlayers;
