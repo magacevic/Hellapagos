@@ -102,12 +102,25 @@ void GameServer::changeWeatherCard() {
         return;
     }
 
+
+
     if(roundCounter==7){
         availableCards.insert(13);
     }
+
+
+
     int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
 
+    if(roundCounter==3){
+        randomIndex=13;
+
+    }
+
+    if(randomIndex==13){
+        roundManager->setLastRound(true);
+    }
 
    // availableCards.remove(randomIndex);
 
@@ -147,10 +160,21 @@ void GameServer::onPlayerChanged(int newPlayerId)
 
 void GameServer::startNextRound()
 {
+    if (roundManager->getLastRound()) {
+        qDebug() << "This is the last round!";
+    }
+
     roundCounter++;
     qDebug() << "Starting Round:" << roundCounter;
 
+    if (roundCounter == 13) {
+        roundManager->setLastRound(true);
+        qDebug() << "Setting next round as the last round.";
+    }
+
+
     emit roundStarted(roundCounter);
+
 }
 
 

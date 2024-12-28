@@ -24,7 +24,8 @@ public:
     int getCurrentPlayerIndex();
     void actionCompleted();
 
-
+    void setLastRound(bool isLast);
+    bool getLastRound() const;
 
 signals:
     // Signal koji obaveštava server kada se promeni trenutni i naredni igrač
@@ -37,6 +38,8 @@ signals:
 
     //Signal za azuriranje liste igraca
     void playerListUpdated(const QVector<QString>& updatePlayers);
+    void lastRoundStarted();
+    void lastRoundEnded();
 
 public slots:
     void handlePlayerEliminated(const QString& playerName);  // Rukuje eliminacijom igraca
@@ -44,7 +47,7 @@ public slots:
 private:
     QStringList players;      // List of player names
     int currentPlayerIndex;   // Trenutni indeks igrača
-
+    bool isLastRound;
 
 };
 

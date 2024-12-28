@@ -1,13 +1,27 @@
 #include "roundmanager.h"
 #include <QDebug>
 
-RoundManager::RoundManager(QObject* parent) : QObject(parent), currentPlayerIndex(0)
+RoundManager::RoundManager(QObject* parent) : QObject(parent), currentPlayerIndex(0),isLastRound(false)
 {
 }
 
 void RoundManager::addToTurnPlayer(const QString& playerName)
 {
     players.append(playerName);  // Dodaj igrača na listu
+}
+
+void RoundManager::setLastRound(bool lastRound)
+{
+    isLastRound = lastRound;
+    if (isLastRound) {
+        qDebug() << "Last round initiated!";
+        emit lastRoundStarted();
+    }
+}
+
+bool RoundManager::getLastRound() const
+{
+    return isLastRound;
 }
 
 void RoundManager::nextTurn()
@@ -62,6 +76,10 @@ void RoundManager::actionCompleted()
         emit roundCompleted();
         completedTurns = 0;
     }
+
+     if (isLastRound && completedTurns == 0) {
+         emit lastRoundEnded();
+     }
 
 
     nextTurn();
