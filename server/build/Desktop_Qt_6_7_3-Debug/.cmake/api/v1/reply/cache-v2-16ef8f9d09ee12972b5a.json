@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/addr2line.exe"
+			"value" : "/usr/bin/addr2line"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/ar.exe"
+			"value" : "/usr/bin/ar"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug"
+			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Qt/Tools/CMake_64/bin/cmake.exe"
+			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Qt/Tools/CMake_64/bin/cpack.exe"
+			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Qt/Tools/CMake_64/bin/ctest.exe"
+			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -155,7 +155,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/g++.exe"
+			"value" : "/usr/bin/g++"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -171,7 +171,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/gcc-ar.exe"
+			"value" : "/usr/bin/gcc-ar-10"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -187,7 +187,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/gcc-ranlib.exe"
+			"value" : "/usr/bin/gcc-ranlib-10"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -291,23 +291,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : ".obj"
-		},
-		{
-			"name" : "CMAKE_CXX_STANDARD_LIBRARIES",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Libraries linked by default with all C++ applications."
-				}
-			],
-			"type" : "STRING",
-			"value" : "-lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32"
+			"value" : ".o"
 		},
 		{
 			"name" : "CMAKE_C_COMPILER",
@@ -319,7 +303,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/gcc.exe"
+			"value" : "/usr/bin/gcc"
 		},
 		{
 			"name" : "CMAKE_C_OUTPUT_EXTENSION",
@@ -347,7 +331,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/dlltool.exe"
+			"value" : "CMAKE_DLLTOOL-NOTFOUND"
 		},
 		{
 			"name" : "CMAKE_EDIT_COMMAND",
@@ -359,7 +343,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Qt/Tools/CMake_64/bin/cmake-gui.exe"
+			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ccmake"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -371,7 +355,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "Unknown"
+			"value" : "ELF"
 		},
 		{
 			"name" : "CMAKE_EXE_LINKER_FLAGS",
@@ -479,7 +463,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -530,18 +514,6 @@
 			"value" : ""
 		},
 		{
-			"name" : "CMAKE_GNUtoMS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Convert GNU import libraries to MS format (requires Visual Studio)"
-				}
-			],
-			"type" : "BOOL",
-			"value" : "OFF"
-		},
-		{
 			"name" : "CMAKE_HAVE_LIBC_PTHREAD",
 			"properties" : 
 			[
@@ -551,7 +523,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "1"
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_HOME_DIRECTORY",
@@ -563,7 +535,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Korisnik/Downloads/Hellapagos/server"
+			"value" : "/home/ksenija/Desktop/Hellapagos/server"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -767,7 +739,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Program Files (x86)/server"
+			"value" : "/usr/local"
 		},
 		{
 			"name" : "CMAKE_INSTALL_RUNSTATEDIR",
@@ -818,6 +790,18 @@
 			"value" : "com"
 		},
 		{
+			"name" : "CMAKE_INSTALL_SO_NO_EXE",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Install .so files without execute permission."
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
 			"name" : "CMAKE_INSTALL_SYSCONFDIR",
 			"properties" : 
 			[
@@ -847,7 +831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/ld.exe"
+			"value" : "/usr/bin/ld"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -863,7 +847,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/Ninja/ninja.exe"
+			"value" : "/usr/bin/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -959,7 +943,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/nm.exe"
+			"value" : "/usr/bin/nm"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -987,7 +971,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/objcopy.exe"
+			"value" : "/usr/bin/objcopy"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -1003,7 +987,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/objdump.exe"
+			"value" : "/usr/bin/objdump"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -1027,7 +1011,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",
@@ -1063,7 +1047,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1091,115 +1075,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/ranlib.exe"
-		},
-		{
-			"name" : "CMAKE_RC_COMPILER",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "RC compiler"
-				}
-			],
-			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/windres.exe"
-		},
-		{
-			"name" : "CMAKE_RC_COMPILER_WORKS",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : ""
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "1"
-		},
-		{
-			"name" : "CMAKE_RC_FLAGS",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags for Windows Resource Compiler during all build types."
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_RC_FLAGS_DEBUG",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags for Windows Resource Compiler during DEBUG builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_RC_FLAGS_MINSIZEREL",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags for Windows Resource Compiler during MINSIZEREL builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_RC_FLAGS_RELEASE",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags for Windows Resource Compiler during RELEASE builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
-		},
-		{
-			"name" : "CMAKE_RC_FLAGS_RELWITHDEBINFO",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "Flags for Windows Resource Compiler during RELWITHDEBINFO builds."
-				}
-			],
-			"type" : "STRING",
-			"value" : ""
+			"value" : "/usr/bin/ranlib"
 		},
 		{
 			"name" : "CMAKE_READELF",
@@ -1215,7 +1091,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/readelf.exe"
+			"value" : "/usr/bin/readelf"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1227,7 +1103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Qt/Tools/CMake_64/share/cmake-3.29"
+			"value" : "/home/ksenija/Qt/Tools/CMake/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1435,7 +1311,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/Tools/mingw1120_64/bin/strip.exe"
+			"value" : "/usr/bin/strip"
 		},
 		{
 			"name" : "CMAKE_TAPI",
@@ -1452,6 +1328,18 @@
 			],
 			"type" : "FILEPATH",
 			"value" : "CMAKE_TAPI-NOTFOUND"
+		},
+		{
+			"name" : "CMAKE_UNAME",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "uname command"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "/usr/bin/uname"
 		},
 		{
 			"name" : "CMAKE_VERBOSE_MAKEFILE",
@@ -1551,7 +1439,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "QT_FEATURE_aesni",
@@ -1587,7 +1475,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_alloca_malloc_h",
@@ -1599,7 +1487,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "ON"
+			"value" : "OFF"
 		},
 		{
 			"name" : "QT_FEATURE_android_style_assets",
@@ -1815,7 +1703,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_brotli",
@@ -1863,7 +1751,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_clock_monotonic",
@@ -1875,7 +1763,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_close_range",
@@ -1971,7 +1859,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "ON"
+			"value" : "OFF"
 		},
 		{
 			"name" : "QT_FEATURE_cxx17_filesystem",
@@ -2067,7 +1955,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_debug",
@@ -2115,7 +2003,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_dlopen",
@@ -2127,7 +2015,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_dnslookup",
@@ -2188,6 +2076,18 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "OFF"
+		},
+		{
+			"name" : "QT_FEATURE_enable_new_dtags",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: enable_new_dtags (from target Qt6::Core)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_etw",
@@ -2271,7 +2171,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_framework",
@@ -2295,7 +2195,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_future",
@@ -2343,7 +2243,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_getentropy",
@@ -2355,7 +2255,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_getifaddrs",
@@ -2379,7 +2279,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_gssapi",
@@ -2391,7 +2291,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_gui",
@@ -2400,6 +2300,18 @@
 				{
 					"name" : "HELPSTRING",
 					"value" : "Qt feature: gui (from target Qt6::Core)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "ON"
+		},
+		{
+			"name" : "QT_FEATURE_headersclean",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: headersclean (from target Qt6::Core)"
 				}
 			],
 			"type" : "INTERNAL",
@@ -2439,7 +2351,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_identityproxymodel",
@@ -2463,7 +2375,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_intelcet",
@@ -2583,7 +2495,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_libudev",
@@ -2607,7 +2519,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_linux_netlink",
@@ -2619,7 +2531,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_localserver",
@@ -2751,7 +2663,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "ON"
+			"value" : "OFF"
 		},
 		{
 			"name" : "QT_FEATURE_networkproxy",
@@ -2776,18 +2688,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "OFF"
-		},
-		{
-			"name" : "QT_FEATURE_no_pkg_config",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Qt feature: no_pkg_config (from target Qt6::Core)"
-				}
-			],
-			"type" : "INTERNAL",
-			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_ocsp",
@@ -2895,7 +2795,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_plugin_manifest",
@@ -2955,7 +2855,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_poll_select",
@@ -2979,7 +2879,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_posix_sem",
@@ -3003,7 +2903,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_precompile_header",
@@ -3099,7 +2999,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_qqnx_pps",
@@ -3159,7 +3059,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_regularexpression",
@@ -3195,7 +3095,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_res_setservers",
@@ -3219,7 +3119,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_schannel",
@@ -3231,7 +3131,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "ON"
+			"value" : "OFF"
 		},
 		{
 			"name" : "QT_FEATURE_sctp",
@@ -3483,7 +3383,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "ON"
+			"value" : "OFF"
 		},
 		{
 			"name" : "QT_FEATURE_ssse3",
@@ -3627,7 +3527,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_systemsemaphore",
@@ -3651,7 +3551,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_sysv_shm",
@@ -3663,7 +3563,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_FEATURE_temporaryfile",
@@ -3708,6 +3608,18 @@
 				{
 					"name" : "HELPSTRING",
 					"value" : "Qt feature: thread (from target Qt6::Core)"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "ON"
+		},
+		{
+			"name" : "QT_FEATURE_threadsafe_cloexec",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Qt feature: threadsafe_cloexec (from target Qt6::Core)"
 				}
 			],
 			"type" : "INTERNAL",
@@ -3939,7 +3851,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "OFF"
+			"value" : "ON"
 		},
 		{
 			"name" : "QT_QMAKE_EXECUTABLE",
@@ -3951,7 +3863,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/bin/qmake.exe"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/bin/qmake"
 		},
 		{
 			"name" : "Qt6CoreTools_DIR",
@@ -3963,7 +3875,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6CoreTools"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
 		},
 		{
 			"name" : "Qt6Core_DIR",
@@ -3975,19 +3887,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Core"
-		},
-		{
-			"name" : "Qt6EntryPointPrivate_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for Qt6EntryPointPrivate."
-				}
-			],
-			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6EntryPointPrivate"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
 		},
 		{
 			"name" : "Qt6Network_DIR",
@@ -3999,19 +3899,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6Network"
-		},
-		{
-			"name" : "Qt6ZlibPrivate_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for Qt6ZlibPrivate."
-				}
-			],
-			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6ZlibPrivate"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
 		},
 		{
 			"name" : "Qt6_DIR",
@@ -4023,19 +3911,19 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/lib/cmake/Qt6"
+			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
-			"name" : "WINDEPLOYQT_EXECUTABLE",
+			"name" : "THREADS_HAVE_PTHREAD_ARG",
 			"properties" : 
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "Path to a program."
+					"value" : "Result of TRY_COMPILE"
 				}
 			],
-			"type" : "FILEPATH",
-			"value" : "C:/Qt/6.7.3/mingw_64/bin/windeployqt.exe"
+			"type" : "INTERNAL",
+			"value" : "TRUE"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -4059,7 +3947,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Program Files (x86)/server"
+			"value" : "/usr/local"
 		},
 		{
 			"name" : "server_BINARY_DIR",
@@ -4071,7 +3959,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Korisnik/Downloads/Hellapagos/server/build/Desktop_Qt_6_7_3_MinGW_64_bit-Debug"
+			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "server_IS_TOP_LEVEL",
@@ -4095,7 +3983,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Korisnik/Downloads/Hellapagos/server"
+			"value" : "/home/ksenija/Desktop/Hellapagos/server"
 		}
 	],
 	"kind" : "cache",

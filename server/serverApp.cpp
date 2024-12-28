@@ -265,11 +265,17 @@ void Server::onRoundStarted(int roundNumber)
     QString message = QString(" ROUND_STARTED:%1 ").arg(roundNumber);
     broadcastMessage(message);
 
-    QString resourcemessage = QString(" Decreasing resources after round ");
-    broadcastMessage(resourcemessage);
+    QTimer::singleShot(500, this, [this]() {
 
-    gameServer->decreaseResources();
-    broadcastResourcesInfo();
+
+        QString resourcemessage = QString(" Decreasing resources after round ");
+        broadcastMessage(resourcemessage);
+
+    });
+    QTimer::singleShot(800, this, [this]() {
+        gameServer->decreaseResources();
+        broadcastResourcesInfo();
+    });
 
     QTimer::singleShot(1000, this, [this]() {
         gameServer->changeWeatherCard();
