@@ -7,6 +7,7 @@
 class SickPlayer {
 private:
     int recoveryRounds;
+    bool recovered;
 
 public:
     SickPlayer();
@@ -18,6 +19,9 @@ public:
     bool canPerformActions() const;
 
     bool isRecovered() const;
+
+    void setRecovered(bool recovered);
+
 };
 
 #endif // SICKPLAYER_H

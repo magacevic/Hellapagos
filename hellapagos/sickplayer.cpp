@@ -7,6 +7,10 @@ void SickPlayer::decrementRecovery() {
     if (recoveryRounds > 0) {
         recoveryRounds--;
     }
+
+    if (recoveryRounds == 0) {
+        setRecovered(true);;
+    }
 }
 
 bool SickPlayer::canVote() const {
@@ -18,7 +22,12 @@ bool SickPlayer::canPerformActions() const {
 }
 
 bool SickPlayer::isRecovered() const {
-    return recoveryRounds == 0;
+    return recovered;
+}
+
+void SickPlayer::setRecovered(bool recovered)
+{
+    this->recovered = recovered;
 }
 
 

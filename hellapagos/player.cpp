@@ -80,63 +80,43 @@ void Player::addWood(int wood) {
 //U zavisnosti od izabrane akcije u actionSelectoru, pozivamo odgovarajuce metode
 void Player::collectFood() {
 	
-	if (canPerformActions()) {
-        int foodCollectedInRound = collectFoodAction->performAction();
-    	addFood(foodCollectedInRound);
 
-    } else {
-    
-    	qDebug() << "Player is sick and cannot collect food!";
-    }
+    int foodCollectedInRound = collectFoodAction->performAction();
+    addFood(foodCollectedInRound);
+
 }
 
 void Player::collectWater(QWidget *card) {
-
-	if (canPerformActions()) {
 	
-    	collectWaterAction->collectWaterFromCard(card);
-    	int waterCollectedInRound = collectWaterAction->performAction();
-    	addWater(waterCollectedInRound);
+    collectWaterAction->collectWaterFromCard(card);
+    int waterCollectedInRound = collectWaterAction->performAction();
+    addWater(waterCollectedInRound);
 
-    } else {
-    
-    	qDebug() << "Player is sick and cannot collect water!";
-
-    }
 }
 
 void Player::collectWood() {
 
-	if (canPerformActions()) {
-    	collectWoodAction->performAction();
-    	int woodCollected = collectWoodAction->woodCollected;
-    	addWood(woodCollected);
-    	qDebug() <<"Wood collected so far by this player: " << totalWood;
-    	collectWoodAction->getCollectedWood();
-    } else {
+    collectWoodAction->performAction();
+    int woodCollected = collectWoodAction->woodCollected;
+    addWood(woodCollected);
+    qDebug() <<"Wood collected so far by this player: " << totalWood;
+    collectWoodAction->getCollectedWood();
     
-    	qDebug() << "Player is sick and cannot collect wood!";
-    }
 }
 
 void Player::collectAdditionalWood(int trips) {
 
-	if (canPerformActions()) {
-    	collectWoodAction->goToForest(trips);
-    	//sick = collectWoodAction->playerGotSick;
-    	if (collectWoodAction->playerGotSick) {
-            sick = true;
-            qDebug() << playerName  <<" got sick while collecting wood!";
-    	}
-    	
-    	int woodCollected = collectWoodAction->additionalWoodCollected;
-    	addWood(woodCollected);
-    	qDebug() <<"Wood collected so far by this player: " << totalWood;
-    	collectWoodAction->getCollectedWood();
-    } else {
-    	
-    	qDebug() << "Player is sick and cannot perform additional trips for wood!";
+    collectWoodAction->goToForest(trips);
+    //sick = collectWoodAction->playerGotSick;
+    if (collectWoodAction->playerGotSick) {
+        sick = true;
+        qDebug() << playerName  <<" got sick while collecting wood!";
     }
+    	
+    int woodCollected = collectWoodAction->additionalWoodCollected;
+    addWood(woodCollected);
+    qDebug() <<"Wood collected so far by this player: " << totalWood;
+    collectWoodAction->getCollectedWood();
 }
 
 /*

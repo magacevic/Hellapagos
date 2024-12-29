@@ -5,6 +5,7 @@
 #include <QTcpSocket>
 #include <QString>  // Include QString to handle names
 #include "eliminatedplayer.h"
+#include "sickplayer.h"
 
 class Client : public QObject
 {
@@ -21,6 +22,7 @@ public:
     void sendReadySignal();
     void sendWeatherCardChange(int index);
     void sendWeatherCardRequest();
+    void addPlayer(SickPlayer* player1);
     // void sendMessage(const QString &message);
     // In client.h
 
@@ -42,6 +44,8 @@ private slots:
 
 private:
     QTcpSocket *tcpSocket;
+
+    QList<SickPlayer*> players;
 
     EliminatedPlayer* player;  // Instanca eliminisanog igraca
 

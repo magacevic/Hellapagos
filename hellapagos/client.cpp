@@ -75,6 +75,17 @@ void Client::onReadyRead()
         int roundNumber = message.split(":").last().toInt();
         qDebug() << "New Round Started: Round" << roundNumber;
 
+        for (SickPlayer* player1 : players) {
+            if (!player1) {
+                qDebug() << "Invalid player pointer.";
+                continue;
+            }
+            player1->decrementRecovery();
+        }
+
+
+        //play->decrementRecovery();
+        //qDebug() << "ALL PLAYERS ARE HEALTH";
         // Update the UI or perform any other logic
        // gamewindow->ui->roundLabel->setText(QString("Round: %1").arg(roundNumber));
 
@@ -173,3 +184,19 @@ void Client::sendWeatherCardRequest() {
         tcpSocket->flush();  // Ensure the data is sent
     }
 }
+
+void Client::addPlayer(SickPlayer* player1) {
+    if (!player1) {
+        qDebug() << "Cannot add player. The pointer is null.";
+        return;
+    }
+
+    if (players.contains(player1)) {
+        return;
+    }
+
+    if (!player1->isRecovered()) {
+        players.append(player1);
+    }
+}
+
