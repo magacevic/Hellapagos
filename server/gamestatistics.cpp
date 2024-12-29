@@ -5,14 +5,21 @@
 #include <QJsonObject>
 #include <QDateTime>
 #include <QDir>
+#include "gameserver.h"
+#include "gamestatistics.h"
 
 GameStatistics::GameStatistics() {
     fileName = "game_results.json";
 }
 
-void GameStatistics::addGameResult(const QList<QString>& winners, int totalFood, int totalWater, int totalWood) {
+void GameStatistics::addGameResult(const QList<QString>& winners, GameServer* gameServer) {
 
     QDateTime gameDate = QDateTime::currentDateTime();
+
+    QMap<QString, int> resources = gameServer->getResources();
+    int totalFood = resources.value("food", 0);
+    int totalWater = resources.value("water", 0);
+    int totalWood = resources.value("wood", 0);
 
     GameResult result;
     result.winners = winners;
@@ -47,7 +54,15 @@ void GameStatistics::saveToJson(const QString& filename) {
     root["gameResults"] = gameResultsArray;
 
     // upis u fajl
-    QFile file(filename);
+    QDir dir = QDir::current();
+
+    // Vracanje dva foldera unazad (fajl nije u build nego u server folderu)
+    dir.cdUp();  // Go up one directory level
+    dir.cdUp();  // Go up another directory level
+
+    QString filePath = dir.filePath(filename);
+
+    QFile file(filePath);
     if (file.open(QIODevice::WriteOnly)) {
         QJsonDocument doc(root);
         file.write(doc.toJson());
@@ -61,7 +76,7 @@ void GameStatistics::loadFromJson(const QString& filename) {
 
     QDir dir = QDir::current();
 
-    // Vracanje dva foldera unazad (fajl nije u build nego u hellapagos folderu)
+    // Vracanje dva foldera unazad (fajl nije u build nego u server folderu)
     dir.cdUp();  // Go up one directory level
     dir.cdUp();  // Go up another directory level
 
@@ -121,3 +136,24 @@ void GameStatistics::setFileName(const QString& filename) {
 QString GameStatistics::getFileName() const {
     return fileName;
 }
+
+QString GameServer::getGameStatisticsText() const
+{
+    GameStatistics gameStats;
+    gameStats.loadFromJson("game_results.json");
+
+    QString statsText;
+    statsText += QString("Total Games Played: %1\n\n").arg(gameStats.getTotalGamesPlayed());
+    statsText += "Game Statistics:\n\n";
+
+    for (const GameStatistics::GameResult& result : gameStats.getGameResults()) {
+        statsText += QString("Game Date: %1\n").arg(result.gameDate.toString(Qt::ISODate));
+        statsText += QString("Winners: %1\n").arg(result.winners.join(", "));
+        statsText += QString("Remaining Food: %1\n").arg(result.remainingFood);
+        statsText += QString("Remaining Water: %1\n").arg(result.remainingWater);
+        statsText += QString("Remaining Wood: %1\n\n").arg(result.remainingWood);
+    }
+
+    return statsText;
+}
+

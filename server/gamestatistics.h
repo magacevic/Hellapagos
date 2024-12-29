@@ -4,6 +4,10 @@
 #include <QString>
 #include <QList>
 #include <QDateTime>
+#include "gameserver.h"
+
+// Forward declare GameServer
+class GameServer;
 
 class GameStatistics {
 public:
@@ -17,7 +21,7 @@ public:
 
     GameStatistics();
 
-    void addGameResult(const QList<QString>& winners, int totalFood, int totalWater, int totalWood);
+    void addGameResult(const QList<QString>& winners, GameServer* gameServer);
     int getTotalGamesPlayed() const;
     void saveToJson(const QString& filename);
     void loadFromJson(const QString& filename);

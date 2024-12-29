@@ -142,6 +142,11 @@ void Client::onReadyRead()
 
     }
 
+    if (message.startsWith("GAME_STATS:")) {
+        QString stats = message.mid(QString("GAME_STATS:").length()).trimmed();
+        emit gameStatsReceived(stats);
+    }
+
     if (message == "AllReady") {
         emit allPlayersReady(); }
     else if (message == "Server full. Connection rejected.") {

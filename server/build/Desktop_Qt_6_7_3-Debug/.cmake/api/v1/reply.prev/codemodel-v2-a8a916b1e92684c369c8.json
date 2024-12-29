@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "server::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-server-Debug-9d9ac32655218ecf6a8f.json",
+					"jsonFile" : "target-server-Debug-c99eadc13565495ee896.json",
 					"name" : "server",
 					"projectIndex" : 0
 				},
@@ -68,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug",
-		"source" : "/home/ksenija/Desktop/Hellapagos/server"
+		"build" : "/home/ana/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/ana/Desktop/Hellapagos/server"
 	},
 	"version" : 
 	{

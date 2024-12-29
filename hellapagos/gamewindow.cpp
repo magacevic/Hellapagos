@@ -1,6 +1,5 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
-#include "gamestatistics.h"
 #include <QRandomGenerator>
 #include <QInputDialog>
 #include <QMessageBox>
@@ -30,6 +29,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
     connect(ui->collectFoodButton, &QPushButton::clicked, this, &GameWindow::on_collectFoodButton_clicked);
 
+    connect(m_client, &Client::gameStatsReceived, this, &GameWindow::onGameStatsReceived);
 
 
 }
@@ -278,7 +278,10 @@ void GameWindow::on_collectFoodButton_clicked()
 
 void GameWindow::on_statButton_clicked()
 {
-    GameStatistics gameStats;
+    if (m_client) {
+        m_client->sendMessage("REQUEST_GAME_STATISTICS");
+    }
+    /*GameStatistics gameStats;
 
     gameStats.loadFromJson(gameStats.getFileName());
 
@@ -316,6 +319,11 @@ void GameWindow::on_statButton_clicked()
     QVBoxLayout *dialogLayout = new QVBoxLayout(statsDialog);
     dialogLayout->addWidget(scrollArea);
 
-    statsDialog->exec();
+    statsDialog->exec();*/
 }
 
+void GameWindow::onGameStatsReceived(const QString &stats)
+{
+    // Display the received statistics in a message box
+    QMessageBox::information(this, "Game Statistics", stats);
+}

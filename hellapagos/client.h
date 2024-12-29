@@ -33,6 +33,7 @@ signals:
     void collectWaterApproved();
     void collectWoodApproved();
     void collectFoodApproved();
+    void gameStatsReceived(const QString &stats);
 
 
 private slots:

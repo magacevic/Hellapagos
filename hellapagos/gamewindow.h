@@ -8,7 +8,6 @@
 #include "collectwater.h"
 #include "collectfood.h"
 #include "actionselector.h"
-#include "gamestatistics.h"
 
 namespace Ui {
 class GameWindow;
@@ -29,8 +28,9 @@ private slots:
     void on_collectWoodButton_clicked();
     void on_collectWaterButton_clicked();
     void on_collectFoodButton_clicked();
-
     void on_statButton_clicked();
+
+    void onGameStatsReceived(const QString &stats);
 
 private:
     Ui::GameWindow *ui;
@@ -44,7 +44,6 @@ private:
     bool isCollectingWater = false;
     bool isCollectingFood = false;
     bool isCollectingWood = false;
-    GameStatistics gameStats;
 };
 
 #endif // GAMEWINDOW_H

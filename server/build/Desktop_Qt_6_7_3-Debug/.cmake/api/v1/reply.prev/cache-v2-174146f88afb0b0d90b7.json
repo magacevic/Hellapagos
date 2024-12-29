@@ -15,7 +15,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/addr2line"
+			"value" : "/usr/bin/x86_64-linux-gnu-addr2line"
 		},
 		{
 			"name" : "CMAKE_AR",
@@ -31,7 +31,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ar"
+			"value" : "/usr/bin/x86_64-linux-gnu-ar"
 		},
 		{
 			"name" : "CMAKE_BUILD_TYPE",
@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/ana/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -115,7 +115,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cmake"
+			"value" : "/home/ana/Qt/Tools/CMake/bin/cmake"
 		},
 		{
 			"name" : "CMAKE_CPACK_COMMAND",
@@ -127,7 +127,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/cpack"
+			"value" : "/home/ana/Qt/Tools/CMake/bin/cpack"
 		},
 		{
 			"name" : "CMAKE_CTEST_COMMAND",
@@ -139,7 +139,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ctest"
+			"value" : "/home/ana/Qt/Tools/CMake/bin/ctest"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER",
@@ -155,7 +155,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "/usr/bin/g++"
+			"value" : "/usr/bin/x86_64-linux-gnu-g++"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -171,7 +171,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ar-10"
+			"value" : "/usr/bin/x86_64-linux-gnu-gcc-ar-9"
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_RANLIB",
@@ -187,7 +187,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/gcc-ranlib-10"
+			"value" : "/usr/bin/x86_64-linux-gnu-gcc-ranlib-9"
 		},
 		{
 			"name" : "CMAKE_CXX_FLAGS",
@@ -343,7 +343,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/bin/ccmake"
+			"value" : "/home/ana/Qt/Tools/CMake/bin/ccmake"
 		},
 		{
 			"name" : "CMAKE_EXECUTABLE_FORMAT",
@@ -463,7 +463,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
+			"value" : "/home/ana/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -535,7 +535,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Desktop/Hellapagos/server"
+			"value" : "/home/ana/Desktop/Hellapagos/server"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -831,7 +831,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ld"
+			"value" : "/usr/bin/x86_64-linux-gnu-ld"
 		},
 		{
 			"name" : "CMAKE_MAKE_PROGRAM",
@@ -847,7 +847,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ninja"
+			"value" : "/home/ana/Qt/Tools/Ninja/ninja"
 		},
 		{
 			"name" : "CMAKE_MODULE_LINKER_FLAGS",
@@ -943,7 +943,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/nm"
+			"value" : "/usr/bin/x86_64-linux-gnu-nm"
 		},
 		{
 			"name" : "CMAKE_NUMBER_OF_MAKEFILES",
@@ -971,7 +971,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/objcopy"
+			"value" : "/usr/bin/x86_64-linux-gnu-objcopy"
 		},
 		{
 			"name" : "CMAKE_OBJDUMP",
@@ -987,7 +987,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/objdump"
+			"value" : "/usr/bin/x86_64-linux-gnu-objdump"
 		},
 		{
 			"name" : "CMAKE_PLATFORM_INFO_INITIALIZED",
@@ -1011,7 +1011,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64"
 		},
 		{
 			"name" : "CMAKE_PROJECT_DESCRIPTION",
@@ -1047,7 +1047,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
+			"value" : "/home/ana/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/.qtc/package-manager/auto-setup.cmake"
 		},
 		{
 			"name" : "CMAKE_PROJECT_NAME",
@@ -1075,7 +1075,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/ranlib"
+			"value" : "/usr/bin/x86_64-linux-gnu-ranlib"
 		},
 		{
 			"name" : "CMAKE_READELF",
@@ -1091,7 +1091,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/readelf"
+			"value" : "/usr/bin/x86_64-linux-gnu-readelf"
 		},
 		{
 			"name" : "CMAKE_ROOT",
@@ -1103,7 +1103,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/home/ksenija/Qt/Tools/CMake/share/cmake-3.29"
+			"value" : "/home/ana/Qt/Tools/CMake/share/cmake-3.29"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1311,7 +1311,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/usr/bin/strip"
+			"value" : "/usr/bin/x86_64-linux-gnu-strip"
 		},
 		{
 			"name" : "CMAKE_TAPI",
@@ -1439,7 +1439,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "QT_FEATURE_aesni",
@@ -3863,7 +3863,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/bin/qmake"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64/bin/qmake"
 		},
 		{
 			"name" : "Qt6CoreTools_DIR",
@@ -3875,7 +3875,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6CoreTools"
 		},
 		{
 			"name" : "Qt6Core_DIR",
@@ -3887,7 +3887,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Core"
 		},
 		{
 			"name" : "Qt6Network_DIR",
@@ -3899,7 +3899,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6Network"
 		},
 		{
 			"name" : "Qt6_DIR",
@@ -3911,7 +3911,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "/home/ksenija/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
+			"value" : "/home/ana/Qt/6.7.3/gcc_64/lib/cmake/Qt6"
 		},
 		{
 			"name" : "THREADS_HAVE_PTHREAD_ARG",
@@ -3959,7 +3959,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
+			"value" : "/home/ana/Desktop/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug"
 		},
 		{
 			"name" : "server_IS_TOP_LEVEL",
@@ -3983,7 +3983,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/home/ksenija/Desktop/Hellapagos/server"
+			"value" : "/home/ana/Desktop/Hellapagos/server"
 		}
 	],
 	"kind" : "cache",

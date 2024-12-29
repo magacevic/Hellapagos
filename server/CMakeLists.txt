@@ -25,6 +25,7 @@ add_executable(server
   gameserver.h gameserver.cpp
   roundmanager.h roundmanager.cpp
   voting.h voting.cpp
+  gamestatistics.h gamestatistics.cpp
 )
 target_link_libraries(server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 

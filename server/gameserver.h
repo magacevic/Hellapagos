@@ -9,6 +9,7 @@
 #include "QSet"
 #include "roundmanager.h"
 #include "voting.h"
+#include "gamestatistics.h"
 
 
 class GameServer : public QObject
@@ -34,7 +35,7 @@ public:
     int getResourceAmount(const QString& resourceName) const;
     void checkRafts();
     void decreaseResources();
-
+    QString getGameStatisticsText() const;
 
     
 public slots:

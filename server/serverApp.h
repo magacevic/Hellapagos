@@ -19,10 +19,14 @@ public:
     void broadcastWeatherCardChange(int index);
     void onRoundStarted(int roundNumber);
     void broadcastResourcesInfo();
+    void onRequestGameStatistics();
+    void sendStatsToClient(const QString& statsText);
     
 signals:
     // Signal koji obaveštava klijente o trenutnom i narednom igraču
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
+    // Signal za slanje statistike klijentu
+    void sendGameStatisticsToClient(const QString &statsText);
 
 private slots:
     void onNewConnection();

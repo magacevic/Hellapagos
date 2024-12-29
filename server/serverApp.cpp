@@ -1,6 +1,7 @@
 #include "serverApp.h"
 #include <QDebug>
 #include "gameserver.h"
+#include "gamestatistics.h"
 #include <QTimer>
 
 Server::Server(QObject *parent)
@@ -12,6 +13,8 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
     connect(gameServer, &GameServer::roundStarted, this, &Server::onRoundStarted);
+
+    connect(this, &Server::sendGameStatisticsToClient, this, &Server::sendGameStatisticsToClient);
 }
 
 Server::~Server()
@@ -149,6 +152,11 @@ void Server::onReadyRead()
         gameServer->collectFoodFromPlayer(playerName, foodAmount);
     }
 */
+
+    if (message == "REQUEST_GAME_STATISTICS") {
+        onRequestGameStatistics();
+    }
+
     if (message.startsWith("JOIN:")) {
         QString playerName = message.section("JOIN:", 1, 1).trimmed();
         qDebug() << "Hi," << playerName;
@@ -282,3 +290,22 @@ void Server::onRoundStarted(int roundNumber)
     });
 }
 
+void Server::onRequestGameStatistics()
+{
+    // Call GameServer to handle the statistics fetching
+    QString statsText = gameServer->getGameStatisticsText();
+
+    // Emit signal to send statistics to the client
+    emit sendGameStatisticsToClient(statsText);
+}
+
+void Server::sendStatsToClient(const QString& statsText)
+{
+    // Assuming the client is expecting this data in plain text
+    for (QTcpSocket* socket : clientSockets) {
+        if (socket && socket->isOpen()) {
+            socket->write(statsText.toUtf8());
+            socket->flush();
+        }
+    }
+}

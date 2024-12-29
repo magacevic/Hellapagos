@@ -39,7 +39,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         actionselector.h actionselector.cpp
 
         sickplayer.h sickplayer.cpp
-        gamestatistics.h gamestatistics.cpp
+
         eliminatedplayer.h eliminatedplayer.cpp
         gamestate.h gamestate.cpp
 
