@@ -178,39 +178,6 @@ void GameServer::startNextRound()
 }
 
 
-
-/*
-void GameServer::collectFoodFromPlayer(const QString& playerName, int foodAmount)
-{
-    if (resources.contains("food")) {
-        resources["food"] += foodAmount;  // Add collected food to total food on the server
-        qDebug() << playerName << "collected" << foodAmount << "food. Total food: " << resources["food"];
-
-        // Optionally broadcast the food collection update to all clients
-        broadcastFoodUpdate(playerName, foodAmount);
-    } else {
-        qDebug() << "Resources map does not contain 'food'!";
-    }
-}
-*/
-
-void GameServer::broadcastFoodUpdate(const QString& playerName, int foodAmount)
-{
-    QString message = QString("%1 collected %2 food. Total food on server: %3")
-    .arg(playerName)
-        .arg(foodAmount)
-        .arg(resources["food"]);
-
-    // Send the message to all connected clients
-    for (QTcpSocket* clientSocket : clientSockets) {
-        if (clientSocket->state() == QTcpSocket::ConnectedState) {
-            clientSocket->write(message.toUtf8());
-        }
-    }
-}
-
-
-// Assuming you have a QTcpServer in your class
 void GameServer::onNewClientConnected()
 {
     QTcpSocket* clientSocket = tcpServer->nextPendingConnection();  // Get the next pending connection
