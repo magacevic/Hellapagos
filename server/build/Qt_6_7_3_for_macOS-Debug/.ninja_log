@@ -1,0 +1,12 @@
+# ninja log v6
+4	648	1735408584390056089	server_autogen/timestamp	97adebf5de1349bb
+4	648	1735408584390056089	server_autogen/mocs_compilation.cpp	97adebf5de1349bb
+4	648	1735408584390056089	/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/server_autogen/timestamp	97adebf5de1349bb
+4	648	1735408584390056089	/Users/mihailosretenovic/Documents/RS/Hellapagos/server/build/Qt_6_7_3_for_macOS-Debug/server_autogen/mocs_compilation.cpp	97adebf5de1349bb
+651	4175	1735408584420894595	CMakeFiles/server.dir/main.cpp.o	164bb9b39de429f2
+655	4257	1735408584425306030	CMakeFiles/server.dir/roundmanager.cpp.o	3f349bc5899761e6
+657	4435	1735408584426903374	CMakeFiles/server.dir/voting.cpp.o	71eb98cf7a585a03
+650	4903	1735408584420553841	CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o	12b6851bd58737bf
+653	5110	1735408584423424386	CMakeFiles/server.dir/gameserver.cpp.o	90d1583cd81c1bcb
+651	5225	1735408584421197295	CMakeFiles/server.dir/serverApp.cpp.o	738e9d68a38e3bc6
+5225	5321	1735408588995106678	server	df68cf6a5a3ba003
