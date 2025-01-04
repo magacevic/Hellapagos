@@ -75,10 +75,12 @@ void GameServer::addPlayer(const QString& playerName)
     }
 }
 
+
 QStringList GameServer::getPlayers() const
 {
     return players;
 }
+
 
 QMap<QString, int> GameServer::getResources() const
 {

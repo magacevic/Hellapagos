@@ -60,6 +60,14 @@ void Client::onReadyRead()
 
     QString message = QString::fromUtf8(data).trimmed();
 
+    if (message.startsWith("PLAYERS_LIST:")) {
+        QString playersList = message.mid(QString("PLAYERS_LIST:").length()).trimmed();
+        QStringList playerNames = playersList.split(",");
+        qDebug() << "Received Players List:" << playerNames;
+
+        emit playersListUpdated(playerNames);
+    }
+
     if (message.startsWith("PLAYER_ELIMINATED:")) {
         QString playerName = message.split(":").last();
         qDebug() << "Player eliminated:" << playerName;

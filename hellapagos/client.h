@@ -34,6 +34,7 @@ signals:
     void collectWoodApproved();
     void collectFoodApproved();
     void gameStatsReceived(const QString &stats);
+    void playersListUpdated(const QStringList &playerNames);
 
 
 private slots:

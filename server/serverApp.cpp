@@ -56,6 +56,7 @@ void Server::onNewConnection()
         connect(newClient, &QTcpSocket::disconnected, this, &Server::onDisconnected);
 
         qDebug() << "New client connected! Total players:" << clientSockets.size();
+        broadcastPlayersList();
     }
 
     else if (clientSockets.size() == maxPlayers) {
@@ -85,6 +86,11 @@ void Server::onReadyRead()
     if (message == "REQUEST_WEATHER_CARD") {
         gameServer->onWeatherCardRequest();
     }
+
+    if (message == "REQUEST_PLAYER_LIST") {
+        broadcastPlayersList();
+    }
+
 
     if (message.startsWith("ACTION_COMPLETED:")) {
 
@@ -181,17 +187,22 @@ void Server::onReadyRead()
 
             broadcastMessage("AllReady");
 
-            QTimer::singleShot(1000, this, [this]() {
-                // Reveal the first weather card
-                if (!weatherCardRevealed && clientSockets.size() == maxPlayers) {
-                    gameServer->changeWeatherCard();
-                    weatherCardRevealed = true;
+            QTimer::singleShot(500, this, [this]() {
 
-                }
+                broadcastPlayersList();
 
-                // Start the first round
-                qDebug() << "First turn started";
-                gameServer->getRoundManager()->nextTurn();
+                QTimer::singleShot(1000, this, [this]() {
+                    // Reveal the first weather card
+                    if (!weatherCardRevealed && clientSockets.size() == maxPlayers) {
+                        gameServer->changeWeatherCard();
+                        weatherCardRevealed = true;
+
+                    }
+
+                    // Start the first round
+                    qDebug() << "First turn started";
+                    gameServer->getRoundManager()->nextTurn();
+                });
             });
         }
     }
@@ -215,6 +226,8 @@ void Server::onDisconnected()
     qDebug() << "Client disconnected!";
     clientSockets.removeAll(senderSocket);
     senderSocket->deleteLater();
+
+    broadcastPlayersList();
 }
 
 void Server::broadcastMessage(const QString& message)
@@ -309,3 +322,21 @@ void Server::sendStatsToClient(const QString& statsText)
         }
     }
 }
+
+void Server::broadcastPlayersList()
+{
+    QString playersListMessage = "PLAYERS_LIST:";
+
+    for (const QString& player : gameServer->getPlayers()) {
+        playersListMessage += " " + player + ",";
+    }
+
+    if (playersListMessage.endsWith(",")) {
+        playersListMessage.chop(1);
+    }
+
+    broadcastMessage(playersListMessage);
+}
+
+
+

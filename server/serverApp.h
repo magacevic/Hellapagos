@@ -21,6 +21,7 @@ public:
     void broadcastResourcesInfo();
     void onRequestGameStatistics();
     void sendStatsToClient(const QString& statsText);
+    void broadcastPlayersList();
     
 signals:
     // Signal koji obaveštava klijente o trenutnom i narednom igraču
