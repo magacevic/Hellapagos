@@ -74,6 +74,8 @@ void GameStatistics::saveToJson(const QString& filename) {
 
 void GameStatistics::loadFromJson(const QString& filename) {
 
+    qDebug() << "loadFromJson()";
+
     QDir dir = QDir::current();
 
     // Vracanje dva foldera unazad (fajl nije u build nego u server folderu)
@@ -137,23 +139,5 @@ QString GameStatistics::getFileName() const {
     return fileName;
 }
 
-QString GameServer::getGameStatisticsText() const
-{
-    GameStatistics gameStats;
-    gameStats.loadFromJson("game_results.json");
 
-    QString statsText;
-    statsText += QString("Total Games Played: %1\n\n").arg(gameStats.getTotalGamesPlayed());
-    statsText += "Game Statistics:\n\n";
-
-    for (const GameStatistics::GameResult& result : gameStats.getGameResults()) {
-        statsText += QString("Game Date: %1\n").arg(result.gameDate.toString(Qt::ISODate));
-        statsText += QString("Winners: %1\n").arg(result.winners.join(", "));
-        statsText += QString("Remaining Food: %1\n").arg(result.remainingFood);
-        statsText += QString("Remaining Water: %1\n").arg(result.remainingWater);
-        statsText += QString("Remaining Wood: %1\n\n").arg(result.remainingWood);
-    }
-
-    return statsText;
-}
 

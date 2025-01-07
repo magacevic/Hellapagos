@@ -19,15 +19,15 @@ public:
     void broadcastWeatherCardChange(int index);
     void onRoundStarted(int roundNumber);
     void broadcastResourcesInfo();
-    void onRequestGameStatistics();
-    void sendStatsToClient(const QString& statsText);
+    void onRequestGameStatistics(QTcpSocket *requestingClient);
+    void sendStatsToClient(const QString& statsText, QTcpSocket *client);
     void broadcastPlayersList();
     
 signals:
     // Signal koji obaveštava klijente o trenutnom i narednom igraču
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
     // Signal za slanje statistike klijentu
-    void sendGameStatisticsToClient(const QString &statsText);
+    void sendGameStatisticsToClient(const QString &statsText, QTcpSocket* requestingClient);
 
 private slots:
     void onNewConnection();

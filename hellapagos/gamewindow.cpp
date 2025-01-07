@@ -324,6 +324,25 @@ void GameWindow::on_statButton_clicked()
 
 void GameWindow::onGameStatsReceived(const QString &stats)
 {
-    // Display the received statistics in a message box
-    QMessageBox::information(this, "Game Statistics", stats);
+    // dizajn prozora za prikaz statistike
+    QWidget *statsWidget = new QWidget(this);
+    QVBoxLayout *layout = new QVBoxLayout(statsWidget);
+
+    QLabel *statsLabel = new QLabel(stats, statsWidget);
+    statsLabel->setWordWrap(true);
+    layout->addWidget(statsLabel);
+
+    QScrollArea *scrollArea = new QScrollArea(this);
+    scrollArea->setWidget(statsWidget);
+    scrollArea->setWidgetResizable(true);
+
+    QDialog *statsDialog = new QDialog(this);
+    statsDialog->setWindowTitle("Game Statistics");
+
+    QVBoxLayout *dialogLayout = new QVBoxLayout(statsDialog);
+    dialogLayout->addWidget(scrollArea);
+
+    statsDialog->resize(350, 400);
+    statsDialog->exec();
+
 }

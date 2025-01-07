@@ -14,7 +14,7 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
     connect(gameServer, &GameServer::roundStarted, this, &Server::onRoundStarted);
 
-    connect(this, &Server::sendGameStatisticsToClient, this, &Server::sendGameStatisticsToClient);
+    connect(this, &Server::sendGameStatisticsToClient, this, &Server::sendStatsToClient);
 }
 
 Server::~Server()
@@ -160,7 +160,8 @@ void Server::onReadyRead()
 */
 
     if (message == "REQUEST_GAME_STATISTICS") {
-        onRequestGameStatistics();
+        QTcpSocket* socket = qobject_cast<QTcpSocket*>(sender());
+        onRequestGameStatistics(socket);
     }
 
     if (message.startsWith("JOIN:")) {
@@ -303,23 +304,24 @@ void Server::onRoundStarted(int roundNumber)
     });
 }
 
-void Server::onRequestGameStatistics()
+void Server::onRequestGameStatistics(QTcpSocket *requestingClient)
 {
-    // Call GameServer to handle the statistics fetching
+    // fetch GameStatistics from gameServer
     QString statsText = gameServer->getGameStatisticsText();
+    QString stats = "GAME_STATS:" + statsText;
 
     // Emit signal to send statistics to the client
-    emit sendGameStatisticsToClient(statsText);
+    emit sendGameStatisticsToClient(stats, requestingClient);
 }
 
-void Server::sendStatsToClient(const QString& statsText)
+void Server::sendStatsToClient(const QString& statsText, QTcpSocket *client)
 {
-    // Assuming the client is expecting this data in plain text
-    for (QTcpSocket* socket : clientSockets) {
-        if (socket && socket->isOpen()) {
-            socket->write(statsText.toUtf8());
-            socket->flush();
-        }
+    if (client && client->state() == QTcpSocket::ConnectedState) {
+        client->write(statsText.toUtf8());
+        client->flush();
+        qDebug() << "Sent game statistics to client:" << statsText;
+    } else {
+        qDebug() << "Error: Client is not connected.";
     }
 }
 
