@@ -29,6 +29,7 @@ private slots:
     void on_collectWaterButton_clicked();
     void on_collectFoodButton_clicked();
     void on_statButton_clicked();
+    void on_voteButton_clicked();
 
     void onGameStatsReceived(const QString &stats);
 

@@ -42,6 +42,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         eliminatedplayer.h eliminatedplayer.cpp
         gamestate.h gamestate.cpp
+        votedialog.h votedialog.cpp
 
 
 

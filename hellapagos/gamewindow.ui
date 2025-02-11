@@ -448,7 +448,7 @@ background-color: white;</string>
      <string>Collect Food</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="castVoteButton">
+   <widget class="QPushButton" name="voteButton">
     <property name="geometry">
      <rect>
       <x>620</x>
@@ -567,7 +567,7 @@ QProgressBar {
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>24</height>
     </rect>
    </property>
   </widget>

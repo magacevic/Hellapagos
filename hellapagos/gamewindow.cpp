@@ -1,5 +1,6 @@
 #include "gamewindow.h"
 #include "ui_gamewindow.h"
+#include "votedialog.h"
 #include <QRandomGenerator>
 #include <QInputDialog>
 #include <QMessageBox>
@@ -28,6 +29,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
     connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
     connect(ui->collectFoodButton, &QPushButton::clicked, this, &GameWindow::on_collectFoodButton_clicked);
+    connect(ui->voteButton, &QPushButton::clicked, this, &GameWindow::on_voteButton_clicked);
 
     connect(m_client, &Client::gameStatsReceived, this, &GameWindow::onGameStatsReceived);
 
@@ -273,7 +275,29 @@ void GameWindow::on_collectFoodButton_clicked()
 }
 
 
+void GameWindow::on_voteButton_clicked() {
+    QStringList playerNames = m_client->getPlayers();
+    QStringList eligiblePlayerNames;
+    for (const QString& name : playerNames) {
+        if (name != currentPlayer->getName()) {
+            eligiblePlayerNames.append(name);
+        }
+    }
 
+    // Open the vote dialog with the filtered players list
+    VoteDialog voteDialog(eligiblePlayerNames, this);
+    if (voteDialog.exec() == QDialog::Accepted) {
+        QString selectedPlayerName = voteDialog.getSelectedPlayerName();
+        if (selectedPlayerName.isEmpty()) {
+            // Handle the vote logic (e.g., send it to the server)
+            qDebug() << "Player voted for: " << selectedPlayerName;
+            if (m_client) {
+                m_client->sendMessage(QString("VOTE:%1").arg(selectedPlayerName));
+            }
+        }
+    }
+
+}
 
 
 void GameWindow::on_statButton_clicked()

@@ -23,6 +23,7 @@ public:
     void sendWeatherCardChange(int index);
     void sendWeatherCardRequest();
     void addPlayer(SickPlayer* player1);
+    QStringList getPlayers();
     // void sendMessage(const QString &message);
     // In client.h
 
@@ -48,6 +49,8 @@ private:
     QTcpSocket *tcpSocket;
 
     QList<SickPlayer*> players;
+
+    QStringList playerNames;
 
     EliminatedPlayer* player;  // Instanca eliminisanog igraca
 

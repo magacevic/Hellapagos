@@ -62,7 +62,7 @@ void Client::onReadyRead()
 
     if (message.startsWith("PLAYERS_LIST:")) {
         QString playersList = message.mid(QString("PLAYERS_LIST:").length()).trimmed();
-        QStringList playerNames = playersList.split(",");
+        playerNames = playersList.split(",");
         qDebug() << "Received Players List:" << playerNames;
 
         emit playersListUpdated(playerNames);
@@ -211,5 +211,9 @@ void Client::addPlayer(SickPlayer* player1) {
     if (!player1->isRecovered()) {
         players.append(player1);
     }
+}
+
+QStringList Client::getPlayers() {
+    return playerNames;
 }
 
