@@ -1,7 +1,7 @@
 #include "sickplayer.h"
 #include <QDebug>
 
-SickPlayer::SickPlayer() : recoveryRounds(1) {}
+SickPlayer::SickPlayer() : recoveryRounds(2),recovered(false) {}
 
 void SickPlayer::decrementRecovery() {
     if (recoveryRounds > 0) {
@@ -9,7 +9,7 @@ void SickPlayer::decrementRecovery() {
     }
 
     if (recoveryRounds == 0) {
-        setRecovered(true);;
+        setRecovered(true);
     }
 }
 

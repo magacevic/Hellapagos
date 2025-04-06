@@ -77,7 +77,7 @@ void MainWindow::onJoinButtonClicked()
     } else {
         // Ako nije prazno, šaljemo JOIN komandu sa imenom
         client->sendJoinCommand(playerName);  // Pošaljemo JOIN komandu sa imenom igrača
-        player = new Player(playerName);  // Store the player's name
+        player = new Player(playerName,client);  // Store the player's name
 
         ui->stackedWidget->setCurrentIndex(1);  // Prebacimo na stranicu 2
     }

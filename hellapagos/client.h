@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpSocket>
 #include <QString>  // Include QString to handle names
+#include <QList>
 #include "eliminatedplayer.h"
 #include "sickplayer.h"
 
@@ -48,7 +49,7 @@ private slots:
 private:
     QTcpSocket *tcpSocket;
 
-    QList<SickPlayer*> players;
+    QList<SickPlayer*>* players;
 
     QStringList playerNames;
 

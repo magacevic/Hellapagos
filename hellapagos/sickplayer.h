@@ -5,11 +5,10 @@
 
 
 class SickPlayer {
-private:
+public:
     int recoveryRounds;
     bool recovered;
 
-public:
     SickPlayer();
 
     void decrementRecovery();

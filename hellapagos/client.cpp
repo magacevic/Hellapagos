@@ -1,9 +1,11 @@
 #include "client.h"
 #include <QDebug>
 #include <QCoreApplication>
+#include <QList>
 Client::Client(QObject *parent)
     : QObject(parent), tcpSocket(new QTcpSocket(this))
 {
+    players = new QList<SickPlayer*>();
 }
 
 Client::~Client()
@@ -82,8 +84,7 @@ void Client::onReadyRead()
     if (message.startsWith("ROUND_STARTED:")) {
         int roundNumber = message.split(":").last().toInt();
         qDebug() << "New Round Started: Round" << roundNumber;
-
-        for (SickPlayer* player1 : players) {
+        for (SickPlayer* player1 : *players) {
             if (!player1) {
                 qDebug() << "Invalid player pointer.";
                 continue;
@@ -204,12 +205,12 @@ void Client::addPlayer(SickPlayer* player1) {
         return;
     }
 
-    if (players.contains(player1)) {
-        return;
-    }
+    // if (players->contains(player1)) {
+    //     return;
+    // }
 
     if (!player1->isRecovered()) {
-        players.append(player1);
+        players->push_back(player1);
     }
 }
 

@@ -14,7 +14,7 @@ class ActionSelector;
 
 class Player {
 public:
-    Player(const QString& name); // Konstruktor
+    Player(const QString& name, Client* client); // Konstruktor
 
     // Geteri i Seteri
     QString getName() const;
@@ -26,7 +26,7 @@ public:
     bool isSick() const;
     void setSick(bool sick);
     
-    bool canPerformActions() const;
+    bool canPerformActions();
     bool canVote() const;
 
     // Upravljanje hranom

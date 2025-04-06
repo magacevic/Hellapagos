@@ -4,13 +4,14 @@
 #include <QMessageBox>
 #include <QInputDialog>
 
-Player::Player(const QString& name)
+Player::Player(const QString& name, Client* client)
     : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), eliminatedPlayer(nullptr), sickPlayer(nullptr)
 {
     // Inicijalizacija objekata za akcije
     collectFoodAction = new CollectFood();
     collectWaterAction = new CollectWater();
     collectWoodAction = new CollectWood();
+    m_client = client;
 
 }
 
@@ -36,13 +37,16 @@ bool Player::isSick() const {
 
 void Player::setSick(bool sick) {
     this->sick = sick;
-    if (sick && sickPlayer == nullptr) {
-        sickPlayer = new SickPlayer();
-    }
+    sickPlayer = new SickPlayer();
+    sickPlayer->setRecovered(false);
+    m_client->addPlayer(sickPlayer);
 }
 
-bool Player::canPerformActions() const {
-    return !sick || (sickPlayer && sickPlayer->canPerformActions());
+bool Player::canPerformActions() {
+    if (sickPlayer && sickPlayer->isRecovered()) {
+        recover();
+    }
+    return !sick; //|| (sickPlayer && sickPlayer->canPerformActions());
 }
 
 bool Player::canVote() const {
@@ -79,15 +83,20 @@ void Player::addWood(int wood) {
 
 //U zavisnosti od izabrane akcije u actionSelectoru, pozivamo odgovarajuce metode
 void Player::collectFood() {
-	
-
+    if (!canPerformActions()) {
+        qDebug() << playerName << " is sick and cannot collect food!";
+        return;
+    }
     int foodCollectedInRound = collectFoodAction->performAction();
     addFood(foodCollectedInRound);
 
 }
 
 void Player::collectWater(QWidget *card) {
-	
+    if (!canPerformActions()) {
+        qDebug() << playerName << " is sick and cannot collect water!";
+        return;
+    }
     collectWaterAction->collectWaterFromCard(card);
     int waterCollectedInRound = collectWaterAction->performAction();
     addWater(waterCollectedInRound);
@@ -95,6 +104,10 @@ void Player::collectWater(QWidget *card) {
 }
 
 void Player::collectWood() {
+    if (!canPerformActions()) {
+        qDebug() << playerName << " is sick and cannot collect wood!";
+        return;
+    }
 
     collectWoodAction->performAction();
     int woodCollected = collectWoodAction->woodCollected;
@@ -109,7 +122,7 @@ void Player::collectAdditionalWood(int trips) {
     collectWoodAction->goToForest(trips);
     //sick = collectWoodAction->playerGotSick;
     if (collectWoodAction->playerGotSick) {
-        sick = true;
+        setSick(true);
         qDebug() << playerName  <<" got sick while collecting wood!";
     }
     	
@@ -132,13 +145,10 @@ void Player::raftCreated() {
 
 void Player::recover() {
     if (sick && sickPlayer) {
-        sickPlayer->decrementRecovery();
-        if (sickPlayer->isRecovered()) {
-            sick = false;
-            delete sickPlayer;
-            sickPlayer = nullptr;
-            qDebug() << "Player has recovered!";
-        }
+        sick = false;
+        delete sickPlayer;
+        sickPlayer = nullptr;
+        qDebug() << "Player has recovered!";
     }
 }
 
