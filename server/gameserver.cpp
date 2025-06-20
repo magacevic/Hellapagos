@@ -142,9 +142,10 @@ void GameServer::onPlayerChanged(int newPlayerId)
     }
 
     QString currentPlayer = players.at(newPlayerId);
-    qDebug() << "Current Player:" << currentPlayer;
+    qDebug() << "Current Player: " << currentPlayer;
 
-    // Calculate the next player safely
+
+
     QString nextPlayer;
     if (players.size() > 1) {
         int nextPlayerId = (newPlayerId + 1) % players.size();
@@ -258,4 +259,9 @@ QString GameServer::getGameStatisticsText() const
     }
 
     return statsText;
+}
+
+void GameServer::updateSickPlayersMap(const QString &playerName)
+{
+    sickPlayers[playerName]=1;
 }

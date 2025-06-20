@@ -33,6 +33,7 @@ private slots:
 
     void onGameStatsReceived(const QString &stats);
 
+
 private:
     Ui::GameWindow *ui;
     Player *currentPlayer;

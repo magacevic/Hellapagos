@@ -36,6 +36,7 @@ public:
     void checkRafts();
     void decreaseResources();
     QString getGameStatisticsText() const;
+    void updateSickPlayersMap(const QString& playerName);
 
     
 public slots:
@@ -61,6 +62,7 @@ private:
     QTcpServer* tcpServer;
     //bool weatherCardRevealed = false; // Flag to track if weather card has been revealed this round
     Voting* votingSystem;
+    QMap<QString,int> sickPlayers;
 };
 
 #endif // GAMESERVER_H

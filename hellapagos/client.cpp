@@ -30,7 +30,7 @@ void Client::sendMessage(const QString &message)
 {
     if (tcpSocket->state() == QTcpSocket::ConnectedState) {
         tcpSocket->write(message.toUtf8());
-        //tcpSocket->flush();
+        tcpSocket->flush();
     } else {
         qDebug() << "Cannot send message. Socket is not connected.";
     }

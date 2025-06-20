@@ -1,0 +1,27 @@
+# ninja log v5
+58403	228181	1750259717097315858	CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp.o	37dbaf60a85c48a6
+53837	66949	1750259556014161131	CMakeFiles/hellapagos.dir/gamestate.cpp.o	ea5e4b02f19ff5fb
+9278	10225	1750435867419040774	hellapagos	7188fe120cadba28
+55228	66909	1750259555954159561	CMakeFiles/hellapagos.dir/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp.o	635da8216592ca52
+52561	62618	1750259551670047542	CMakeFiles/hellapagos.dir/eliminatedplayer.cpp.o	704342dd34785654
+47786	58402	1750259547441937067	CMakeFiles/hellapagos.dir/sickplayer.cpp.o	fe02351b8a726c6e
+42476	55227	1750259544293854869	CMakeFiles/hellapagos.dir/collectfood.cpp.o	55c7858c8fca8ab1
+47	9278	1750435866475031674	CMakeFiles/hellapagos.dir/gamewindow.cpp.o	481208e28d09c86b
+4	44	1750435852706898903	hellapagos_autogen/timestamp	ac3a158ecfa40564
+48	6809	1750435864007007879	CMakeFiles/hellapagos.dir/player.cpp.o	7ad742b26397ded4
+4	44	1750435852706898903	hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+3151	3801	1750259492840520820	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp	f2b7fb11fb9813dd
+47	7087	1750435864283010540	CMakeFiles/hellapagos.dir/client.cpp.o	e1248685753bb5fa
+4	44	1750435852706898903	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp	ac3a158ecfa40564
+47	8604	1750435865803025195	CMakeFiles/hellapagos.dir/mainwindow.cpp.o	79a1983895beff60
+1215	8830	1750358587074657433	CMakeFiles/hellapagos.dir/actionselector.cpp.o	ea0ee731e8821d3e
+4	44	1750435852706898903	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+54273	67760	1750259556818182163	CMakeFiles/hellapagos.dir/votedialog.cpp.o	57cff87f5aba7554
+3151	3801	1750259492840520820	hellapagos_autogen/EWIEGA46WW/qrc_imgs.cpp	f2b7fb11fb9813dd
+3152	23287	1750259505888857048	hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp	16cabe45702240b9
+3152	23287	1750259505888857048	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp	16cabe45702240b9
+23289	35519	1750259524585341526	CMakeFiles/hellapagos.dir/soundmanager.cpp.o	d1d982e0005f34d5
+1211	9455	1750358587698665322	CMakeFiles/hellapagos.dir/main.cpp.o	f2533623db3aeda9
+38776	53837	1750259542893818329	CMakeFiles/hellapagos.dir/collectwater.cpp.o	1b6c2e913c20190b
+1111	10041	1750357812986261540	CMakeFiles/hellapagos.dir/collectwood.cpp.o	fee6587f328dbfb1
+1211	10990	1750358589234684707	CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.o	ddefece9b4f0a3e6

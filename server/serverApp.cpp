@@ -91,6 +91,12 @@ void Server::onReadyRead()
         broadcastPlayersList();
     }
 
+    if(message.startsWith("SICK: ")){
+        QString sickPlayerName=message.split(' ').last();
+        //qDebug()<<sickPlayerName<< " is sick";
+        broadcastMessage(sickPlayerName+" got BITTEN\n");
+        gameServer->updateSickPlayersMap(sickPlayerName);
+    }
 
     if (message.startsWith("ACTION_COMPLETED:")) {
 
@@ -260,7 +266,7 @@ void Server::onWeatherCardChanged(int newIndex)
 
 void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer)
 {
-    qDebug() << "Current Player:" << currentPlayer << ", Next Player:" << nextPlayer;
+    //qDebug() << "Current Player:server" << currentPlayer << ", Next Player:" << nextPlayer;
 
     if (playerSocketMap.contains(nextPlayer)) {
         QTcpSocket* nextPlayerSocket = playerSocketMap[nextPlayer];
@@ -268,6 +274,8 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
     } else {
         qDebug() << "Next player not found in the map!";
     }
+
+
 }
 
 void Server::broadcastResourcesInfo(){

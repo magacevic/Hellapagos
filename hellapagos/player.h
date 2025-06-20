@@ -3,16 +3,17 @@
 
 #include <QString>
 #include <QWidget>
+#include <QObject>
 #include "collectfood.h"
 #include "collectwater.h"
 #include "collectwood.h"
 #include "eliminatedplayer.h"
 #include "sickplayer.h"
 #include "client.h"
-
 class ActionSelector;
 
-class Player {
+class Player: public QObject {
+    Q_OBJECT
 public:
     Player(const QString& name, Client* client); // Konstruktor
 
@@ -75,6 +76,8 @@ private:
     EliminatedPlayer* eliminatedPlayer;
     Client* m_client = nullptr;
 
+private slots:
+    void onPlayerGotBitten();
 };
 
 #endif // PLAYER_H

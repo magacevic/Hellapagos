@@ -32,6 +32,7 @@ void CollectWood::goToForest(int additionalWood) {
         //qDebug() << "You got bitten by a snake and got sick!";
         playerGotSick = true;
         QMessageBox::critical(nullptr, "Snake Bite", "You got bitten by a snake and got sick!");
+        emit playerGotBitten();
         qDebug() << "Player got bitten";
 
     } else {

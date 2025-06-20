@@ -20,6 +20,9 @@ public:
     void getCollectedWood();
     void didPlayerGetSick();
     bool checkForSnakeBite(int woodToCollect);
+
+signals:
+    void playerGotBitten();
 };
 
 #endif // COLLECTWOOD_H

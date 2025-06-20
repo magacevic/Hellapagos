@@ -35,9 +35,9 @@ void RoundManager::nextTurn()
     QString current = currentPlayer();
     QString next = nextPlayer();
     
-    qDebug() << "Emitting currentAndNextPlayerUpdated with"
+  /*  qDebug() << "Emitting currentAndNextPlayerUpdated with"
              << "current:" << current << "and next:" << next;
-
+*/
     // Emituj signal sa trenutnim i narednim igračem
     emit currentAndNextPlayerUpdated(current, next);
     

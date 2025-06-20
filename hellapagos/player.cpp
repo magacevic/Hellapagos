@@ -13,6 +13,8 @@ Player::Player(const QString& name, Client* client)
     collectWoodAction = new CollectWood();
     m_client = client;
 
+    connect(collectWoodAction,&CollectWood::playerGotBitten,this,&Player::onPlayerGotBitten);
+
 }
 
 QString Player::getName() const {
@@ -85,6 +87,7 @@ void Player::addWood(int wood) {
 void Player::collectFood() {
     if (!canPerformActions()) {
         qDebug() << playerName << " is sick and cannot collect food!";
+
         return;
     }
     int foodCollectedInRound = collectFoodAction->performAction();
@@ -162,4 +165,12 @@ void Player::eliminate() {
 EliminatedPlayer* Player::getEliminatedPlayer() const {
     return eliminatedPlayer;
 }
+
+void Player::onPlayerGotBitten()
+{
+    m_client->sendMessage("SICK: "+playerName);
+
+    qDebug()<<"POSLAO SAM";
+}
+
 

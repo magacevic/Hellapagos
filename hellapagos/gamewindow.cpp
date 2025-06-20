@@ -34,6 +34,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(m_client, &Client::gameStatsReceived, this, &GameWindow::onGameStatsReceived);
 
 
+
 }
 
 GameWindow::~GameWindow()
@@ -132,7 +133,9 @@ void GameWindow::on_collectWoodButton_clicked()
             if (ok) {
                 // Perform action based on the number of additional wood the player wants to collect
                 actionSelector->selectAction(COLLECT_ADDITIONAL_WOOD, nullptr, additionalWood);
+
             }
+
         }
 
         int collectedWood=currentPlayer->getTotalWood();
@@ -370,3 +373,4 @@ void GameWindow::onGameStatsReceived(const QString &stats)
     statsDialog->exec();
 
 }
+
