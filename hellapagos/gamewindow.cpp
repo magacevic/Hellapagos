@@ -32,6 +32,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(ui->voteButton, &QPushButton::clicked, this, &GameWindow::on_voteButton_clicked);
 
     connect(m_client, &Client::gameStatsReceived, this, &GameWindow::onGameStatsReceived);
+    connect(m_client, &Client::notYourTurn,this,&GameWindow::on_notYourTurn);
 
 
 
@@ -372,5 +373,10 @@ void GameWindow::onGameStatsReceived(const QString &stats)
     statsDialog->resize(350, 400);
     statsDialog->exec();
 
+}
+
+void GameWindow::on_notYourTurn()
+{
+    QMessageBox::critical(this,"Not Your Turn","Sorry,not your turn to play!");
 }
 

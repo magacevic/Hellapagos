@@ -37,6 +37,7 @@ signals:
     void collectFoodApproved();
     void gameStatsReceived(const QString &stats);
     void playersListUpdated(const QStringList &playerNames);
+    void notYourTurn();
 
 
 private slots:

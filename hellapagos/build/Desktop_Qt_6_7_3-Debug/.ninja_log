@@ -25,3 +25,15 @@
 38776	53837	1750259542893818329	CMakeFiles/hellapagos.dir/collectwater.cpp.o	1b6c2e913c20190b
 1111	10041	1750357812986261540	CMakeFiles/hellapagos.dir/collectwood.cpp.o	fee6587f328dbfb1
 1211	10990	1750358589234684707	CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.o	ddefece9b4f0a3e6
+4	1289	1750515677423923872	hellapagos_autogen/timestamp	ac3a158ecfa40564
+4	1289	1750515677423923872	hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+4	1289	1750515677423923872	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/timestamp	ac3a158ecfa40564
+4	1289	1750515677423923872	/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug/hellapagos_autogen/mocs_compilation.cpp	ac3a158ecfa40564
+1292	10131	1750515686278418950	CMakeFiles/hellapagos.dir/client.cpp.o	e1248685753bb5fa
+1290	11518	1750515687662180204	CMakeFiles/hellapagos.dir/main.cpp.o	f2533623db3aeda9
+1296	11723	1750515687870144271	CMakeFiles/hellapagos.dir/player.cpp.o	7ad742b26397ded4
+1290	12601	1750515688745992590	CMakeFiles/hellapagos.dir/hellapagos_autogen/mocs_compilation.cpp.o	ddefece9b4f0a3e6
+1290	14309	1750515690453695852	CMakeFiles/hellapagos.dir/mainwindow.cpp.o	79a1983895beff60
+1293	14986	1750515691129578078	CMakeFiles/hellapagos.dir/gamewindow.cpp.o	481208e28d09c86b
+10131	16018	1750515692165397136	CMakeFiles/hellapagos.dir/actionselector.cpp.o	ea0ee731e8821d3e
+16018	16895	1750515693037244498	hellapagos	7188fe120cadba28

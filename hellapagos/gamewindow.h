@@ -32,7 +32,7 @@ private slots:
     void on_voteButton_clicked();
 
     void onGameStatsReceived(const QString &stats);
-
+    void on_notYourTurn();
 
 private:
     Ui::GameWindow *ui;
