@@ -37,8 +37,8 @@ public:
     void decreaseResources();
     QString getGameStatisticsText() const;
     void updateSickPlayersMap(const QString& playerName);
-
-    
+    void initSickPlayersMap();
+    void printSickPlayersMap() const;
 public slots:
     // Slot koji prihvata signal za promenu igrača
     void onPlayerChanged(int newPlayerId);

@@ -295,6 +295,7 @@ void Server::onRoundStarted(int roundNumber)
     QString message = QString(" ROUND_STARTED:%1 ").arg(roundNumber);
     broadcastMessage(message);
 
+    gameServer->printSickPlayersMap();
     QTimer::singleShot(500, this, [this]() {
 
 

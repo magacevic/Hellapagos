@@ -41,7 +41,7 @@ GameServer::GameServer(QObject* parent)
         availableCards.insert(i);
     }
 
-
+    initSickPlayersMap();
 }
 
 RoundManager* GameServer::getRoundManager() const {
@@ -144,7 +144,12 @@ void GameServer::onPlayerChanged(int newPlayerId)
     QString currentPlayer = players.at(newPlayerId);
     qDebug() << "Current Player: " << currentPlayer;
 
-
+    if(sickPlayers[currentPlayer]==1){
+        sickPlayers[currentPlayer]=0;
+        qDebug()<<"Player "<<currentPlayer<<" is sick!Next turn...";
+        roundManager->actionCompleted();
+        return;
+    }
 
     QString nextPlayer;
     if (players.size() > 1) {
@@ -156,7 +161,6 @@ void GameServer::onPlayerChanged(int newPlayerId)
 
     qDebug() << "Next Player:" << nextPlayer;
 
-    // Emit signal for the current and next player update
     emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
 }
 
@@ -264,4 +268,18 @@ QString GameServer::getGameStatisticsText() const
 void GameServer::updateSickPlayersMap(const QString &playerName)
 {
     sickPlayers[playerName]=1;
+}
+
+
+void GameServer::initSickPlayersMap(){
+    for(QString playerName:players){
+        sickPlayers[playerName]=0;
+    }
+}
+
+void GameServer::printSickPlayersMap() const {
+    qDebug() << "Sick Players Map:";
+    for(QString playerName:players){
+        qDebug()<< playerName<< ": "<<sickPlayers[playerName]<<"-----";
+    }
 }
