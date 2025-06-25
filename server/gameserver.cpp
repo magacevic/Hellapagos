@@ -171,6 +171,8 @@ void GameServer::onPlayerChanged(int newPlayerId)
 
 void GameServer::startNextRound()
 {
+    resourcesDeductedThisRound = false;
+
     if (roundManager->getLastRound()) {
         qDebug() << "This is the last round!";
     }
@@ -281,6 +283,13 @@ void GameServer::checkRafts()
 
 void GameServer::decreaseResources(){
     //qDebug()<<"Decreasing resources after round";
+
+    if (resourcesDeductedThisRound) {
+        qDebug() << "[DEBUG] Skipping duplicate resource deduction.";
+        return;
+        }
+
+    resourcesDeductedThisRound=true;
 
     int numOfPlayers = players.size();
     if(checkWaterAmount()){

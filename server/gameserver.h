@@ -66,6 +66,8 @@ private:
     QMap<QString,int> sickPlayers;
     bool checkWaterAmount();
     bool checkFoodAmount();
+    bool resourcesDeductedThisRound = false;
+
 };
 
 #endif // GAMESERVER_H
