@@ -35,6 +35,7 @@ private slots:
     void onDisconnected();
     void onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
     void playerSickSkip(const QString& currentPlayer);
+    void onGameOver();
 
 private:
     int maxPlayers;

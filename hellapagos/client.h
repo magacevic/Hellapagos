@@ -38,7 +38,7 @@ signals:
     void gameStatsReceived(const QString &stats);
     void playersListUpdated(const QStringList &playerNames);
     void notYourTurn();
-
+    void gameOverSignal();
 
 private slots:
     void onConnected();

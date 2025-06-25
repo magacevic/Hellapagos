@@ -14,7 +14,7 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
     connect(gameServer, &GameServer::roundStarted, this, &Server::onRoundStarted);
     connect(gameServer,&GameServer::thisPlayerIsSick,this,&Server::playerSickSkip);
-
+    connect(gameServer,&GameServer::gameOverSignal,this,&Server::onGameOver);
     connect(this, &Server::sendGameStatisticsToClient, this, &Server::sendStatsToClient);
 }
 
@@ -40,7 +40,7 @@ void Server::startServer()
 void Server::onNewConnection()
 {
     // Reject connections if the maximum number of players is reached
-    if (clientSockets.size() > maxPlayers) {
+    if (clientSockets.size() >= maxPlayers) {
         QTcpSocket* extraClient = tcpServer->nextPendingConnection();
         qDebug() << "Rejected connection: Maximum players reached!";
         extraClient->write("Server full. Connection rejected.");
@@ -284,6 +284,15 @@ void Server::playerSickSkip(const QString& currentPlayer){
 
          gameServer->getRoundManager()->actionCompleted();
     });
+}
+
+void Server::onGameOver()
+{
+    QString gameOverMessage = QString("GAME OVER");
+    broadcastMessage(gameOverMessage);
+    //da se zapise u statistike ono sto je ostalo ko je pobedio itd
+    //datum igranja i to
+
 }
 
 void Server::broadcastResourcesInfo(){

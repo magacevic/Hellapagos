@@ -30,7 +30,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
     connect(ui->collectFoodButton, &QPushButton::clicked, this, &GameWindow::on_collectFoodButton_clicked);
     connect(ui->voteButton, &QPushButton::clicked, this, &GameWindow::on_voteButton_clicked);
-
+    connect(m_client,&Client::gameOverSignal,this,&GameWindow::on_GameOver);
     connect(m_client, &Client::gameStatsReceived, this, &GameWindow::onGameStatsReceived);
     connect(m_client, &Client::notYourTurn,this,&GameWindow::on_notYourTurn);
 
@@ -378,5 +378,11 @@ void GameWindow::onGameStatsReceived(const QString &stats)
 void GameWindow::on_notYourTurn()
 {
     QMessageBox::critical(this,"Not Your Turn","Sorry,not your turn to play!");
+}
+
+void GameWindow::on_GameOver()
+{
+    QMessageBox::critical(this,"Game Over","Game Over,thanks for playing!");
+
 }
 

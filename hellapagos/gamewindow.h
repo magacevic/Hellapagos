@@ -34,6 +34,8 @@ private slots:
     void onGameStatsReceived(const QString &stats);
     void on_notYourTurn();
 
+    void on_GameOver();
+
 private:
     Ui::GameWindow *ui;
     Player *currentPlayer;

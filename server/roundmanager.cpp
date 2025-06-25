@@ -29,18 +29,12 @@ void RoundManager::nextTurn()
 {
 	if (players.isEmpty()) return;
 	
-    // Premesti indeks na narednog igrača (cirkularno)
-    currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
+   currentPlayerIndex = (currentPlayerIndex + 1) % players.size();
 
-    // Dohvati trenutnog i narednog igrača
     QString current = currentPlayer();
     QString next = nextPlayer();
     
-  /*  qDebug() << "Emitting currentAndNextPlayerUpdated with"
-             << "current:" << current << "and next:" << next;
-*/
-    // Emituj signal sa trenutnim i narednim igračem
-    emit currentAndNextPlayerUpdated(current, next);
+   emit currentAndNextPlayerUpdated(current, next);
     
     // Emituj signal sa ID-jem novog igrača
     emit playerChanged(currentPlayerIndex);

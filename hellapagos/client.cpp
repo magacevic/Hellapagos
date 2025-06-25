@@ -92,12 +92,6 @@ void Client::onReadyRead()
             player1->decrementRecovery();
         }
 
-
-        //play->decrementRecovery();
-        //qDebug() << "ALL PLAYERS ARE HEALTH";
-        // Update the UI or perform any other logic
-       // gamewindow->ui->roundLabel->setText(QString("Round: %1").arg(roundNumber));
-
     }
 
     if (message.startsWith("RESOURCES:")) {
@@ -153,6 +147,11 @@ void Client::onReadyRead()
 
     }
 
+
+
+    if(message=="GAME OVER"){
+        emit gameOverSignal();
+    }
     if (message.startsWith("GAME_STATS:")) {
         QString stats = message.mid(QString("GAME_STATS:").length()).trimmed();
         emit gameStatsReceived(stats);
@@ -178,12 +177,7 @@ void Client::onDisconnected()
         qDebug() << "Socket is unconnected.";
     }
 }
-/*
-void Client::sendWeatherCardChange(int index)
-{
-    sendMessage(QString("WeatherCard:%1").arg(index));
-}*/
-// In Client class
+
 void Client::sendWeatherCardChange(int index)
 {
    // QString message = QString("WEATHER_CARD:%1").arg(index);

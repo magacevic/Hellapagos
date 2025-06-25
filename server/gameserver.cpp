@@ -11,24 +11,20 @@ GameServer::GameServer(QObject* parent)
     roundManager = new RoundManager(this);
     votingSystem = new Voting(this);
 
-    // Initialize resource counts to zero
     resources.insert("food", 8);
     resources.insert("water", 10);
     resources.insert("wood", 0);
     resources.insert("rafts",0);
 
-    //connect(this, &GameServer::weatherCardChanged, this, &GameServer::broadcastWeatherCardChange);
-    connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
+      connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
             this, &GameServer::currentAndNextPlayerUpdated);
 
-    //connect(roundManager, &RoundManager::changeWeatherCard, this,&GameServer::onWeatherCardRequest);
-
-
-    // Poveži signal za promenu igrača
     connect(roundManager, &RoundManager::playerChanged, this, &GameServer::onPlayerChanged);
 
     connect(roundManager, &RoundManager::roundCompleted, this, &GameServer::startNextRound);
     connect(roundManager, &RoundManager::roundCompleted, this, &GameServer::decreaseResources);
+    connect(roundManager,&RoundManager::lastRoundStarted,this,&GameServer::onLastRoundLogic);
+    connect(roundManager,&RoundManager::lastRoundEnded,this,&GameServer::gameEnd);
 
     // Povezi signale za glasanje
    // connect(votingSystem, &Voting::votingStarted, this, &GameServer::onVotingStarted);
@@ -86,13 +82,7 @@ QMap<QString, int> GameServer::getResources() const
 {
     return resources;
 }
-/*
-void GameServer::changeWeatherCard(int newIndex)
-{
-    currentWeatherCardIndex = newIndex;
-    emit weatherCardChanged(newIndex); // Signal for serverApp to notify clients
-}
-*/
+
 int GameServer::getWeatherCardIndex() const
 {
     return currentWeatherCardIndex;
@@ -131,11 +121,8 @@ void GameServer::changeWeatherCard() {
 void GameServer::onWeatherCardRequest() {
     changeWeatherCard();
 }
-
-// Slot koji prihvata signal za promenu igrača
 void GameServer::onPlayerChanged(int newPlayerId)
 {
-    // Validate the player ID before accessing the list
     if (newPlayerId < 0 || newPlayerId >= players.size()) {
         qDebug() << "Invalid player ID:" << newPlayerId;
         return;
@@ -219,6 +206,18 @@ void GameServer::onReadyRead()
     }
 }
 
+void GameServer::onLastRoundLogic()
+{
+    qDebug()<<"Ovo je poslednja runda.";
+
+}
+
+void GameServer::gameEnd()
+{
+    qDebug()<<"GAME OVER";
+    emit gameOverSignal();
+}
+
 bool GameServer::checkWaterAmount()
 {
     //    while(resources["water"]<players.size()){
@@ -279,10 +278,7 @@ void GameServer::checkRafts()
 
 }
 
-
-
 void GameServer::decreaseResources(){
-    //qDebug()<<"Decreasing resources after round";
 
     if (resourcesDeductedThisRound) {
         qDebug() << "[DEBUG] Skipping duplicate resource deduction.";
@@ -299,16 +295,12 @@ void GameServer::decreaseResources(){
         }
 
     }
-   // resources["water"] -= numOfPlayers;
-   // resources["food"] -= numOfPlayers;
 
     if(resources["wood"] >=6){
         resources["rafts"] +=1;
         qDebug()<<"You have created a raft.";
         resources["wood"] -=6;
-        //qDebug()<<"Number of wood available: " << resources["wood"];
-        //qDebug()<<"Number of rafts available: "<<resources["rafts"];
-    }
+       }
 }
 
 QString GameServer::getGameStatisticsText() const

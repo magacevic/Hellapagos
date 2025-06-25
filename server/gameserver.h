@@ -45,6 +45,8 @@ public slots:
     void onNewClientConnected();
     void onClientDisconnected();
     void onReadyRead();
+    void onLastRoundLogic();
+    void gameEnd();
 
 
 signals:
@@ -52,6 +54,7 @@ signals:
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
     void roundStarted(int roundNumber);
     void thisPlayerIsSick(QString currentPlayer);
+    void gameOverSignal();
 
 private:
     QStringList players;      // List of player names
