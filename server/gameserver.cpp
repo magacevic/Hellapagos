@@ -217,6 +217,50 @@ void GameServer::onReadyRead()
     }
 }
 
+bool GameServer::checkWaterAmount()
+{
+    //    while(resources["water"]<players.size()){
+
+    if(resources["water"]>=players.size()){
+        return true;
+    }
+    else if(resources["water"]<players.size()){
+        int num=players.size()-resources["water"];
+        while(num>0){
+            qDebug()<< "Please vote out this many players" << num <<" [water]";
+            //Logika za voting
+            num--;
+        }
+        if(num==0) return true;
+    }
+
+
+
+   return true;
+
+}
+
+bool GameServer::checkFoodAmount()
+{
+
+    if(resources["food"]>=players.size()){
+        return true;
+    }
+    else if(resources["food"]<players.size()){
+        int num=players.size()-resources["food"];
+        while(num>0){
+            qDebug()<< "Please vote out this many players" << num <<" [food]";
+            //Logika za voting
+            num--;
+        }
+        if(num==0) return true;
+    }
+
+
+
+    return true;
+}
+
 
 void GameServer::checkRafts()
 {
@@ -233,12 +277,21 @@ void GameServer::checkRafts()
 
 }
 
+
+
 void GameServer::decreaseResources(){
     //qDebug()<<"Decreasing resources after round";
 
     int numOfPlayers = players.size();
-    resources["water"] -= numOfPlayers;
-    resources["food"] -= numOfPlayers;
+    if(checkWaterAmount()){
+        resources["water"] -= numOfPlayers;
+        if(checkFoodAmount()){
+            resources["food"] -= numOfPlayers;
+        }
+
+    }
+   // resources["water"] -= numOfPlayers;
+   // resources["food"] -= numOfPlayers;
 
     if(resources["wood"] >=6){
         resources["rafts"] +=1;

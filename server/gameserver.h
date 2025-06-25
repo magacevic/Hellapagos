@@ -64,6 +64,8 @@ private:
     //bool weatherCardRevealed = false; // Flag to track if weather card has been revealed this round
     Voting* votingSystem;
     QMap<QString,int> sickPlayers;
+    bool checkWaterAmount();
+    bool checkFoodAmount();
 };
 
 #endif // GAMESERVER_H
