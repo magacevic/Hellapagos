@@ -51,6 +51,7 @@ signals:
     void weatherCardChanged(int newIndex);
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
     void roundStarted(int roundNumber);
+    void thisPlayerIsSick(QString currentPlayer);
 
 private:
     QStringList players;      // List of player names

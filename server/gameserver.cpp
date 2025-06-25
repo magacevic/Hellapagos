@@ -2,7 +2,7 @@
 #include <QDebug>
 #include <QTcpSocket>
 #include <QTcpServer>
-
+#include <QTimer>
 #include <QSet>
 
 GameServer::GameServer(QObject* parent)
@@ -147,23 +147,27 @@ void GameServer::onPlayerChanged(int newPlayerId)
     if(sickPlayers[currentPlayer]==1){
         sickPlayers[currentPlayer]=0;
         qDebug()<<"Player "<<currentPlayer<<" is sick!Next turn...";
-        roundManager->actionCompleted();
+
+        emit thisPlayerIsSick(currentPlayer);
+
         return;
     }
 
-    QString nextPlayer;
-    if (players.size() > 1) {
-        int nextPlayerId = (newPlayerId + 1) % players.size();
-        nextPlayer = players.at(nextPlayerId);
-    } else {
-        nextPlayer = "None";  // If only one player exists, no next player
+    else{
+
+        QString nextPlayer;
+        if (players.size() > 1) {
+            int nextPlayerId = (newPlayerId + 1) % players.size();
+            nextPlayer = players.at(nextPlayerId);
+        } else {
+            nextPlayer = "None";  // If only one player exists, no next player
+        }
+
+        qDebug() << "Next Player:" << nextPlayer;
+
+        emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
     }
-
-    qDebug() << "Next Player:" << nextPlayer;
-
-    emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
 }
-
 
 void GameServer::startNextRound()
 {

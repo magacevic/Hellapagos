@@ -13,6 +13,7 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
     connect(gameServer, &GameServer::roundStarted, this, &Server::onRoundStarted);
+    connect(gameServer,&GameServer::thisPlayerIsSick,this,&Server::playerSickSkip);
 
     connect(this, &Server::sendGameStatisticsToClient, this, &Server::sendStatsToClient);
 }
@@ -208,7 +209,7 @@ void Server::onReadyRead()
 
                     // Start the first round
                     qDebug() << "First turn started";
-                    gameServer->getRoundManager()->nextTurn();
+                    gameServer->getRoundManager()->firstTurn();
                 });
             });
         }
@@ -276,6 +277,13 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
     }
 
 
+}
+
+void Server::playerSickSkip(const QString& currentPlayer){
+     QTimer::singleShot(1000, this, [this]() {
+
+         gameServer->getRoundManager()->actionCompleted();
+    });
 }
 
 void Server::broadcastResourcesInfo(){

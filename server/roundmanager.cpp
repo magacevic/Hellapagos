@@ -1,5 +1,6 @@
 #include "roundmanager.h"
 #include <QDebug>
+#include <QTimer>
 
 RoundManager::RoundManager(QObject* parent) : QObject(parent), currentPlayerIndex(0),isLastRound(false)
 {
@@ -47,6 +48,18 @@ void RoundManager::nextTurn()
 
 }
 
+void RoundManager::firstTurn()
+{
+    if (players.isEmpty()) return;
+    QString current = currentPlayer();
+    QString next = nextPlayer();
+    emit currentAndNextPlayerUpdated(current, next);
+
+    // Emituj signal sa ID-jem novog igrača
+    emit playerChanged(currentPlayerIndex);
+}
+
+
 QString RoundManager::currentPlayer() const
 {
     return players.at(currentPlayerIndex);
@@ -82,7 +95,10 @@ void RoundManager::actionCompleted()
      }
 
 
-    nextTurn();
+     QTimer::singleShot(500, this, [this]() {
+         nextTurn();
+     });
+
 }
 
 void RoundManager::handlePlayerEliminated(const QString& playerName)

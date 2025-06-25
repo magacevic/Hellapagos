@@ -26,6 +26,7 @@ public:
 
     void setLastRound(bool isLast);
     bool getLastRound() const;
+    void firstTurn();
 
 signals:
     // Signal koji obaveštava server kada se promeni trenutni i naredni igrač
