@@ -1,48 +1,23 @@
 #include "votedialog.h"
-#include <QComboBox>
-#include <QPushButton>
-#include <QVBoxLayout>
-#include <QMessageBox>
+#include "./ui_votedialog.h"
 
-VoteDialog::VoteDialog(const QStringList& playerNames, QWidget * parent)
-    : QDialog(parent), playerNames(playerNames)
-{
-    setWindowTitle("Vote for a player");
+VoteDialog::VoteDialog(const QStringList& players, QWidget* parent)
+    : QDialog(parent), ui(new Ui::VoteDialog), selectedPlayer("") {
+    ui->setupUi(this);
+    ui->comboBoxPlayers->addItems(players);
 
-    comboBox = new QComboBox(this);
-    for (const QString& name : playerNames) {
-        comboBox->addItem(name);
-    }
-
-    // Create the Confirm button
-    QPushButton* confirmButton = new QPushButton("Confirm", this);
-    connect(confirmButton, &QPushButton::clicked, this, &VoteDialog::onConfirmClicked);
-
-    // Layout
-    QVBoxLayout* layout = new QVBoxLayout(this);
-    layout->addWidget(comboBox);
-
-    QHBoxLayout* buttonLayout = new QHBoxLayout();
-    buttonLayout->addStretch();
-    buttonLayout->addWidget(confirmButton);
-
-    layout->addLayout(buttonLayout);
-    setLayout(layout);
+    connect(ui->voteButton, &QPushButton::clicked, this, &VoteDialog::onVoteButtonClicked);
 }
 
-VoteDialog::~VoteDialog() {}
-
-QString VoteDialog::getSelectedPlayerName() const
-{
-    return comboBox->currentText();  // Return the selected player name
+VoteDialog::~VoteDialog() {
+    delete ui;
 }
 
-void VoteDialog::onConfirmClicked() {
-    // Check if a player is selected, then accept the dialog
-    if (!comboBox->currentText().isEmpty()) {
-        accept();
-    } else {
-        QMessageBox::warning(this, "No selection", "You must select a player to vote for.");
-    }
+void VoteDialog::onVoteButtonClicked() {
+    selectedPlayer = ui->comboBoxPlayers->currentText();
+    accept(); // closes dialog
 }
 
+QString VoteDialog::getSelectedPlayerName() const {
+    return selectedPlayer;
+}

@@ -1,18 +1,20 @@
 #include "gameserver.h"
+#include "voting.h"
 #include <QDebug>
 #include <QTcpSocket>
 #include <QTcpServer>
 #include <QTimer>
 #include <QSet>
+#include <QList>
 
 GameServer::GameServer(QObject* parent)
     : QObject(parent),roundCounter(1)
 {
     roundManager = new RoundManager(this);
-    votingSystem = new Voting(this);
+    votingManager = new Voting(this);
 
     resources.insert("food", 8);
-    resources.insert("water", 10);
+    resources.insert("water", 2);
     resources.insert("wood", 0);
     resources.insert("rafts",0);
 
@@ -27,11 +29,8 @@ GameServer::GameServer(QObject* parent)
     connect(roundManager,&RoundManager::lastRoundEnded,this,&GameServer::gameEnd);
 
     // Povezi signale za glasanje
-   // connect(votingSystem, &Voting::votingStarted, this, &GameServer::onVotingStarted);
+    connect(votingManager, &Voting::votingStarted, this, &GameServer::onVotingStarted);
     //connect(votingSystem, &Voting::votingConcluded, this &GameServer::onVotingConcluded);
-
-    // Povezi signal za eliminaciju igraca, Voting i RoundManager
-    connect(votingSystem, &Voting::playerEliminatedForRoundManager, roundManager, &RoundManager::handlePlayerEliminated);
 
     for (int i = 1; i < 12; ++i) {
         availableCards.insert(i);
@@ -60,15 +59,21 @@ int GameServer::getResourceAmount(const QString& resourceName) const {
 }
 
 
-void GameServer::addPlayer(const QString& playerName)
+void GameServer::addPlayer(const QString& playerName, QTcpSocket* socket)
 {
     if (!players.contains(playerName)) {
         players.append(playerName);
         roundManager->addToTurnPlayer(playerName);
         qDebug() << "Player added:" << playerName;
+        socketToPlayerMap[socket] = playerName;
     } else {
         qDebug() << "Player" << playerName << "already exists!";
     }
+}
+
+QString GameServer::getPlayerNameFromSocket(QTcpSocket* socket) const
+{
+    return socketToPlayerMap.value(socket, "");
 }
 
 
@@ -158,6 +163,7 @@ void GameServer::onPlayerChanged(int newPlayerId)
 
 void GameServer::startNextRound()
 {
+    votedThisRound = false;
     resourcesDeductedThisRound = false;
 
     if (roundManager->getLastRound()) {
@@ -196,13 +202,39 @@ void GameServer::onClientDisconnected()
         clientSocket->deleteLater();  // Clean up the socket
     }
 }
+
 void GameServer::onReadyRead()
 {
     QTcpSocket* clientSocket = qobject_cast<QTcpSocket*>(sender());
     if (clientSocket) {
         QByteArray data = clientSocket->readAll();  // Read all data sent by the client
-        qDebug() << "Received from client:" << data;
-        // Handle the received data here...
+        QString message = QString::fromUtf8(data).trimmed();
+        qDebug() << "[Server] Received:" << message;
+
+        /*
+        if (message.startsWith("VOTE:")) {
+            QString votedPlayer = message.mid(QString("VOTE:").length()).trimmed();
+            QString voter = getPlayerNameFromSocket(clientSocket);  // You’ll implement this helper
+
+            if (!votedPlayer.isEmpty() && !voter.isEmpty()) {
+                votingManager->submitVote(voter, votedPlayer);
+
+                if (votingManager->allVotesIn(players)) {
+                    QString eliminatedPlayer = votingManager->getPlayerWithMostVotes();
+                    if (!eliminatedPlayer.isEmpty()) {
+                        qDebug() << "Player voted out:" << eliminatedPlayer;
+                        players.removeAll(eliminatedPlayer);  // Remove from game
+                       // roundManager->removeFromTurnPlayer(eliminatedPlayer);  // Optional
+                        broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
+                        broadcastToClients("VOTE_RESULT:" + eliminatedPlayer);
+                        votingManager->reset();  // Ready for next vote
+                    }
+                }
+            }
+            return;
+        }
+        */
+
     }
 }
 
@@ -301,6 +333,46 @@ void GameServer::decreaseResources(){
         qDebug()<<"You have created a raft.";
         resources["wood"] -=6;
        }
+
+    if (resources["food"] <= 0 || resources["water"] <= 0) {
+        startVoteIfNeeded();
+    }
+}
+
+void GameServer::startVoteIfNeeded()
+{
+    if (votingActive || votedThisRound) return;
+
+    QSet<QString> currentPlayers = QSet<QString>(players.begin(), players.end());
+    votingActive = true;
+    votedThisRound = true;
+    votingManager->startVote(currentPlayers);
+    onVotingStarted(currentPlayers);
+}
+
+void GameServer::onVotingStarted(const QSet<QString>& eligiblePlayers)
+{
+    QStringList playerList = eligiblePlayers.values();
+    emit startVoteSignal(playerList);
+}
+
+
+void GameServer::submitVote(const QString& voter, const QString& target){
+
+    votingManager->submitVote(voter, target);
+
+    if (votingManager->allVotesIn(players)) {
+        QString eliminatedPlayer = votingManager->getPlayerWithMostVotes();
+        if (!eliminatedPlayer.isEmpty()) {
+            qDebug() << "Player voted out " << eliminatedPlayer;
+            players.removeAll(eliminatedPlayer);
+
+            emit playerEliminatedSignal(eliminatedPlayer);
+            emit voteResultSignal(eliminatedPlayer);
+        }
+        votingManager->reset();
+        votingActive = false;
+    }
 }
 
 QString GameServer::getGameStatisticsText() const
@@ -339,5 +411,16 @@ void GameServer::printSickPlayersMap() const {
     qDebug() << "Sick Players Map:";
     for(QString playerName:players){
         qDebug()<< playerName<< ": "<<sickPlayers[playerName]<<"-----";
+    }
+}
+
+void GameServer::broadcastToClients(const QString& message)
+{
+    QByteArray data = message.toUtf8();
+    for (QTcpSocket* socket : clientSockets) {
+        if (socket && socket->isOpen()) {
+            socket->write(data);
+            socket->flush();
+        }
     }
 }

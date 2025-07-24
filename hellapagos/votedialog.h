@@ -2,24 +2,28 @@
 #define VOTEDIALOG_H
 
 #include <QDialog>
-#include <QComboBox>
-#include <QPushButton>
-#include <QVBoxLayout>
+#include <QStringList>
+
+namespace Ui {
+class VoteDialog;
+}
 
 class VoteDialog : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit VoteDialog(const QStringList& playerNames, QWidget *parent = nullptr);
+    explicit VoteDialog(const QStringList &playerNames, QWidget *parent = nullptr);
     ~VoteDialog();
 
     QString getSelectedPlayerName() const;
-    void onConfirmClicked();
+
+private slots:
+    void onVoteButtonClicked();
 
 private:
-    QComboBox *comboBox;
-    QStringList playerNames;
+    Ui::VoteDialog *ui;
+    QString selectedPlayer;
 };
 
 #endif // VOTEDIALOG_H

@@ -1,101 +1,59 @@
 #include "voting.h"
-#include "gameserver.h"
 #include <QDebug>
 
-Voting::Voting(QObject* parent) : QObject(parent), votingInProgress(false)
-{
-}
+Voting::Voting(QObject* parent) : QObject(parent) {}
 
-void Voting::startVoting()
-{
-    if (votingInProgress) {
-        qWarning() << "Voting is already in progress!";
-        return;
-    }
-
-    votingInProgress = true;
-    emit votingStarted();
-    qDebug() << "Voting started!";
-    votes.clear();
-}
-
-void Voting::concludeVoting()
-{
-    if (!votingInProgress) {
-        qWarning() << "No voting in progress!";
-        return;
-    }
-
-    votingInProgress = false;
-    emit votingConcluded();
-    qDebug() << "Voting concluded!";
-    handleVotingOutcome();
-}
-
-void Voting::resetVoting()
+void Voting::startVote(const QSet<QString>& activePlayers)
 {
     votes.clear();
-    votingInProgress = false;
-    eliminatePlayer.clear();
-    reason.clear();
-    qDebug() << "Voting reset.";
-}
-
-void Voting::castVote(const QString& playerName)
-{
-    if (!votingInProgress) {
-        qWarning() << "Voting is not in progress!";
-        return;
+    for (const QString& player : activePlayers) {
+        votes[player] = "";  // Reset votes
     }
 
-    if (!players.contains(playerName)) {
-        qWarning() << "Player not in the voting list!";
-        return;
-    }
-
-    if (votes.contains(playerName)) {
-        votes[playerName] += 1;
-    } else {
-        votes[playerName] = 1;
-    }
-
-    qDebug() << "Vote casted for: " << playerName;
+    emit votingStarted(activePlayers);
 }
 
-void Voting::checkForWaterShortage()
+void Voting::submitVote(const QString& voter, const QString& target)
 {
-    qDebug() << "Checking for water shortage...";
-}
-
-void Voting::checkForFoodShortage()
-{
-    qDebug() << "Checking for food shortage...";
-}
-
-void Voting::handleVotingOutcome()
-{
-    if (votes.isEmpty()) {
-        qWarning() << "No votes casted!";
-        return;
+    if (votes.contains(voter)) {
+        votes[voter] = target;
+        qDebug() << voter << "voted for" << target;
     }
+}
 
-    QString playerToEliminate;
-    int highestVotes = -1;
+bool Voting::allVotesIn(const QStringList& currentPlayers) const
+{
+    for (const QString& player : currentPlayers) {
+        if (!votes.contains(player) || votes[player].isEmpty()) {
+            return false;
+        }
+    }
+    return true;
+}
 
-    for (auto it = votes.begin(); it != votes.end(); ++it) {
-        if (it.value() > highestVotes) {
-            highestVotes = it.value();
-            playerToEliminate = it.key();
+QString Voting::getPlayerWithMostVotes() const
+{
+    QMap<QString, int> voteCounts;
+    for (const QString& target : votes.values()) {
+        if (!target.isEmpty()) {
+            voteCounts[target]++;
         }
     }
 
-    eliminatePlayer = playerToEliminate;
-    reason = "Eliminated due to majority vote.";
-    qDebug() << "Player to eliminate: " << eliminatePlayer << " with " << highestVotes << " votes.";
+    // Find player with max votes
+    QString maxPlayer;
+    int maxVotes = -1;
+    for (auto it = voteCounts.begin(); it != voteCounts.end(); ++it) {
+        if (it.value() > maxVotes) {
+            maxVotes = it.value();
+            maxPlayer = it.key();
+        }
+    }
 
-    emit playerEliminated(eliminatePlayer);    // Emituj signal da je igrac eliminisan
+    return maxPlayer;
+}
 
-    emit playerEliminatedForRoundManager(eliminatePlayer);  // Emituje signal Round Manageru kog igraca treba da izbrise
-
-
+void Voting::reset()
+{
+    votes.clear();
 }

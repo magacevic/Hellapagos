@@ -17,6 +17,7 @@ public:
     ~Client();
 
     void sendMessage(const QString &message);
+    void handleMessage(const QString& message);
 
     void connectToServer();
     void sendJoinCommand(const QString &playerName); // New function
@@ -39,6 +40,8 @@ signals:
     void playersListUpdated(const QStringList &playerNames);
     void notYourTurn();
     void gameOverSignal();
+    void voteStarted(const QStringList& playersToVoteFor);
+    void playerVotedOut(const QString& playerName);
 
 private slots:
     void onConnected();
@@ -55,6 +58,8 @@ private:
     QStringList playerNames;
 
     EliminatedPlayer* player;  // Instanca eliminisanog igraca
+
+    bool voteInProgress = false;
 
 };
 

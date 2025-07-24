@@ -19,7 +19,8 @@ class GameServer : public QObject
 public:
     explicit GameServer(QObject* parent = nullptr);
 
-    void addPlayer(const QString& playerName);
+    void addPlayer(const QString& playerName, QTcpSocket* socket);
+    QString getPlayerNameFromSocket(QTcpSocket* socket) const;
     QStringList getPlayers() const;
     QMap<QString, int> getResources() const;
     void changeWeatherCard();
@@ -35,13 +36,19 @@ public:
     int getResourceAmount(const QString& resourceName) const;
     void checkRafts();
     void decreaseResources();
+    void startVoteIfNeeded();
+    void startVoting();
+    void submitVote(const QString& voter, const QString& target);
     QString getGameStatisticsText() const;
     void updateSickPlayersMap(const QString& playerName);
     void initSickPlayersMap();
     void printSickPlayersMap() const;
+
+    void broadcastToClients(const QString& message);
 public slots:
     // Slot koji prihvata signal za promenu igrača
     void onPlayerChanged(int newPlayerId);
+    void onVotingStarted(const QSet<QString>& eligiblePlayers);
     void onNewClientConnected();
     void onClientDisconnected();
     void onReadyRead();
@@ -55,9 +62,13 @@ signals:
     void roundStarted(int roundNumber);
     void thisPlayerIsSick(QString currentPlayer);
     void gameOverSignal();
+    void startVoteSignal(const QStringList& voteTargets);
+    void playerEliminatedSignal(const QString& playerName);
+    void voteResultSignal(const QString& playerName);
 
 private:
     QStringList players;      // List of player names
+    QMap<QTcpSocket*, QString> socketToPlayerMap;
     QMap<QString, int> resources; // Shared resources: e.g., "food", "water", etc.
     int currentWeatherCardIndex = 0; // Default or initial weather card index
     QSet<int> availableCards;  // Set to store available card indices
@@ -65,11 +76,13 @@ private:
     int roundCounter;
     QTcpServer* tcpServer;
     //bool weatherCardRevealed = false; // Flag to track if weather card has been revealed this round
-    Voting* votingSystem;
+    Voting* votingManager;
     QMap<QString,int> sickPlayers;
     bool checkWaterAmount();
     bool checkFoodAmount();
     bool resourcesDeductedThisRound = false;
+    bool votingActive = false;
+    bool votedThisRound = false;
 
 };
 

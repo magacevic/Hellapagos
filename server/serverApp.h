@@ -36,6 +36,9 @@ private slots:
     void onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
     void playerSickSkip(const QString& currentPlayer);
     void onGameOver();
+    void onStartVote(const QStringList& voteTargets);
+    void onPlayerEliminated(const QString& playerName);
+    void onVoteResult(const QString& playerName);
 
 private:
     int maxPlayers;

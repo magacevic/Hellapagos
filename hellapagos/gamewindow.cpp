@@ -29,10 +29,12 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
     connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
     connect(ui->collectFoodButton, &QPushButton::clicked, this, &GameWindow::on_collectFoodButton_clicked);
-    connect(ui->voteButton, &QPushButton::clicked, this, &GameWindow::on_voteButton_clicked);
+    //connect(ui->voteButton, &QPushButton::clicked, this, &GameWindow::on_voteButton_clicked);
     connect(m_client,&Client::gameOverSignal,this,&GameWindow::on_GameOver);
     connect(m_client, &Client::gameStatsReceived, this, &GameWindow::onGameStatsReceived);
     connect(m_client, &Client::notYourTurn,this,&GameWindow::on_notYourTurn);
+    connect(m_client, &Client::voteStarted, this, &GameWindow::onVoteStarted);
+    connect(m_client, &Client::playerVotedOut, this, &GameWindow::onPlayerVotedOut);
 
 
 
@@ -278,7 +280,7 @@ void GameWindow::on_collectFoodButton_clicked()
     });
 }
 
-
+/*
 void GameWindow::on_voteButton_clicked() {
     QStringList playerNames = m_client->getPlayers();
     QStringList eligiblePlayerNames;
@@ -302,6 +304,7 @@ void GameWindow::on_voteButton_clicked() {
     }
 
 }
+*/
 
 
 void GameWindow::on_statButton_clicked()
@@ -378,6 +381,55 @@ void GameWindow::onGameStatsReceived(const QString &stats)
 void GameWindow::on_notYourTurn()
 {
     QMessageBox::critical(this,"Not Your Turn","Sorry,not your turn to play!");
+}
+
+void GameWindow::onVoteStarted(const QStringList& voteTargets)
+{
+    qDebug() << "[UI] onVoteStarted triggered with players:" << voteTargets;
+
+    QStringList eligiblePlayers;
+    for (const QString& playerName : voteTargets) {
+        if (playerName != currentPlayer->getName()) {
+            eligiblePlayers.append(playerName);
+        }
+    }
+
+    if (!voteTargets.contains(currentPlayer->getName())) {
+        qDebug() << "This player is not participating in the vote.";
+        return;
+    }
+
+    VoteDialog voteDialog(eligiblePlayers, this);
+    if (voteDialog.exec() == QDialog::Accepted) {
+        QString votedPlayer = voteDialog.getSelectedPlayerName();
+        if (!votedPlayer.isEmpty() && m_client) {
+            QString voteMsg = "VOTE:" + votedPlayer;
+            m_client->sendMessage(voteMsg);
+            qDebug() << "Sent vote to server:" << voteMsg;
+        }
+    }
+}
+
+void GameWindow::onPlayerVotedOut(const QString& playerName)
+{
+    QMessageBox::information(this, "Player Eliminated",
+                             QString("Player %1 was voted out!").arg(playerName));
+
+    if (playerName == currentPlayer->getName()) {
+        //currentPlayer->setSpectating(true);  // Or handle in a custom way
+        qDebug() << "You have been voted out. You are now a spectator.";
+    }
+
+    // Optionally: disable actions if player is eliminated
+    /*
+    if (currentPlayer->isSpectating()) {
+        ui->collectWaterButton->setEnabled(false);
+        ui->collectFoodButton->setEnabled(false);
+        ui->collectWoodButton->setEnabled(false);
+        ui->voteButton->setEnabled(false);
+        ui->revealButton->setEnabled(false);
+    }
+    */
 }
 
 void GameWindow::on_GameOver()

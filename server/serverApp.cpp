@@ -16,6 +16,9 @@ Server::Server(QObject *parent)
     connect(gameServer,&GameServer::thisPlayerIsSick,this,&Server::playerSickSkip);
     connect(gameServer,&GameServer::gameOverSignal,this,&Server::onGameOver);
     connect(this, &Server::sendGameStatisticsToClient, this, &Server::sendStatsToClient);
+    connect(gameServer, &GameServer::startVoteSignal, this, &Server::onStartVote);
+    connect(gameServer, &GameServer::playerEliminatedSignal, this, &Server::onPlayerEliminated);
+    connect(gameServer, &GameServer::voteResultSignal, this, &Server::onVoteResult);
 }
 
 Server::~Server()
@@ -182,7 +185,7 @@ void Server::onReadyRead()
         }
 
         playerSocketMap[playerName] = senderSocket;
-        gameServer->addPlayer(playerName);
+        gameServer->addPlayer(playerName, senderSocket);
 
         senderSocket->write(("Hello, " + playerName + "! Welcome to the server!").toUtf8());
     }
@@ -214,6 +217,31 @@ void Server::onReadyRead()
             });
         }
     }
+    else if (message.startsWith("VOTE:")) {
+        QString castVote = message.split(':').last();
+        QString voter = gameServer->getPlayerNameFromSocket(senderSocket);
+
+        if (!castVote.isEmpty() && !voter.isEmpty()) {
+            gameServer->submitVote(voter, castVote);
+        }
+
+    }
+}
+
+void Server::onStartVote(const QStringList& voteTargets)
+{
+    QString message = "START_VOTE:" + voteTargets.join(",") + "\n";
+    broadcastMessage(message);
+}
+
+void Server::onPlayerEliminated(const QString& playerName)
+{
+    broadcastMessage("PLAYER_ELIMINATED:" + playerName);
+}
+
+void Server::onVoteResult(const QString& playerName)
+{
+    broadcastMessage("VOTE_RESULT:" + playerName);
 }
 
 void Server::onDisconnected()
@@ -297,7 +325,7 @@ void Server::onGameOver()
 
 void Server::broadcastResourcesInfo(){
 
-    QString resourceMessage = QString(" RESOURCES:water:%1,food:%2,wood:%3,rafts:%4")
+    QString resourceMessage = QString("RESOURCES:water:%1,food:%2,wood:%3,rafts:%4")
     .arg(gameServer->getResourceAmount("water"))
         .arg(gameServer->getResourceAmount("food"))
         .arg(gameServer->getResourceAmount("wood"))

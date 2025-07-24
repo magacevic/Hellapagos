@@ -1,43 +1,28 @@
 #ifndef VOTING_H
 #define VOTING_H
 
-#include <QObject>
 #include <QString>
-#include <QStringList>
 #include <QMap>
+#include <QSet>
+#include <QObject>
 
-
-class Voting : public QObject
-{
+class Voting : public QObject {
     Q_OBJECT
 
 public:
     explicit Voting(QObject* parent = nullptr);
 
-    void startVoting();
-    void concludeVoting();
-    void resetVoting();
-    void castVote(const QString& playerName);
-    void checkForWaterShortage();
-    void checkForFoodShortage();
-
-
-signals:
-    void votingStarted();
-    void votingConcluded();
-    void playerEliminated(const QString& playerName);  //Signal za eliminisanje igraca
-    void playerEliminatedForRoundManager(const QString& playerName); // Signal da je igrac eliminisan Round Menageru
-
-
+    void startVote(const QSet<QString>& activePlayers);
+    void submitVote(const QString& voter, const QString& target);
+    bool allVotesIn(const QStringList& currentPlayers) const;
+    QString getPlayerWithMostVotes() const;
+    void reset();
 
 private:
-    QMap<QString, int> votes;
-    QString eliminatePlayer;
-    bool votingInProgress;
-    QString reason;
-    QStringList players;
+    QMap<QString, QString> votes;  // voter -> target
 
-    void handleVotingOutcome();
+signals:
+    void votingStarted(const QSet<QString>& eligiblePlayers);
 };
 
 #endif // VOTING_H
