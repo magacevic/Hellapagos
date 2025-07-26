@@ -198,6 +198,10 @@ void Client::handleMessage(const QString& message)
         emit playersListUpdated(playerNames);
     }
 
+    if (message == "Name already taken. Choose a different name.") {
+        emit nameTaken();  // Ovo treba da postoji kao signal u Client klasi
+    }
+
     if (message.startsWith("PLAYER_ELIMINATED:")) {
         QString playerName = message.split(":").last();
         qDebug() << "Player eliminated:" << playerName;
