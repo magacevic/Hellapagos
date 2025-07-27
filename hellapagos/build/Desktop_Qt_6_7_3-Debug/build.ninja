@@ -346,7 +346,7 @@ build hellapagos_autogen/EWIEGA46WW/qrc_audio.cpp | ${cmake_ninja_workdir}hellap
 #############################################
 # Phony custom command for CMakeFiles/hellapagos_autogen_timestamp_deps
 
-build CMakeFiles/hellapagos_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/hellapagos_autogen_timestamp_deps: phony /home/mina/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3 /home/mina/Qt/6.7.3/gcc_64/libexec/uic /home/mina/Qt/6.7.3/gcc_64/libexec/moc /home/mina/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3 /home/mina/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3
+build CMakeFiles/hellapagos_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/hellapagos_autogen_timestamp_deps: phony /home/mina/Qt/6.7.3/gcc_64/libexec/moc /home/mina/Qt/6.7.3/gcc_64/lib/libQt6Multimedia.so.6.7.3 /home/mina/Qt/6.7.3/gcc_64/libexec/uic /home/mina/Qt/6.7.3/gcc_64/lib/libQt6Widgets.so.6.7.3 /home/mina/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3
 
 
 #############################################

@@ -31,27 +31,6 @@ bool Voting::allVotesIn(const QStringList& currentPlayers) const
     return true;
 }
 
-QString Voting::getPlayerWithMostVotes() const
-{
-    QMap<QString, int> voteCounts;
-    for (const QString& target : votes.values()) {
-        if (!target.isEmpty()) {
-            voteCounts[target]++;
-        }
-    }
-
-    // Find player with max votes
-    QString maxPlayer;
-    int maxVotes = -1;
-    for (auto it = voteCounts.begin(); it != voteCounts.end(); ++it) {
-        if (it.value() > maxVotes) {
-            maxVotes = it.value();
-            maxPlayer = it.key();
-        }
-    }
-
-    return maxPlayer;
-}
 
 void Voting::reset()
 {
