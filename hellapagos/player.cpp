@@ -92,6 +92,7 @@ void Player::collectFood() {
     }
     int foodCollectedInRound = collectFoodAction->performAction();
     addFood(foodCollectedInRound);
+    reportResourcesToServer(foodCollectedInRound, 0);
 
 }
 
@@ -103,6 +104,7 @@ void Player::collectWater(QWidget *card) {
     collectWaterAction->collectWaterFromCard(card);
     int waterCollectedInRound = collectWaterAction->performAction();
     addWater(waterCollectedInRound);
+    reportResourcesToServer(0, waterCollectedInRound);
 
 }
 
@@ -117,6 +119,7 @@ void Player::collectWood() {
     addWood(woodCollected);
     qDebug() <<"Wood collected so far by this player: " << totalWood;
     collectWoodAction->getCollectedWood();
+    reportResourcesToServer(0,0);
     
 }
 
@@ -133,6 +136,7 @@ void Player::collectAdditionalWood(int trips) {
     addWood(woodCollected);
     qDebug() <<"Wood collected so far by this player: " << totalWood;
     collectWoodAction->getCollectedWood();
+    reportResourcesToServer(0,0);
 }
 
 /*
@@ -173,4 +177,20 @@ void Player::onPlayerGotBitten()
     qDebug()<<"POSLAO SAM";
 }
 
+
+void Player::reportResourcesToServer(int newlyCollectedFood, int newlyCollectedWater) {
+
+    tFood += newlyCollectedFood;
+    tWater += newlyCollectedWater;
+
+    int total = tFood + tWater + totalWood;
+
+    QString report = QString("RESOURCES_REPORT: player=%1: food=%2: water=%3: wood=%4: total=%5\n")
+                         .arg(playerName)
+                         .arg(tFood)
+                         .arg(tWater)
+                         .arg(totalWood)
+                         .arg(total);
+    m_client->sendMessage(report);
+}
 

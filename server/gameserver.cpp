@@ -234,6 +234,10 @@ void GameServer::onReadyRead()
             return;
         }
         */
+        if (message.startsWith("RESOURCES_REPORT:")) {
+            handleResourcesReport(message);
+            return;  // Poruka obrađena, vrati se
+        }
 
     }
 }
@@ -356,24 +360,45 @@ void GameServer::onVotingStarted(const QSet<QString>& eligiblePlayers)
     emit startVoteSignal(playerList);
 }
 
-
 void GameServer::submitVote(const QString& voter, const QString& target){
-
     votingManager->submitVote(voter, target);
 
     if (votingManager->allVotesIn(players)) {
-        QString eliminatedPlayer = votingManager->getPlayerWithMostVotes();
-        if (!eliminatedPlayer.isEmpty()) {
-            qDebug() << "Player voted out " << eliminatedPlayer;
-            players.removeAll(eliminatedPlayer);
+        QString eliminatedPlayer;
+        QStringList topVoted = votingManager->getPlayersWithMostVotes(); // koristi helper
 
+        if (topVoted.size() == 1) {
+            eliminatedPlayer = topVoted.first();
+        } else {
+            // Tie: eliminiši onog sa najmanje resursa
+            int minTotal = INT_MAX;
+            for (const QString& player : topVoted) {
+                int total = playerTotalResources.value(player, 0);
+                if (total < minTotal) {
+                    minTotal = total;
+                    eliminatedPlayer = player;
+                }
+            }
+
+            QString tieMessage = QString("Tie detected. Eliminating player with least resources: \"%1\"").arg(eliminatedPlayer);
+            qDebug() << tieMessage;
+            broadcastToClients("INFO: " + tieMessage);
+        }
+
+        if (!eliminatedPlayer.isEmpty()) {
+            players.removeAll(eliminatedPlayer);
             emit playerEliminatedSignal(eliminatedPlayer);
             emit voteResultSignal(eliminatedPlayer);
+
+            broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
         }
+
         votingManager->reset();
         votingActive = false;
     }
 }
+
+
 
 QString GameServer::getGameStatisticsText() const
 {
@@ -423,4 +448,27 @@ void GameServer::broadcastToClients(const QString& message)
             socket->flush();
         }
     }
+}
+
+void GameServer::handleResourcesReport(const QString& message) {
+    QStringList parts = message.split(": ");
+    if (parts.size() < 6) {
+        qDebug() << "Invalid RESOURCES_REPORT message format:" << message;
+        return;
+    }
+
+    QString playerName = parts[1].mid(QString("player=").length());
+    int food = parts[2].mid(QString("food=").length()).toInt();
+    int water = parts[3].mid(QString("water=").length()).toInt();
+    int wood = parts[4].mid(QString("wood=").length()).toInt();
+    int total = parts[5].mid(QString("total=").length()).toInt();
+
+    playerTotalResources[playerName] = total;
+
+    qDebug() << QString("Resource report - %1: food=%2, water=%3, wood=%4, total=%5")
+                    .arg(playerName).arg(food).arg(water).arg(wood).arg(total);
+}
+
+QMap<QString, int> GameServer::getPlayerTotalResources() const {
+    return playerTotalResources;
 }

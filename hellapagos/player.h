@@ -54,6 +54,8 @@ public:
     void eliminate();
     // Getter za eliminisane igrače
     EliminatedPlayer* getEliminatedPlayer() const;
+    void reportResourcesToServer(int newlyCollectedFood, int newlyCollectedWater);
+
 
 private:
     QString playerName;
@@ -64,7 +66,8 @@ private:
     int foodCollectedInRound;
     int totalWater;
     int totalWood;
-    
+    int tWater=0;
+    int tFood=0;
     SickPlayer* sickPlayer;
 
     QWidget getCurrentCard();

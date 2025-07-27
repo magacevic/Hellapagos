@@ -199,7 +199,7 @@ void Client::handleMessage(const QString& message)
     }
 
     if (message == "Name already taken. Choose a different name.") {
-        emit nameTaken();  // Ovo treba da postoji kao signal u Client klasi
+        emit nameTaken();
     }
 
     if (message.startsWith("PLAYER_ELIMINATED:")) {

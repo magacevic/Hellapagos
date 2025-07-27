@@ -17,6 +17,10 @@ public:
     bool allVotesIn(const QStringList& currentPlayers) const;
     QString getPlayerWithMostVotes() const;
     void reset();
+    int getVoteCountFor(const QString& player) const;
+    QStringList getPlayersWithMostVotes() const;
+
+
 
 private:
     QMap<QString, QString> votes;  // voter -> target

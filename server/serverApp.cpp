@@ -150,6 +150,11 @@ void Server::onReadyRead()
 
     }
 
+    if (message.startsWith("RESOURCES_REPORT:")) {
+        gameServer->handleResourcesReport(message);
+    }
+
+
     if (message.startsWith("REQUEST_ACTION:")) {
         QString action = message.split(":").last();
         QString currentPlayer = gameServer->getRoundManager()->currentPlayer();

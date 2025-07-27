@@ -43,6 +43,8 @@ public:
     void updateSickPlayersMap(const QString& playerName);
     void initSickPlayersMap();
     void printSickPlayersMap() const;
+    void handleResourcesReport(const QString& message);
+
 
     void broadcastToClients(const QString& message);
 public slots:
@@ -83,6 +85,9 @@ private:
     bool resourcesDeductedThisRound = false;
     bool votingActive = false;
     bool votedThisRound = false;
+    QMap<QString, int> playerTotalResources;
+    QMap<QString, int> getPlayerTotalResources() const;
+
 
 };
 
