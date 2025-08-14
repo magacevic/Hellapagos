@@ -316,6 +316,7 @@ void GameServer::checkRafts()
 
 void GameServer::decreaseResources(){
 
+
     if (resourcesDeductedThisRound) {
         qDebug() << "[DEBUG] Skipping duplicate resource deduction.";
         return;
@@ -386,8 +387,7 @@ void GameServer::submitVote(const QString& voter, const QString& target){
         }
 
         if (!eliminatedPlayer.isEmpty()) {
-            players.removeAll(eliminatedPlayer);
-            emit playerEliminatedSignal(eliminatedPlayer);
+            eliminatePlayer(eliminatedPlayer);
             emit voteResultSignal(eliminatedPlayer);
 
             broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
@@ -397,6 +397,30 @@ void GameServer::submitVote(const QString& voter, const QString& target){
         votingActive = false;
     }
 }
+
+void GameServer::eliminatePlayer(const QString& playerName)
+{
+    if (eliminatedPlayers.contains(playerName))
+        return;
+
+    eliminatedPlayers.insert(playerName);
+
+    players.removeAll(playerName);
+
+    roundManager->removeFromTurnPlayer(playerName);
+
+    emit playerEliminatedSignal(playerName);
+
+    broadcastToClients("PLAYER_ELIMINATED:" + playerName);
+
+    qDebug() << "Player eliminated:" << playerName;
+}
+
+bool GameServer::isPlayerEliminated(const QString& playerName) const
+{
+    return eliminatedPlayers.contains(playerName);
+}
+
 
 
 

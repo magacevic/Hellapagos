@@ -3,6 +3,7 @@
 #include "actionselector.h"
 #include <QMessageBox>
 #include <QInputDialog>
+#include <QTimer>
 
 Player::Player(const QString& name, Client* client)
     : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), eliminatedPlayer(nullptr), sickPlayer(nullptr)
@@ -45,6 +46,10 @@ void Player::setSick(bool sick) {
 }
 
 bool Player::canPerformActions() {
+
+    if(eliminatedPlayer)
+        return eliminatedPlayer->canPerformActions();
+
     if (sickPlayer && sickPlayer->isRecovered()) {
         recover();
     }
@@ -52,6 +57,10 @@ bool Player::canPerformActions() {
 }
 
 bool Player::canVote() const {
+
+    if(eliminatedPlayer)
+        return eliminatedPlayer->canVote();
+
     return !sick || (sickPlayer && sickPlayer->canVote());
 }
 
@@ -165,6 +174,7 @@ void Player::eliminate() {
     if (eliminatedPlayer == nullptr) {
         eliminatedPlayer = new EliminatedPlayer();
     }
+    eliminatedPlayer->setSpectating(true);
 }
 EliminatedPlayer* Player::getEliminatedPlayer() const {
     return eliminatedPlayer;
@@ -183,6 +193,8 @@ void Player::reportResourcesToServer(int newlyCollectedFood, int newlyCollectedW
     tFood += newlyCollectedFood;
     tWater += newlyCollectedWater;
 
+    QTimer::singleShot(500, this, [this](){
+
     int total = tFood + tWater + totalWood;
 
     QString report = QString("RESOURCES_REPORT: player=%1: food=%2: water=%3: wood=%4: total=%5\n")
@@ -192,5 +204,6 @@ void Player::reportResourcesToServer(int newlyCollectedFood, int newlyCollectedW
                          .arg(totalWood)
                          .arg(total);
     m_client->sendMessage(report);
+    });
 }
 

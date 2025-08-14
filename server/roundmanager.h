@@ -28,6 +28,8 @@ public:
     bool getLastRound() const;
     void firstTurn();
 
+    void removeFromTurnPlayer(const QString& playerName);
+
 signals:
     // Signal koji obaveštava server kada se promeni trenutni i naredni igrač
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);

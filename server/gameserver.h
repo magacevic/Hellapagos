@@ -44,6 +44,8 @@ public:
     void initSickPlayersMap();
     void printSickPlayersMap() const;
     void handleResourcesReport(const QString& message);
+    bool isPlayerEliminated(const QString& playerName) const;
+    void eliminatePlayer(const QString& playerName);
 
 
     void broadcastToClients(const QString& message);
@@ -87,6 +89,7 @@ private:
     bool votedThisRound = false;
     QMap<QString, int> playerTotalResources;
     QMap<QString, int> getPlayerTotalResources() const;
+    QSet<QString> eliminatedPlayers;
 
 
 };

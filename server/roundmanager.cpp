@@ -103,4 +103,22 @@ void RoundManager::handlePlayerEliminated(const QString& playerName)
     emit playerListUpdated(players);
 }
 
+void RoundManager::removeFromTurnPlayer(const QString& playerName)
+{
+    players.removeAll(playerName);
+    qDebug() << "Removed player from turn list:" << playerName;
+
+    // Opcionalno, možeš emitovati signal ako želiš da obavestiš ostale delove sistema
+    emit playerListUpdated(players);
+
+    // Ako je potrebno, možeš da prilagodiš currentPlayerIndex ako je eliminisani igrač onaj na redu
+    if (players.isEmpty()) {
+        currentPlayerIndex = 0;
+    } else if (currentPlayerIndex >= players.size()) {
+        currentPlayerIndex = currentPlayerIndex % players.size();
+    }
+}
+
+
+
 

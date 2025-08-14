@@ -71,27 +71,27 @@
 			[
 				{
 					"backtrace" : 0,
-					"path" : "/home/mina/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
+					"path" : "/home/tamara/Hellapagos/server/build/Desktop_Qt_6_7_3-Debug/server_autogen/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtCore"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtCore"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/mkspecs/linux-g++"
 				},
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
-					"path" : "/home/mina/Qt/6.7.3/gcc_64/include/QtNetwork"
+					"path" : "/home/tamara/Qt/6.7.3/gcc_64/include/QtNetwork"
 				}
 			],
 			"language" : "CXX",
@@ -118,9 +118,6 @@
 	],
 	"dependencies" : 
 	[
-		{
-			"id" : "server_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
 		{
 			"backtrace" : 0,
 			"id" : "server_autogen::@6890427a1f51a3e7e1df"
@@ -154,17 +151,21 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/mina/Qt/6.7.3/gcc_64/lib:",
+				"fragment" : "-Wl,--dependency-file,CMakeFiles/server.dir/link.d",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/tamara/Qt/6.7.3/gcc_64/lib:",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Network.so.6.7.3",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,
-				"fragment" : "/home/mina/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
+				"fragment" : "/home/tamara/Qt/6.7.3/gcc_64/lib/libQt6Core.so.6.7.3",
 				"role" : "libraries"
 			}
 		],

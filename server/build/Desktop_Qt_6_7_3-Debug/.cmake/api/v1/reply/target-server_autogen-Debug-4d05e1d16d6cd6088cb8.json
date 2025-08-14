@@ -14,9 +14,9 @@
 			}
 		]
 	},
-	"id" : "server_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+	"id" : "server_autogen::@6890427a1f51a3e7e1df",
 	"isGeneratorProvided" : true,
-	"name" : "server_autogen_timestamp_deps",
+	"name" : "server_autogen",
 	"paths" : 
 	{
 		"build" : ".",
@@ -35,7 +35,8 @@
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				1
+				1,
+				2
 			]
 		}
 	],
@@ -44,13 +45,19 @@
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3-Debug/CMakeFiles/server_autogen_timestamp_deps",
+			"path" : "build/Desktop_Qt_6_7_3-Debug/CMakeFiles/server_autogen",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,
 			"isGenerated" : true,
-			"path" : "build/Desktop_Qt_6_7_3-Debug/CMakeFiles/server_autogen_timestamp_deps.rule",
+			"path" : "build/Desktop_Qt_6_7_3-Debug/CMakeFiles/server_autogen.rule",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 0,
+			"isGenerated" : true,
+			"path" : "build/Desktop_Qt_6_7_3-Debug/server_autogen/timestamp.rule",
 			"sourceGroupIndex" : 1
 		}
 	],

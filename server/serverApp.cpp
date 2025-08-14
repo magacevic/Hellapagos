@@ -226,6 +226,10 @@ void Server::onReadyRead()
         QString castVote = message.split(':').last();
         QString voter = gameServer->getPlayerNameFromSocket(senderSocket);
 
+        if(gameServer->isPlayerEliminated(voter)){
+            return;
+        }
+
         if (!castVote.isEmpty() && !voter.isEmpty()) {
             gameServer->submitVote(voter, castVote);
         }

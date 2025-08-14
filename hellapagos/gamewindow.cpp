@@ -420,16 +420,10 @@ void GameWindow::onPlayerVotedOut(const QString& playerName)
         qDebug() << "You have been voted out. You are now a spectator.";
     }
 
-    // Optionally: disable actions if player is eliminated
-    /*
-    if (currentPlayer->isSpectating()) {
-        ui->collectWaterButton->setEnabled(false);
-        ui->collectFoodButton->setEnabled(false);
-        ui->collectWoodButton->setEnabled(false);
-        ui->voteButton->setEnabled(false);
-        ui->revealButton->setEnabled(false);
-    }
-    */
+    ui->collectFoodButton->setEnabled(false);
+    ui->collectWaterButton->setEnabled(false);
+    ui->collectWoodButton->setEnabled(false);
+    ui->revealButton->setEnabled(false);
 }
 
 void GameWindow::on_GameOver()
