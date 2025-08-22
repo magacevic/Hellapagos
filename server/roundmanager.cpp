@@ -34,7 +34,7 @@ void RoundManager::nextTurn()
     QString current = currentPlayer();
     QString next = nextPlayer();
     
-   emit currentAndNextPlayerUpdated(current, next);
+    emit currentAndNextPlayerUpdated(current, next);
     
     // Emituj signal sa ID-jem novog igrača
     emit playerChanged(currentPlayerIndex);

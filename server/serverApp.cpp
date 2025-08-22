@@ -239,18 +239,25 @@ void Server::onReadyRead()
 
 void Server::onStartVote(const QStringList& voteTargets)
 {
-    QString message = "START_VOTE:" + voteTargets.join(",") + "\n";
+    QString message = "START_VOTE:" + voteTargets.join(",");
     broadcastMessage(message);
 }
 
 void Server::onPlayerEliminated(const QString& playerName)
 {
-    broadcastMessage("PLAYER_ELIMINATED:" + playerName);
+     QTimer::singleShot(1000, this, [this,playerName]() {
+
+        broadcastMessage("PLAYER_ELIMINATED: " + playerName);
+    });
 }
 
 void Server::onVoteResult(const QString& playerName)
 {
-    broadcastMessage("VOTE_RESULT:" + playerName);
+     QTimer::singleShot(500, this, [this,playerName]() {
+
+       broadcastMessage("VOTE_RESULT:" + playerName);
+
+    });
 }
 
 void Server::onDisconnected()
@@ -278,6 +285,7 @@ void Server::onDisconnected()
 void Server::broadcastMessage(const QString& message)
 {
     QByteArray data = message.toUtf8();
+    data.append("\n\n");
     for (QTcpSocket* socket : clientSockets) {
         if (socket && socket->isOpen()) {
             socket->write(data);
@@ -289,12 +297,11 @@ void Server::broadcastMessage(const QString& message)
 void Server::broadcastWeatherCardChange(int index)
 {
     QString message = QString("WEATHER_CARD:%1").arg(index);
-    for (QTcpSocket* socket : clientSockets) {
-        if (socket && socket->isOpen()) {
-            socket->write(message.toUtf8());
-            socket->flush();
-        }
-    }
+    //for (QTcpSocket* socket : clientSockets) {
+      //  if (socket && socket->isOpen()) {
+            broadcastMessage(message);
+        //}
+   // }
 }
 
 void Server::onWeatherCardChanged(int newIndex)
@@ -334,7 +341,7 @@ void Server::onGameOver()
 
 void Server::broadcastResourcesInfo(){
 
-    QString resourceMessage = QString("RESOURCES:water:%1,food:%2,wood:%3,rafts:%4")
+    QString resourceMessage = QString("RESOURCES:water:%1,food:%2,wood:%3,rafts:%4 ")
     .arg(gameServer->getResourceAmount("water"))
         .arg(gameServer->getResourceAmount("food"))
         .arg(gameServer->getResourceAmount("wood"))
@@ -350,21 +357,23 @@ void Server::onRoundStarted(int roundNumber)
     broadcastMessage(message);
 
     gameServer->printSickPlayersMap();
+
+    gameServer->changeWeatherCard();
+
     QTimer::singleShot(500, this, [this]() {
 
 
-        QString resourcemessage = QString(" Decreasing resources after round ");
-        broadcastMessage(resourcemessage);
+      //  QString resourcemessage = QString(" Decreasing resources after round ");
+        //broadcastMessage(resourcemessage);
 
-    });
-    QTimer::singleShot(800, this, [this]() {
-        gameServer->decreaseResources();
-        broadcastResourcesInfo();
+        //QTimer::singleShot(1000, this, [this]() {
+            gameServer->decreaseResources();
+            broadcastResourcesInfo();
+        //});
     });
 
-    QTimer::singleShot(1000, this, [this]() {
-        gameServer->changeWeatherCard();
-    });
+
+
 }
 
 void Server::onRequestGameStatistics(QTcpSocket *requestingClient)

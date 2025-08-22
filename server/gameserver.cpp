@@ -18,6 +18,9 @@ GameServer::GameServer(QObject* parent)
     resources.insert("wood", 0);
     resources.insert("rafts",0);
 
+    bool nextRoundStarted = false; // default false
+
+
       connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
             this, &GameServer::currentAndNextPlayerUpdated);
 
@@ -128,6 +131,12 @@ void GameServer::onWeatherCardRequest() {
 }
 void GameServer::onPlayerChanged(int newPlayerId)
 {
+    if (votingActive) {
+        qDebug() << "[DEBUG] Player change delayed. Move in progress or voting active.";
+        delayedPlayerChange = newPlayerId; // memorisi ID za kasnije
+        return;
+    }
+    else{
     if (newPlayerId < 0 || newPlayerId >= players.size()) {
         qDebug() << "Invalid player ID:" << newPlayerId;
         return;
@@ -160,9 +169,17 @@ void GameServer::onPlayerChanged(int newPlayerId)
         emit currentAndNextPlayerUpdated(currentPlayer, nextPlayer);
     }
 }
+}
 
 void GameServer::startNextRound()
 {
+
+    if (votingActive) {
+        qDebug() << "[DEBUG] Cannot start next round yet.";
+        return; // ako glasanje traje ili je već startovana sledeća runda
+    }
+
+
     votedThisRound = false;
     resourcesDeductedThisRound = false;
 
@@ -383,18 +400,24 @@ void GameServer::submitVote(const QString& voter, const QString& target){
 
             QString tieMessage = QString("Tie detected. Eliminating player with least resources: \"%1\"").arg(eliminatedPlayer);
             qDebug() << tieMessage;
-            broadcastToClients("INFO: " + tieMessage);
+            //broadcastToClients("INFO: " + tieMessage);
         }
 
         if (!eliminatedPlayer.isEmpty()) {
             eliminatePlayer(eliminatedPlayer);
             emit voteResultSignal(eliminatedPlayer);
 
-            broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
+            //broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
         }
 
         votingManager->reset();
         votingActive = false;
+     //   emit roundStarted(roundCounter);
+
+        if (delayedPlayerChange != -1) {
+            onPlayerChanged(delayedPlayerChange);
+            delayedPlayerChange = -1;
+        }
     }
 }
 
@@ -411,7 +434,7 @@ void GameServer::eliminatePlayer(const QString& playerName)
 
     emit playerEliminatedSignal(playerName);
 
-    broadcastToClients("PLAYER_ELIMINATED:" + playerName);
+    //broadcastToClients("PLAYER_ELIMINATED:" + playerName);
 
     qDebug() << "Player eliminated:" << playerName;
 }

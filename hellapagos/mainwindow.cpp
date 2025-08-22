@@ -54,6 +54,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(client, &Client::serverFullSignal, this, &MainWindow::closeWindow);
     connect(client, &Client::nameTaken, this, &MainWindow::onNameTaken);
 
+   // connect(client, &Client::allPlayersReady, this, &MainWindow::startGame);
+
 
 }
 

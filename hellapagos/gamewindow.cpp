@@ -418,12 +418,13 @@ void GameWindow::onPlayerVotedOut(const QString& playerName)
     if (playerName == currentPlayer->getName()) {
         //currentPlayer->setSpectating(true);  // Or handle in a custom way
         qDebug() << "You have been voted out. You are now a spectator.";
-    }
+
 
     ui->collectFoodButton->setEnabled(false);
     ui->collectWaterButton->setEnabled(false);
     ui->collectWoodButton->setEnabled(false);
     ui->revealButton->setEnabled(false);
+    }
 }
 
 void GameWindow::on_GameOver()

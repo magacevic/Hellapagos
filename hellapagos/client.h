@@ -62,6 +62,8 @@ private:
 
     bool voteInProgress = false;
 
+    QByteArray buffer;
+
 };
 
 #endif // CLIENT_H

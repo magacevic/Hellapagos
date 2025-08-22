@@ -182,7 +182,7 @@ EliminatedPlayer* Player::getEliminatedPlayer() const {
 
 void Player::onPlayerGotBitten()
 {
-    m_client->sendMessage("SICK: "+playerName);
+    m_client->sendMessage("SICK: "+playerName+ "\n");
 
     qDebug()<<"POSLAO SAM";
 }

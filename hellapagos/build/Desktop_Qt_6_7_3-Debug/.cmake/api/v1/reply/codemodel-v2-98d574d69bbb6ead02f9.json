@@ -17,7 +17,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -33,7 +34,8 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2
 					]
 				}
 			],
@@ -42,15 +44,22 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "hellapagos::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-hellapagos-Debug-0fdac202694a4c0113c0.json",
+					"jsonFile" : "target-hellapagos-Debug-c93846a953fab3aa1cb1.json",
 					"name" : "hellapagos",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "hellapagos_autogen::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-hellapagos_autogen-Debug-ab442056de5448f819fb.json",
+					"jsonFile" : "target-hellapagos_autogen-Debug-72b77b3fa98d61a2351c.json",
 					"name" : "hellapagos_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "hellapagos_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-hellapagos_autogen_timestamp_deps-Debug-e6e652c7c2c41e012ff7.json",
+					"name" : "hellapagos_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
 			]
@@ -59,8 +68,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/home/tamara/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
-		"source" : "/home/tamara/Hellapagos/hellapagos"
+		"build" : "/home/ksenija/Desktop/Hellapagos/hellapagos/build/Desktop_Qt_6_7_3-Debug",
+		"source" : "/home/ksenija/Desktop/Hellapagos/hellapagos"
 	},
 	"version" : 
 	{

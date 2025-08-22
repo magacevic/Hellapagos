@@ -91,6 +91,9 @@ private:
     QMap<QString, int> getPlayerTotalResources() const;
     QSet<QString> eliminatedPlayers;
 
+    bool nextRoundStarted;
+    int delayedPlayerChange = -1;
+
 
 };
 
