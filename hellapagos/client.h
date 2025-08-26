@@ -43,6 +43,7 @@ signals:
     void voteStarted(const QStringList& playersToVoteFor);
     void playerVotedOut(const QString& playerName);
     void nameTaken();
+    void currentPlayerChanged(const QString& playerName);
 
 private slots:
     void onConnected();

@@ -35,8 +35,9 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(m_client, &Client::notYourTurn,this,&GameWindow::on_notYourTurn);
     connect(m_client, &Client::voteStarted, this, &GameWindow::onVoteStarted);
     connect(m_client, &Client::playerVotedOut, this, &GameWindow::onPlayerVotedOut);
-
-
+    connect(client, &Client::currentPlayerChanged, this, [this](const QString& name){
+        ui->currPlayerName->setText(name);
+    });
 
 }
 

@@ -267,6 +267,13 @@ void Client::handleMessage(const QString& message)
         }*/
     }
 
+    if (message.startsWith("CURRENT_PLAYER:")) {
+        QString currentPlayer = message.section("CURRENT_PLAYER:", 1, 1).trimmed();
+        //qDebug() << "It's now" << currentPlayer << "'s turn";
+
+        emit currentPlayerChanged(currentPlayer);
+    }
+
     if (message.contains("ROUND_STARTED:")) {
         int start = message.indexOf("ROUND_STARTED:") + QString("ROUND_STARTED:").length();
         int end = message.indexOf('\n', start);

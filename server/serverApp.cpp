@@ -320,7 +320,8 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
         qDebug() << "Next player not found in the map!";
     }
 
-
+    QString message = QString("CURRENT_PLAYER:%1").arg(currentPlayer);
+    broadcastMessage(message);
 }
 
 void Server::playerSickSkip(const QString& currentPlayer){
