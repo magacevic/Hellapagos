@@ -39,6 +39,7 @@ private slots:
     void onStartVote(const QStringList& voteTargets);
     void onPlayerEliminated(const QString& playerName);
     void onVoteResult(const QString& playerName);
+    void handleMessage(QTcpSocket* senderSocket, const QString& message);
 
 private:
     int maxPlayers;

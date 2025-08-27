@@ -75,13 +75,27 @@ void Server::onReadyRead()
     if (!senderSocket) return;
 
     QByteArray data = senderSocket->readAll();
+    qDebug() << "Received raw data:" << data;
+
+
+    QStringList lines = QString::fromUtf8(data).split("\n", Qt::SkipEmptyParts);
+    for (const QString& message : lines) {
+        handleMessage(senderSocket, message.trimmed());
+
+    }
+}
+    /*
+    QTcpSocket* senderSocket = qobject_cast<QTcpSocket*>(sender());
+    if (!senderSocket) return;
+
+    QByteArray data = senderSocket->readAll();
     QString message = QString::fromUtf8(data).trimmed();
     qDebug() << "Received data:" << message;
-
+*/
 
     //int currentPlayerIndex = gameServer->getRoundManager()->getCurrentPlayerIndex();
     //qDebug() << "Current Player Index:" << currentPlayerIndex;
-
+void Server::handleMessage(QTcpSocket* senderSocket, const QString& message){
     if (message.startsWith("WEATHER_CARD:")) {
         int index = message.split(":").last().toInt();
         broadcastWeatherCardChange(index);
@@ -130,7 +144,7 @@ void Server::onReadyRead()
             // qDebug() << "Water resource updated. Total water:" << gameServer->resources["water"];
             QTimer::singleShot(500, this, [this]() {
 
-                gameServer->getRoundManager()->actionCompleted();
+            gameServer->getRoundManager()->actionCompleted();
             });
 
         }else if(message.startsWith("ACTION_COMPLETED:COLLECT_FOOD")){

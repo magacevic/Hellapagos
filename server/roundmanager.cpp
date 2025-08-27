@@ -71,6 +71,9 @@ int RoundManager::getCurrentPlayerIndex() {
 
 void RoundManager::actionCompleted()
 {
+    if (actionCompletedCheck) return;
+    actionCompletedCheck=true;
+
     static int completedTurns = 0;
     completedTurns++;
 
@@ -90,7 +93,8 @@ void RoundManager::actionCompleted()
 
 
      QTimer::singleShot(500, this, [this]() {
-         nextTurn();
+        actionCompletedCheck = false;
+        nextTurn();
      });
 
 }

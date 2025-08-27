@@ -51,6 +51,7 @@ private:
     QStringList players;      // List of player names
     int currentPlayerIndex;   // Trenutni indeks igrača
     bool isLastRound;
+    bool actionCompletedCheck=false;
 
 };
 
