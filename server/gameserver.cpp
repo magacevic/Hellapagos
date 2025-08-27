@@ -267,9 +267,14 @@ void GameServer::onLastRoundLogic()
 
 void GameServer::gameEnd()
 {
-    qDebug()<<"GAME OVER";
-    emit gameOverSignal();
-}
+    if(votingActive){
+        gameEndDelayed=true;
+        return;
+    }
+    else{
+        qDebug()<<"GAME OVER";
+        emit gameOverSignal();
+    }}
 
 bool GameServer::checkWaterAmount()
 {
@@ -417,6 +422,10 @@ void GameServer::submitVote(const QString& voter, const QString& target){
         if (delayedPlayerChange != -1) {
             onPlayerChanged(delayedPlayerChange);
             delayedPlayerChange = -1;
+        }
+        if(gameEndDelayed){
+            gameEndDelayed=false;
+            gameEnd();
         }
     }
 }

@@ -93,7 +93,7 @@ private:
 
     bool nextRoundStarted;
     int delayedPlayerChange = -1;
-
+    bool gameEndDelayed=false;
 
 };
 
