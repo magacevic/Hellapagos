@@ -363,6 +363,8 @@ void Server::broadcastResourcesInfo(){
         .arg(gameServer->getResourceAmount("rafts"));
     broadcastMessage(resourceMessage);
 
+    qDebug()<<resourceMessage<<"\n";
+
 }
 
 void Server::onRoundStarted(int roundNumber)

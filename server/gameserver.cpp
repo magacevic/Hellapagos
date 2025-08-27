@@ -222,41 +222,6 @@ void GameServer::onClientDisconnected()
 
 void GameServer::onReadyRead()
 {
-    QTcpSocket* clientSocket = qobject_cast<QTcpSocket*>(sender());
-    if (clientSocket) {
-        QByteArray data = clientSocket->readAll();  // Read all data sent by the client
-        QString message = QString::fromUtf8(data).trimmed();
-        qDebug() << "[Server] Received:" << message;
-
-        /*
-        if (message.startsWith("VOTE:")) {
-            QString votedPlayer = message.mid(QString("VOTE:").length()).trimmed();
-            QString voter = getPlayerNameFromSocket(clientSocket);  // You’ll implement this helper
-
-            if (!votedPlayer.isEmpty() && !voter.isEmpty()) {
-                votingManager->submitVote(voter, votedPlayer);
-
-                if (votingManager->allVotesIn(players)) {
-                    QString eliminatedPlayer = votingManager->getPlayerWithMostVotes();
-                    if (!eliminatedPlayer.isEmpty()) {
-                        qDebug() << "Player voted out:" << eliminatedPlayer;
-                        players.removeAll(eliminatedPlayer);  // Remove from game
-                       // roundManager->removeFromTurnPlayer(eliminatedPlayer);  // Optional
-                        broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
-                        broadcastToClients("VOTE_RESULT:" + eliminatedPlayer);
-                        votingManager->reset();  // Ready for next vote
-                    }
-                }
-            }
-            return;
-        }
-        */
-        if (message.startsWith("RESOURCES_REPORT:")) {
-            handleResourcesReport(message);
-            return;  // Poruka obrađena, vrati se
-        }
-
-    }
 }
 
 void GameServer::onLastRoundLogic()
@@ -520,9 +485,9 @@ void GameServer::handleResourcesReport(const QString& message) {
     int total = parts[5].mid(QString("total=").length()).toInt();
 
     playerTotalResources[playerName] = total;
-
-    qDebug() << QString("Resource report - %1: food=%2, water=%3, wood=%4, total=%5")
-                    .arg(playerName).arg(food).arg(water).arg(wood).arg(total);
+    qDebug()<<QString(" %1 : total %2 ").arg(playerName).arg(playerTotalResources[playerName]);
+  //  qDebug() << QString("Resource report - %1: food=%2, water=%3, wood=%4, total=%5")
+    //                .arg(playerName).arg(food).arg(water).arg(wood).arg(total);
 }
 
 QMap<QString, int> GameServer::getPlayerTotalResources() const {
