@@ -14,5 +14,7 @@
         <file>cards/1.jpeg</file>
         <file>cards/2.jpeg</file>
         <file>cards/3.jpeg</file>
+        <file>blue.jpg</file>
     </qresource>
+    <qresource prefix="/images"/>
 </RCC>

@@ -148,6 +148,7 @@ void Client::handleMessage(const QString& message)
         }
 
         qDebug() << "Resources updated - Water:" << water << ", Food:" << food << ", Wood:" << wood << ", Rafts:" << rafts;
+        emit resourcesUpdated(water, food, wood, rafts);
     }
 
     if (message.contains("WEATHER_CARD:")) {

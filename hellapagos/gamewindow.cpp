@@ -38,6 +38,12 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     connect(client, &Client::currentPlayerChanged, this, [this](const QString& name){
         ui->currPlayerName->setText(name);
     });
+    connect(m_client, &Client::resourcesUpdated, this, [this](int water, int food, int wood, int rafts) {
+        ui->label_water->setText(QString::number(water));
+        ui->label_food->setText(QString::number(food));
+        ui->label_wood->setText(QString::number(wood));
+        ui->label_rafts->setText(QString::number(rafts));
+    });
 
 }
 
@@ -398,4 +404,22 @@ void GameWindow::on_GameOver()
         }
     }
 }
+
+void GameWindow::resizeEvent(QResizeEvent *event)
+{
+    QMainWindow::resizeEvent(event); // pozovi originalni resize
+
+    auto makeEllipse = [](QLabel* label) {
+        if (!label) return;
+        label->setAlignment(Qt::AlignCenter);
+        QRegion ellipseRegion(0, 0, label->width(), label->height(), QRegion::Ellipse);
+        label->setMask(ellipseRegion);
+    };
+
+    makeEllipse(ui->label_food);
+    makeEllipse(ui->label_water);
+    makeEllipse(ui->label_wood);
+    makeEllipse(ui->label_rafts);
+}
+
 

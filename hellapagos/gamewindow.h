@@ -50,6 +50,10 @@ private:
     bool isCollectingWater = false;
     bool isCollectingFood = false;
     bool isCollectingWood = false;
+
+protected:
+    void resizeEvent(QResizeEvent *event) override;
+
 };
 
 #endif // GAMEWINDOW_H

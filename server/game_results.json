@@ -180,6 +180,34 @@
             "winners": [
                 "1"
             ]
+        },
+        {
+            "gameDate": "2025-09-02T20:21:50",
+            "remainingFood": 8,
+            "remainingWater": -2,
+            "remainingWood": 1,
+            "winners": [
+                "jelena",
+                "milica"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T20:31:25",
+            "remainingFood": 6,
+            "remainingWater": -2,
+            "remainingWood": 1,
+            "winners": [
+                "jelena"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T20:46:57",
+            "remainingFood": 7,
+            "remainingWater": -3,
+            "remainingWood": 3,
+            "winners": [
+                "biljana"
+            ]
         }
     ]
 }
