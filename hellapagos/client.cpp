@@ -205,7 +205,14 @@ void Client::handleMessage(const QString& message)
     if (message.contains("GAME_STATS:")) {
         int start = message.indexOf("GAME_STATS:") + QString("GAME_STATS:").length();
         QString stats = message.mid(start).trimmed();
-        emit gameStatsReceived(stats);
+        //int end = message.indexOf('\n', start);
+        //QString stats = message.mid(start, start-end).trimmed();
+
+        QString cleanMessage = stats;
+        cleanMessage.replace("|NL|", "\n"); // vraca nove redove
+
+        qDebug() << "stats: " << cleanMessage;
+        emit gameStatsReceived(cleanMessage);
     }
 
     if (message.contains("AllReady")) emit allPlayersReady();

@@ -26,6 +26,9 @@ add_executable(server
   roundmanager.h roundmanager.cpp
   voting.h voting.cpp
   gamestatistics.h gamestatistics.cpp
+  serializable.h
+  serializer.h
+  jsonserializer.h jsonserializer.cpp
 )
 target_link_libraries(server Qt${QT_VERSION_MAJOR}::Core Qt${QT_VERSION_MAJOR}::Network)
 

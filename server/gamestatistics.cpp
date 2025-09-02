@@ -1,15 +1,17 @@
 #include "gamestatistics.h"
+#include "gameserver.h"
+#include "jsonserializer.h"
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QDateTime>
 #include <QDir>
-#include "gameserver.h"
-#include "gamestatistics.h"
+
 
 GameStatistics::GameStatistics() {
     fileName = "game_results.json";
+    filePath = "";
 }
 
 void GameStatistics::addGameResult(const QList<QString>& winners, GameServer* gameServer) {
@@ -30,98 +32,57 @@ void GameStatistics::addGameResult(const QList<QString>& winners, GameServer* ga
 
     gameResults.append(result);
 
-    saveToJson(fileName);
+    JSONSerializer jsonSerializer;
+    jsonSerializer.save(*this, filePath);
 }
 
 int GameStatistics::getTotalGamesPlayed() const {
     return gameResults.size();
 }
 
-void GameStatistics::saveToJson(const QString& filename) {
-    QJsonArray gameResultsArray;
+QVariant GameStatistics::toVariant() const
+{
+    QVariantMap map;
 
+    map.insert("fileName", fileName);
+
+    // Pravimo listu rezultata
+    QVariantList gameResultsList;
     for (const GameResult& result : gameResults) {
-        QJsonObject obj;
-        obj["winners"] = QJsonArray::fromStringList(result.winners);
-        obj["gameDate"] = result.gameDate.toString(Qt::ISODate);
-        obj["remainingFood"] = result.remainingFood;
-        obj["remainingWater"] = result.remainingWater;
-        obj["remainingWood"] = result.remainingWood;
-        gameResultsArray.append(obj);
+        QVariantMap resultMap;
+        resultMap.insert("winners", QVariant::fromValue(result.winners));
+        resultMap.insert("gameDate", result.gameDate.toString(Qt::ISODate));
+        resultMap.insert("remainingFood", result.remainingFood);
+        resultMap.insert("remainingWater", result.remainingWater);
+        resultMap.insert("remainingWood", result.remainingWood);
+        gameResultsList.append(resultMap);
     }
 
-    QJsonObject root;
-    root["gameResults"] = gameResultsArray;
+    map.insert("gameResults", gameResultsList);
 
-    // upis u fajl
-    QDir dir = QDir::current();
-
-    // Vracanje dva foldera unazad (fajl nije u build nego u server folderu)
-    dir.cdUp();  // Go up one directory level
-    dir.cdUp();  // Go up another directory level
-
-    QString filePath = dir.filePath(filename);
-
-    QFile file(filePath);
-    if (file.open(QIODevice::WriteOnly)) {
-        QJsonDocument doc(root);
-        file.write(doc.toJson());
-        file.close();
-    } else {
-        qWarning("Couldn't open file for writing.");
-    }
+    return map;
 }
 
-void GameStatistics::loadFromJson(const QString& filename) {
+void GameStatistics::fromVariant(const QVariant &variant)
+{
+    const QVariantMap map = variant.toMap();
 
-    qDebug() << "loadFromJson()";
+    // Učitavamo naziv fajla
+    fileName = map.value("fileName").toString();
 
-    QDir dir = QDir::current();
+    // Učitavamo rezultate igre
+    const QVariantList gameResultsList = map.value("gameResults").toList();
+    gameResults.clear();  // Čistimo postojeće rezultate
 
-    // Vracanje dva foldera unazad (fajl nije u build nego u server folderu)
-    dir.cdUp();  // Go up one directory level
-    dir.cdUp();  // Go up another directory level
-
-    QString filePath = dir.filePath(filename);
-
-    //qDebug() << "Absolute file path:" << filePath;
-
-    QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning("Couldn't open file for reading.");
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    file.close();
-
-    QJsonDocument doc = QJsonDocument::fromJson(data);
-    if (doc.isNull() || !doc.isObject()) {
-        qWarning("Invalid JSON format.");
-        return;
-    }
-
-    QJsonObject root = doc.object();
-
-    QJsonArray gameResultsArray = root["gameResults"].toArray();
-
-    // brise postojece gameResults
-    gameResults.clear();
-
-    for (const QJsonValue& value : gameResultsArray) {
-        QJsonObject resultObject = value.toObject();
+    for (const QVariant& resultVariant : gameResultsList) {
+        const QVariantMap resultMap = resultVariant.toMap();
 
         GameResult result;
-
-        QJsonArray winnersArray = resultObject["winners"].toArray();
-        for (const QJsonValue& winner : winnersArray) {
-            result.winners.append(winner.toString());
-        }
-        result.gameDate = QDateTime::fromString(resultObject["gameDate"].toString(), Qt::ISODate);
-        result.remainingFood = resultObject["remainingFood"].toInt();
-        result.remainingWater = resultObject["remainingWater"].toInt();
-        result.remainingWood = resultObject["remainingWood"].toInt();
-
+        result.winners = resultMap.value("winners").toStringList();
+        result.gameDate = QDateTime::fromString(resultMap.value("gameDate").toString(), Qt::ISODate);
+        result.remainingFood = resultMap.value("remainingFood").toInt();
+        result.remainingWater = resultMap.value("remainingWater").toInt();
+        result.remainingWood = resultMap.value("remainingWood").toInt();
 
         gameResults.append(result);
     }
@@ -138,6 +99,24 @@ void GameStatistics::setFileName(const QString& filename) {
 QString GameStatistics::getFileName() const {
     return fileName;
 }
+
+void GameStatistics::setFilePath(const QString& path) {
+    // QDir objekat za trenutni direktorijum
+    QDir dir = QDir::current();
+
+    // Pomeranje do server foldera (trenutno je build)
+    dir.cdUp();
+    dir.cdUp();
+
+    // putanja
+    filePath = dir.filePath(fileName);
+    //qDebug() << "set file path:" << filePath;
+}
+
+QString GameStatistics::getFilePath() const {
+    return filePath;
+}
+
 
 
 

@@ -307,53 +307,6 @@ void GameWindow::on_voteButton_clicked() {
 }
 */
 
-
-void GameWindow::on_statButton_clicked()
-{
-    if (m_client) {
-        m_client->sendMessage("REQUEST_GAME_STATISTICS");
-    }
-    /*GameStatistics gameStats;
-
-    gameStats.loadFromJson(gameStats.getFileName());
-
-    if (gameStats.getTotalGamesPlayed() == 0) {
-        QMessageBox::information(this, "No Data", "No game results available.");
-        return;
-    }
-
-    QString statsText;
-    statsText += QString("Total Games Played: %1\n\n").arg(gameStats.getTotalGamesPlayed());
-
-    statsText += "Game Statistics:\n\n";
-    for (const GameStatistics::GameResult& result : gameStats.getGameResults()) {
-        statsText += QString("Game Date: %1\n").arg(result.gameDate.toString(Qt::ISODate));
-        statsText += QString("Winners: %1\n").arg(result.winners.join(", "));
-        statsText += QString("Remaining Food: %1\n").arg(result.remainingFood);
-        statsText += QString("Remaining Water: %1\n").arg(result.remainingWater);
-        statsText += QString("Remaining Wood: %1\n\n").arg(result.remainingWood);
-    }
-
-    // dizajn prozora za prikaz statistike
-    QWidget *statsWidget = new QWidget(this);
-    QVBoxLayout *layout = new QVBoxLayout(statsWidget);
-
-    QLabel *statsLabel = new QLabel(statsText, statsWidget);
-    statsLabel->setWordWrap(true);
-    layout->addWidget(statsLabel);
-
-    QScrollArea *scrollArea = new QScrollArea(this);
-    scrollArea->setWidget(statsWidget);
-    scrollArea->setWidgetResizable(true);
-
-    QDialog *statsDialog = new QDialog(this);
-    statsDialog->setWindowTitle("Game Statistics");
-    QVBoxLayout *dialogLayout = new QVBoxLayout(statsDialog);
-    dialogLayout->addWidget(scrollArea);
-
-    statsDialog->exec();*/
-}
-
 void GameWindow::onGameStatsReceived(const QString &stats)
 {
     // dizajn prozora za prikaz statistike
@@ -430,7 +383,19 @@ void GameWindow::onPlayerVotedOut(const QString& playerName)
 
 void GameWindow::on_GameOver()
 {
-    QMessageBox::critical(this,"Game Over","Game Over,thanks for playing!");
+    QMessageBox msgBox(this);
+    msgBox.setWindowTitle("Game Over");
+    msgBox.setText("Game Over, thanks for playing!");
 
+    QPushButton *statsButton = msgBox.addButton(tr("Show Statistics"), QMessageBox::ActionRole);
+    QPushButton *okButton = msgBox.addButton(QMessageBox::Ok);
+
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == statsButton) {
+        if (m_client) {
+            m_client->sendMessage("REQUEST_GAME_STATISTICS");
+        }
+    }
 }
 

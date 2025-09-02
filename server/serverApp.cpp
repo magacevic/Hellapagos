@@ -406,9 +406,12 @@ void Server::onRequestGameStatistics(QTcpSocket *requestingClient)
 void Server::sendStatsToClient(const QString& statsText, QTcpSocket *client)
 {
     if (client && client->state() == QTcpSocket::ConnectedState) {
-        client->write(statsText.toUtf8());
+        QString safeText = statsText;
+        safeText.replace("\n", "|NL|");  // zameni sve nove redove
+        QString final = safeText  + "\n\n";
+        client->write(final.toUtf8());
         client->flush();
-        qDebug() << "Sent game statistics to client:" << statsText;
+        qDebug() << "Sent game statistics to client:" << final;
     } else {
         qDebug() << "Error: Client is not connected.";
     }

@@ -1,11 +1,13 @@
 #include "gameserver.h"
 #include "voting.h"
+#include "jsonserializer.h"
 #include <QDebug>
 #include <QTcpSocket>
 #include <QTcpServer>
 #include <QTimer>
 #include <QSet>
 #include <QList>
+#include <QFile>
 
 GameServer::GameServer(QObject* parent)
     : QObject(parent),roundCounter(1)
@@ -238,6 +240,27 @@ void GameServer::gameEnd()
     }
     else{
         qDebug()<<"GAME OVER";
+
+        // Lista pobednika(samo neeliminisani igrači)
+        qDebug() << "Winners: " << players.join(", ");
+
+        GameStatistics gameStats;
+        JSONSerializer jsonSerializer;
+
+        gameStats.setFileName("game_results.json");
+        gameStats.setFilePath("game_results.json");
+
+        QFile file(gameStats.getFilePath());
+        if (!file.exists()) {
+            qDebug() << "File does not exist.";
+            return;
+        }
+
+        jsonSerializer.load(gameStats, gameStats.getFilePath());
+        gameStats.addGameResult(players, this);
+        jsonSerializer.save(gameStats, gameStats.getFilePath());
+
+
         emit gameOverSignal();
     }}
 
@@ -423,9 +446,19 @@ bool GameServer::isPlayerEliminated(const QString& playerName) const
 
 QString GameServer::getGameStatisticsText() const
 {
-    GameStatistics gameStats;
-    gameStats.loadFromJson("game_results.json");
+    // deserijalizacija
+    JSONSerializer jsonSerializer;
 
+    GameStatistics gameStats;
+    gameStats.setFileName("game_results.json");
+    gameStats.setFilePath("game_results.json");
+
+    QFile file(gameStats.getFilePath());
+    if (!file.exists()) {
+        qDebug() << "File does not exist.";
+    }
+
+    jsonSerializer.load(gameStats, gameStats.getFilePath());
     QString statsText;
     statsText += QString("Total Games Played: %1\n\n").arg(gameStats.getTotalGamesPlayed());
     statsText += "Game Statistics:\n\n";
