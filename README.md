@@ -7,9 +7,26 @@ Bitno je da pre nego što uragan dođe, pobegnete sa ostrva!
 ## Demo snimak:
 
 
+## Okruženje:
+- [![IDE](https://img.shields.io/badge/IDE-Qt%20Creator-green)](https://www.qt.io/qt-creator)
+
+## Programski jezik:
+- [![Language](https://img.shields.io/badge/Language-C%2B%2B20-red)](https://cplusplus.com/)
+- [![Framework](https://img.shields.io/badge/Framework-Qt6-blue)](https://doc.qt.io/qt-6/)
 
 
+## Instalacija:
+- Preuzeti i instalirati [Qt i Qt Creator](https://www.qt.io/download-dev)
+- Verzija: Qt 6.7.3
 
+## Preuzimanje i pokretanje:
+
+```bash
+git clone https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2024-2025/Hellapagos.git
+cd Hellapagos
+```
+Pokrenuti server, pa nakon toga 4 isntace projekta.
+Uneti odgovarajuće podatke i započeti igru.
 
 
 ## Članovi:
