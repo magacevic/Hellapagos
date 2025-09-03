@@ -8,7 +8,7 @@ Bitno je da pre nego što uragan dođe, pobegnete sa ostrva!
 
 
 ## Okruženje:
-- [![IDE](https://img.shields.io/badge/IDE-Qt%20Creator-green)](https://www.qt.io/qt-creator)
+- [![IDE](https://img.shields.io/badge/IDE-Qt%20Creator-green)](https://www.qt.io/download-dev)
 
 ## Programski jezik:
 - [![Language](https://img.shields.io/badge/Language-C%2B%2B20-red)](https://cplusplus.com/)
