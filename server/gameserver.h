@@ -47,6 +47,7 @@ public:
     bool isPlayerEliminated(const QString& playerName) const;
     void eliminatePlayer(const QString& playerName);
     void newRoundDecrease();
+    void checkEnoughRafts();
 
 
 public slots:
@@ -72,6 +73,7 @@ signals:
     void voteResultSignal(const QString& playerName);
     void newRoundResources();
     void votingAgain();
+
 private:
     QStringList players;      // List of player names
     QMap<QTcpSocket*, QString> socketToPlayerMap;

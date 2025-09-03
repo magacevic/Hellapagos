@@ -347,7 +347,7 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
 }
 
 void Server::playerSickSkip(const QString& currentPlayer){
-     QTimer::singleShot(1000, this, [this]() {
+     QTimer::singleShot(100, this, [this]() {
 
          gameServer->getRoundManager()->actionCompleted();
     });
@@ -387,6 +387,8 @@ void Server::onRoundStarted(int roundNumber)
     gameServer->printSickPlayersMap();
 
     gameServer->changeWeatherCard();
+
+    gameServer->checkEnoughRafts();
 
     QTimer::singleShot(500, this, [this]() {
 

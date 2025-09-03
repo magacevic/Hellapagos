@@ -16,7 +16,7 @@ GameServer::GameServer(QObject* parent)
     votingManager = new Voting(this);
 
     resources.insert("food", 8);
-    resources.insert("water", 2);
+    resources.insert("water", 10);
     resources.insert("wood", 0);
     resources.insert("rafts",0);
 
@@ -113,7 +113,7 @@ void GameServer::changeWeatherCard() {
     int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
 
-    if(roundCounter==5){
+    if(roundCounter==7){
         randomIndex=13;
 
     }
@@ -282,6 +282,13 @@ bool GameServer::checkFoodAmount()
     else return false;
 }
 
+void GameServer::checkEnoughRafts(){
+    if(resources["rafts"]>=players.size()){
+        roundManager->setLastRound(true);
+    }
+
+
+}
 
 void GameServer::checkRafts()
 {
@@ -465,7 +472,7 @@ void GameServer::submitVote(const QString& voter, const QString& target){
             });
         }
  */     emit votingAgain();
-        QTimer::singleShot(3000, this, [this]() {
+        QTimer::singleShot(2500, this, [this]() {
         if(nextVotingNeeded){
         QMetaObject::invokeMethod(this, "triggerNextVoting", Qt::QueuedConnection);
             }
