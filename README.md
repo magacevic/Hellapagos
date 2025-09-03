@@ -4,7 +4,18 @@ Hellapagos je vrlo interesantna igra karaktera koja vas stavlja na pusto ostrvo,
 Na kraju svakog dana se održava plemensko glasanje. Treba napojiti sve i nahraniti. Nije problem ukoliko ima vode i hrane. Problemi nastaju kada ih nema dovoljno. Tada ostajete na milosti i nemilosti svih članova plemena.
 Bitno je da pre nego što uragan dođe, pobegnete sa ostrva! 
 
-Članovi:
+## Demo snimak:
+
+
+## Jezik i okruženje
+- Programski jezik: **C++**  
+- Framework: **Qt**  
+- Razvojno okruženje: **Qt Creator**
+
+
+
+
+## Članovi:
  - <a href="https://gitlab.com/mi19135">Ksenija Ivanovic 135/2019</a>
  - <a href="https://gitlab.com/magacevic2">Masa Gacevic 231/2020</a>
  - <a href="https://gitlab.com/minazivic">Mina Zivic 240/2019</a>
