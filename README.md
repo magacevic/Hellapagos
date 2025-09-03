@@ -25,7 +25,7 @@ Bitno je da pre nego što uragan dođe, pobegnete sa ostrva!
 git clone https://gitlab.com/matf-bg-ac-rs/course-rs/projects-2024-2025/Hellapagos.git
 cd Hellapagos
 ```
-Pokrenuti server, pa nakon toga 4 isntace projekta.
+Pokrenuti server, pa nakon toga 4 instace projekta.
 Uneti odgovarajuće podatke i započeti igru.
 
 
