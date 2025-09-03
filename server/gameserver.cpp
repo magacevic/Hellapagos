@@ -333,14 +333,48 @@ void GameServer::decreaseResources(){
         }
 
     resourcesDeductedThisRound=true;
-
     int numOfPlayers = players.size();
+
+    if (resources["water"] <= 0) {
+            qDebug() << "There is no water left";
+            gameEnd();
+    }
+
+    else if(numOfPlayers==2 && resources["water"] == 1){
+            qDebug() << "Special case: Only 1 water for 2 players! Eliminating player with least resources.";
+
+        QString eliminatedPlayer;
+        int minTotal = INT_MAX;
+
+        for (const QString& player : players) {
+            int total = playerTotalResources.value(player, 0);
+            if (total < minTotal) {
+                minTotal = total;
+                eliminatedPlayer = player;
+            }
+        }
+
+        if (!eliminatedPlayer.isEmpty()) {
+            eliminatePlayer(eliminatedPlayer);
+            emit voteResultSignal(eliminatedPlayer);
+        }
+
+    }
+
+    else if (resources["food"] < numOfPlayers || resources["water"] < numOfPlayers) {
+        startVoteIfNeeded();
+    }
+
+
     if(checkWaterAmount()){
         resources["water"] -= numOfPlayers;
         if(checkFoodAmount()){
             resources["food"] -= numOfPlayers;
         }
+    }
 
+    if (resources["water"] <= 0 || resources["food"] <= 0) {
+        gameEnd();
     }
 
     if(resources["wood"] >=6){
@@ -349,9 +383,8 @@ void GameServer::decreaseResources(){
         resources["wood"] -=6;
        }
 
-    if (resources["food"] <= 0 || resources["water"] <= 0) {
-        startVoteIfNeeded();
-    }
+
+
 }
 
 void GameServer::startVoteIfNeeded()
@@ -376,7 +409,7 @@ void GameServer::submitVote(const QString& voter, const QString& target){
 
     if (votingManager->allVotesIn(players)) {
         QString eliminatedPlayer;
-        QStringList topVoted = votingManager->getPlayersWithMostVotes(); // koristi helper
+        QStringList topVoted = votingManager->getPlayersWithMostVotes();
 
         if (topVoted.size() == 1) {
             eliminatedPlayer = topVoted.first();

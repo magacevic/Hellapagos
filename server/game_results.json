@@ -208,6 +208,88 @@
             "winners": [
                 "biljana"
             ]
+        },
+        {
+            "gameDate": "2025-09-03T16:39:07",
+            "remainingFood": 8,
+            "remainingWater": 1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T16:43:54",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:01:14",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:02:25",
+            "remainingFood": 16,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:04:00",
+            "remainingFood": 9,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:04:50",
+            "remainingFood": 10,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:06:48",
+            "remainingFood": 14,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:07:54",
+            "remainingFood": 16,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "b",
+                "c"
+            ]
         }
     ]
 }
