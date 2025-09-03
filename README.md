@@ -7,14 +7,12 @@ Bitno je da pre nego što uragan dođe, pobegnete sa ostrva!
 ## Demo snimak:
 
 
-## Razvojno okruženje: 
-[Preuzeti i instalirati Qt](https://www.qt.io/download)
+## Okruženje
+- ![IDE](https://img.shields.io/badge/IDE-Qt%20Creator-green)
 
-
-
-## Jezik 
-- Programski jezik: **C++**  
-- Framework: **Qt**  
+## Programski jezik
+- ![Language](https://img.shields.io/badge/Language-C%2B%2B20-red)
+- ![Framework](https://img.shields.io/badge/Framework-Qt6-blue)
 
 
 
