@@ -372,8 +372,19 @@ void GameWindow::onVoteStarted(const QStringList& voteTargets)
 
 void GameWindow::onPlayerVotedOut(const QString& playerName)
 {
-    QMessageBox::information(this, "Player Eliminated",
+   /* QMessageBox::information(this, "Player Eliminated",
                              QString("Player %1 was voted out!").arg(playerName));
+*/
+    QMessageBox* msgBox = new QMessageBox(QMessageBox::Information,
+                                          "Player Eliminated",
+                                          QString("Player %1 was voted out!").arg(playerName),
+                                          QMessageBox::NoButton,  // bez dugmadi
+                                          this);
+    msgBox->setWindowModality(Qt::NonModal);
+    msgBox->show();
+
+    // zatvori automatski posle 1s (1000 ms)
+    QTimer::singleShot(1000, msgBox, &QMessageBox::close);
 
     if (playerName == currentPlayer->getName()) {
         //currentPlayer->setSpectating(true);  // Or handle in a custom way

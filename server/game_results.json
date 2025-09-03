@@ -486,6 +486,30 @@
             "remainingWood": 1,
             "winners": [
             ]
+        },
+        {
+            "gameDate": "2025-09-03T21:16:23",
+            "remainingFood": 18,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T21:47:56",
+            "remainingFood": 30,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T21:57:22",
+            "remainingFood": 16,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
         }
     ]
 }

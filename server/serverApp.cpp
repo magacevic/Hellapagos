@@ -8,7 +8,7 @@ Server::Server(QObject *parent)
     :   QObject(parent),
         tcpServer(new QTcpServer(this)),
         gameServer(new GameServer(this)),
-        maxPlayers(3)
+        maxPlayers(4)
 {
     connect(gameServer, &GameServer::weatherCardChanged, this, &Server::onWeatherCardChanged);
     connect(gameServer, &GameServer::currentAndNextPlayerUpdated, this, &Server::onCurrentAndNextPlayerUpdated);
@@ -20,7 +20,13 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::playerEliminatedSignal, this, &Server::onPlayerEliminated);
     connect(gameServer, &GameServer::voteResultSignal, this, &Server::onVoteResult);
     connect(gameServer, &GameServer::newRoundResources, this, &Server::broadcastResourcesInfo);
+    connect(gameServer, &GameServer::votingAgain, this, &Server::votingEnded);
 
+
+}
+
+void Server::votingEnded(){
+    broadcastMessage("VOTE_ENDED");
 }
 
 Server::~Server()

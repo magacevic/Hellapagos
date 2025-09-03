@@ -58,7 +58,7 @@ public slots:
     void onReadyRead();
     void onLastRoundLogic();
     void gameEnd();
-
+    void triggerNextVoting();
 
 
 signals:
@@ -71,7 +71,7 @@ signals:
     void playerEliminatedSignal(const QString& playerName);
     void voteResultSignal(const QString& playerName);
     void newRoundResources();
-
+    void votingAgain();
 private:
     QStringList players;      // List of player names
     QMap<QTcpSocket*, QString> socketToPlayerMap;
@@ -99,7 +99,7 @@ private:
     bool delayedDecreaseResources = false;
     bool nextRoundDelay = false; // default false
 
-
+    bool nextVotingNeeded=false;
 
 };
 

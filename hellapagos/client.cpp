@@ -201,6 +201,9 @@ void Client::handleMessage(const QString& message)
         qDebug() << "Player voted out IIIIs:" << eliminatedPlayer;
         emit playerVotedOut(eliminatedPlayer);
     }
+    if (message.contains("VOTE_ENDED")) {
+        voteInProgress=false;
+    }
 
     if(message == "GAME OVER") emit gameOverSignal();
 

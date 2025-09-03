@@ -269,19 +269,7 @@ bool GameServer::checkWaterAmount()
     if(resources["water"]>=players.size()){
         return true;
     }
-    else if(resources["water"]<players.size()){
-        int num=players.size()-resources["water"];
-        while(num>0){
-            qDebug()<< "Please vote out this many players" << num <<" [water]";
-            //Logika za voting
-            num--;
-        }
-        if(num==0) return true;
-    }
-
-
-
-   return true;
+    else return false;
 
 }
 
@@ -291,19 +279,7 @@ bool GameServer::checkFoodAmount()
     if(resources["food"]>=players.size()){
         return true;
     }
-    else if(resources["food"]<players.size()){
-        int num=players.size()-resources["food"];
-        while(num>0){
-            qDebug()<< "Please vote out this many players" << num <<" [food]";
-            //Logika za voting
-            num--;
-        }
-        if(num==0) return true;
-    }
-
-
-
-    return true;
+    else return false;
 }
 
 
@@ -333,8 +309,8 @@ void GameServer::decreaseResources(){
     resourcesDeductedThisRound=true;
     int numOfPlayers = players.size();
 
-    if (resources["water"] <= 0) {
-            qDebug() << "There is no water left";
+    if (resources["water"] <= 0 || resources["food"] <= 0) {
+            qDebug() << "There is no water or food left";
             QStringList stillActive = players;
             for (const QString &p : stillActive) {
                 eliminatePlayer(p);
@@ -365,22 +341,12 @@ void GameServer::decreaseResources(){
 
     }
 
-    else if (resources["food"] < numOfPlayers || resources["water"] < numOfPlayers) {
+    else if (!checkFoodAmount() || !checkWaterAmount()) {
         startVoteIfNeeded();
+
     }
 
 
-   /* if(checkWaterAmount()){
-        resources["water"] -= numOfPlayers;
-        qDebug()<<"TU SAM";
-        if(checkFoodAmount()){
-            resources["food"] -= numOfPlayers;
-        }
-    }*/
-
-   // if (resources["water"] <= 0 || resources["food"] <= 0) {
-     //   gameEnd();
-    //}
 
     if(resources["wood"] >=6){
         resources["rafts"] +=1;
@@ -403,18 +369,20 @@ void GameServer::newRoundDecrease(){
 
     if(checkWaterAmount()){
         resources["water"] -= numOfPlayers;
-        qDebug()<<resources["water"]<<" voda";
-        if(checkFoodAmount()){
+        //qDebug()<<resources["water"]<<" voda";
+    }
+    if(checkFoodAmount()){
             resources["food"] -= numOfPlayers;
         }
     }
-    }
+
     emit newRoundResources();
 }
 
 void GameServer::startVoteIfNeeded()
 {
-    if (votingActive || votedThisRound) return;
+   // if (votingActive || votedThisRound) return;
+    if (votingActive) return;
 
     QSet<QString> currentPlayers = QSet<QString>(players.begin(), players.end());
     votingActive = true;
@@ -465,24 +433,54 @@ void GameServer::submitVote(const QString& voter, const QString& target){
         votingActive = false;
      //   emit roundStarted(roundCounter);
 
-        if (delayedPlayerChange != -1) {
-            onPlayerChanged(delayedPlayerChange);
-            delayedPlayerChange = -1;
+        if (!checkWaterAmount() || !checkFoodAmount()) {
+            // i dalje fali – pokreni još jedan voting
+            nextVotingNeeded = true;
+            qDebug()<<"FALIIII JOS ";
+            //startVoteIfNeeded();
+
         }
-        if(gameEndDelayed){
-            gameEndDelayed=false;
-            gameEnd();
+        else{
+            nextVotingNeeded=false;
+            if (delayedPlayerChange != -1) {
+                onPlayerChanged(delayedPlayerChange);
+                delayedPlayerChange = -1;
+            }
+            if(gameEndDelayed){
+                gameEndDelayed=false;
+                gameEnd();
+            }
+            if (delayedDecreaseResources) {
+                delayedDecreaseResources = false;
+                newRoundDecrease();
+            }
+            if(nextRoundDelay){
+                nextRoundDelay=false;
+                startNextRound();
+            }
+            }
+  /*  if (nextVotingNeeded) {
+            QTimer::singleShot(0, this, [this]() {
+                startVoteIfNeeded();
+            });
         }
-        if (delayedDecreaseResources) {
-            delayedDecreaseResources = false;
-            newRoundDecrease();
-        }
-        if(nextRoundDelay){
-            nextRoundDelay=false;
-            startNextRound();
-        }
+ */     emit votingAgain();
+        QTimer::singleShot(3000, this, [this]() {
+        if(nextVotingNeeded){
+        QMetaObject::invokeMethod(this, "triggerNextVoting", Qt::QueuedConnection);
+            }
+            });
     }
 }
+void GameServer::triggerNextVoting()
+{
+    // Ako je između vremena ipak postao aktivan neki drugi voting – preskoči
+    if (votingActive) return;
+
+    nextVotingNeeded = false;
+    startVoteIfNeeded();
+}
+
 
 void GameServer::eliminatePlayer(const QString& playerName)
 {
