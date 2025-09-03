@@ -7,12 +7,6 @@ Bitno je da pre nego što uragan dođe, pobegnete sa ostrva!
 ## Demo snimak:
 
 
-## Okruženje
-- ![IDE](https://img.shields.io/badge/IDE-Qt%20Creator-green)
-
-## Programski jezik
-- ![Language](https://img.shields.io/badge/Language-C%2B%2B20-red)
-- ![Framework](https://img.shields.io/badge/Framework-Qt6-blue)
 
 
 
