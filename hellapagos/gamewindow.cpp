@@ -389,6 +389,11 @@ void GameWindow::onPlayerVotedOut(const QString& playerName)
 
 void GameWindow::on_GameOver()
 {
+    ui->collectFoodButton->setEnabled(false);
+    ui->collectWaterButton->setEnabled(false);
+    ui->collectWoodButton->setEnabled(false);
+    ui->revealButton->setEnabled(false);
+
     QMessageBox msgBox(this);
     msgBox.setWindowTitle("Game Over");
     msgBox.setText("Game Over, thanks for playing!");

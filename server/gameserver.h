@@ -46,9 +46,9 @@ public:
     void handleResourcesReport(const QString& message);
     bool isPlayerEliminated(const QString& playerName) const;
     void eliminatePlayer(const QString& playerName);
+    void newRoundDecrease();
 
 
-    void broadcastToClients(const QString& message);
 public slots:
     // Slot koji prihvata signal za promenu igrača
     void onPlayerChanged(int newPlayerId);
@@ -60,6 +60,7 @@ public slots:
     void gameEnd();
 
 
+
 signals:
     void weatherCardChanged(int newIndex);
     void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
@@ -69,6 +70,7 @@ signals:
     void startVoteSignal(const QStringList& voteTargets);
     void playerEliminatedSignal(const QString& playerName);
     void voteResultSignal(const QString& playerName);
+    void newRoundResources();
 
 private:
     QStringList players;      // List of player names
@@ -94,6 +96,10 @@ private:
     bool nextRoundStarted;
     int delayedPlayerChange = -1;
     bool gameEndDelayed=false;
+    bool delayedDecreaseResources = false;
+    bool nextRoundDelay = false; // default false
+
+
 
 };
 

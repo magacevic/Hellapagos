@@ -19,6 +19,8 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::startVoteSignal, this, &Server::onStartVote);
     connect(gameServer, &GameServer::playerEliminatedSignal, this, &Server::onPlayerEliminated);
     connect(gameServer, &GameServer::voteResultSignal, this, &Server::onVoteResult);
+    connect(gameServer, &GameServer::newRoundResources, this, &Server::broadcastResourcesInfo);
+
 }
 
 Server::~Server()
@@ -259,7 +261,7 @@ void Server::onStartVote(const QStringList& voteTargets)
 
 void Server::onPlayerEliminated(const QString& playerName)
 {
-     QTimer::singleShot(1000, this, [this,playerName]() {
+     QTimer::singleShot(500, this, [this,playerName]() {
 
         broadcastMessage("PLAYER_ELIMINATED: " + playerName);
     });
@@ -347,10 +349,13 @@ void Server::playerSickSkip(const QString& currentPlayer){
 
 void Server::onGameOver()
 {
+    QTimer::singleShot(1000, this, [this]() {
+
     QString gameOverMessage = QString("GAME OVER");
     broadcastMessage(gameOverMessage);
     //da se zapise u statistike ono sto je ostalo ko je pobedio itd
     //datum igranja i to
+    });
 
 }
 
@@ -384,7 +389,7 @@ void Server::onRoundStarted(int roundNumber)
         //broadcastMessage(resourcemessage);
 
         //QTimer::singleShot(1000, this, [this]() {
-            gameServer->decreaseResources();
+            gameServer->newRoundDecrease();
             broadcastResourcesInfo();
         //});
     });

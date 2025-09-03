@@ -20,7 +20,6 @@ GameServer::GameServer(QObject* parent)
     resources.insert("wood", 0);
     resources.insert("rafts",0);
 
-    bool nextRoundStarted = false; // default false
 
 
       connect(roundManager, &RoundManager::currentAndNextPlayerUpdated,
@@ -35,7 +34,6 @@ GameServer::GameServer(QObject* parent)
 
     // Povezi signale za glasanje
     connect(votingManager, &Voting::votingStarted, this, &GameServer::onVotingStarted);
-    //connect(votingSystem, &Voting::votingConcluded, this &GameServer::onVotingConcluded);
 
     for (int i = 1; i < 12; ++i) {
         availableCards.insert(i);
@@ -60,7 +58,7 @@ int GameServer::getResourceAmount(const QString& resourceName) const {
     if (resources.contains(resourceName)) {
         return resources[resourceName];
     }
-    return 0; // Return 0 if the resource does not exist
+    return 0;
 }
 
 
@@ -115,7 +113,7 @@ void GameServer::changeWeatherCard() {
     int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
 
-    if(roundCounter==3){
+    if(roundCounter==5){
         randomIndex=13;
 
     }
@@ -124,7 +122,6 @@ void GameServer::changeWeatherCard() {
         roundManager->setLastRound(true);
     }
 
-   // availableCards.remove(randomIndex);
 
     emit weatherCardChanged(randomIndex);
 }
@@ -163,7 +160,7 @@ void GameServer::onPlayerChanged(int newPlayerId)
             int nextPlayerId = (newPlayerId + 1) % players.size();
             nextPlayer = players.at(nextPlayerId);
         } else {
-            nextPlayer = "None";  // If only one player exists, no next player
+            nextPlayer = "None";  // ako imamo samo jednog,nema sledeceg
         }
 
         qDebug() << "Next Player:" << nextPlayer;
@@ -178,10 +175,11 @@ void GameServer::startNextRound()
 
     if (votingActive) {
         qDebug() << "[DEBUG] Cannot start next round yet.";
+        nextRoundDelay= true; // default false
         return; // ako glasanje traje ili je već startovana sledeća runda
     }
 
-
+    else{
     votedThisRound = false;
     resourcesDeductedThisRound = false;
 
@@ -199,16 +197,16 @@ void GameServer::startNextRound()
 
 
     emit roundStarted(roundCounter);
-
+    }
 }
 
 
 void GameServer::onNewClientConnected()
 {
-    QTcpSocket* clientSocket = tcpServer->nextPendingConnection();  // Get the next pending connection
-    clientSockets.append(clientSocket);  // Add the socket to the list of clients
+    QTcpSocket* clientSocket = tcpServer->nextPendingConnection();
+    clientSockets.append(clientSocket);
 
-    // Connect necessary signals for the client
+
     connect(clientSocket, &QTcpSocket::disconnected, this, &GameServer::onClientDisconnected);
     connect(clientSocket, &QTcpSocket::readyRead, this, &GameServer::onReadyRead);
 }
@@ -217,8 +215,8 @@ void GameServer::onClientDisconnected()
 {
     QTcpSocket* clientSocket = qobject_cast<QTcpSocket*>(sender());
     if (clientSocket) {
-        clientSockets.removeOne(clientSocket);  // Remove the client socket from the list when disconnected
-        clientSocket->deleteLater();  // Clean up the socket
+        clientSockets.removeOne(clientSocket);
+        clientSocket->deleteLater();
     }
 }
 
@@ -266,7 +264,7 @@ void GameServer::gameEnd()
 
 bool GameServer::checkWaterAmount()
 {
-    //    while(resources["water"]<players.size()){
+
 
     if(resources["water"]>=players.size()){
         return true;
@@ -337,10 +335,16 @@ void GameServer::decreaseResources(){
 
     if (resources["water"] <= 0) {
             qDebug() << "There is no water left";
+            QStringList stillActive = players;
+            for (const QString &p : stillActive) {
+                eliminatePlayer(p);
+                //emit voteResultSignal(p); // ako hoces da UI dobije update za svakog eliminisanog
+        }
             gameEnd();
+            return;
     }
 
-    else if(numOfPlayers==2 && resources["water"] == 1){
+     if(numOfPlayers==2 && resources["water"] == 1){
             qDebug() << "Special case: Only 1 water for 2 players! Eliminating player with least resources.";
 
         QString eliminatedPlayer;
@@ -366,16 +370,17 @@ void GameServer::decreaseResources(){
     }
 
 
-    if(checkWaterAmount()){
+   /* if(checkWaterAmount()){
         resources["water"] -= numOfPlayers;
+        qDebug()<<"TU SAM";
         if(checkFoodAmount()){
             resources["food"] -= numOfPlayers;
         }
-    }
+    }*/
 
-    if (resources["water"] <= 0 || resources["food"] <= 0) {
-        gameEnd();
-    }
+   // if (resources["water"] <= 0 || resources["food"] <= 0) {
+     //   gameEnd();
+    //}
 
     if(resources["wood"] >=6){
         resources["rafts"] +=1;
@@ -385,6 +390,26 @@ void GameServer::decreaseResources(){
 
 
 
+}
+
+void GameServer::newRoundDecrease(){
+    if (votingActive) {
+        qDebug() << "[DEBUG] Voting active. Delaying resource deduction.";
+        delayedDecreaseResources = true;
+        return;
+    }
+    else{
+    int numOfPlayers = players.size();
+
+    if(checkWaterAmount()){
+        resources["water"] -= numOfPlayers;
+        qDebug()<<resources["water"]<<" voda";
+        if(checkFoodAmount()){
+            resources["food"] -= numOfPlayers;
+        }
+    }
+    }
+    emit newRoundResources();
 }
 
 void GameServer::startVoteIfNeeded()
@@ -426,14 +451,14 @@ void GameServer::submitVote(const QString& voter, const QString& target){
 
             QString tieMessage = QString("Tie detected. Eliminating player with least resources: \"%1\"").arg(eliminatedPlayer);
             qDebug() << tieMessage;
-            //broadcastToClients("INFO: " + tieMessage);
+
         }
 
         if (!eliminatedPlayer.isEmpty()) {
             eliminatePlayer(eliminatedPlayer);
             emit voteResultSignal(eliminatedPlayer);
 
-            //broadcastToClients("PLAYER_ELIMINATED:" + eliminatedPlayer);
+
         }
 
         votingManager->reset();
@@ -447,6 +472,14 @@ void GameServer::submitVote(const QString& voter, const QString& target){
         if(gameEndDelayed){
             gameEndDelayed=false;
             gameEnd();
+        }
+        if (delayedDecreaseResources) {
+            delayedDecreaseResources = false;
+            newRoundDecrease();
+        }
+        if(nextRoundDelay){
+            nextRoundDelay=false;
+            startNextRound();
         }
     }
 }
@@ -464,7 +497,6 @@ void GameServer::eliminatePlayer(const QString& playerName)
 
     emit playerEliminatedSignal(playerName);
 
-    //broadcastToClients("PLAYER_ELIMINATED:" + playerName);
 
     qDebug() << "Player eliminated:" << playerName;
 }
@@ -473,9 +505,6 @@ bool GameServer::isPlayerEliminated(const QString& playerName) const
 {
     return eliminatedPlayers.contains(playerName);
 }
-
-
-
 
 QString GameServer::getGameStatisticsText() const
 {
@@ -526,17 +555,6 @@ void GameServer::printSickPlayersMap() const {
     }
 }
 
-void GameServer::broadcastToClients(const QString& message)
-{
-    QByteArray data = message.toUtf8();
-    for (QTcpSocket* socket : clientSockets) {
-        if (socket && socket->isOpen()) {
-            socket->write(data);
-            socket->flush();
-        }
-    }
-}
-
 void GameServer::handleResourcesReport(const QString& message) {
     QStringList parts = message.split(": ");
     if (parts.size() < 6) {
@@ -552,8 +570,7 @@ void GameServer::handleResourcesReport(const QString& message) {
 
     playerTotalResources[playerName] = total;
     qDebug()<<QString(" %1 : total %2 ").arg(playerName).arg(playerTotalResources[playerName]);
-  //  qDebug() << QString("Resource report - %1: food=%2, water=%3, wood=%4, total=%5")
-    //                .arg(playerName).arg(food).arg(water).arg(wood).arg(total);
+
 }
 
 QMap<QString, int> GameServer::getPlayerTotalResources() const {

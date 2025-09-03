@@ -94,8 +94,9 @@ void Client::handleMessage(const QString& message)
         int start = message.indexOf("PLAYER_ELIMINATED:") + QString("PLAYER_ELIMINATED:").length();
         int end = message.indexOf('\n', start);
 
-        QString playerName = message.mid(start,end-start).trimmed();
-        qDebug() << "Player eliminated:" << playerName;
+        QString eliminatedPlayer = message.mid(start,end-start).trimmed();
+        qDebug() << "Player eliminated:" << eliminatedPlayer;
+        //emit playerVotedOut(eliminatedPlayer);
 
        /* if(playerName == player->getPlayerName()) {
             player->setSpectating(true);
@@ -229,143 +230,6 @@ void Client::handleMessage(const QString& message)
     }
 }
 
-/*
-void Client::handleMessage(const QString& message)
-{
-    if (message.startsWith("PLAYERS_LIST:")) {
-        QString playersList = message.mid(QString("PLAYERS_LIST:").length()).trimmed();
-        playerNames = playersList.split(",");
-        qDebug() << "Received Players List:" << playerNames;
-
-        emit playersListUpdated(playerNames);
-    }
-
-    if (message == "Name already taken. Choose a different name.") {
-        emit nameTaken();
-    }
-
-    if (message.startsWith("PLAYER_ELIMINATED:")) {
-        QString playerName = message.split(":").last();
-        qDebug() << "Player eliminated:" << playerName;
-
-        //Pretvori igraca u posmatraca
-        if(playerName == player->getPlayerName()) {
-            player->setSpectating(true);
-            qDebug() << playerName << "is now spectator.";
-        }
-    }
-
-    if (message.startsWith("ROUND_STARTED:")) {
-        int roundNumber = message.split(":").last().toInt();
-        qDebug() << "New Round Started: Round" << roundNumber;
-        for (SickPlayer* player1 : *players) {
-            if (!player1) {
-                qDebug() << "Invalid player pointer.";
-                continue;
-            }
-            player1->decrementRecovery();
-        }
-
-    }
-
-    if (message.startsWith("RESOURCES:")) {
-        QString resourceData = message.mid(QString("RESOURCES:").length());
-        QStringList resourceList = resourceData.split(',');
-
-        int water = 0, food = 0, wood = 0, rafts = 0;
-
-        // Loop through the resourceList to extract values
-        for (const QString& resource : resourceList) {
-            QStringList keyValue = resource.split(':');
-            if (keyValue.size() == 2) {
-                QString key = keyValue[0].trimmed();
-                int value = keyValue[1].toInt();
-                if (key == "water") {
-                    water = value;
-                } else if (key == "food") {
-                    food = value;
-                } else if (key == "wood") {
-                    wood = value;
-                } else if (key == "rafts") {
-                    rafts = value;
-                }
-            }
-        }
-
-        qDebug() << "Resources updated - Water:" << water << ", Food:" << food << ", Wood:" << wood << ", Rafts:" << rafts;
-
-    }
-
-    if (message.startsWith("WEATHER_CARD:")) {
-        int index = message.split(":").last().toInt();
-        emit weatherCardUpdated(index);
-    }
-
-
-    if (message.startsWith("ACTION_APPROVED:")) {
-        QString action = message.split(":").last();
-
-        // Trigger the corresponding action in the game
-        if (action == "COLLECT_WATER") {
-            emit collectWaterApproved();
-        } else if (action == "COLLECT_WOOD") {
-            emit collectWoodApproved();
-        }else if (action == "COLLECT_FOOD") {
-            emit collectFoodApproved();
-        }
-    } else if (message.startsWith("Sorry, not your turn.")) {
-        // QMessageBox::information(nullptr, "Not Your Turn", "Sorry, it's not your turn to play.");
-        qDebug()<<"Not your turn...";
-        emit notYourTurn();
-
-
-    }
-
-    if (message.startsWith("START_VOTE:")) {
-        if (voteInProgress) {
-            qDebug() << "Ignored duplicate START_VOTE";
-            return;
-        }
-        voteInProgress = true;
-
-        QStringList voteTargets = message.mid(QString("START_VOTE:").length()).split(",");
-        for (QString& name : voteTargets) {
-            name = name.trimmed();  // Prevents "333\n" artifacts
-        }
-        qDebug() << "Vote triggered. Eligible players:" << voteTargets;
-        emit voteStarted(voteTargets);  // emit to GameWindow to open dialog
-    }
-
-    if (message.startsWith("VOTE_RESULT:")) {
-        voteInProgress = false;
-
-        QString eliminatedPlayer = message.section("VOTE_RESULT:", 1);
-        qDebug() << "Player voted out:" << eliminatedPlayer;
-        emit playerVotedOut(eliminatedPlayer);
-    }
-
-
-    if(message=="GAME OVER"){
-        emit gameOverSignal();
-    }
-    if (message.startsWith("GAME_STATS:")) {
-        QString stats = message.mid(QString("GAME_STATS:").length()).trimmed();
-        emit gameStatsReceived(stats);
-    }
-
-    if (message.startsWith("AllReady")) {
-        emit allPlayersReady(); }
-    else if (message == "Server full. Connection rejected.") {
-        qDebug() << "Server is full. Closing the client...";
-
-        emit serverFullSignal();  // Emit the signal to close the window
-        QCoreApplication::quit();  // Optionally, close the application
-    } else if (message == "DISCONNECT") {
-        qDebug() << "Server requested a disconnect.";
-        tcpSocket->disconnectFromHost();
-    }
-}
-*/
 
 void Client::onDisconnected()
 {
