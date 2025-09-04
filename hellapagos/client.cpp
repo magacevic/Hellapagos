@@ -118,13 +118,13 @@ void Client::handleMessage(const QString& message)
         int roundNumber = message.mid(start,end-start).trimmed().toInt();
         qDebug() << "New Round Started: Round" << roundNumber;
 
-        for (SickPlayer* player1 : *players) {
+        /*for (SickPlayer* player1 : *players) {
             if (!player1) {
                 qDebug() << "Invalid player pointer.";
                 continue;
             }
             player1->decrementRecovery();
-        }
+        }*/
     }
 
     if (message.contains("RESOURCES:")) {
@@ -252,10 +252,10 @@ void Client::sendWeatherCardChange(int index)
     //tcpSocket->write(message.toUtf8());
 }
 void Client::sendWeatherCardRequest() {
-    if (tcpSocket) {  // Use tcpSocket instead of socket
+    if (tcpSocket) {
         QByteArray data = "REQUEST_WEATHER_CARD";
-        tcpSocket->write(data);  // Send the request to the server
-        tcpSocket->flush();  // Ensure the data is sent
+        tcpSocket->write(data);
+        tcpSocket->flush();
     }
 }
 

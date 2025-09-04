@@ -104,16 +104,17 @@ void GameServer::changeWeatherCard() {
 
 
 
-    if(roundCounter==7){
-        availableCards.insert(13);
-    }
-
-
-
     int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
 
+    if(roundCounter==6){
+       // qDebug()<<"Ovdje sam 1";
+        availableCards.insert(13);
+
+    }
+
     if(roundCounter==7){
+       // qDebug()<<"Ovdje sam 2";
         randomIndex=13;
 
     }
@@ -226,7 +227,7 @@ void GameServer::onReadyRead()
 
 void GameServer::onLastRoundLogic()
 {
-    qDebug()<<"Ovo je poslednja runda.";
+    qDebug()<<"This is the last round. Survive untill the end!";
 
 }
 
@@ -281,10 +282,20 @@ bool GameServer::checkFoodAmount()
     }
     else return false;
 }
+bool GameServer::checkLastRoundRafts()
+{
+    if (roundManager->getLastRound() && resources["rafts"] < players.size()) {
+        // poslednja runda i nema dovoljno splavova
+        return false;
+    }
+    return true; //sve ostalo
+}
+
 
 void GameServer::checkEnoughRafts(){
     if(resources["rafts"]>=players.size()){
         roundManager->setLastRound(true);
+        qDebug()<<"You have made enough rafts! Initiating last round...";
     }
 
 
@@ -348,7 +359,8 @@ void GameServer::decreaseResources(){
 
     }
 
-    else if (!checkFoodAmount() || !checkWaterAmount()) {
+     else if (!checkFoodAmount() || !checkWaterAmount() ||
+              !checkLastRoundRafts()) {
         startVoteIfNeeded();
 
     }
@@ -440,10 +452,11 @@ void GameServer::submitVote(const QString& voter, const QString& target){
         votingActive = false;
      //   emit roundStarted(roundCounter);
 
-        if (!checkWaterAmount() || !checkFoodAmount()) {
+        if (!checkWaterAmount() || !checkFoodAmount() ||
+            !checkLastRoundRafts()) {
             // i dalje fali – pokreni još jedan voting
             nextVotingNeeded = true;
-            qDebug()<<"FALIIII JOS ";
+
             //startVoteIfNeeded();
 
         }

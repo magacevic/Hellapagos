@@ -88,6 +88,7 @@ private:
     QMap<QString,int> sickPlayers;
     bool checkWaterAmount();
     bool checkFoodAmount();
+    bool checkLastRoundRafts();
     bool resourcesDeductedThisRound = false;
     bool votingActive = false;
     bool votedThisRound = false;

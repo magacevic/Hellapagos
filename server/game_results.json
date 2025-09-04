@@ -537,6 +537,83 @@
             "winners": [
                 "bb"
             ]
+        },
+        {
+            "gameDate": "2025-09-03T22:42:20",
+            "remainingFood": 3,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T22:42:20",
+            "remainingFood": 3,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T15:35:55",
+            "remainingFood": 14,
+            "remainingWater": 2,
+            "remainingWood": 2,
+            "winners": [
+                "ccc",
+                "ddd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T15:42:58",
+            "remainingFood": 13,
+            "remainingWater": 13,
+            "remainingWood": 2,
+            "winners": [
+                "aaaaaaa",
+                "bbbbb",
+                "dddd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T15:54:50",
+            "remainingFood": 9,
+            "remainingWater": 10,
+            "remainingWood": 3,
+            "winners": [
+                "bbb",
+                "cccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T16:02:25",
+            "remainingFood": 21,
+            "remainingWater": 10,
+            "remainingWood": 0,
+            "winners": [
+                "bbb",
+                "ccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T16:07:23",
+            "remainingFood": 20,
+            "remainingWater": 14,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T16:21:59",
+            "remainingFood": 13,
+            "remainingWater": 11,
+            "remainingWood": 0,
+            "winners": [
+                "aaa",
+                "ddd"
+            ]
         }
     ]
 }
