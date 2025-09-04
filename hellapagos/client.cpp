@@ -5,7 +5,7 @@
 Client::Client(QObject *parent)
     : QObject(parent), tcpSocket(new QTcpSocket(this))
 {
-    players = new QList<SickPlayer*>();
+
 
 }
 
@@ -118,13 +118,13 @@ void Client::handleMessage(const QString& message)
         int roundNumber = message.mid(start,end-start).trimmed().toInt();
         qDebug() << "New Round Started: Round" << roundNumber;
 
-        /*for (SickPlayer* player1 : *players) {
+        for (auto &player1 : players) {
             if (!player1) {
                 qDebug() << "Invalid player pointer.";
                 continue;
             }
             player1->decrementRecovery();
-        }*/
+        }
     }
 
     if (message.contains("RESOURCES:")) {
@@ -259,7 +259,7 @@ void Client::sendWeatherCardRequest() {
     }
 }
 
-void Client::addPlayer(SickPlayer* player1) {
+void Client::addPlayer(QSharedPointer<SickPlayer> player1) {
     if (!player1) {
         qDebug() << "Cannot add player. The pointer is null.";
         return;
@@ -269,8 +269,8 @@ void Client::addPlayer(SickPlayer* player1) {
     //     return;
     // }
 
-    if (!player1->isRecovered()) {
-        players->push_back(player1);
+    if (!players.contains(player1) && !player1->isRecovered()) {
+        players.append(player1);
     }
 }
 

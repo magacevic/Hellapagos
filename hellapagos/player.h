@@ -4,6 +4,7 @@
 #include <QString>
 #include <QWidget>
 #include <QObject>
+#include <QSharedPointer>
 #include "collectfood.h"
 #include "collectwater.h"
 #include "collectwood.h"
@@ -68,7 +69,7 @@ private:
     int totalWood;
     int tWater=0;
     int tFood=0;
-    SickPlayer* sickPlayer;
+    QSharedPointer<SickPlayer> sickPlayer;
 
     QWidget getCurrentCard();
 

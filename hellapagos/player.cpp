@@ -40,10 +40,15 @@ bool Player::isSick() const {
 
 void Player::setSick(bool sick) {
     this->sick = sick;
-    sickPlayer = new SickPlayer();
+   /* sickPlayer = new SickPlayer();
     sickPlayer->setRecovered(false);
     m_client->addPlayer(sickPlayer);
-}
+*/
+    if (sick && !sickPlayer) {
+        sickPlayer = QSharedPointer<SickPlayer>::create();
+        sickPlayer->setRecovered(false);
+        m_client->addPlayer(sickPlayer); // Client sada prima QSharedPointer<SickPlayer>
+    }}
 
 bool Player::canPerformActions() {
 
@@ -162,8 +167,9 @@ void Player::raftCreated() {
 void Player::recover() {
     if (sick && sickPlayer) {
         sick = false;
-        delete sickPlayer;
-        sickPlayer = nullptr;
+        //delete sickPlayer;
+        //sickPlayer = nullptr;
+        sickPlayer.clear();
         qDebug() << "Player has recovered!";
     }
 }

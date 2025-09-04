@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include <QSharedPointer>
 #include <QString>  // Include QString to handle names
 #include <QList>
 #include "eliminatedplayer.h"
@@ -24,7 +25,7 @@ public:
     void sendReadySignal();
     void sendWeatherCardChange(int index);
     void sendWeatherCardRequest();
-    void addPlayer(SickPlayer* player1);
+    void addPlayer(QSharedPointer<SickPlayer> player1);
     QStringList getPlayers();
     // void sendMessage(const QString &message);
     // In client.h
@@ -56,7 +57,7 @@ private slots:
 private:
     QTcpSocket *tcpSocket;
 
-    QList<SickPlayer*>* players;
+  //  QList<SickPlayer*>* players;
 
     QStringList playerNames;
 
@@ -65,6 +66,9 @@ private:
     bool voteInProgress = false;
 
     QByteArray buffer;
+
+    QList<QSharedPointer<SickPlayer>> players;
+
 
 };
 
