@@ -626,6 +626,71 @@
                 "ccc",
                 "ddd"
             ]
+        },
+        {
+            "gameDate": "2025-09-04T17:21:20",
+            "remainingFood": 23,
+            "remainingWater": 6,
+            "remainingWood": 0,
+            "winners": [
+                "bb",
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:36:01",
+            "remainingFood": 21,
+            "remainingWater": 1,
+            "remainingWood": 0,
+            "winners": [
+                "bb"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:39:32",
+            "remainingFood": 6,
+            "remainingWater": 5,
+            "remainingWood": 5,
+            "winners": [
+                "bb"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:50:58",
+            "remainingFood": 9,
+            "remainingWater": 5,
+            "remainingWood": 1,
+            "winners": [
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T18:00:50",
+            "remainingFood": 8,
+            "remainingWater": 3,
+            "remainingWood": 4,
+            "winners": [
+                "ccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T18:00:50",
+            "remainingFood": 7,
+            "remainingWater": 2,
+            "remainingWood": 4,
+            "winners": [
+                "ccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T18:06:28",
+            "remainingFood": 8,
+            "remainingWater": 9,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "dd"
+            ]
         }
     ]
 }

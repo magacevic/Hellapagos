@@ -8,6 +8,7 @@
 #include <QSet>
 #include <QList>
 #include <QFile>
+#include <QRandomGenerator>
 
 GameServer::GameServer(QObject* parent)
     : QObject(parent),roundCounter(1)
@@ -103,28 +104,34 @@ void GameServer::changeWeatherCard() {
     }
 
 
+    QList<int> tempList = availableCards.values();
+    int randomIndex = tempList[QRandomGenerator::global()->bounded(tempList.size())];
 
-    int randomIndex = *availableCards.begin();
+
+   // emit weatherCardChanged(randomIndex);
+   // int randomIndex = *availableCards.begin();
     availableCards.remove(randomIndex);
+   // emit weatherCardChanged(randomIndex);
 
     if(roundCounter==6){
        // qDebug()<<"Ovdje sam 1";
-        availableCards.insert(13);
+        availableCards.insert(12);
 
     }
 
-    if(roundCounter==7){
+    if(roundCounter==8){
        // qDebug()<<"Ovdje sam 2";
-        randomIndex=13;
+        randomIndex=12;
 
     }
-
-    if(randomIndex==13){
+   // emit weatherCardChanged(randomIndex);
+    if(randomIndex==12){
+        qDebug()<<"ovdje sam 3 ";
         roundManager->setLastRound(true);
     }
 
 
-    emit weatherCardChanged(randomIndex);
+   emit weatherCardChanged(randomIndex);
 }
 void GameServer::onWeatherCardRequest() {
     changeWeatherCard();
@@ -191,7 +198,7 @@ void GameServer::startNextRound()
     roundCounter++;
     qDebug() << "Starting Round:" << roundCounter;
 
-    if (roundCounter == 13) {
+    if (roundCounter == 12) {
         roundManager->setLastRound(true);
         qDebug() << "Setting next round as the last round.";
     }
