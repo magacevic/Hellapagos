@@ -1,0 +1,109 @@
+#ifndef GAMESERVER_H
+#define GAMESERVER_H
+
+#include <QTcpSocket>
+#include <QTcpServer>
+#include <QObject>
+#include <QString>
+#include <QMap>
+#include "QSet"
+#include "roundmanager.h"
+#include "voting.h"
+#include "gamestatistics.h"
+
+
+class GameServer : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit GameServer(QObject* parent = nullptr);
+
+    void addPlayer(const QString& playerName, QTcpSocket* socket);
+    QString getPlayerNameFromSocket(QTcpSocket* socket) const;
+    QStringList getPlayers() const;
+    QMap<QString, int> getResources() const;
+    void changeWeatherCard();
+    int getWeatherCardIndex() const;
+    void onWeatherCardRequest();
+    //DODALA
+    RoundManager* getRoundManager() const;
+    void startNextRound();
+    void broadcastFoodUpdate(const QString& playerName, int foodAmount);
+    QList<QTcpSocket*> clientSockets;
+    void collectFoodFromPlayer(const QString& playerName, int foodAmount);
+    void addResource(const QString& resourceName, int amount);
+    int getResourceAmount(const QString& resourceName) const;
+    void checkRafts();
+    void decreaseResources();
+    void startVoteIfNeeded();
+    void startVoting();
+    void submitVote(const QString& voter, const QString& target);
+    QString getGameStatisticsText() const;
+    void updateSickPlayersMap(const QString& playerName);
+    void initSickPlayersMap();
+    void printSickPlayersMap() const;
+    void handleResourcesReport(const QString& message);
+    bool isPlayerEliminated(const QString& playerName) const;
+    void eliminatePlayer(const QString& playerName);
+    void newRoundDecrease();
+    void checkEnoughRafts();
+
+
+public slots:
+    // Slot koji prihvata signal za promenu igrača
+    void onPlayerChanged(int newPlayerId);
+    void onVotingStarted(const QSet<QString>& eligiblePlayers);
+    void onNewClientConnected();
+    void onClientDisconnected();
+    void onReadyRead();
+    void onLastRoundLogic();
+    void gameEnd();
+    void triggerNextVoting();
+
+
+signals:
+    void weatherCardChanged(int newIndex);
+    void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
+    void roundStarted(int roundNumber);
+    void thisPlayerIsSick(QString currentPlayer);
+    void gameOverSignal();
+    void startVoteSignal(const QStringList& voteTargets);
+    void playerEliminatedSignal(const QString& playerName);
+    void voteResultSignal(const QString& playerName);
+    void newRoundResources();
+    void votingAgain();
+
+private:
+    QStringList players;      // List of player names
+    QMap<QTcpSocket*, QString> socketToPlayerMap;
+    QMap<QString, int> resources; // Shared resources: e.g., "food", "water", etc.
+    int currentWeatherCardIndex = 0; // Default or initial weather card index
+    QSet<int> availableCards;  // Set to store available card indices
+    RoundManager* roundManager;
+    int roundCounter;
+    QTcpServer* tcpServer;
+    //bool weatherCardRevealed = false; // Flag to track if weather card has been revealed this round
+    Voting* votingManager;
+    QMap<QString,int> sickPlayers;
+    bool checkWaterAmount();
+    bool checkFoodAmount();
+    bool checkLastRoundRafts();
+    bool resourcesDeductedThisRound = false;
+    bool votingActive = false;
+    bool votedThisRound = false;
+    QMap<QString, int> playerTotalResources;
+    QMap<QString, int> getPlayerTotalResources() const;
+    QSet<QString> eliminatedPlayers;
+
+    bool nextRoundStarted;
+    int delayedPlayerChange = -1;
+    bool gameEndDelayed=false;
+    bool delayedDecreaseResources = false;
+    bool nextRoundDelay = false; // default false
+
+    bool nextVotingNeeded=false;
+
+};
+
+#endif // GAMESERVER_H

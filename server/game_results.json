@@ -1,0 +1,696 @@
+{
+    "fileName": "",
+    "gameResults": [
+        {
+            "gameDate": "2024-12-14T10:00:00Z",
+            "remainingFood": 120,
+            "remainingWater": 80,
+            "remainingWood": 50,
+            "winners": [
+                "Pera",
+                "Žika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-14T12:15:00Z",
+            "remainingFood": 110,
+            "remainingWater": 75,
+            "remainingWood": 45,
+            "winners": [
+                "Mika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-14T14:30:00Z",
+            "remainingFood": 100,
+            "remainingWater": 65,
+            "remainingWood": 55,
+            "winners": [
+                "Pera",
+                "Mika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-14T16:45:00Z",
+            "remainingFood": 95,
+            "remainingWater": 70,
+            "remainingWood": 60,
+            "winners": [
+                "Žika",
+                "Mika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-14T18:00:00Z",
+            "remainingFood": 85,
+            "remainingWater": 60,
+            "remainingWood": 50,
+            "winners": [
+                "Pera"
+            ]
+        },
+        {
+            "gameDate": "2024-12-14T19:15:00Z",
+            "remainingFood": 90,
+            "remainingWater": 55,
+            "remainingWood": 65,
+            "winners": [
+                "Žika",
+                "Mika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T09:00:00Z",
+            "remainingFood": 120,
+            "remainingWater": 80,
+            "remainingWood": 40,
+            "winners": [
+                "Pera"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T10:30:00Z",
+            "remainingFood": 110,
+            "remainingWater": 85,
+            "remainingWood": 50,
+            "winners": [
+                "Žika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T12:00:00Z",
+            "remainingFood": 100,
+            "remainingWater": 60,
+            "remainingWood": 55,
+            "winners": [
+                "Mika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T13:30:00Z",
+            "remainingFood": 80,
+            "remainingWater": 70,
+            "remainingWood": 45,
+            "winners": [
+                "Pera",
+                "Žika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T15:00:00Z",
+            "remainingFood": 90,
+            "remainingWater": 75,
+            "remainingWood": 60,
+            "winners": [
+                "Mika",
+                "Pera"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T16:30:00Z",
+            "remainingFood": 95,
+            "remainingWater": 65,
+            "remainingWood": 50,
+            "winners": [
+                "Žika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T18:00:00Z",
+            "remainingFood": 100,
+            "remainingWater": 80,
+            "remainingWood": 55,
+            "winners": [
+                "Mika",
+                "Žika"
+            ]
+        },
+        {
+            "gameDate": "2024-12-15T19:30:00Z",
+            "remainingFood": 85,
+            "remainingWater": 50,
+            "remainingWood": 60,
+            "winners": [
+                "Pera"
+            ]
+        },
+        {
+            "gameDate": "2024-12-16T09:00:00Z",
+            "remainingFood": 110,
+            "remainingWater": 90,
+            "remainingWood": 65,
+            "winners": [
+                "Žika",
+                "Mika"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T13:04:25",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "2",
+                "3"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T13:11:03",
+            "remainingFood": 3,
+            "remainingWater": -1,
+            "remainingWood": 2,
+            "winners": [
+                "3"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T13:19:39",
+            "remainingFood": 3,
+            "remainingWater": -3,
+            "remainingWood": 0,
+            "winners": [
+                "3"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T13:29:25",
+            "remainingFood": 12,
+            "remainingWater": -3,
+            "remainingWood": 0,
+            "winners": [
+                "1"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T20:21:50",
+            "remainingFood": 8,
+            "remainingWater": -2,
+            "remainingWood": 1,
+            "winners": [
+                "jelena",
+                "milica"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T20:31:25",
+            "remainingFood": 6,
+            "remainingWater": -2,
+            "remainingWood": 1,
+            "winners": [
+                "jelena"
+            ]
+        },
+        {
+            "gameDate": "2025-09-02T20:46:57",
+            "remainingFood": 7,
+            "remainingWater": -3,
+            "remainingWood": 3,
+            "winners": [
+                "biljana"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T16:39:07",
+            "remainingFood": 8,
+            "remainingWater": 1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T16:43:54",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:01:14",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:02:25",
+            "remainingFood": 16,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:04:00",
+            "remainingFood": 9,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:04:50",
+            "remainingFood": 10,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:06:48",
+            "remainingFood": 14,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "a",
+                "b"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:07:54",
+            "remainingFood": 16,
+            "remainingWater": -2,
+            "remainingWood": 0,
+            "winners": [
+                "b",
+                "c"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:30:58",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:33:21",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "bb"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:47:59",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "bb",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:49:35",
+            "remainingFood": 11,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "bb",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T17:56:47",
+            "remainingFood": 14,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:05:34",
+            "remainingFood": 8,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:07:54",
+            "remainingFood": 14,
+            "remainingWater": -3,
+            "remainingWood": 0,
+            "winners": [
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:10:17",
+            "remainingFood": 6,
+            "remainingWater": -1,
+            "remainingWood": 0,
+            "winners": [
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:51:08",
+            "remainingFood": 13,
+            "remainingWater": 0,
+            "remainingWood": 2,
+            "winners": [
+                "aa",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:55:21",
+            "remainingFood": 18,
+            "remainingWater": 0,
+            "remainingWood": 1,
+            "winners": [
+                "aa",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:55:21",
+            "remainingFood": 18,
+            "remainingWater": 0,
+            "remainingWood": 1,
+            "winners": [
+                "aa",
+                "cc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:59:51",
+            "remainingFood": 12,
+            "remainingWater": 0,
+            "remainingWood": 2,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T18:59:51",
+            "remainingFood": 12,
+            "remainingWater": 0,
+            "remainingWood": 2,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:03:13",
+            "remainingFood": 11,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:03:13",
+            "remainingFood": 11,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:12:03",
+            "remainingFood": 13,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:12:03",
+            "remainingFood": 13,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:14:47",
+            "remainingFood": 17,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:31:43",
+            "remainingFood": 21,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:40:36",
+            "remainingFood": 18,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:45:11",
+            "remainingFood": 15,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T19:47:21",
+            "remainingFood": 18,
+            "remainingWater": 0,
+            "remainingWood": 1,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T21:16:23",
+            "remainingFood": 18,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T21:47:56",
+            "remainingFood": 30,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T21:57:22",
+            "remainingFood": 16,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T22:15:37",
+            "remainingFood": 6,
+            "remainingWater": 2,
+            "remainingWood": 0,
+            "winners": [
+                "cc",
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T22:18:22",
+            "remainingFood": 5,
+            "remainingWater": 0,
+            "remainingWood": 4,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T22:33:07",
+            "remainingFood": 2,
+            "remainingWater": 1,
+            "remainingWood": 2,
+            "winners": [
+                "bb"
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T22:42:20",
+            "remainingFood": 3,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-03T22:42:20",
+            "remainingFood": 3,
+            "remainingWater": 0,
+            "remainingWood": 0,
+            "winners": [
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T15:35:55",
+            "remainingFood": 14,
+            "remainingWater": 2,
+            "remainingWood": 2,
+            "winners": [
+                "ccc",
+                "ddd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T15:42:58",
+            "remainingFood": 13,
+            "remainingWater": 13,
+            "remainingWood": 2,
+            "winners": [
+                "aaaaaaa",
+                "bbbbb",
+                "dddd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T15:54:50",
+            "remainingFood": 9,
+            "remainingWater": 10,
+            "remainingWood": 3,
+            "winners": [
+                "bbb",
+                "cccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T16:02:25",
+            "remainingFood": 21,
+            "remainingWater": 10,
+            "remainingWood": 0,
+            "winners": [
+                "bbb",
+                "ccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T16:07:23",
+            "remainingFood": 20,
+            "remainingWater": 14,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T16:21:59",
+            "remainingFood": 13,
+            "remainingWater": 11,
+            "remainingWood": 0,
+            "winners": [
+                "aaa",
+                "ddd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:13:19",
+            "remainingFood": 5,
+            "remainingWater": 9,
+            "remainingWood": 5,
+            "winners": [
+                "aaa",
+                "bbb",
+                "ccc",
+                "ddd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:21:20",
+            "remainingFood": 23,
+            "remainingWater": 6,
+            "remainingWood": 0,
+            "winners": [
+                "bb",
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:36:01",
+            "remainingFood": 21,
+            "remainingWater": 1,
+            "remainingWood": 0,
+            "winners": [
+                "bb"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:39:32",
+            "remainingFood": 6,
+            "remainingWater": 5,
+            "remainingWood": 5,
+            "winners": [
+                "bb"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T17:50:58",
+            "remainingFood": 9,
+            "remainingWater": 5,
+            "remainingWood": 1,
+            "winners": [
+                "dd"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T18:00:50",
+            "remainingFood": 8,
+            "remainingWater": 3,
+            "remainingWood": 4,
+            "winners": [
+                "ccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T18:00:50",
+            "remainingFood": 7,
+            "remainingWater": 2,
+            "remainingWood": 4,
+            "winners": [
+                "ccc"
+            ]
+        },
+        {
+            "gameDate": "2025-09-04T18:06:28",
+            "remainingFood": 8,
+            "remainingWater": 9,
+            "remainingWood": 0,
+            "winners": [
+                "aa",
+                "dd"
+            ]
+        }
+    ]
+}

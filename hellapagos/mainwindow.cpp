@@ -52,6 +52,10 @@ MainWindow::MainWindow(QWidget *parent)
 
 
     connect(client, &Client::serverFullSignal, this, &MainWindow::closeWindow);
+    connect(client, &Client::nameTaken, this, &MainWindow::onNameTaken);
+
+   // connect(client, &Client::allPlayersReady, this, &MainWindow::startGame);
+
 
 }
 
@@ -73,10 +77,13 @@ void MainWindow::onJoinButtonClicked()
     QString playerName = ui->playerNameLineEdit->text();
     if (playerName.isEmpty()) {
         // Ako je prazno, prikazujemo sliku i poruku o grešci
-        showErrorMessage();
+        showErrorImage();
+        return;
     } else {
         // Ako nije prazno, šaljemo JOIN komandu sa imenom
         client->sendJoinCommand(playerName);  // Pošaljemo JOIN komandu sa imenom igrača
+        player = new Player(playerName,client);  // Store the player's name
+
         ui->stackedWidget->setCurrentIndex(1);  // Prebacimo na stranicu 2
     }
 }
@@ -86,48 +93,6 @@ void MainWindow::setFixedWindowSize()
     this->setFixedSize(750, 600);  // Na primer, 800x600 je željena veličina prozora
 }
 
-
-void MainWindow::showErrorMessage()
-{
-    // Ako već postoji labela za sliku, ne kreiraj novu
-    if (!errorLabel) {
-        errorLabel = new QLabel(this);
-        errorLabel->setGeometry(100, 100, 300, 200);  // Pozicija i dimenzije labela za sliku
-        errorLabel->setStyleSheet("QLabel { background: transparent; }");  // Postavljanje pozadine na transparentnu
-    }
-
-    // Postavljanje slike
-    QPixmap pixmap("../../wood2.png");  // Putanja do slike u resursima
-    int newWidth = 500;  // Nova širina slike
-    int newHeight = 800; // Nova visina slike
-    pixmap = pixmap.scaled(newWidth, newHeight, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-
-    errorLabel->setPixmap(pixmap);
-    errorLabel->setAlignment(Qt::AlignCenter);  // Centriraj sliku
-
-    // Dobijanje dimenzija trenutnog prozora
-    QRect screenGeometry = this->geometry();
-    int screenWidth = screenGeometry.width();
-    int screenHeight = screenGeometry.height();
-
-    // Dimenzije slike
-    int imageWidth = pixmap.width();
-    int imageHeight = pixmap.height();
-
-    // Računanje pozicije za centar prozora
-    int xPos = (screenWidth - imageWidth) / 2;
-    int yPos = (screenHeight - imageHeight) / 2;
-
-    // Postavljanje geometrije (pozicija i dimenzije)
-    errorLabel->setGeometry(xPos, yPos, imageWidth, imageHeight);
-
-    // Prikazivanje slike
-    errorLabel->show();
-
-    // Skriva sliku i poruku nakon 2 sekunde
-    QTimer::singleShot(2000, errorLabel, &QLabel::hide);
-
-}
 
 
 // Slot za settings dugme (radiš sa podešavanjima)
@@ -170,7 +135,7 @@ void MainWindow::startGame()
     this->close();
 
     // Open the game UI
-    gameWindow = new GameWindow();
+    gameWindow = new GameWindow(player,client);
     gameWindow->show();
 
     qDebug() << "Game started!";
@@ -343,4 +308,85 @@ void MainWindow::on_MuteSoundButton_toggled(bool checked)
     }
     QTimer::singleShot(100, [this](){ alreadyToggled = false; });
 
+}
+
+void MainWindow::onNameTaken()
+{
+    qDebug() << "The name is taken! Please enter a different name.";
+
+    // Na primer, ako showErrorMessage prima QString poruku:
+    showErrorText(QStringLiteral("The name is taken! Please enter a different name."));
+
+    // Ostani na početnoj stranici da korisnik ponovo pokuša
+    ui->stackedWidget->setCurrentIndex(0);
+    ui->playerNameLineEdit->clear();
+}
+
+
+void MainWindow::showErrorText(const QString& message)
+{
+    if (!errorLabel) {
+        errorLabel = new QLabel(this);
+        errorLabel->setAlignment(Qt::AlignCenter);
+        errorLabel->setWordWrap(true);
+        errorLabel->setTextFormat(Qt::PlainText);
+    }
+
+    errorLabel->hide();
+    errorLabel->clear();
+    errorLabel->setPixmap(QPixmap());
+
+    errorLabel->setText(message);
+    errorLabel->setFixedSize(450, 100);
+    errorLabel->setStyleSheet(
+        "QLabel { "
+        "background-color: #fdf6e3;"
+        "color: black;"
+        "font-weight: bold;"
+        "font-size: 16px;"
+        "padding: 15px;"
+        "border-radius: 10px;"
+        "border: 2px solid #ccc;"
+        "}"
+        );
+
+    centerErrorLabel();
+    errorLabel->raise();
+    errorLabel->show();
+
+    QTimer::singleShot(2000, errorLabel, &QLabel::hide);
+}
+
+void MainWindow::showErrorImage()
+{
+    if (!errorLabel) {
+        errorLabel = new QLabel(this);
+        errorLabel->setAlignment(Qt::AlignCenter);
+        errorLabel->setWordWrap(true);
+        errorLabel->setTextFormat(Qt::PlainText);
+    }
+
+    errorLabel->hide();
+    errorLabel->clear();
+    errorLabel->setText("");
+
+    QPixmap pixmap("../../wood2.png");
+    pixmap = pixmap.scaled(500, 800, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    errorLabel->setPixmap(pixmap);
+    errorLabel->setFixedSize(pixmap.size());
+    errorLabel->setStyleSheet("QLabel { background: transparent; }");
+
+    centerErrorLabel();
+    errorLabel->raise();
+    errorLabel->show();
+
+    QTimer::singleShot(2000, errorLabel, &QLabel::hide);
+}
+
+
+void MainWindow::centerErrorLabel()
+{
+    int xPos = (this->width() - errorLabel->width()) / 2;
+    int yPos = (this->height() - errorLabel->height()) / 2;
+    errorLabel->move(xPos, yPos);
 }

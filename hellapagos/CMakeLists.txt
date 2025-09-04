@@ -32,6 +32,22 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         soundmanager.cpp
         audio.qrc
         gamewindow.h gamewindow.cpp gamewindow.ui
+        player.h player.cpp
+        collectwood.h collectwood.cpp
+        collectwater.h collectwater.cpp
+        collectfood.h collectfood.cpp
+        actionselector.h actionselector.cpp
+
+        sickplayer.h sickplayer.cpp
+
+        eliminatedplayer.h eliminatedplayer.cpp
+        gamestate.h gamestate.cpp
+        votedialog.h votedialog.cpp
+        votedialog.h votedialog.cpp votedialog.ui
+
+
+
+
 
 
 

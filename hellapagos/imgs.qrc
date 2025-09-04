@@ -4,5 +4,17 @@
         <file>wooden-badge-banner-wooden-plank-plate-png.png</file>
         <file>pap_wood-1.jpg</file>
         <file>light-wood-grain-texture_303714-25017.jpg</file>
+        <file>background-island.jpg</file>
+        <file>cards/background.jpeg</file>
+        <file>cards/cloudy.jpeg</file>
+        <file>cards/hurricane.jpeg</file>
+        <file>cards/rainy.jpeg</file>
+        <file>cards/sunny.jpeg</file>
+        <file>cards/0.jpeg</file>
+        <file>cards/1.jpeg</file>
+        <file>cards/2.jpeg</file>
+        <file>cards/3.jpeg</file>
+        <file>blue.jpg</file>
     </qresource>
+    <qresource prefix="/images"/>
 </RCC>

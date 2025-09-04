@@ -3,7 +3,11 @@
 
 #include <QObject>
 #include <QTcpSocket>
+#include <QSharedPointer>
 #include <QString>  // Include QString to handle names
+#include <QList>
+#include "eliminatedplayer.h"
+#include "sickplayer.h"
 
 class Client : public QObject
 {
@@ -13,27 +17,58 @@ public:
     explicit Client(QObject *parent = nullptr);
     ~Client();
 
-
+    void sendMessage(const QString &message);
+    void handleMessage(const QString& message);
 
     void connectToServer();
     void sendJoinCommand(const QString &playerName); // New function
     void sendReadySignal();
+    void sendWeatherCardChange(int index);
+    void sendWeatherCardRequest();
+    void addPlayer(QSharedPointer<SickPlayer> player1);
+    QStringList getPlayers();
     // void sendMessage(const QString &message);
     // In client.h
 
 signals:
     void serverFullSignal();  // Signal to notify the server is full
     void allPlayersReady();
+    void weatherCardUpdated(int newIndex);
+    void collectWaterApproved();
+    void collectWoodApproved();
+    void collectFoodApproved();
+    void gameStatsReceived(const QString &stats);
+    void playersListUpdated(const QStringList &playerNames);
+    void notYourTurn();
+    void gameOverSignal();
+    void voteStarted(const QStringList& playersToVoteFor);
+    void playerVotedOut(const QString& playerName);
+    void nameTaken();
+    void currentPlayerChanged(const QString& playerName);
+    void resourcesUpdated(int water, int food, int wood, int rafts);
 
 private slots:
     void onConnected();
     void onReadyRead();
     void onDisconnected();
+    //void onPlayerEliminated(const QString& playerName); // Slot za prijem eliminisanog igraca
 
 
 private:
     QTcpSocket *tcpSocket;
-    void sendMessage(const QString &message);
+
+  //  QList<SickPlayer*>* players;
+
+    QStringList playerNames;
+
+    EliminatedPlayer* player;  // Instanca eliminisanog igraca
+
+    bool voteInProgress = false;
+
+    QByteArray buffer;
+
+    QList<QSharedPointer<SickPlayer>> players;
+
 
 };
 

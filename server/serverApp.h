@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include"gameserver.h"
 
 class Server : public QObject
 {
@@ -14,18 +15,43 @@ public:
     ~Server();
 
     void startServer();
+    void onWeatherCardChanged(int newIndex);
+    void broadcastWeatherCardChange(int index);
+    void onRoundStarted(int roundNumber);
+    void broadcastResourcesInfo();
+    void onRequestGameStatistics(QTcpSocket *requestingClient);
+    void sendStatsToClient(const QString& statsText, QTcpSocket *client);
+    void broadcastPlayersList();
+    void votingEnded();
+    
+signals:
+    // Signal koji obaveštava klijente o trenutnom i narednom igraču
+    void currentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
+    // Signal za slanje statistike klijentu
+    void sendGameStatisticsToClient(const QString &statsText, QTcpSocket* requestingClient);
 
 private slots:
     void onNewConnection();
     void onReadyRead();
     void onDisconnected();
+    void onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const QString& nextPlayer);
+    void playerSickSkip(const QString& currentPlayer);
+    void onGameOver();
+    void onStartVote(const QStringList& voteTargets);
+    void onPlayerEliminated(const QString& playerName);
+    void onVoteResult(const QString& playerName);
+    void handleMessage(QTcpSocket* senderSocket, const QString& message);
 
 private:
+    int maxPlayers;
+
     QTcpServer *tcpServer;
     QList<QTcpSocket*> clientSockets;     // List of connected clients
-
+    GameServer* gameServer;
     void broadcastMessage(const QString& message);
     int readyPlayers = 0;
+    QMap<QString, QTcpSocket*> playerSocketMap;
+    bool weatherCardRevealed = false;
 };
 
 #endif // SERVER_H

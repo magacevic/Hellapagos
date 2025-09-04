@@ -1,0 +1,28 @@
+#ifndef COLLECTWOOD_H
+#define COLLECTWOOD_H
+#include <QObject>
+
+class CollectWood : public QObject
+{
+    Q_OBJECT
+public:
+    explicit CollectWood(QObject *parent = nullptr);
+
+    int woodCollected;
+
+    bool playerGotSick;
+    int additionalWood;
+    int additionalWoodCollected;
+    int totalWoodCollected;
+
+    void performAction();
+    void goToForest(int additionalWood);
+    void getCollectedWood();
+    void didPlayerGetSick();
+    bool checkForSnakeBite(int woodToCollect);
+
+signals:
+    void playerGotBitten();
+};
+
+#endif // COLLECTWOOD_H
