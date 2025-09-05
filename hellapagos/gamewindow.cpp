@@ -261,7 +261,7 @@ void GameWindow::on_collectFoodButton_clicked()
         return;
     }
 
-   // disconnect(m_client, &Client::collectFoodApproved, this, nullptr);
+    disconnect(m_client, &Client::collectFoodApproved, this, nullptr);
 
     connect(m_client, &Client::collectFoodApproved, this, [this]() {
         actionSelector->selectAction(COLLECT_FOOD);
