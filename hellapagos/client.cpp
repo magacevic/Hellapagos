@@ -128,6 +128,11 @@ void Client::handleMessage(const QString& message)
         emit roundUpdated(roundNumber);
     }
 
+    if (message == "LAST_ROUND") {
+        qDebug() << "The last round started!";
+        emit lastRoundStarted();
+    }
+
     if (message.contains("RESOURCES:")) {
         int start = message.indexOf("RESOURCES:") + QString("RESOURCES:").length();
         int end = message.indexOf('\n', start);

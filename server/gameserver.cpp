@@ -235,7 +235,7 @@ void GameServer::onReadyRead()
 void GameServer::onLastRoundLogic()
 {
     qDebug()<<"This is the last round. Survive untill the end!";
-
+    emit lastRound();
 }
 
 void GameServer::gameEnd()

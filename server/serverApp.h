@@ -23,6 +23,7 @@ public:
     void sendStatsToClient(const QString& statsText, QTcpSocket *client);
     void broadcastPlayersList();
     void votingEnded();
+    void onLastRound();
     
 signals:
     // Signal koji obaveštava klijente o trenutnom i narednom igraču

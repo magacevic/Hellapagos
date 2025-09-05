@@ -73,6 +73,7 @@ signals:
     void voteResultSignal(const QString& playerName);
     void newRoundResources();
     void votingAgain();
+    void lastRound();
 
 private:
     QStringList players;      // List of player names

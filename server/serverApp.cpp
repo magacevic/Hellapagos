@@ -21,7 +21,7 @@ Server::Server(QObject *parent)
     connect(gameServer, &GameServer::voteResultSignal, this, &Server::onVoteResult);
     connect(gameServer, &GameServer::newRoundResources, this, &Server::broadcastResourcesInfo);
     connect(gameServer, &GameServer::votingAgain, this, &Server::votingEnded);
-
+    connect(gameServer, &GameServer::lastRound, this, &Server::onLastRound);
 
 }
 
@@ -445,5 +445,10 @@ void Server::broadcastPlayersList()
     broadcastMessage(playersListMessage);
 }
 
+
+void Server::onLastRound()
+{
+    broadcastMessage("LAST_ROUND");
+}
 
 

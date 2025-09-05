@@ -46,6 +46,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
     });
 
     connect(m_client, &Client::roundUpdated, this, &GameWindow::onRoundUpdated);
+    connect(m_client, &Client::lastRoundStarted, this, &GameWindow::onLastRoundStarted);
 
 }
 
@@ -442,8 +443,12 @@ void GameWindow::resizeEvent(QResizeEvent *event)
 
 void GameWindow::onRoundUpdated(int currentRound)
 {
-
     ui->roundLabel->setText(QString("Day %1").arg(currentRound));
+
 }
 
+void GameWindow::onLastRoundStarted()
+{
+    ui->roundLabel->setText("FINAL DAY!");
+}
 
