@@ -46,6 +46,7 @@ signals:
     void nameTaken();
     void currentPlayerChanged(const QString& playerName);
     void resourcesUpdated(int water, int food, int wood, int rafts);
+    void roundUpdated(int currentRound);
 
 private slots:
     void onConnected();

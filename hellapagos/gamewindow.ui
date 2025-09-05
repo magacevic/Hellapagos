@@ -378,30 +378,6 @@ color: rgb(193, 125, 17);</string>
      <string>Me:</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="revealButton">
-    <property name="enabled">
-     <bool>false</bool>
-    </property>
-    <property name="geometry">
-     <rect>
-      <x>90</x>
-      <y>190</y>
-      <width>81</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">color: rgb(46, 52, 54);
-border-color: rgb(0, 0, 0);
-border-image: url(:/light-wood-grain-texture_303714-25017.jpg);
-background-color: rgb(114, 159, 207);
-font: 700 italic 14pt &quot;Ubuntu Condensed&quot;;
-</string>
-    </property>
-    <property name="text">
-     <string>Reveal</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="collectWoodButton">
     <property name="geometry">
      <rect>
@@ -458,7 +434,7 @@ background-color: white;</string>
      <rect>
       <x>20</x>
       <y>400</y>
-      <width>111</width>
+      <width>161</width>
       <height>51</height>
      </rect>
     </property>
@@ -473,7 +449,7 @@ background-color: white;</string>
    <widget class="QLabel" name="currPlayerName">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>190</x>
       <y>400</y>
       <width>171</width>
       <height>51</height>
@@ -515,7 +491,7 @@ border: none;
 qproperty-alignment: 'AlignCenter';</string>
     </property>
     <property name="text">
-     <string/>
+     <string>10</string>
     </property>
     <property name="pixmap">
      <pixmap>blue.jpg</pixmap>
@@ -549,7 +525,7 @@ border: none;
 qproperty-alignment: 'AlignCenter';</string>
     </property>
     <property name="text">
-     <string/>
+     <string>8</string>
     </property>
     <property name="pixmap">
      <pixmap>blue.jpg</pixmap>
@@ -583,7 +559,7 @@ border: none;
 qproperty-alignment: 'AlignCenter';</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
     </property>
     <property name="pixmap">
      <pixmap>blue.jpg</pixmap>
@@ -617,7 +593,7 @@ border: none;
 qproperty-alignment: 'AlignCenter';</string>
     </property>
     <property name="text">
-     <string/>
+     <string>0</string>
     </property>
     <property name="pixmap">
      <pixmap>blue.jpg</pixmap>
@@ -694,6 +670,34 @@ background-color: white;</string>
      <string>rafts:</string>
     </property>
    </widget>
+   <widget class="QLabel" name="roundLabel">
+    <property name="geometry">
+     <rect>
+      <x>310</x>
+      <y>10</y>
+      <width>221</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu Condensed</family>
+      <pointsize>24</pointsize>
+      <italic>true</italic>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background: transparent;
+</string>
+    </property>
+    <property name="text">
+     <string>Day 1</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignmentFlag::AlignCenter</set>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -701,7 +705,7 @@ background-color: white;</string>
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>22</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>

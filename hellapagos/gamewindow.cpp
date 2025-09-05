@@ -26,7 +26,7 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
 
     ui->playerNameLabel->setText(currentPlayer->getName());
     connect(m_client, &Client::weatherCardUpdated, this, &GameWindow::updateWeatherCard);
-    connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
+    //connect(ui->revealButton, &QPushButton::clicked, this, &GameWindow::onWeatherCardClicked);
     connect(ui->collectWaterButton, &QPushButton::clicked, this, &GameWindow::on_collectWaterButton_clicked);
     connect(ui->collectFoodButton, &QPushButton::clicked, this, &GameWindow::on_collectFoodButton_clicked);
     //connect(ui->voteButton, &QPushButton::clicked, this, &GameWindow::on_voteButton_clicked);
@@ -44,6 +44,8 @@ GameWindow::GameWindow(Player *player,Client *client,QWidget *parent)
         ui->label_wood->setText(QString::number(wood));
         ui->label_rafts->setText(QString::number(rafts));
     });
+
+    connect(m_client, &Client::roundUpdated, this, &GameWindow::onRoundUpdated);
 
 }
 
@@ -394,7 +396,7 @@ void GameWindow::onPlayerVotedOut(const QString& playerName)
     ui->collectFoodButton->setEnabled(false);
     ui->collectWaterButton->setEnabled(false);
     ui->collectWoodButton->setEnabled(false);
-    ui->revealButton->setEnabled(false);
+    //ui->revealButton->setEnabled(false);
     }
 }
 
@@ -403,7 +405,7 @@ void GameWindow::on_GameOver()
     ui->collectFoodButton->setEnabled(false);
     ui->collectWaterButton->setEnabled(false);
     ui->collectWoodButton->setEnabled(false);
-    ui->revealButton->setEnabled(false);
+    //ui->revealButton->setEnabled(false);
 
     QMessageBox msgBox(this);
     msgBox.setWindowTitle("Game Over");
@@ -436,6 +438,12 @@ void GameWindow::resizeEvent(QResizeEvent *event)
     makeEllipse(ui->label_water);
     makeEllipse(ui->label_wood);
     makeEllipse(ui->label_rafts);
+}
+
+void GameWindow::onRoundUpdated(int currentRound)
+{
+
+    ui->roundLabel->setText(QString("Day %1").arg(currentRound));
 }
 
 

@@ -125,6 +125,7 @@ void Client::handleMessage(const QString& message)
             }
             player1->decrementRecovery();
         }
+        emit roundUpdated(roundNumber);
     }
 
     if (message.contains("RESOURCES:")) {

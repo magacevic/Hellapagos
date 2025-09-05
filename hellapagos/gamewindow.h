@@ -38,6 +38,8 @@ private slots:
 
     void on_GameOver();
 
+    void onRoundUpdated(int currentRound);
+
 private:
     Ui::GameWindow *ui;
     Player *currentPlayer;
