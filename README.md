@@ -4,7 +4,8 @@ Hellapagos je vrlo interesantna igra karaktera koja vas stavlja na pusto ostrvo,
 Na kraju svakog dana se održava plemensko glasanje. Treba napojiti sve i nahraniti. Nije problem ukoliko ima vode i hrane. Problemi nastaju kada ih nema dovoljno. Tada ostajete na milosti i nemilosti svih članova plemena.
 Bitno je da pre nego što uragan dođe, pobegnete sa ostrva! 
 
-## Demo snimak:
+## Demo snimak: 
+- https://www.youtube.com/watch?v=UFC7GNEmkug
 
 
 ## Okruženje:
