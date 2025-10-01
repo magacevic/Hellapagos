@@ -691,6 +691,14 @@
                 "aa",
                 "dd"
             ]
+        },
+        {
+            "gameDate": "2025-09-04T21:18:01",
+            "remainingFood": 14,
+            "remainingWater": 0,
+            "remainingWood": 1,
+            "winners": [
+            ]
         }
     ]
 }
