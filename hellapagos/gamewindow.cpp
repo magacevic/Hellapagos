@@ -419,6 +419,10 @@ void GameWindow::on_GameOver()
             m_client->sendMessage("REQUEST_GAME_STATISTICS");
         }
     }
+    if (msgBox.clickedButton() == okButton) {
+        return;
+    }
+
 }
 
 void GameWindow::resizeEvent(QResizeEvent *event)

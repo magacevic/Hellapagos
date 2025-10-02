@@ -306,7 +306,7 @@ void MainWindow::on_MuteSoundButton_toggled(bool checked)
 
         qDebug() << "Sound is unmuted!";
     }
-    QTimer::singleShot(100, [this](){ alreadyToggled = false; });
+    QTimer::singleShot(100, this, [this](){ alreadyToggled = false; });
 
 }
 
