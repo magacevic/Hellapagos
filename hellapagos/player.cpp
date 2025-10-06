@@ -1,156 +1,150 @@
 // Player.cpp
 #include "player.h"
-#include "actionselector.h"
-#include <QMessageBox>
+
 #include <QInputDialog>
+#include <QMessageBox>
 #include <QTimer>
 
+#include "actionselector.h"
+
 Player::Player(const QString& name, Client* client)
-    : playerName(name), alive(true), sick(false), totalFood(0), totalWater(0), totalWood(0), eliminatedPlayer(nullptr), sickPlayer(nullptr)
+    : playerName(name)
+    , alive(true)
+    , sick(false)
+    , totalFood(0)
+    , totalWater(0)
+    , totalWood(0)
+    , eliminatedPlayer(nullptr)
+    , sickPlayer(nullptr)
 {
-    // Inicijalizacija objekata za akcije
-    collectFoodAction = new CollectFood();
-    collectWaterAction = new CollectWater();
-    collectWoodAction = new CollectWood();
-    m_client = client;
+      // Inicijalizacija objekata za akcije
+      collectFoodAction = new CollectFood();
+      collectWaterAction = new CollectWater();
+      collectWoodAction = new CollectWood();
+      m_client = client;
 
-    connect(collectWoodAction,&CollectWood::playerGotBitten,this,&Player::onPlayerGotBitten);
-
+      connect(collectWoodAction, &CollectWood::playerGotBitten, this,
+          &Player::onPlayerGotBitten);
 }
 
-QString Player::getName() const {
-    return playerName;
-}
+QString Player::getName() const { return playerName; }
 
-void Player::setName(const QString& name) {
-    playerName = name;
-}
+void Player::setName(const QString& name) { playerName = name; }
 
-bool Player::isAlive() const {
-    return alive;
-}
+bool Player::isAlive() const { return alive; }
 
-void Player::setAlive(bool alive) {
-    this->alive = alive;
-}
+void Player::setAlive(bool alive) { this->alive = alive; }
 
-bool Player::isSick() const {
-    return sick;
-}
+bool Player::isSick() const { return sick; }
 
-void Player::setSick(bool sick) {
-    this->sick = sick;
-   /* sickPlayer = new SickPlayer();
-    sickPlayer->setRecovered(false);
-    m_client->addPlayer(sickPlayer);
+void Player::setSick(bool sick)
+{
+      this->sick = sick;
+      /* sickPlayer = new SickPlayer();
+   sickPlayer->setRecovered(false);
+   m_client->addPlayer(sickPlayer);
 */
-    if (sick && !sickPlayer) {
-        sickPlayer = QSharedPointer<SickPlayer>::create();
-        sickPlayer->setRecovered(false);
-        m_client->addPlayer(sickPlayer); // Client sada prima QSharedPointer<SickPlayer>
-    }}
-
-bool Player::canPerformActions() {
-
-    if(eliminatedPlayer)
-        return eliminatedPlayer->canPerformActions();
-
-    if (sickPlayer && sickPlayer->isRecovered()) {
-        recover();
-    }
-    return !sick; //|| (sickPlayer && sickPlayer->canPerformActions());
+      if (sick && !sickPlayer)
+      {
+            sickPlayer = QSharedPointer<SickPlayer>::create();
+            sickPlayer->setRecovered(false);
+            m_client->addPlayer(
+                sickPlayer); // Client sada prima QSharedPointer<SickPlayer>
+      }
 }
 
-bool Player::canVote() const {
+bool Player::canPerformActions()
+{
+      if (eliminatedPlayer)
+            return eliminatedPlayer->canPerformActions();
 
-    if(eliminatedPlayer)
-        return eliminatedPlayer->canVote();
-
-    return !sick || (sickPlayer && sickPlayer->canVote());
+      if (sickPlayer && sickPlayer->isRecovered())
+      {
+            recover();
+      }
+      return !sick; //|| (sickPlayer && sickPlayer->canPerformActions());
 }
 
+bool Player::canVote() const
+{
+      if (eliminatedPlayer)
+            return eliminatedPlayer->canVote();
 
-int Player::getTotalFood() const {
-    return totalFood;
+      return !sick || (sickPlayer && sickPlayer->canVote());
 }
 
-int Player::getTotalWater() const {
-    return totalWater;
+int Player::getTotalFood() const { return totalFood; }
+
+int Player::getTotalWater() const { return totalWater; }
+
+int Player::getTotalWood() const { return totalWood; }
+
+void Player::addFood(int food) { totalFood = food; }
+
+void Player::addWater(int water) { totalWater = water; }
+
+void Player::resetWood() { totalWood = 0; }
+void Player::addWood(int wood) { totalWood += wood; }
+
+// U zavisnosti od izabrane akcije u actionSelectoru, pozivamo odgovarajuce
+// metode
+void Player::collectFood()
+{
+      if (!canPerformActions())
+      {
+            qDebug() << playerName << " is sick and cannot collect food!";
+
+            return;
+      }
+      int foodCollectedInRound = collectFoodAction->performAction();
+      addFood(foodCollectedInRound);
+      reportResourcesToServer(foodCollectedInRound, 0);
 }
 
-int Player::getTotalWood() const {
-    return totalWood;
+void Player::collectWater(QWidget* card)
+{
+      if (!canPerformActions())
+      {
+            qDebug() << playerName << " is sick and cannot collect water!";
+            return;
+      }
+      collectWaterAction->collectWaterFromCard(card);
+      int waterCollectedInRound = collectWaterAction->performAction();
+      addWater(waterCollectedInRound);
+      reportResourcesToServer(0, waterCollectedInRound);
 }
 
-void Player::addFood(int food) {
-    totalFood = food;
+void Player::collectWood()
+{
+      if (!canPerformActions())
+      {
+            qDebug() << playerName << " is sick and cannot collect wood!";
+            return;
+      }
+
+      collectWoodAction->performAction();
+      int woodCollected = collectWoodAction->woodCollected;
+      addWood(woodCollected);
+      qDebug() << "Wood collected so far by this player: " << totalWood;
+      collectWoodAction->getCollectedWood();
+      reportResourcesToServer(0, 0);
 }
 
-void Player::addWater(int water) {
-    totalWater = water;
-}
+void Player::collectAdditionalWood(int trips)
+{
+      collectWoodAction->goToForest(trips);
+      // sick = collectWoodAction->playerGotSick;
+      if (collectWoodAction->playerGotSick)
+      {
+            setSick(true);
+            qDebug() << playerName << " got sick while collecting wood!";
+      }
 
-void Player::resetWood(){
-    totalWood=0;
-}
-void Player::addWood(int wood) {
-    totalWood += wood;
-}
-
-//U zavisnosti od izabrane akcije u actionSelectoru, pozivamo odgovarajuce metode
-void Player::collectFood() {
-    if (!canPerformActions()) {
-        qDebug() << playerName << " is sick and cannot collect food!";
-
-        return;
-    }
-    int foodCollectedInRound = collectFoodAction->performAction();
-    addFood(foodCollectedInRound);
-    reportResourcesToServer(foodCollectedInRound, 0);
-
-}
-
-void Player::collectWater(QWidget *card) {
-    if (!canPerformActions()) {
-        qDebug() << playerName << " is sick and cannot collect water!";
-        return;
-    }
-    collectWaterAction->collectWaterFromCard(card);
-    int waterCollectedInRound = collectWaterAction->performAction();
-    addWater(waterCollectedInRound);
-    reportResourcesToServer(0, waterCollectedInRound);
-
-}
-
-void Player::collectWood() {
-    if (!canPerformActions()) {
-        qDebug() << playerName << " is sick and cannot collect wood!";
-        return;
-    }
-
-    collectWoodAction->performAction();
-    int woodCollected = collectWoodAction->woodCollected;
-    addWood(woodCollected);
-    qDebug() <<"Wood collected so far by this player: " << totalWood;
-    collectWoodAction->getCollectedWood();
-    reportResourcesToServer(0,0);
-    
-}
-
-void Player::collectAdditionalWood(int trips) {
-
-    collectWoodAction->goToForest(trips);
-    //sick = collectWoodAction->playerGotSick;
-    if (collectWoodAction->playerGotSick) {
-        setSick(true);
-        qDebug() << playerName  <<" got sick while collecting wood!";
-    }
-    	
-    int woodCollected = collectWoodAction->additionalWoodCollected;
-    addWood(woodCollected);
-    qDebug() <<"Wood collected so far by this player: " << totalWood;
-    collectWoodAction->getCollectedWood();
-    reportResourcesToServer(0,0);
+      int woodCollected = collectWoodAction->additionalWoodCollected;
+      addWood(woodCollected);
+      qDebug() << "Wood collected so far by this player: " << totalWood;
+      collectWoodAction->getCollectedWood();
+      reportResourcesToServer(0, 0);
 }
 
 /*
@@ -164,52 +158,57 @@ void Player::raftCreated() {
 }
 */
 
-void Player::recover() {
-    if (sick && sickPlayer) {
-        sick = false;
-        //delete sickPlayer;
-        //sickPlayer = nullptr;
-        sickPlayer.clear();
-        qDebug() << "Player has recovered!";
-    }
+void Player::recover()
+{
+      if (sick && sickPlayer)
+      {
+            sick = false;
+            // delete sickPlayer;
+            // sickPlayer = nullptr;
+            sickPlayer.clear();
+            qDebug() << "Player has recovered!";
+      }
 }
 
-void Player::eliminate() {
-    alive = false;
-    // Kreira novu instancu EliminatedPlayer kada je igrač eliminisan
-    if (eliminatedPlayer == nullptr) {
-        eliminatedPlayer = new EliminatedPlayer();
-    }
-    eliminatedPlayer->setSpectating(true);
+void Player::eliminate()
+{
+      alive = false;
+      // Kreira novu instancu EliminatedPlayer kada je igrač eliminisan
+      if (eliminatedPlayer == nullptr)
+      {
+            eliminatedPlayer = new EliminatedPlayer();
+      }
+      eliminatedPlayer->setSpectating(true);
 }
-EliminatedPlayer* Player::getEliminatedPlayer() const {
-    return eliminatedPlayer;
+EliminatedPlayer* Player::getEliminatedPlayer() const
+{
+      return eliminatedPlayer;
 }
 
 void Player::onPlayerGotBitten()
 {
-    m_client->sendMessage("SICK: "+playerName+ "\n");
+      m_client->sendMessage("SICK: " + playerName + "\n");
 
-    qDebug()<<"POSLAO SAM";
+      qDebug() << "POSLAO SAM";
 }
 
+void Player::reportResourcesToServer(int newlyCollectedFood,
+    int newlyCollectedWater)
+{
+      tFood += newlyCollectedFood;
+      tWater += newlyCollectedWater;
 
-void Player::reportResourcesToServer(int newlyCollectedFood, int newlyCollectedWater) {
+      QTimer::singleShot(500, this, [this]() {
+            int total = tFood + tWater + totalWood;
 
-    tFood += newlyCollectedFood;
-    tWater += newlyCollectedWater;
-
-    QTimer::singleShot(500, this, [this](){
-
-    int total = tFood + tWater + totalWood;
-
-    QString report = QString("RESOURCES_REPORT: player=%1: food=%2: water=%3: wood=%4: total=%5\n")
-                         .arg(playerName)
-                         .arg(tFood)
-                         .arg(tWater)
-                         .arg(totalWood)
-                         .arg(total);
-    m_client->sendMessage(report);
-    });
+            QString report = QString(
+                "RESOURCES_REPORT: player=%1: food=%2: water=%3: "
+                "wood=%4: total=%5\n")
+                                 .arg(playerName)
+                                 .arg(tFood)
+                                 .arg(tWater)
+                                 .arg(totalWood)
+                                 .arg(total);
+            m_client->sendMessage(report);
+      });
 }
-
