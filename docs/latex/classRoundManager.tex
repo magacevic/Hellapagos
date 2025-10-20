@@ -1,0 +1,261 @@
+\doxysection{Round\+Manager Class Reference}
+\hypertarget{classRoundManager}{}\label{classRoundManager}\index{RoundManager@{RoundManager}}
+
+
+{\ttfamily \#include $<$roundmanager.\+h$>$}
+
+Inheritance diagram for Round\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classRoundManager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRoundManager_aaecd17f2d6bcadd1d995a6109ae7d4d7}{handle\+Player\+Eliminated}} (const QString \&player\+Name)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classRoundManager_ae18bbd6dc762a436f5c1e70d32a5863d}{current\+And\+Next\+Player\+Updated}} (const QString \&\mbox{\hyperlink{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}{current\+Player}}, const QString \&\mbox{\hyperlink{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}{next\+Player}})
+\item 
+void \mbox{\hyperlink{classRoundManager_abb2611c3762c5484dc84f74af75bed38}{player\+Changed}} (int new\+Player\+Id)
+\item 
+void \mbox{\hyperlink{classRoundManager_ada49a8cc31421ea5e3b41363af9fa8c3}{round\+Completed}} ()
+\item 
+void \mbox{\hyperlink{classRoundManager_ae86d326a6f9dec421d0c67479e93e92b}{player\+List\+Updated}} (const QVector$<$ QString $>$ \&update\+Players)
+\item 
+void \mbox{\hyperlink{classRoundManager_a49c02b67fe6016d397f5b2ed11acf707}{last\+Round\+Started}} ()
+\item 
+void \mbox{\hyperlink{classRoundManager_ad26ca5a3d6997ec60b77c9bf4ee14a72}{last\+Round\+Ended}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRoundManager_a546c3309f12f73991c0f621e72b7dc7c}{Round\+Manager}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+void \mbox{\hyperlink{classRoundManager_a9565e349f429e5c517290510bb3cbe22}{add\+To\+Turn\+Player}} (const QString \&player\+Name)
+\item 
+void \mbox{\hyperlink{classRoundManager_a2f6ab740d9650a106dd3fe8f57fa6a1f}{next\+Turn}} ()
+\item 
+QString \mbox{\hyperlink{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}{current\+Player}} () const
+\item 
+QString \mbox{\hyperlink{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}{next\+Player}} () const
+\item 
+int \mbox{\hyperlink{classRoundManager_aa54e16418c57e06e675ff12e5dd5136f}{get\+Current\+Player\+Index}} ()
+\item 
+void \mbox{\hyperlink{classRoundManager_a4f791af074f8a161957e206f96a21b85}{action\+Completed}} ()
+\item 
+void \mbox{\hyperlink{classRoundManager_ac0a5392fa56d167966aa3d06f8c577f1}{set\+Last\+Round}} (bool is\+Last)
+\item 
+bool \mbox{\hyperlink{classRoundManager_a7a9d8981d4b677464651dd8a34f631c1}{get\+Last\+Round}} () const
+\item 
+void \mbox{\hyperlink{classRoundManager_ab286d6b704b21d141e9ae13e55f607a8}{first\+Turn}} ()
+\item 
+void \mbox{\hyperlink{classRoundManager_a99951cbcf504f369d9f7fc9f60991a80}{remove\+From\+Turn\+Player}} (const QString \&player\+Name)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8h_source_l00008}{8}} of file \mbox{\hyperlink{roundmanager_8h_source}{roundmanager.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classRoundManager_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classRoundManager_a546c3309f12f73991c0f621e72b7dc7c}\index{RoundManager@{RoundManager}!RoundManager@{RoundManager}}
+\index{RoundManager@{RoundManager}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{RoundManager()}{RoundManager()}}
+{\footnotesize\ttfamily \label{classRoundManager_a546c3309f12f73991c0f621e72b7dc7c} 
+Round\+Manager\+::\+Round\+Manager (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00005}{5}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classRoundManager_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRoundManager_a4f791af074f8a161957e206f96a21b85}\index{RoundManager@{RoundManager}!actionCompleted@{actionCompleted}}
+\index{actionCompleted@{actionCompleted}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{actionCompleted()}{actionCompleted()}}
+{\footnotesize\ttfamily \label{classRoundManager_a4f791af074f8a161957e206f96a21b85} 
+void Round\+Manager\+::action\+Completed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00072}{72}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_a9565e349f429e5c517290510bb3cbe22}\index{RoundManager@{RoundManager}!addToTurnPlayer@{addToTurnPlayer}}
+\index{addToTurnPlayer@{addToTurnPlayer}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{addToTurnPlayer()}{addToTurnPlayer()}}
+{\footnotesize\ttfamily \label{classRoundManager_a9565e349f429e5c517290510bb3cbe22} 
+void Round\+Manager\+::add\+To\+Turn\+Player (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00009}{9}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_ae18bbd6dc762a436f5c1e70d32a5863d}\index{RoundManager@{RoundManager}!currentAndNextPlayerUpdated@{currentAndNextPlayerUpdated}}
+\index{currentAndNextPlayerUpdated@{currentAndNextPlayerUpdated}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{currentAndNextPlayerUpdated}{currentAndNextPlayerUpdated}}
+{\footnotesize\ttfamily \label{classRoundManager_ae18bbd6dc762a436f5c1e70d32a5863d} 
+void Round\+Manager\+::current\+And\+Next\+Player\+Updated (\begin{DoxyParamCaption}\item[{const QString \&}]{current\+Player}{, }\item[{const QString \&}]{next\+Player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__roundmanager_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{moc__roundmanager_8cpp_source}{moc\+\_\+roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}\index{RoundManager@{RoundManager}!currentPlayer@{currentPlayer}}
+\index{currentPlayer@{currentPlayer}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{currentPlayer()}{currentPlayer()}}
+{\footnotesize\ttfamily \label{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8} 
+QString Round\+Manager\+::current\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00057}{57}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_ab286d6b704b21d141e9ae13e55f607a8}\index{RoundManager@{RoundManager}!firstTurn@{firstTurn}}
+\index{firstTurn@{firstTurn}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{firstTurn()}{firstTurn()}}
+{\footnotesize\ttfamily \label{classRoundManager_ab286d6b704b21d141e9ae13e55f607a8} 
+void Round\+Manager\+::first\+Turn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00045}{45}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_aa54e16418c57e06e675ff12e5dd5136f}\index{RoundManager@{RoundManager}!getCurrentPlayerIndex@{getCurrentPlayerIndex}}
+\index{getCurrentPlayerIndex@{getCurrentPlayerIndex}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{getCurrentPlayerIndex()}{getCurrentPlayerIndex()}}
+{\footnotesize\ttfamily \label{classRoundManager_aa54e16418c57e06e675ff12e5dd5136f} 
+int Round\+Manager\+::get\+Current\+Player\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00067}{67}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_a7a9d8981d4b677464651dd8a34f631c1}\index{RoundManager@{RoundManager}!getLastRound@{getLastRound}}
+\index{getLastRound@{getLastRound}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{getLastRound()}{getLastRound()}}
+{\footnotesize\ttfamily \label{classRoundManager_a7a9d8981d4b677464651dd8a34f631c1} 
+bool Round\+Manager\+::get\+Last\+Round (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00023}{23}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_aaecd17f2d6bcadd1d995a6109ae7d4d7}\index{RoundManager@{RoundManager}!handlePlayerEliminated@{handlePlayerEliminated}}
+\index{handlePlayerEliminated@{handlePlayerEliminated}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{handlePlayerEliminated}{handlePlayerEliminated}}
+{\footnotesize\ttfamily \label{classRoundManager_aaecd17f2d6bcadd1d995a6109ae7d4d7} 
+void Round\+Manager\+::handle\+Player\+Eliminated (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_ad26ca5a3d6997ec60b77c9bf4ee14a72}\index{RoundManager@{RoundManager}!lastRoundEnded@{lastRoundEnded}}
+\index{lastRoundEnded@{lastRoundEnded}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{lastRoundEnded}{lastRoundEnded}}
+{\footnotesize\ttfamily \label{classRoundManager_ad26ca5a3d6997ec60b77c9bf4ee14a72} 
+void Round\+Manager\+::last\+Round\+Ended (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__roundmanager_8cpp_source_l00255}{255}} of file \mbox{\hyperlink{moc__roundmanager_8cpp_source}{moc\+\_\+roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_a49c02b67fe6016d397f5b2ed11acf707}\index{RoundManager@{RoundManager}!lastRoundStarted@{lastRoundStarted}}
+\index{lastRoundStarted@{lastRoundStarted}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{lastRoundStarted}{lastRoundStarted}}
+{\footnotesize\ttfamily \label{classRoundManager_a49c02b67fe6016d397f5b2ed11acf707} 
+void Round\+Manager\+::last\+Round\+Started (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__roundmanager_8cpp_source_l00249}{249}} of file \mbox{\hyperlink{moc__roundmanager_8cpp_source}{moc\+\_\+roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}\index{RoundManager@{RoundManager}!nextPlayer@{nextPlayer}}
+\index{nextPlayer@{nextPlayer}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{nextPlayer()}{nextPlayer()}}
+{\footnotesize\ttfamily \label{classRoundManager_a2d9f51d838c126409f1bb071cbe43206} 
+QString Round\+Manager\+::next\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00062}{62}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_a2f6ab740d9650a106dd3fe8f57fa6a1f}\index{RoundManager@{RoundManager}!nextTurn@{nextTurn}}
+\index{nextTurn@{nextTurn}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{nextTurn()}{nextTurn()}}
+{\footnotesize\ttfamily \label{classRoundManager_a2f6ab740d9650a106dd3fe8f57fa6a1f} 
+void Round\+Manager\+::next\+Turn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00028}{28}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_abb2611c3762c5484dc84f74af75bed38}\index{RoundManager@{RoundManager}!playerChanged@{playerChanged}}
+\index{playerChanged@{playerChanged}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{playerChanged}{playerChanged}}
+{\footnotesize\ttfamily \label{classRoundManager_abb2611c3762c5484dc84f74af75bed38} 
+void Round\+Manager\+::player\+Changed (\begin{DoxyParamCaption}\item[{int}]{new\+Player\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__roundmanager_8cpp_source_l00229}{229}} of file \mbox{\hyperlink{moc__roundmanager_8cpp_source}{moc\+\_\+roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_ae86d326a6f9dec421d0c67479e93e92b}\index{RoundManager@{RoundManager}!playerListUpdated@{playerListUpdated}}
+\index{playerListUpdated@{playerListUpdated}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{playerListUpdated}{playerListUpdated}}
+{\footnotesize\ttfamily \label{classRoundManager_ae86d326a6f9dec421d0c67479e93e92b} 
+void Round\+Manager\+::player\+List\+Updated (\begin{DoxyParamCaption}\item[{const QVector$<$ QString $>$ \&}]{update\+Players}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__roundmanager_8cpp_source_l00242}{242}} of file \mbox{\hyperlink{moc__roundmanager_8cpp_source}{moc\+\_\+roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_a99951cbcf504f369d9f7fc9f60991a80}\index{RoundManager@{RoundManager}!removeFromTurnPlayer@{removeFromTurnPlayer}}
+\index{removeFromTurnPlayer@{removeFromTurnPlayer}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{removeFromTurnPlayer()}{removeFromTurnPlayer()}}
+{\footnotesize\ttfamily \label{classRoundManager_a99951cbcf504f369d9f7fc9f60991a80} 
+void Round\+Manager\+::remove\+From\+Turn\+Player (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00110}{110}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_ada49a8cc31421ea5e3b41363af9fa8c3}\index{RoundManager@{RoundManager}!roundCompleted@{roundCompleted}}
+\index{roundCompleted@{roundCompleted}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{roundCompleted}{roundCompleted}}
+{\footnotesize\ttfamily \label{classRoundManager_ada49a8cc31421ea5e3b41363af9fa8c3} 
+void Round\+Manager\+::round\+Completed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__roundmanager_8cpp_source_l00236}{236}} of file \mbox{\hyperlink{moc__roundmanager_8cpp_source}{moc\+\_\+roundmanager.\+cpp}}.
+
+\Hypertarget{classRoundManager_ac0a5392fa56d167966aa3d06f8c577f1}\index{RoundManager@{RoundManager}!setLastRound@{setLastRound}}
+\index{setLastRound@{setLastRound}!RoundManager@{RoundManager}}
+\doxysubsubsection{\texorpdfstring{setLastRound()}{setLastRound()}}
+{\footnotesize\ttfamily \label{classRoundManager_ac0a5392fa56d167966aa3d06f8c577f1} 
+void Round\+Manager\+::set\+Last\+Round (\begin{DoxyParamCaption}\item[{bool}]{is\+Last}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{roundmanager_8cpp_source_l00014}{14}} of file \mbox{\hyperlink{roundmanager_8cpp_source}{roundmanager.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/\mbox{\hyperlink{roundmanager_8h}{roundmanager.\+h}}\item 
+server/build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+7\+\_\+3-\/\+Debug/server\+\_\+autogen/\+EWIEGA46\+WW/\mbox{\hyperlink{moc__roundmanager_8cpp}{moc\+\_\+roundmanager.\+cpp}}\item 
+server/\mbox{\hyperlink{roundmanager_8cpp}{roundmanager.\+cpp}}\end{DoxyCompactItemize}

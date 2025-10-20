@@ -1,0 +1,176 @@
+\doxysection{Game\+Statistics Class Reference}
+\hypertarget{classGameStatistics}{}\label{classGameStatistics}\index{GameStatistics@{GameStatistics}}
+
+
+{\ttfamily \#include $<$gamestatistics.\+h$>$}
+
+Inheritance diagram for Game\+Statistics\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameStatistics}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGameStatistics_1_1GameResult}{Game\+Result}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameStatistics_af0cc1e9ca7776aa4153e318a37ae97b5}{Game\+Statistics}} ()
+\item 
+void \mbox{\hyperlink{classGameStatistics_acb1f38e67636659d1bfb5232b20712b1}{add\+Game\+Result}} (const QList$<$ QString $>$ \&winners, \mbox{\hyperlink{classGameServer}{Game\+Server}} \texorpdfstring{$\ast$}{*}game\+Server)
+\item 
+int \mbox{\hyperlink{classGameStatistics_ac28a6e7fb936c5971a9520611d5a03d2}{get\+Total\+Games\+Played}} () const
+\item 
+QVariant \mbox{\hyperlink{classGameStatistics_a8df2a0df6cc0442ebe47622eef37d07e}{to\+Variant}} () const override
+\item 
+void \mbox{\hyperlink{classGameStatistics_a5891fee9b4b81f6d216a6176c0e80a19}{from\+Variant}} (const QVariant \&variant) override
+\item 
+void \mbox{\hyperlink{classGameStatistics_a25c848d32fcf2e983443e753608eda54}{set\+File\+Name}} (const QString \&filename)
+\item 
+QString \mbox{\hyperlink{classGameStatistics_afe768ada68097587418247e8cf55ab1c}{get\+File\+Name}} () const
+\item 
+void \mbox{\hyperlink{classGameStatistics_a152af969b9abed59de08a954d78da402}{set\+File\+Path}} (const QString \&path)
+\item 
+QString \mbox{\hyperlink{classGameStatistics_a591b8542cd3808c8c1924413b424d529}{get\+File\+Path}} () const
+\item 
+QList$<$ \mbox{\hyperlink{structGameStatistics_1_1GameResult}{Game\+Result}} $>$ \mbox{\hyperlink{classGameStatistics_a2ba859dabc9d987b82483ce20e4079ec}{get\+Game\+Results}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{classSerializable}{Serializable}}}
+\begin{DoxyCompactItemize}
+\item 
+virtual \mbox{\hyperlink{classSerializable_a7a3c66ccf8a2a42ea7fb3c90b64ddda0}{\texorpdfstring{$\sim$}{\string~}\+Serializable}} ()=default
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8h_source_l00013}{13}} of file \mbox{\hyperlink{gamestatistics_8h_source}{gamestatistics.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classGameStatistics_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGameStatistics_af0cc1e9ca7776aa4153e318a37ae97b5}\index{GameStatistics@{GameStatistics}!GameStatistics@{GameStatistics}}
+\index{GameStatistics@{GameStatistics}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{GameStatistics()}{GameStatistics()}}
+{\footnotesize\ttfamily \label{classGameStatistics_af0cc1e9ca7776aa4153e318a37ae97b5} 
+Game\+Statistics\+::\+Game\+Statistics (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00012}{12}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classGameStatistics_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameStatistics_acb1f38e67636659d1bfb5232b20712b1}\index{GameStatistics@{GameStatistics}!addGameResult@{addGameResult}}
+\index{addGameResult@{addGameResult}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{addGameResult()}{addGameResult()}}
+{\footnotesize\ttfamily \label{classGameStatistics_acb1f38e67636659d1bfb5232b20712b1} 
+void Game\+Statistics\+::add\+Game\+Result (\begin{DoxyParamCaption}\item[{const QList$<$ QString $>$ \&}]{winners}{, }\item[{\mbox{\hyperlink{classGameServer}{Game\+Server}} \texorpdfstring{$\ast$}{*}}]{game\+Server}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00017}{17}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_a5891fee9b4b81f6d216a6176c0e80a19}\index{GameStatistics@{GameStatistics}!fromVariant@{fromVariant}}
+\index{fromVariant@{fromVariant}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{fromVariant()}{fromVariant()}}
+{\footnotesize\ttfamily \label{classGameStatistics_a5891fee9b4b81f6d216a6176c0e80a19} 
+void Game\+Statistics\+::from\+Variant (\begin{DoxyParamCaption}\item[{const QVariant \&}]{variant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSerializable_ad1e7714fe2132e1b68e68761e60ba706}{Serializable}}.
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_afe768ada68097587418247e8cf55ab1c}\index{GameStatistics@{GameStatistics}!getFileName@{getFileName}}
+\index{getFileName@{getFileName}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{getFileName()}{getFileName()}}
+{\footnotesize\ttfamily \label{classGameStatistics_afe768ada68097587418247e8cf55ab1c} 
+QString Game\+Statistics\+::get\+File\+Name (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00099}{99}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_a591b8542cd3808c8c1924413b424d529}\index{GameStatistics@{GameStatistics}!getFilePath@{getFilePath}}
+\index{getFilePath@{getFilePath}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{getFilePath()}{getFilePath()}}
+{\footnotesize\ttfamily \label{classGameStatistics_a591b8542cd3808c8c1924413b424d529} 
+QString Game\+Statistics\+::get\+File\+Path (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00116}{116}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_a2ba859dabc9d987b82483ce20e4079ec}\index{GameStatistics@{GameStatistics}!getGameResults@{getGameResults}}
+\index{getGameResults@{getGameResults}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{getGameResults()}{getGameResults()}}
+{\footnotesize\ttfamily \label{classGameStatistics_a2ba859dabc9d987b82483ce20e4079ec} 
+QList$<$ \mbox{\hyperlink{structGameStatistics_1_1GameResult}{Game\+Statistics\+::\+Game\+Result}} $>$ Game\+Statistics\+::get\+Game\+Results (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00091}{91}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_ac28a6e7fb936c5971a9520611d5a03d2}\index{GameStatistics@{GameStatistics}!getTotalGamesPlayed@{getTotalGamesPlayed}}
+\index{getTotalGamesPlayed@{getTotalGamesPlayed}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{getTotalGamesPlayed()}{getTotalGamesPlayed()}}
+{\footnotesize\ttfamily \label{classGameStatistics_ac28a6e7fb936c5971a9520611d5a03d2} 
+int Game\+Statistics\+::get\+Total\+Games\+Played (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00039}{39}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_a25c848d32fcf2e983443e753608eda54}\index{GameStatistics@{GameStatistics}!setFileName@{setFileName}}
+\index{setFileName@{setFileName}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{setFileName()}{setFileName()}}
+{\footnotesize\ttfamily \label{classGameStatistics_a25c848d32fcf2e983443e753608eda54} 
+void Game\+Statistics\+::set\+File\+Name (\begin{DoxyParamCaption}\item[{const QString \&}]{filename}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_a152af969b9abed59de08a954d78da402}\index{GameStatistics@{GameStatistics}!setFilePath@{setFilePath}}
+\index{setFilePath@{setFilePath}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{setFilePath()}{setFilePath()}}
+{\footnotesize\ttfamily \label{classGameStatistics_a152af969b9abed59de08a954d78da402} 
+void Game\+Statistics\+::set\+File\+Path (\begin{DoxyParamCaption}\item[{const QString \&}]{path}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00103}{103}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+\Hypertarget{classGameStatistics_a8df2a0df6cc0442ebe47622eef37d07e}\index{GameStatistics@{GameStatistics}!toVariant@{toVariant}}
+\index{toVariant@{toVariant}!GameStatistics@{GameStatistics}}
+\doxysubsubsection{\texorpdfstring{toVariant()}{toVariant()}}
+{\footnotesize\ttfamily \label{classGameStatistics_a8df2a0df6cc0442ebe47622eef37d07e} 
+QVariant Game\+Statistics\+::to\+Variant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{classSerializable_a31ba5de4f9fc89876ecc757e4a302062}{Serializable}}.
+
+
+
+Definition at line \mbox{\hyperlink{gamestatistics_8cpp_source_l00043}{43}} of file \mbox{\hyperlink{gamestatistics_8cpp_source}{gamestatistics.\+cpp}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/\mbox{\hyperlink{gamestatistics_8h}{gamestatistics.\+h}}\item 
+server/\mbox{\hyperlink{gamestatistics_8cpp}{gamestatistics.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,73 @@
+\doxysection{soundmanager.\+cpp}
+\hypertarget{soundmanager_8cpp_source}{}\label{soundmanager_8cpp_source}\index{hellapagos/soundmanager.cpp@{hellapagos/soundmanager.cpp}}
+\mbox{\hyperlink{soundmanager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{soundmanager_8h}{soundmanager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QSoundEffect>}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QUrl>}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00006}\mbox{\hyperlink{classSoundManager_a0c743872759b9882c49e5d723f74f332}{00006}}\ \mbox{\hyperlink{classSoundManager_a0c743872759b9882c49e5d723f74f332}{SoundManager::SoundManager}}(QObject\ *parent)}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00007}00007\ \ \ \ \ :\ QObject(parent),}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00008}00008\ \ \ \ \ backgroundMusic(new\ QSoundEffect(this)),}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00009}00009\ \ \ \ \ isMuted(false),\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//(starts\ as\ false\ =\ unmuted)}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00010}00010\ \ \ \ \ previousVolume(0.5f)}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00011}00011\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00014}\mbox{\hyperlink{classSoundManager_ad5dbf8eab22db48ff8f3db51b02f8938}{00014}}\ \mbox{\hyperlink{classSoundManager_ad5dbf8eab22db48ff8f3db51b02f8938}{SoundManager::\string~SoundManager}}()}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{classSoundManager_ae05eb1058b76d4158231e72621642f93}{stopBackgroundMusic}}();}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00017}00017\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00019}\mbox{\hyperlink{classSoundManager_a6473a5bf29257d8583ff8580d87d7294}{00019}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_a6473a5bf29257d8583ff8580d87d7294}{SoundManager::playBackgroundMusic}}(\textcolor{keyword}{const}\ QString\ \&filePath)}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00021}00021\ \ \ \ \ QUrl\ musicUrl\ =\ QUrl::fromLocalFile(filePath);\ \ \textcolor{comment}{//\ Path\ to\ your\ music\ file}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00022}00022\ \ \ \ \ backgroundMusic-\/>setSource(musicUrl);\ \ \textcolor{comment}{//\ Set\ the\ music\ file}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00023}00023\ \ \ \ \ backgroundMusic-\/>setLoopCount(QSoundEffect::Infinite);\ \ \textcolor{comment}{//\ Loop\ indefinitely}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00024}00024\ \ \ \ \ backgroundMusic-\/>setVolume(previousVolume);\ \ \textcolor{comment}{//\ Set\ the\ volume\ (0.0\ to\ 1.0)}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00025}00025\ \ \ \ \ backgroundMusic-\/>play();\ \ \textcolor{comment}{//\ Start\ playing\ the\ music}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00028}\mbox{\hyperlink{classSoundManager_ae05eb1058b76d4158231e72621642f93}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_ae05eb1058b76d4158231e72621642f93}{SoundManager::stopBackgroundMusic}}()}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00030}00030\ \ \ \ \ backgroundMusic-\/>stop();\ \ \textcolor{comment}{//\ Stop\ the\ background\ music}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00033}\mbox{\hyperlink{classSoundManager_a14e2dcf0856df37d3448adbc791d6272}{00033}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_a14e2dcf0856df37d3448adbc791d6272}{SoundManager::setVolume}}(\textcolor{keywordtype}{float}\ volume)}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00034}00034\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{if}\ (volume\ <\ 0.0f)\ volume\ =\ 0.0f;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{if}\ (volume\ >\ 1.0f)\ volume\ =\ 1.0f;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00038}00038\ \ \ \ \ backgroundMusic-\/>setVolume(volume);\ \textcolor{comment}{//\ Adjust\ volume}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{if}\ (!isMuted)\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ previousVolume\ =\ volume;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00042}00042\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00044}\mbox{\hyperlink{classSoundManager_af09ac54491e7799cfea2f1e2c256f97d}{00044}}\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classSoundManager_af09ac54491e7799cfea2f1e2c256f97d}{SoundManager::getPreviousVolume}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00045}00045\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ previousVolume;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00049}\mbox{\hyperlink{classSoundManager_a7c2eac6f3982e1c7b82e1c5dcfacc07a}{00049}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSoundManager_a7c2eac6f3982e1c7b82e1c5dcfacc07a}{SoundManager::isSoundMuted}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00050}00050\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{return}\ isMuted;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00052}00052\ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00054}\mbox{\hyperlink{classSoundManager_a7115a2253a6d1d795a74107c476e4fba}{00054}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_a7115a2253a6d1d795a74107c476e4fba}{SoundManager::toggleMute}}()}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00055}00055\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00056}00056\ \ \ \ \ isMuted\ =\ !isMuted;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (isMuted)\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ previousVolume\ =\ backgroundMusic-\/>volume();}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ backgroundMusic-\/>setVolume(0.0f);}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Muted:\ Volume\ set\ to\ 0"{}};}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00062}00062\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ backgroundMusic-\/>setVolume(previousVolume);}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Unmuted:\ Volume\ restored\ to"{}}\ <<\ previousVolume;}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00066}00066\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8cpp_source_l00067}00067\ \}}
+
+\end{DoxyCode}

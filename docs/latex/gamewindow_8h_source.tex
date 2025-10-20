@@ -1,0 +1,68 @@
+\doxysection{gamewindow.\+h}
+\hypertarget{gamewindow_8h_source}{}\label{gamewindow_8h_source}\index{hellapagos/gamewindow.h@{hellapagos/gamewindow.h}}
+\mbox{\hyperlink{gamewindow_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ GAMEWINDOW\_H}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ GAMEWINDOW\_H}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QMainWindow>}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{player_8h}{player.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collectwood_8h}{collectwood.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collectwater_8h}{collectwater.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{collectfood_8h}{collectfood.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{actionselector_8h}{actionselector.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00012}\mbox{\hyperlink{namespaceUi}{00012}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceUi}{Ui}}\ \{}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00013}00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGameWindow}{GameWindow}};}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00016}\mbox{\hyperlink{classGameWindow}{00016}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classGameWindow_ac7cbc3faeed5f16e35915384c5049239}{GameWindow}}\ :\ \textcolor{keyword}{public}\ QMainWindow}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00018}00018\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00020}00020\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classGameWindow_ac7cbc3faeed5f16e35915384c5049239}{GameWindow}}(\mbox{\hyperlink{classPlayer}{Player}}\ *player,\mbox{\hyperlink{classClient}{Client}}\ *client,QWidget\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00022}00022\ \ \ \ \ \mbox{\hyperlink{classGameWindow_a55b071c0390e45c064a160c1e6baaa08}{\string~GameWindow}}();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameWindow_a3fd489c3a2c8f444099b9e5e988ae307}{updateWeatherCard}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameWindow_a47bafa65cfe0256d8cf82a1af52dada6}{onWeatherCardClicked}}();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00027}00027\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_collectWoodButton\_clicked();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_collectWaterButton\_clicked();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_collectFoodButton\_clicked();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//void\ on\_voteButton\_clicked();}}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{void}\ onGameStatsReceived(\textcolor{keyword}{const}\ QString\ \&stats);}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00034}00034\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_notYourTurn();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00036}00036\ \ \ \ \ \textcolor{keywordtype}{void}\ onVoteStarted(\textcolor{keyword}{const}\ QStringList\&\ voteTargets);}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00037}00037\ \ \ \ \ \textcolor{keywordtype}{void}\ onPlayerVotedOut(\textcolor{keyword}{const}\ QString\&\ playerName);}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00039}00039\ \ \ \ \ \textcolor{keywordtype}{void}\ on\_GameOver();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{void}\ onRoundUpdated(\textcolor{keywordtype}{int}\ currentRound);}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{void}\ onLastRoundStarted();}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00043}00043\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00044}00044\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00045}00045\ \ \ \ \ Ui::GameWindow\ *ui;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00046}00046\ \ \ \ \ \mbox{\hyperlink{classPlayer}{Player}}\ *currentPlayer;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00047}00047\ \ \ \ \ QList<Player*>\ allPlayers;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00048}00048\ \ \ \ \ \mbox{\hyperlink{classClient}{Client}}*\ m\_client;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00049}00049\ \ \ \ \ \mbox{\hyperlink{classCollectWood}{CollectWood}}\ collectWood;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00050}00050\ \ \ \ \ \mbox{\hyperlink{classCollectWater}{CollectWater}}\ collectWater;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00051}00051\ \ \ \ \ \mbox{\hyperlink{classCollectFood}{CollectFood}}\ collectFood;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{classActionSelector}{ActionSelector}}\ *actionSelector;}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCollectingWater\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCollectingFood\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{bool}\ isCollectingWood\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00057}00057\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classGameWindow_a9c39bb9a4d29dd095f83d153494ee17a}{resizeEvent}}(QResizeEvent\ *event)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00060}00060\ \};}
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{gamewindow_8h_source_l00062}00062\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ GAMEWINDOW\_H}}
+
+\end{DoxyCode}

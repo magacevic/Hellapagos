@@ -1,0 +1,78 @@
+\doxysection{voting.\+cpp}
+\hypertarget{voting_8cpp_source}{}\label{voting_8cpp_source}\index{server/voting.cpp@{server/voting.cpp}}
+\mbox{\hyperlink{voting_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{voting_8h}{voting.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00004}\mbox{\hyperlink{classVoting_a536c752cf67d192d35cd1c945113d40b}{00004}}\ \mbox{\hyperlink{classVoting_a536c752cf67d192d35cd1c945113d40b}{Voting::Voting}}(QObject*\ parent)\ :\ QObject(parent)\ \{\}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00006}\mbox{\hyperlink{classVoting_a16989e785976b308e326c0bcc0323430}{00006}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classVoting_a16989e785976b308e326c0bcc0323430}{Voting::startVote}}(\textcolor{keyword}{const}\ QSet<QString>\&\ activePlayers)}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00007}00007\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00008}00008\ \ \ \ \ votes.clear();}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00009}00009\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ QString\&\ player\ :\ activePlayers)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00010}00010\ \ \ \ \ \ \ \ \ votes[player]\ =\ \textcolor{stringliteral}{"{}"{}};\ \ \textcolor{comment}{//\ Reset\ votes}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00011}00011\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00013}00013\ \ \ \ \ emit\ \mbox{\hyperlink{classVoting_a7fa1a4af1ee0d7c2bcdf145224339208}{votingStarted}}(activePlayers);}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00016}\mbox{\hyperlink{classVoting_ad4d707c54375a31097633ad2eea54713}{00016}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classVoting_ad4d707c54375a31097633ad2eea54713}{Voting::submitVote}}(\textcolor{keyword}{const}\ QString\&\ voter,\ \textcolor{keyword}{const}\ QString\&\ target)}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{if}\ (votes.contains(voter))\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ votes[voter]\ =\ target;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ qDebug()\ <<\ voter\ <<\ \textcolor{stringliteral}{"{}voted\ for"{}}\ <<\ target;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00021}00021\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00024}\mbox{\hyperlink{classVoting_a2784754f7c63846be086caa3703b2454}{00024}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classVoting_a2784754f7c63846be086caa3703b2454}{Voting::allVotesIn}}(\textcolor{keyword}{const}\ QStringList\&\ currentPlayers)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00025}00025\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{const}\ QString\&\ player\ :\ currentPlayers)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!votes.contains(player)\ ||\ votes[player].isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00032}00032\ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00035}\mbox{\hyperlink{classVoting_a82e43cde7788e458785b87b48c046c86}{00035}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classVoting_a82e43cde7788e458785b87b48c046c86}{Voting::reset}}()}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00037}00037\ \ \ \ \ votes.clear();}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00038}00038\ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00039}\mbox{\hyperlink{classVoting_a5ca1d3eaa0ad8400c57eb679b3f3b212}{00039}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classVoting_a5ca1d3eaa0ad8400c57eb679b3f3b212}{Voting::getVoteCountFor}}(\textcolor{keyword}{const}\ QString\&\ player)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00040}00040\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ votes.constBegin();\ it\ !=\ votes.constEnd();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.value()\ ==\ player)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ ++count;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{return}\ count;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00049}\mbox{\hyperlink{classVoting_ae914e85af4b0878c4da62e94e5efaa07}{00049}}\ QStringList\ \mbox{\hyperlink{classVoting_ae914e85af4b0878c4da62e94e5efaa07}{Voting::getPlayersWithMostVotes}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00050}00050\ \ \ \ \ QMap<QString,\ int>\ voteCounts;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ votes.cbegin();\ it\ !=\ votes.cend();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ QString\ \&target\ =\ it.value();}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!target.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ voteCounts[target]++;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00056}00056\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{int}\ maxVotes\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00060}00060\ \ \ \ \ QStringList\ topCandidates;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ voteCounts.begin();\ it\ !=\ voteCounts.end();\ ++it)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (it.value()\ >\ maxVotes)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ maxVotes\ =\ it.value();}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ topCandidates\ =\ \{\ it.key()\ \};}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (it.value()\ ==\ maxVotes)\ \{}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ topCandidates.append(it.key());}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00069}00069\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordflow}{return}\ topCandidates;}
+\DoxyCodeLine{\Hypertarget{voting_8cpp_source_l00072}00072\ \}}
+
+\end{DoxyCode}

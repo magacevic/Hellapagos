@@ -1,0 +1,398 @@
+\doxysection{mainwindow.\+cpp}
+\hypertarget{mainwindow_8cpp_source}{}\label{mainwindow_8cpp_source}\index{hellapagos/mainwindow.cpp@{hellapagos/mainwindow.cpp}}
+\mbox{\hyperlink{mainwindow_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{mainwindow_8h}{mainwindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}./ui\_mainwindow.h"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{client_8h}{client.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00004}00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{soundmanager_8h}{soundmanager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QPixmap>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QLabel>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00008}00008\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{gamewindow_8h}{gamewindow.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00009}00009\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00010}\mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{00010}}\ \mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{MainWindow::MainWindow}}(QWidget\ *parent)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00011}00011\ \ \ \ \ :\ QMainWindow(parent)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00012}00012\ \ \ \ \ ,\ ui(new\ \mbox{\hyperlink{namespaceUi}{Ui}}::\mbox{\hyperlink{classMainWindow_a996c5a2b6f77944776856f08ec30858d}{MainWindow}})}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00013}00013\ \ \ \ \ ,\ client(new\ \mbox{\hyperlink{classClient}{Client}}(this))}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00014}00014\ \ \ \ \ ,\ soundManager(new\ \mbox{\hyperlink{classSoundManager}{SoundManager}}(this))}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00015}00015\ \ \ \ \ ,\ errorLabel(nullptr)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00017}00017\ \ \ \ \ ui-\/>setupUi(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00018}00018\ \ \ \ \ client-\/>connectToServer();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00019}00019\ \ \ \ \ setFixedWindowSize();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00020}00020\ \ \ \ \ soundManager-\/>playBackgroundMusic(\textcolor{stringliteral}{"{}:/audio/uke.wav"{}});\ \ \textcolor{comment}{//\ Update\ path\ as\ needed}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00023}00023\ \ \ \ \ \textcolor{comment}{//\ Centriranje\ teksta\ unutar\ QLineEdit}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00024}00024\ \ \ \ \ ui-\/>playerNameLineEdit-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{comment}{//\ Povezivanje\ join\ dugmeta\ sa\ slotom}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00027}00027\ \ \ \ \ connect(ui-\/>joinButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onJoinButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{comment}{//\ Povezivanje\ dugmadi\ na\ stranici\ 2\ sa\ slotovima}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00029}00029\ \ \ \ \ connect(ui-\/>settingsButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onSettingsButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00030}00030\ \ \ \ \ connect(ui-\/>rulesButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onRulesButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00031}00031\ \ \ \ \ connect(ui-\/>startGameButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onStartGameButtonClicked);\ \ \textcolor{comment}{//\ Povezivanje\ Start\ Game\ dugmeta}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00032}00032\ \ \ \ \ connect(ui-\/>mainMenuButton,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onMainMenuButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00033}00033\ \ \ \ \ connect(ui-\/>next\_1,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_1ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00034}00034\ \ \ \ \ connect(ui-\/>next\_2,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_2ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00035}00035\ \ \ \ \ connect(ui-\/>next\_3,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_3ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00036}00036\ \ \ \ \ connect(ui-\/>next\_4,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_4ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00037}00037\ \ \ \ \ connect(ui-\/>next\_5,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_5ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00038}00038\ \ \ \ \ connect(ui-\/>next\_6,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_6ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00039}00039\ \ \ \ \ connect(ui-\/>next\_7,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onNext\_7ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00040}00040\ \ \ \ \ connect(ui-\/>previous\_1,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_1ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00041}00041\ \ \ \ \ connect(ui-\/>previous\_2,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_2ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00042}00042\ \ \ \ \ connect(ui-\/>previous\_3,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_3ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00043}00043\ \ \ \ \ connect(ui-\/>previous\_4,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_4ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00044}00044\ \ \ \ \ connect(ui-\/>previous\_5,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_5ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00045}00045\ \ \ \ \ connect(ui-\/>previous\_6,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_6ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00046}00046\ \ \ \ \ connect(ui-\/>previous\_7,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_7ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00047}00047\ \ \ \ \ connect(ui-\/>previous\_8,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::onPrevious\_8ButtonClicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00048}00048\ \ \ \ \ connect(ui-\/>mainmenuButton\_2,\ \&QPushButton::clicked,\ \textcolor{keyword}{this},\ \&MainWindow::on\_mainmenuButton\_2\_clicked);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00050}00050\ \ \ \ \ connect(ui-\/>horizontalSlider,\ \&QSlider::valueChanged,\ \textcolor{keyword}{this},\ \&MainWindow::on\_horizontalSlider\_valueChanged);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00051}00051\ \ \ \ \ connect(ui-\/>MuteSoundButton,\ \&QPushButton::toggled,\ \textcolor{keyword}{this},\ \&MainWindow::on\_MuteSoundButton\_toggled);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00054}00054\ \ \ \ \ connect(client,\ \&\mbox{\hyperlink{classClient_a62b6bd37af061f585760fbd34b130ba6}{Client::serverFullSignal}},\ \textcolor{keyword}{this},\ \&MainWindow::closeWindow);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00055}00055\ \ \ \ \ connect(client,\ \&\mbox{\hyperlink{classClient_af49a23f8ab3cf15642bb89c2b2e6aa93}{Client::nameTaken}},\ \textcolor{keyword}{this},\ \&MainWindow::onNameTaken);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00057}00057\ \ \ \ \textcolor{comment}{//\ connect(client,\ \&Client::allPlayersReady,\ this,\ \&MainWindow::startGame);}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00062}\mbox{\hyperlink{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}{00062}}\ \mbox{\hyperlink{classMainWindow_ae98d00a93bc118200eeef9f9bba1dba7}{MainWindow::\string~MainWindow}}()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00063}00063\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keyword}{delete}\ ui;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00065}00065\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00068}00068\ \textcolor{keywordtype}{void}\ MainWindow::closeWindow()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00069}00069\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00070}00070\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Closing\ client\ window\ due\ to\ server\ being\ full."{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00071}00071\ \ \ \ \ close();\ \ \textcolor{comment}{//\ This\ will\ close\ the\ window}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00074}00074\ \textcolor{comment}{//\ Slot\ za\ join\ dugme}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00075}00075\ \textcolor{keywordtype}{void}\ MainWindow::onJoinButtonClicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00077}00077\ \ \ \ \ QString\ playerName\ =\ ui-\/>playerNameLineEdit-\/>text();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{if}\ (playerName.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ako\ je\ prazno,\ prikazujemo\ sliku\ i\ poruku\ o\ grešci}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ showErrorImage();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00082}00082\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Ako\ nije\ prazno,\ šaljemo\ JOIN\ komandu\ sa\ imenom}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ client-\/>sendJoinCommand(playerName);\ \ \textcolor{comment}{//\ Pošaljemo\ JOIN\ komandu\ sa\ imenom\ igrača}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ player\ =\ \textcolor{keyword}{new}\ Player(playerName,client);\ \ \textcolor{comment}{//\ Store\ the\ player's\ name}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(1);\ \ \textcolor{comment}{//\ Prebacimo\ na\ stranicu\ 2}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00089}00089\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00090}00090\ \textcolor{keywordtype}{void}\ MainWindow::setFixedWindowSize()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00091}00091\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{comment}{//\ Postavi\ minimalnu\ i\ maksimalnu\ veličinu\ na\ istu\ vrednost}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00093}00093\ \ \ \ \ this-\/>setFixedSize(750,\ 600);\ \ \textcolor{comment}{//\ Na\ primer,\ 800x600\ je\ željena\ veličina\ prozora}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00094}00094\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00095}00095\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00098}00098\ \textcolor{comment}{//\ Slot\ za\ settings\ dugme\ (radiš\ sa\ podešavanjima)}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00099}00099\ \textcolor{keywordtype}{void}\ MainWindow::onSettingsButtonClicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00100}00100\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00101}00101\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(10);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00102}00102\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Settings\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00103}00103\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00105}00105\ \textcolor{comment}{//\ Slot\ za\ rules\ dugme\ (radiš\ sa\ pravilima)}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00106}00106\ \textcolor{keywordtype}{void}\ MainWindow::onRulesButtonClicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00107}00107\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{comment}{//\ Ovde\ možeš\ dodati\ kod\ za\ otvaranje\ prozora\ sa\ pravilima}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00109}00109\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(2);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00110}00110\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Rules\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00111}00111\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00113}00113\ \textcolor{keywordtype}{void}\ MainWindow::onMainMenuButtonClicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00114}00114\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ Ovde\ možeš\ dodati\ kod\ za\ otvaranje\ prozora\ sa\ pravilima}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00116}00116\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(1);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00117}00117\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Main\ menu\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00118}00118\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00120}00120\ \textcolor{comment}{//\ Slot\ za\ start\ game\ dugme}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00121}00121\ \textcolor{keywordtype}{void}\ MainWindow::onStartGameButtonClicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00122}00122\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00123}00123\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Start\ Game\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{comment}{//\ Ovde\ možeš\ dodati\ kod\ za\ početak\ igre}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00125}00125\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(11);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00126}00126\ \ \ \ \ client-\/>sendReadySignal();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00128}00128\ \ \ \ \ connect(client,\ \&\mbox{\hyperlink{classClient_ad28d21f4d9a96f6bc9670d84239a9849}{Client::allPlayersReady}},\ \textcolor{keyword}{this},\ \&MainWindow::startGame);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00130}00130\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00131}00131\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00132}00132\ \textcolor{keywordtype}{void}\ MainWindow::startGame()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00133}00133\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{comment}{//\ Close\ the\ current\ window}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00135}00135\ \ \ \ \ this-\/>close();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00136}00136\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00137}00137\ \ \ \ \ \textcolor{comment}{//\ Open\ the\ game\ UI}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00138}00138\ \ \ \ \ gameWindow\ =\ \textcolor{keyword}{new}\ GameWindow(player,client);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00139}00139\ \ \ \ \ gameWindow-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00141}00141\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Game\ started!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00142}00142\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00143}00143\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_1ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00145}00145\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(3);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00147}00147\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_1\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00148}00148\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00149}00149\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00150}00150\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_2ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00152}00152\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(4);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00154}00154\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_2\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00155}00155\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00157}00157\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_3ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00159}00159\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(5);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00161}00161\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_3\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00162}00162\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00163}00163\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00164}00164\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_4ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00165}00165\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00166}00166\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(6);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00168}00168\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_4\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00169}00169\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00170}00170\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00171}00171\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_5ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00173}00173\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(7);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00174}00174\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00175}00175\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_5\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00176}00176\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00178}00178\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_6ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00179}00179\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00180}00180\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(8);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00181}00181\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00182}00182\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_6\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00183}00183\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00185}00185\ \textcolor{keywordtype}{void}\ MainWindow::onNext\_7ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00186}00186\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00187}00187\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(9);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00188}00188\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00189}00189\ \ \ \ \ qDebug()<<\textcolor{stringliteral}{"{}Next\_7\ button\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00190}00190\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00191}00191\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00192}00192\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_1ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00193}00193\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00194}00194\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(1);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00196}00196\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_1\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00197}00197\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00198}00198\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00199}00199\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_2ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00200}00200\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00201}00201\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(2);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00203}00203\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_2\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00204}00204\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00205}00205\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00206}00206\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_3ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00208}00208\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(3);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00209}00209\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00210}00210\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_3\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00211}00211\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00212}00212\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00213}00213\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_4ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00215}00215\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(4);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00216}00216\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00217}00217\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_4\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00218}00218\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00220}00220\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_5ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00221}00221\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00222}00222\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(5);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00224}00224\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_5\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00225}00225\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00227}00227\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_6ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00229}00229\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(6);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00230}00230\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00231}00231\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_6\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00232}00232\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00234}00234\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_7ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00235}00235\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00236}00236\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(7);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00238}00238\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_7\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00239}00239\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00240}00240\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00241}00241\ \textcolor{keywordtype}{void}\ MainWindow::onPrevious\_8ButtonClicked()\{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00243}00243\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(8);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00244}00244\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00245}00245\ \ \ \ \ qDebug()<<\ \textcolor{stringliteral}{"{}Previous\_8\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00246}00246\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00248}00248\ \textcolor{keywordtype}{void}\ MainWindow::on\_mainmenuButton\_2\_clicked()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00249}00249\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00250}00250\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(1);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00251}00251\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Main\ menu\ clicked!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00252}00252\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00255}00255\ \textcolor{comment}{//\ Volume\ control}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00256}00256\ \textcolor{keywordtype}{void}\ MainWindow::on\_horizontalSlider\_valueChanged(\textcolor{keywordtype}{int}\ value)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00257}00257\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00258}00258\ \ \ \ \ \textcolor{keywordtype}{float}\ volume\ =\ value\ /\ 100.0f;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00259}00259\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00260}00260\ \ \ \ \ \textcolor{keywordflow}{if}\ ((soundManager-\/>getPreviousVolume()\ ==\ 0.0f\ ||\ soundManager-\/>isSoundMuted())\ \&\&\ volume\ >\ 0.0f)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ soundManager-\/>toggleMute();\ \ \textcolor{comment}{//\ Unmute}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ ui-\/>MuteSoundButton-\/>setText(\textcolor{stringliteral}{"{}Mute"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ ui-\/>MuteSoundButton-\/>setChecked(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Sound\ unmuted\ with\ slider!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00265}00265\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00267}00267\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00268}00268\ \ \ \ \ soundManager-\/>setVolume(volume);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00269}00269\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00270}00270\ \ \ \ \ \textcolor{keywordflow}{if}\ (volume\ ==\ 0.0f)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ ui-\/>MuteSoundButton-\/>setText(\textcolor{stringliteral}{"{}Unmute"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ ui-\/>MuteSoundButton-\/>setChecked(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Sound\ muted\ with\ slider!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00274}00274\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00275}00275\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00276}00276\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00277}00277\ \textcolor{comment}{//\ Mute/Unmute\ button}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00278}00278\ \textcolor{keywordtype}{void}\ MainWindow::on\_MuteSoundButton\_toggled(\textcolor{keywordtype}{bool}\ checked)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00279}00279\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00280}00280\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ alreadyToggled\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00281}00281\ \ \ \ \ \textcolor{keywordflow}{if}\ (alreadyToggled)\ \textcolor{keywordflow}{return};\ \ \textcolor{comment}{//\ Ignore\ the\ second\ toggle}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00282}00282\ \ \ \ \ alreadyToggled\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00284}00284\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Mute\ button\ pressed!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00286}00286\ \ \ \ \ soundManager-\/>toggleMute();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00287}00287\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00288}00288\ \ \ \ \ \textcolor{keywordflow}{if}\ (checked)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ mute}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ ui-\/>MuteSoundButton-\/>setText(\textcolor{stringliteral}{"{}Unmute"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ ui-\/>horizontalSlider-\/>setValue(0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Sound\ is\ muted!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00293}00293\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ unmute}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ ui-\/>MuteSoundButton-\/>setText(\textcolor{stringliteral}{"{}Mute"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{float}\ previousVolume\ =\ soundManager-\/>getPreviousVolume();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00297}00297\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (previousVolume\ ==\ 0.0f)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ ui-\/>horizontalSlider-\/>setValue(10);\ \ \textcolor{comment}{//\ Set\ slider\ to\ minimal\ value}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ soundManager-\/>setVolume(0.1f);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Restore\ the\ previous\ volume}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ ui-\/>horizontalSlider-\/>setValue(\textcolor{keyword}{static\_cast<}\textcolor{keywordtype}{int}\textcolor{keyword}{>}(previousVolume\ *\ 100));}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ soundManager-\/>setVolume(previousVolume);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Sound\ is\ unmuted!"{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00308}00308\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00309}00309\ \ \ \ \ QTimer::singleShot(100,\ [\textcolor{keyword}{this}]()\{\ alreadyToggled\ =\ \textcolor{keyword}{false};\ \});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00310}00310\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00311}00311\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00313}00313\ \textcolor{keywordtype}{void}\ MainWindow::onNameTaken()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00314}00314\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00315}00315\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}The\ name\ is\ taken!\ Please\ enter\ a\ different\ name."{}};}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00316}00316\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00317}00317\ \ \ \ \ \textcolor{comment}{//\ Na\ primer,\ ako\ showErrorMessage\ prima\ QString\ poruku:}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00318}00318\ \ \ \ \ showErrorText(QStringLiteral(\textcolor{stringliteral}{"{}The\ name\ is\ taken!\ Please\ enter\ a\ different\ name."{}}));}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00319}00319\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00320}00320\ \ \ \ \ \textcolor{comment}{//\ Ostani\ na\ početnoj\ stranici\ da\ korisnik\ ponovo\ pokuša}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00321}00321\ \ \ \ \ ui-\/>stackedWidget-\/>setCurrentIndex(0);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00322}00322\ \ \ \ \ ui-\/>playerNameLineEdit-\/>clear();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00323}00323\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00324}00324\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00326}00326\ \textcolor{keywordtype}{void}\ MainWindow::showErrorText(\textcolor{keyword}{const}\ QString\&\ message)}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00327}00327\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00328}00328\ \ \ \ \ \textcolor{keywordflow}{if}\ (!errorLabel)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ errorLabel\ =\ \textcolor{keyword}{new}\ QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ errorLabel-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ errorLabel-\/>setWordWrap(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ errorLabel-\/>setTextFormat(Qt::PlainText);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00333}00333\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00335}00335\ \ \ \ \ errorLabel-\/>hide();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00336}00336\ \ \ \ \ errorLabel-\/>clear();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00337}00337\ \ \ \ \ errorLabel-\/>setPixmap(QPixmap());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00339}00339\ \ \ \ \ errorLabel-\/>setText(message);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00340}00340\ \ \ \ \ errorLabel-\/>setFixedSize(450,\ 100);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00341}00341\ \ \ \ \ errorLabel-\/>setStyleSheet(}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}QLabel\ \{\ "{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}background-\/color:\ \#fdf6e3;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}color:\ black;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}font-\/weight:\ bold;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}font-\/size:\ 16px;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00347}00347\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}padding:\ 15px;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}border-\/radius:\ 10px;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}border:\ 2px\ solid\ \#ccc;"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}\}"{}}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ );}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00352}00352\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00353}00353\ \ \ \ \ centerErrorLabel();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00354}00354\ \ \ \ \ errorLabel-\/>raise();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00355}00355\ \ \ \ \ errorLabel-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00357}00357\ \ \ \ \ QTimer::singleShot(2000,\ errorLabel,\ \&QLabel::hide);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00358}00358\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00359}00359\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00360}00360\ \textcolor{keywordtype}{void}\ MainWindow::showErrorImage()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00361}00361\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00362}00362\ \ \ \ \ \textcolor{keywordflow}{if}\ (!errorLabel)\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ errorLabel\ =\ \textcolor{keyword}{new}\ QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ errorLabel-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ errorLabel-\/>setWordWrap(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ errorLabel-\/>setTextFormat(Qt::PlainText);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00367}00367\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00368}00368\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00369}00369\ \ \ \ \ errorLabel-\/>hide();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00370}00370\ \ \ \ \ errorLabel-\/>clear();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00371}00371\ \ \ \ \ errorLabel-\/>setText(\textcolor{stringliteral}{"{}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00372}00372\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00373}00373\ \ \ \ \ QPixmap\ pixmap(\textcolor{stringliteral}{"{}../../wood2.png"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00374}00374\ \ \ \ \ pixmap\ =\ pixmap.scaled(500,\ 800,\ Qt::KeepAspectRatio,\ Qt::SmoothTransformation);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00375}00375\ \ \ \ \ errorLabel-\/>setPixmap(pixmap);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00376}00376\ \ \ \ \ errorLabel-\/>setFixedSize(pixmap.size());}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00377}00377\ \ \ \ \ errorLabel-\/>setStyleSheet(\textcolor{stringliteral}{"{}QLabel\ \{\ background:\ transparent;\ \}"{}});}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00379}00379\ \ \ \ \ centerErrorLabel();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00380}00380\ \ \ \ \ errorLabel-\/>raise();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00381}00381\ \ \ \ \ errorLabel-\/>show();}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00382}00382\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00383}00383\ \ \ \ \ QTimer::singleShot(2000,\ errorLabel,\ \&QLabel::hide);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00384}00384\ \}}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00386}00386\ }
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00387}00387\ \textcolor{keywordtype}{void}\ MainWindow::centerErrorLabel()}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00388}00388\ \{}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00389}00389\ \ \ \ \ \textcolor{keywordtype}{int}\ xPos\ =\ (this-\/>width()\ -\/\ errorLabel-\/>width())\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00390}00390\ \ \ \ \ \textcolor{keywordtype}{int}\ yPos\ =\ (this-\/>height()\ -\/\ errorLabel-\/>height())\ /\ 2;}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00391}00391\ \ \ \ \ errorLabel-\/>move(xPos,\ yPos);}
+\DoxyCodeLine{\Hypertarget{mainwindow_8cpp_source_l00392}00392\ \}}
+
+\end{DoxyCode}

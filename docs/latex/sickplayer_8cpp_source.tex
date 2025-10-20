@@ -1,0 +1,41 @@
+\doxysection{sickplayer.\+cpp}
+\hypertarget{sickplayer_8cpp_source}{}\label{sickplayer_8cpp_source}\index{hellapagos/sickplayer.cpp@{hellapagos/sickplayer.cpp}}
+\mbox{\hyperlink{sickplayer_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sickplayer_8h}{sickplayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00004}\mbox{\hyperlink{classSickPlayer_a60581d23c90a5a58b844f3154fe74961}{00004}}\ \mbox{\hyperlink{classSickPlayer_a60581d23c90a5a58b844f3154fe74961}{SickPlayer::SickPlayer}}()\ :\ \mbox{\hyperlink{classSickPlayer_aaf882eace19050b866d02ae1c22e3f00}{recoveryRounds}}(2),\mbox{\hyperlink{classSickPlayer_aacb3199907f923f1e57e1953b1dc4672}{recovered}}(false)\ \{\}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00005}00005\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00006}\mbox{\hyperlink{classSickPlayer_ab63fe8094c5a36a6fa745b1f053f7ff7}{00006}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSickPlayer_ab63fe8094c5a36a6fa745b1f053f7ff7}{SickPlayer::decrementRecovery}}()\ \{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00007}00007\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classSickPlayer_aaf882eace19050b866d02ae1c22e3f00}{recoveryRounds}}\ >\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00008}00008\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSickPlayer_aaf882eace19050b866d02ae1c22e3f00}{recoveryRounds}}-\/-\/;}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00009}00009\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00011}00011\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classSickPlayer_aaf882eace19050b866d02ae1c22e3f00}{recoveryRounds}}\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00012}00012\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classSickPlayer_aeee8f77b6ece6f3d17506a18295921a6}{setRecovered}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00013}00013\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00014}00014\ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00016}\mbox{\hyperlink{classSickPlayer_ac12f97ebf0a1a32a038314d3e23e07af}{00016}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSickPlayer_ac12f97ebf0a1a32a038314d3e23e07af}{SickPlayer::canVote}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classSickPlayer_aaf882eace19050b866d02ae1c22e3f00}{recoveryRounds}}\ ==\ 0;}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00018}00018\ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00020}\mbox{\hyperlink{classSickPlayer_a56cc0082a869feb1f48d2dad6f749e81}{00020}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSickPlayer_a56cc0082a869feb1f48d2dad6f749e81}{SickPlayer::canPerformActions}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00021}00021\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classSickPlayer_aaf882eace19050b866d02ae1c22e3f00}{recoveryRounds}}\ ==\ 0;}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00022}00022\ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00024}\mbox{\hyperlink{classSickPlayer_a9ee3bfdd320954859cc4f622357d77fb}{00024}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSickPlayer_a9ee3bfdd320954859cc4f622357d77fb}{SickPlayer::isRecovered}}()\textcolor{keyword}{\ const\ }\{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classSickPlayer_aacb3199907f923f1e57e1953b1dc4672}{recovered}};}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00028}\mbox{\hyperlink{classSickPlayer_aeee8f77b6ece6f3d17506a18295921a6}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSickPlayer_aeee8f77b6ece6f3d17506a18295921a6}{SickPlayer::setRecovered}}(\textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSickPlayer_aacb3199907f923f1e57e1953b1dc4672}{recovered}})}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00030}00030\ \ \ \ \ this-\/>recovered\ =\ \mbox{\hyperlink{classSickPlayer_aacb3199907f923f1e57e1953b1dc4672}{recovered}};}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00031}00031\ \}}
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{sickplayer_8cpp_source_l00035}00035\ }
+
+\end{DoxyCode}

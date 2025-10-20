@@ -1,0 +1,37 @@
+\doxysection{soundmanager.\+h}
+\hypertarget{soundmanager_8h_source}{}\label{soundmanager_8h_source}\index{hellapagos/soundmanager.h@{hellapagos/soundmanager.h}}
+\mbox{\hyperlink{soundmanager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ SOUNDMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ SOUNDMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QSoundEffect>}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00006}00006\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00007}\mbox{\hyperlink{classSoundManager}{00007}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classSoundManager_a0c743872759b9882c49e5d723f74f332}{SoundManager}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00008}00008\ \{}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00009}00009\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00011}00011\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00012}00012\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classSoundManager_a0c743872759b9882c49e5d723f74f332}{SoundManager}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00013}00013\ \ \ \ \ \mbox{\hyperlink{classSoundManager_ad5dbf8eab22db48ff8f3db51b02f8938}{\string~SoundManager}}();}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_a6473a5bf29257d8583ff8580d87d7294}{playBackgroundMusic}}(\textcolor{keyword}{const}\ QString\ \&filePath);}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00016}00016\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_ae05eb1058b76d4158231e72621642f93}{stopBackgroundMusic}}();}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00017}00017\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_a14e2dcf0856df37d3448adbc791d6272}{setVolume}}(\textcolor{keywordtype}{float}\ volume);}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classSoundManager_a7115a2253a6d1d795a74107c476e4fba}{toggleMute}}();}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{classSoundManager_af09ac54491e7799cfea2f1e2c256f97d}{getPreviousVolume}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classSoundManager_a7c2eac6f3982e1c7b82e1c5dcfacc07a}{isSoundMuted}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00023}00023\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00024}00024\ \ \ \ \ QSoundEffect\ *backgroundMusic;\ \ \textcolor{comment}{//\ The\ QSoundEffect\ for\ background\ music}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ isMuted;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Flag\ to\ check\ if\ the\ sound\ is\ muted}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{float}\ previousVolume;\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ To\ store\ the\ volume\ before\ muting}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00028}00028\ \};}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00030}00030\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ SOUNDMANAGER\_H}}
+\DoxyCodeLine{\Hypertarget{soundmanager_8h_source_l00031}00031\ }
+
+\end{DoxyCode}

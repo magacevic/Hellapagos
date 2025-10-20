@@ -1,0 +1,134 @@
+\doxysection{roundmanager.\+cpp}
+\hypertarget{roundmanager_8cpp_source}{}\label{roundmanager_8cpp_source}\index{server/roundmanager.cpp@{server/roundmanager.cpp}}
+\mbox{\hyperlink{roundmanager_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{roundmanager_8h}{roundmanager.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ <QDebug>}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00003}00003\ \textcolor{preprocessor}{\#include\ <QTimer>}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00004}00004\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00005}\mbox{\hyperlink{classRoundManager_a546c3309f12f73991c0f621e72b7dc7c}{00005}}\ \mbox{\hyperlink{classRoundManager_a546c3309f12f73991c0f621e72b7dc7c}{RoundManager::RoundManager}}(QObject*\ parent)\ :\ QObject(parent),\ currentPlayerIndex(0),isLastRound(false)}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00006}00006\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00007}00007\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00008}00008\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00009}\mbox{\hyperlink{classRoundManager_a9565e349f429e5c517290510bb3cbe22}{00009}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_a9565e349f429e5c517290510bb3cbe22}{RoundManager::addToTurnPlayer}}(\textcolor{keyword}{const}\ QString\&\ playerName)}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00010}00010\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00011}00011\ \ \ \ \ players.append(playerName);\ \ \textcolor{comment}{//\ Dodaj\ igrača\ na\ listu}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00012}00012\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00013}00013\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00014}\mbox{\hyperlink{classRoundManager_ac0a5392fa56d167966aa3d06f8c577f1}{00014}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_ac0a5392fa56d167966aa3d06f8c577f1}{RoundManager::setLastRound}}(\textcolor{keywordtype}{bool}\ lastRound)}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00015}00015\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00016}00016\ \ \ \ \ isLastRound\ =\ lastRound;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00017}00017\ \ \ \ \ \textcolor{keywordflow}{if}\ (isLastRound)\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00018}00018\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Last\ round\ initiated!"{}};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_a49c02b67fe6016d397f5b2ed11acf707}{lastRoundStarted}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00020}00020\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00021}00021\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00023}\mbox{\hyperlink{classRoundManager_a7a9d8981d4b677464651dd8a34f631c1}{00023}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classRoundManager_a7a9d8981d4b677464651dd8a34f631c1}{RoundManager::getLastRound}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00024}00024\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{return}\ isLastRound;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00026}00026\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00028}\mbox{\hyperlink{classRoundManager_a2f6ab740d9650a106dd3fe8f57fa6a1f}{00028}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_a2f6ab740d9650a106dd3fe8f57fa6a1f}{RoundManager::nextTurn}}()}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00029}00029\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (players.isEmpty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00031}00031\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00032}00032\ \ \ \ currentPlayerIndex\ =\ (currentPlayerIndex\ +\ 1)\ \%\ players.size();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00034}00034\ \ \ \ \ QString\ current\ =\ \mbox{\hyperlink{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}{currentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00035}00035\ \ \ \ \ QString\ next\ =\ \mbox{\hyperlink{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}{nextPlayer}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00036}00036\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00037}00037\ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_ae18bbd6dc762a436f5c1e70d32a5863d}{currentAndNextPlayerUpdated}}(current,\ next);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00038}00038\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{comment}{//\ Emituj\ signal\ sa\ ID-\/jem\ novog\ igrača}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00040}00040\ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_abb2611c3762c5484dc84f74af75bed38}{playerChanged}}(currentPlayerIndex);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00045}\mbox{\hyperlink{classRoundManager_ab286d6b704b21d141e9ae13e55f607a8}{00045}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_ab286d6b704b21d141e9ae13e55f607a8}{RoundManager::firstTurn}}()}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{if}\ (players.isEmpty())\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00048}00048\ \ \ \ \ QString\ current\ =\ \mbox{\hyperlink{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}{currentPlayer}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00049}00049\ \ \ \ \ QString\ next\ =\ \mbox{\hyperlink{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}{nextPlayer}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00050}00050\ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_ae18bbd6dc762a436f5c1e70d32a5863d}{currentAndNextPlayerUpdated}}(current,\ next);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{comment}{//\ Emituj\ signal\ sa\ ID-\/jem\ novog\ igrača}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00053}00053\ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_abb2611c3762c5484dc84f74af75bed38}{playerChanged}}(currentPlayerIndex);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00057}\mbox{\hyperlink{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}{00057}}\ QString\ \mbox{\hyperlink{classRoundManager_aeb43cbbe1a38d7e9d912f1aff2fc69f8}{RoundManager::currentPlayer}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00058}00058\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{return}\ players.at(currentPlayerIndex);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00060}00060\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00062}\mbox{\hyperlink{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}{00062}}\ QString\ \mbox{\hyperlink{classRoundManager_a2d9f51d838c126409f1bb071cbe43206}{RoundManager::nextPlayer}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00063}00063\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{int}\ nextIndex\ =\ (currentPlayerIndex\ +\ 1)\ \%\ players.size();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{return}\ players.at(nextIndex);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00066}00066\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00067}\mbox{\hyperlink{classRoundManager_aa54e16418c57e06e675ff12e5dd5136f}{00067}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classRoundManager_aa54e16418c57e06e675ff12e5dd5136f}{RoundManager::getCurrentPlayerIndex}}()\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{return}\ currentPlayerIndex;\ \textcolor{comment}{//\ Replace\ with\ your\ actual\ logic}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00072}\mbox{\hyperlink{classRoundManager_a4f791af074f8a161957e206f96a21b85}{00072}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_a4f791af074f8a161957e206f96a21b85}{RoundManager::actionCompleted}}()}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00074}00074\ \ \ \ \ \textcolor{keywordflow}{if}\ (actionCompletedCheck)\ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00075}00075\ \ \ \ \ actionCompletedCheck=\textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ completedTurns\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00078}00078\ \ \ \ \ completedTurns++;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00080}00080\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Player\ turn\ completed.\ Total\ completed\ turns:"{}}\ <<\ completedTurns;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00082}00082\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (completedTurns\ >=\ players.size())\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}All\ players\ completed\ their\ actions.\ Starting\ next\ round."{}};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00085}00085\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_ada49a8cc31421ea5e3b41363af9fa8c3}{roundCompleted}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ completedTurns\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00088}00088\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00090}00090\ \ \ \ \ \ \textcolor{keywordflow}{if}\ (isLastRound\ \&\&\ completedTurns\ ==\ 0)\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_ad26ca5a3d6997ec60b77c9bf4ee14a72}{lastRoundEnded}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00092}00092\ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00093}00093\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00095}00095\ \ \ \ \ \ QTimer::singleShot(500,\ \textcolor{keyword}{this},\ [\textcolor{keyword}{this}]()\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ actionCompletedCheck\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classRoundManager_a2f6ab740d9650a106dd3fe8f57fa6a1f}{nextTurn}}();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00098}00098\ \ \ \ \ \ \});}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00102}\mbox{\hyperlink{classRoundManager_aaecd17f2d6bcadd1d995a6109ae7d4d7}{00102}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_aaecd17f2d6bcadd1d995a6109ae7d4d7}{RoundManager::handlePlayerEliminated}}(\textcolor{keyword}{const}\ QString\&\ playerName)}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00103}00103\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00104}00104\ \ \ \ \ players.removeAll(playerName);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00105}00105\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Player\ eliminated:"{}}\ <<\ playerName;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00107}00107\ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_ae86d326a6f9dec421d0c67479e93e92b}{playerListUpdated}}(players);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00108}00108\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00109}00109\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00110}\mbox{\hyperlink{classRoundManager_a99951cbcf504f369d9f7fc9f60991a80}{00110}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classRoundManager_a99951cbcf504f369d9f7fc9f60991a80}{RoundManager::removeFromTurnPlayer}}(\textcolor{keyword}{const}\ QString\&\ playerName)}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00111}00111\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00112}00112\ \ \ \ \ players.removeAll(playerName);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00113}00113\ \ \ \ \ qDebug()\ <<\ \textcolor{stringliteral}{"{}Removed\ player\ from\ turn\ list:"{}}\ <<\ playerName;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{comment}{//\ Opcionalno,\ možeš\ emitovati\ signal\ ako\ želiš\ da\ obavestiš\ ostale\ delove\ sistema}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00116}00116\ \ \ \ \ emit\ \mbox{\hyperlink{classRoundManager_ae86d326a6f9dec421d0c67479e93e92b}{playerListUpdated}}(players);}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{comment}{//\ Ako\ je\ potrebno,\ možeš\ da\ prilagodiš\ currentPlayerIndex\ ako\ je\ eliminisani\ igrač\ onaj\ na\ redu}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (players.isEmpty())\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ currentPlayerIndex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00121}00121\ \ \ \ \ \}\ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (currentPlayerIndex\ >=\ players.size())\ \{}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ currentPlayerIndex\ =\ currentPlayerIndex\ \%\ players.size();}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00123}00123\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00124}00124\ \}}
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00125}00125\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{roundmanager_8cpp_source_l00128}00128\ }
+
+\end{DoxyCode}

@@ -1,0 +1,83 @@
+\doxysection{client.\+h}
+\hypertarget{client_8h_source}{}\label{client_8h_source}\index{hellapagos/client.h@{hellapagos/client.h}}
+\mbox{\hyperlink{client_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00001}00001\ \textcolor{preprocessor}{\#ifndef\ CLIENT\_H}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00002}00002\ \textcolor{preprocessor}{\#define\ CLIENT\_H}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00004}00004\ \textcolor{preprocessor}{\#include\ <QObject>}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00005}00005\ \textcolor{preprocessor}{\#include\ <QTcpSocket>}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00006}00006\ \textcolor{preprocessor}{\#include\ <QSharedPointer>}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00007}00007\ \textcolor{preprocessor}{\#include\ <QString>}\ \ \textcolor{comment}{//\ Include\ QString\ to\ handle\ names}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00008}00008\ \textcolor{preprocessor}{\#include\ <QList>}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00009}00009\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{eliminatedplayer_8h}{eliminatedplayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00010}00010\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{sickplayer_8h}{sickplayer.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00012}\mbox{\hyperlink{classClient}{00012}}\ \textcolor{keyword}{class\ }\mbox{\hyperlink{classClient_a5b62b1caeb5c2c35a2ae367851d3ad92}{Client}}\ :\ \textcolor{keyword}{public}\ QObject}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00013}00013\ \{}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00014}00014\ \ \ \ \ Q\_OBJECT}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00016}00016\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00017}00017\ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{classClient_a5b62b1caeb5c2c35a2ae367851d3ad92}{Client}}(QObject\ *parent\ =\ \textcolor{keyword}{nullptr});}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00018}00018\ \ \ \ \ \mbox{\hyperlink{classClient_a840e519ca781888cbd54181572ebe3a7}{\string~Client}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00020}00020\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a288256d4752a558bbaeb5923b5764f31}{sendMessage}}(\textcolor{keyword}{const}\ QString\ \&message);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00021}00021\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a1e87be8a11763ea69903fc90b5d70e7f}{handleMessage}}(\textcolor{keyword}{const}\ QString\&\ message);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00023}00023\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a484b660517d6a610b6733bee7e96cb8c}{connectToServer}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a190ef6aa0ac1b0535ddbe2f89939b3d4}{sendJoinCommand}}(\textcolor{keyword}{const}\ QString\ \&playerName);\ \textcolor{comment}{//\ New\ function}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00025}00025\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a529378a2913c414ff278b9d812d7967a}{sendReadySignal}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00026}00026\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_abff98435fa0c0845e45ff10a0cfbb888}{sendWeatherCardChange}}(\textcolor{keywordtype}{int}\ index);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00027}00027\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a67c8e0f84e17aeaa19319aae083def0a}{sendWeatherCardRequest}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00028}00028\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ad38371f35f137b732d4c4041a5a95209}{addPlayer}}(QSharedPointer<SickPlayer>\ player1);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00029}00029\ \ \ \ \ QStringList\ \mbox{\hyperlink{classClient_a1c98a2a148172f2440403a8a97cf687d}{getPlayers}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00030}00030\ \ \ \ \ \textcolor{comment}{//\ void\ sendMessage(const\ QString\ \&message);}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00031}00031\ \ \ \ \ \textcolor{comment}{//\ In\ client.h}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00033}00033\ signals:}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00034}\mbox{\hyperlink{classClient_a62b6bd37af061f585760fbd34b130ba6}{00034}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a62b6bd37af061f585760fbd34b130ba6}{serverFullSignal}}();\ \ \textcolor{comment}{//\ Signal\ to\ notify\ the\ server\ is\ full}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00035}\mbox{\hyperlink{classClient_ad28d21f4d9a96f6bc9670d84239a9849}{00035}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ad28d21f4d9a96f6bc9670d84239a9849}{allPlayersReady}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00036}\mbox{\hyperlink{classClient_ac252d551264b9831dbfeb43633a9e5c6}{00036}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ac252d551264b9831dbfeb43633a9e5c6}{weatherCardUpdated}}(\textcolor{keywordtype}{int}\ newIndex);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00037}\mbox{\hyperlink{classClient_aa0a46a9b4cd712a93bdefdded25d59e7}{00037}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_aa0a46a9b4cd712a93bdefdded25d59e7}{collectWaterApproved}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00038}\mbox{\hyperlink{classClient_ad6f4974768f51ae2437cea752233714a}{00038}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ad6f4974768f51ae2437cea752233714a}{collectWoodApproved}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00039}\mbox{\hyperlink{classClient_a491adcfbdd5f32f9e380b445847a2313}{00039}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a491adcfbdd5f32f9e380b445847a2313}{collectFoodApproved}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00040}\mbox{\hyperlink{classClient_a3094e6e51abf28f70872de5716b83c98}{00040}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a3094e6e51abf28f70872de5716b83c98}{gameStatsReceived}}(\textcolor{keyword}{const}\ QString\ \&stats);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00041}\mbox{\hyperlink{classClient_a8e42a167e7e0fef937bd79b56ea3ee88}{00041}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a8e42a167e7e0fef937bd79b56ea3ee88}{playersListUpdated}}(\textcolor{keyword}{const}\ QStringList\ \&playerNames);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00042}\mbox{\hyperlink{classClient_a6c7dbcb19eb4ecd159500942ec72faa2}{00042}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a6c7dbcb19eb4ecd159500942ec72faa2}{notYourTurn}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00043}\mbox{\hyperlink{classClient_a7deae76e8408fcb8c58c8b9742abc548}{00043}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a7deae76e8408fcb8c58c8b9742abc548}{gameOverSignal}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00044}\mbox{\hyperlink{classClient_ab28062da8349f9452bef27d9f4fd3c2b}{00044}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ab28062da8349f9452bef27d9f4fd3c2b}{voteStarted}}(\textcolor{keyword}{const}\ QStringList\&\ playersToVoteFor);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00045}\mbox{\hyperlink{classClient_af59cd0b760e5229719e175e7fd098ca6}{00045}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_af59cd0b760e5229719e175e7fd098ca6}{playerVotedOut}}(\textcolor{keyword}{const}\ QString\&\ playerName);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00046}\mbox{\hyperlink{classClient_af49a23f8ab3cf15642bb89c2b2e6aa93}{00046}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_af49a23f8ab3cf15642bb89c2b2e6aa93}{nameTaken}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00047}\mbox{\hyperlink{classClient_ad95b1e1ffa14e04ed7b1e9df9ee71193}{00047}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_ad95b1e1ffa14e04ed7b1e9df9ee71193}{currentPlayerChanged}}(\textcolor{keyword}{const}\ QString\&\ playerName);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00048}\mbox{\hyperlink{classClient_a6f07c6ae12f2937efa8939bf895f2902}{00048}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a6f07c6ae12f2937efa8939bf895f2902}{resourcesUpdated}}(\textcolor{keywordtype}{int}\ water,\ \textcolor{keywordtype}{int}\ food,\ \textcolor{keywordtype}{int}\ wood,\ \textcolor{keywordtype}{int}\ rafts);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00049}\mbox{\hyperlink{classClient_a2fe0f8764ce709420cabad5ea2f51e2f}{00049}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a2fe0f8764ce709420cabad5ea2f51e2f}{roundUpdated}}(\textcolor{keywordtype}{int}\ currentRound);}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00050}\mbox{\hyperlink{classClient_a0d40d6c0682754cd8143f264bfcf3f15}{00050}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classClient_a0d40d6c0682754cd8143f264bfcf3f15}{lastRoundStarted}}();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00052}00052\ \textcolor{keyword}{private}\ slots:}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{void}\ onConnected();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00054}00054\ \ \ \ \ \textcolor{keywordtype}{void}\ onReadyRead();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00055}00055\ \ \ \ \ \textcolor{keywordtype}{void}\ onDisconnected();}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00056}00056\ \ \ \ \ \textcolor{comment}{//void\ onPlayerEliminated(const\ QString\&\ playerName);\ //\ Slot\ za\ prijem\ eliminisanog\ igraca}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00059}00059\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00060}00060\ \ \ \ \ QTcpSocket\ *tcpSocket;}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00062}00062\ \ \ \textcolor{comment}{//\ \ QList<SickPlayer*>*\ players;}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00064}00064\ \ \ \ \ QStringList\ playerNames;}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00066}00066\ \ \ \ \ \mbox{\hyperlink{classEliminatedPlayer}{EliminatedPlayer}}*\ player;\ \ \textcolor{comment}{//\ Instanca\ eliminisanog\ igraca}}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{bool}\ voteInProgress\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00070}00070\ \ \ \ \ QByteArray\ buffer;}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00072}00072\ \ \ \ \ QList<QSharedPointer<SickPlayer>>\ players;}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00075}00075\ \};}
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00076}00076\ }
+\DoxyCodeLine{\Hypertarget{client_8h_source_l00077}00077\ \textcolor{preprocessor}{\#endif\ }\textcolor{comment}{//\ CLIENT\_H}}
+
+\end{DoxyCode}

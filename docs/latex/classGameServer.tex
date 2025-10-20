@@ -1,0 +1,617 @@
+\doxysection{Game\+Server Class Reference}
+\hypertarget{classGameServer}{}\label{classGameServer}\index{GameServer@{GameServer}}
+
+
+{\ttfamily \#include $<$gameserver.\+h$>$}
+
+Inheritance diagram for Game\+Server\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameServer}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGameServer_a356c8f10c910b8ce9c08871447c4af73}{on\+Player\+Changed}} (int new\+Player\+Id)
+\item 
+void \mbox{\hyperlink{classGameServer_a79af9187c3bde3114bde698c63309ff0}{on\+Voting\+Started}} (const QSet$<$ QString $>$ \&eligible\+Players)
+\item 
+void \mbox{\hyperlink{classGameServer_ab281155160076a18c0fa41c48d731376}{on\+New\+Client\+Connected}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a6bf6e26edc19c79ae992a7894aafb951}{on\+Client\+Disconnected}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a1d75189340c125ede8ca8af3bce31da2}{on\+Ready\+Read}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a7f687851d7eaf092b14b3d0b43852ed0}{on\+Last\+Round\+Logic}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a909cf416dd04bb974caec50de3c6f08c}{game\+End}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a3ccc485e17f61f63c21c41b9deb9772e}{trigger\+Next\+Voting}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGameServer_a79559e902c64d55a502e024e84c91b16}{weather\+Card\+Changed}} (int new\+Index)
+\item 
+void \mbox{\hyperlink{classGameServer_a836c919954eb1a9cbbfc195508cc3a9b}{current\+And\+Next\+Player\+Updated}} (const QString \&current\+Player, const QString \&next\+Player)
+\item 
+void \mbox{\hyperlink{classGameServer_a7c72d6864f5a3d3d4ede1593675f1b07}{round\+Started}} (int round\+Number)
+\item 
+void \mbox{\hyperlink{classGameServer_a50f2076254b514c47d60068abb8359b2}{this\+Player\+Is\+Sick}} (QString current\+Player)
+\item 
+void \mbox{\hyperlink{classGameServer_ac71d2a190501e7768c789c769a95df73}{game\+Over\+Signal}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_ad15cec665e7d2078ef85ccd2d9c9e1ac}{start\+Vote\+Signal}} (const QString\+List \&vote\+Targets)
+\item 
+void \mbox{\hyperlink{classGameServer_a7837454cefdd756122e0c5cda542ea8d}{player\+Eliminated\+Signal}} (const QString \&player\+Name)
+\item 
+void \mbox{\hyperlink{classGameServer_aa6931e79a8e6fe62e2028652a63258f7}{vote\+Result\+Signal}} (const QString \&player\+Name)
+\item 
+void \mbox{\hyperlink{classGameServer_a93a427486824c56556d37dca5d104884}{new\+Round\+Resources}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a4eb3bf8174ca8c0b089eedae82d63f71}{voting\+Again}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a7e5fa61a3a49d1208fea193b66884deb}{last\+Round}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameServer_ac1c538fffdb006f4f7a3f8bdd661f4fb}{Game\+Server}} (QObject \texorpdfstring{$\ast$}{*}parent=nullptr)
+\item 
+void \mbox{\hyperlink{classGameServer_afb766a09d7a6a217418118a132face70}{add\+Player}} (const QString \&player\+Name, QTcp\+Socket \texorpdfstring{$\ast$}{*}socket)
+\item 
+QString \mbox{\hyperlink{classGameServer_a1746c173b8e03e1ffb4195924f4e75b5}{get\+Player\+Name\+From\+Socket}} (QTcp\+Socket \texorpdfstring{$\ast$}{*}socket) const
+\item 
+QString\+List \mbox{\hyperlink{classGameServer_aaa2d3ba33b81473c46f315c89a8ed938}{get\+Players}} () const
+\item 
+QMap$<$ QString, int $>$ \mbox{\hyperlink{classGameServer_acc829b648f54540ff0ac4f80d5d933aa}{get\+Resources}} () const
+\item 
+void \mbox{\hyperlink{classGameServer_ab0d313000a3ea451699e47e15ffa4595}{change\+Weather\+Card}} ()
+\item 
+int \mbox{\hyperlink{classGameServer_a9ff572c2cd4099c8c92359604a1c772f}{get\+Weather\+Card\+Index}} () const
+\item 
+void \mbox{\hyperlink{classGameServer_ad50d9320fbbd0ea64666a6e88447952e}{on\+Weather\+Card\+Request}} ()
+\item 
+\mbox{\hyperlink{classRoundManager}{Round\+Manager}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{classGameServer_abb40ce376a9eaa98515211e590709495}{get\+Round\+Manager}} () const
+\item 
+void \mbox{\hyperlink{classGameServer_a7541d2150861921b542667ae748af395}{start\+Next\+Round}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_ab3a7b37974da9764c363d0ca2219bd7d}{broadcast\+Food\+Update}} (const QString \&player\+Name, int food\+Amount)
+\item 
+void \mbox{\hyperlink{classGameServer_a4c5163f4009ab7512d7b2af615f4e7a3}{collect\+Food\+From\+Player}} (const QString \&player\+Name, int food\+Amount)
+\item 
+void \mbox{\hyperlink{classGameServer_acb577e9ed5875234685de11c3bb7e9e8}{add\+Resource}} (const QString \&resource\+Name, int amount)
+\item 
+int \mbox{\hyperlink{classGameServer_aefb4aa232aeffdb4ec145761ca44f49d}{get\+Resource\+Amount}} (const QString \&resource\+Name) const
+\item 
+void \mbox{\hyperlink{classGameServer_a51705714fd9c2fd78c34fa33e94ba556}{check\+Rafts}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_ad2673fb8fca3acc9d9280c7c0d7407b8}{decrease\+Resources}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a1bd33a7778e46c064dc3d49ebe23d769}{start\+Vote\+If\+Needed}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a449f54ccc4af6897340e3be298dc9b25}{start\+Voting}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a817c7a5f67b2ecfdec906a297a60e404}{submit\+Vote}} (const QString \&voter, const QString \&target)
+\item 
+QString \mbox{\hyperlink{classGameServer_a25bf9b64fe2d7ddfc3d3849fcf9cc292}{get\+Game\+Statistics\+Text}} () const
+\item 
+void \mbox{\hyperlink{classGameServer_a4215f5bb147082b531c27656865150f2}{update\+Sick\+Players\+Map}} (const QString \&player\+Name)
+\item 
+void \mbox{\hyperlink{classGameServer_a6adf752c507c725269849265c02f8ded}{init\+Sick\+Players\+Map}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_a414f425b2026b07069cd0acb16cc837d}{print\+Sick\+Players\+Map}} () const
+\item 
+void \mbox{\hyperlink{classGameServer_a6e9b40848cc449f7b01527a49b339e89}{handle\+Resources\+Report}} (const QString \&message)
+\item 
+bool \mbox{\hyperlink{classGameServer_a3c21334890c174221b1e179ac51e97bf}{is\+Player\+Eliminated}} (const QString \&player\+Name) const
+\item 
+void \mbox{\hyperlink{classGameServer_aa9a2a5cffb3c5b11a89277b983b10edd}{eliminate\+Player}} (const QString \&player\+Name)
+\item 
+void \mbox{\hyperlink{classGameServer_a54edad2ca504c9fb262c1b19d19c7959}{new\+Round\+Decrease}} ()
+\item 
+void \mbox{\hyperlink{classGameServer_af1d0cebaa99df1a858a1c6a7b4737941}{check\+Enough\+Rafts}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+QList$<$ QTcp\+Socket \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{classGameServer_ad7bb6aa9a11fdd6e9f884274e15b0a47}{client\+Sockets}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line \mbox{\hyperlink{gameserver_8h_source_l00015}{15}} of file \mbox{\hyperlink{gameserver_8h_source}{gameserver.\+h}}.
+
+
+
+\label{doc-constructors}
+\Hypertarget{classGameServer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classGameServer_ac1c538fffdb006f4f7a3f8bdd661f4fb}\index{GameServer@{GameServer}!GameServer@{GameServer}}
+\index{GameServer@{GameServer}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{GameServer()}{GameServer()}}
+{\footnotesize\ttfamily \label{classGameServer_ac1c538fffdb006f4f7a3f8bdd661f4fb} 
+Game\+Server\+::\+Game\+Server (\begin{DoxyParamCaption}\item[{QObject \texorpdfstring{$\ast$}{*}}]{parent}{ = {\ttfamily nullptr}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [explicit]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00013}{13}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+
+
+\label{doc-func-members}
+\Hypertarget{classGameServer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameServer_afb766a09d7a6a217418118a132face70}\index{GameServer@{GameServer}!addPlayer@{addPlayer}}
+\index{addPlayer@{addPlayer}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{addPlayer()}{addPlayer()}}
+{\footnotesize\ttfamily \label{classGameServer_afb766a09d7a6a217418118a132face70} 
+void Game\+Server\+::add\+Player (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{, }\item[{QTcp\+Socket \texorpdfstring{$\ast$}{*}}]{socket}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00066}{66}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_acb577e9ed5875234685de11c3bb7e9e8}\index{GameServer@{GameServer}!addResource@{addResource}}
+\index{addResource@{addResource}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{addResource()}{addResource()}}
+{\footnotesize\ttfamily \label{classGameServer_acb577e9ed5875234685de11c3bb7e9e8} 
+void Game\+Server\+::add\+Resource (\begin{DoxyParamCaption}\item[{const QString \&}]{resource\+Name}{, }\item[{int}]{amount}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00052}{52}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_ab3a7b37974da9764c363d0ca2219bd7d}\index{GameServer@{GameServer}!broadcastFoodUpdate@{broadcastFoodUpdate}}
+\index{broadcastFoodUpdate@{broadcastFoodUpdate}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{broadcastFoodUpdate()}{broadcastFoodUpdate()}}
+{\footnotesize\ttfamily \label{classGameServer_ab3a7b37974da9764c363d0ca2219bd7d} 
+void Game\+Server\+::broadcast\+Food\+Update (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{, }\item[{int}]{food\+Amount}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameServer_ab0d313000a3ea451699e47e15ffa4595}\index{GameServer@{GameServer}!changeWeatherCard@{changeWeatherCard}}
+\index{changeWeatherCard@{changeWeatherCard}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{changeWeatherCard()}{changeWeatherCard()}}
+{\footnotesize\ttfamily \label{classGameServer_ab0d313000a3ea451699e47e15ffa4595} 
+void Game\+Server\+::change\+Weather\+Card (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00100}{100}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_af1d0cebaa99df1a858a1c6a7b4737941}\index{GameServer@{GameServer}!checkEnoughRafts@{checkEnoughRafts}}
+\index{checkEnoughRafts@{checkEnoughRafts}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{checkEnoughRafts()}{checkEnoughRafts()}}
+{\footnotesize\ttfamily \label{classGameServer_af1d0cebaa99df1a858a1c6a7b4737941} 
+void Game\+Server\+::check\+Enough\+Rafts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00302}{302}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a51705714fd9c2fd78c34fa33e94ba556}\index{GameServer@{GameServer}!checkRafts@{checkRafts}}
+\index{checkRafts@{checkRafts}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{checkRafts()}{checkRafts()}}
+{\footnotesize\ttfamily \label{classGameServer_a51705714fd9c2fd78c34fa33e94ba556} 
+void Game\+Server\+::check\+Rafts (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00311}{311}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a4c5163f4009ab7512d7b2af615f4e7a3}\index{GameServer@{GameServer}!collectFoodFromPlayer@{collectFoodFromPlayer}}
+\index{collectFoodFromPlayer@{collectFoodFromPlayer}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{collectFoodFromPlayer()}{collectFoodFromPlayer()}}
+{\footnotesize\ttfamily \label{classGameServer_a4c5163f4009ab7512d7b2af615f4e7a3} 
+void Game\+Server\+::collect\+Food\+From\+Player (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{, }\item[{int}]{food\+Amount}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameServer_a836c919954eb1a9cbbfc195508cc3a9b}\index{GameServer@{GameServer}!currentAndNextPlayerUpdated@{currentAndNextPlayerUpdated}}
+\index{currentAndNextPlayerUpdated@{currentAndNextPlayerUpdated}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{currentAndNextPlayerUpdated}{currentAndNextPlayerUpdated}}
+{\footnotesize\ttfamily \label{classGameServer_a836c919954eb1a9cbbfc195508cc3a9b} 
+void Game\+Server\+::current\+And\+Next\+Player\+Updated (\begin{DoxyParamCaption}\item[{const QString \&}]{current\+Player}{, }\item[{const QString \&}]{next\+Player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00356}{356}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_ad2673fb8fca3acc9d9280c7c0d7407b8}\index{GameServer@{GameServer}!decreaseResources@{decreaseResources}}
+\index{decreaseResources@{decreaseResources}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{decreaseResources()}{decreaseResources()}}
+{\footnotesize\ttfamily \label{classGameServer_ad2673fb8fca3acc9d9280c7c0d7407b8} 
+void Game\+Server\+::decrease\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00326}{326}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_aa9a2a5cffb3c5b11a89277b983b10edd}\index{GameServer@{GameServer}!eliminatePlayer@{eliminatePlayer}}
+\index{eliminatePlayer@{eliminatePlayer}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{eliminatePlayer()}{eliminatePlayer()}}
+{\footnotesize\ttfamily \label{classGameServer_aa9a2a5cffb3c5b11a89277b983b10edd} 
+void Game\+Server\+::eliminate\+Player (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00512}{512}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a909cf416dd04bb974caec50de3c6f08c}\index{GameServer@{GameServer}!gameEnd@{gameEnd}}
+\index{gameEnd@{gameEnd}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{gameEnd}{gameEnd}}
+{\footnotesize\ttfamily \label{classGameServer_a909cf416dd04bb974caec50de3c6f08c} 
+void Game\+Server\+::game\+End (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00241}{241}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_ac71d2a190501e7768c789c769a95df73}\index{GameServer@{GameServer}!gameOverSignal@{gameOverSignal}}
+\index{gameOverSignal@{gameOverSignal}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{gameOverSignal}{gameOverSignal}}
+{\footnotesize\ttfamily \label{classGameServer_ac71d2a190501e7768c789c769a95df73} 
+void Game\+Server\+::game\+Over\+Signal (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00377}{377}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a25bf9b64fe2d7ddfc3d3849fcf9cc292}\index{GameServer@{GameServer}!getGameStatisticsText@{getGameStatisticsText}}
+\index{getGameStatisticsText@{getGameStatisticsText}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getGameStatisticsText()}{getGameStatisticsText()}}
+{\footnotesize\ttfamily \label{classGameServer_a25bf9b64fe2d7ddfc3d3849fcf9cc292} 
+QString Game\+Server\+::get\+Game\+Statistics\+Text (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00534}{534}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a1746c173b8e03e1ffb4195924f4e75b5}\index{GameServer@{GameServer}!getPlayerNameFromSocket@{getPlayerNameFromSocket}}
+\index{getPlayerNameFromSocket@{getPlayerNameFromSocket}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getPlayerNameFromSocket()}{getPlayerNameFromSocket()}}
+{\footnotesize\ttfamily \label{classGameServer_a1746c173b8e03e1ffb4195924f4e75b5} 
+QString Game\+Server\+::get\+Player\+Name\+From\+Socket (\begin{DoxyParamCaption}\item[{QTcp\+Socket \texorpdfstring{$\ast$}{*}}]{socket}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00078}{78}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_aaa2d3ba33b81473c46f315c89a8ed938}\index{GameServer@{GameServer}!getPlayers@{getPlayers}}
+\index{getPlayers@{getPlayers}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getPlayers()}{getPlayers()}}
+{\footnotesize\ttfamily \label{classGameServer_aaa2d3ba33b81473c46f315c89a8ed938} 
+QString\+List Game\+Server\+::get\+Players (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00084}{84}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_aefb4aa232aeffdb4ec145761ca44f49d}\index{GameServer@{GameServer}!getResourceAmount@{getResourceAmount}}
+\index{getResourceAmount@{getResourceAmount}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getResourceAmount()}{getResourceAmount()}}
+{\footnotesize\ttfamily \label{classGameServer_aefb4aa232aeffdb4ec145761ca44f49d} 
+int Game\+Server\+::get\+Resource\+Amount (\begin{DoxyParamCaption}\item[{const QString \&}]{resource\+Name}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00058}{58}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_acc829b648f54540ff0ac4f80d5d933aa}\index{GameServer@{GameServer}!getResources@{getResources}}
+\index{getResources@{getResources}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getResources()}{getResources()}}
+{\footnotesize\ttfamily \label{classGameServer_acc829b648f54540ff0ac4f80d5d933aa} 
+QMap$<$ QString, int $>$ Game\+Server\+::get\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00090}{90}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_abb40ce376a9eaa98515211e590709495}\index{GameServer@{GameServer}!getRoundManager@{getRoundManager}}
+\index{getRoundManager@{getRoundManager}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getRoundManager()}{getRoundManager()}}
+{\footnotesize\ttfamily \label{classGameServer_abb40ce376a9eaa98515211e590709495} 
+\mbox{\hyperlink{classRoundManager}{Round\+Manager}} \texorpdfstring{$\ast$}{*} Game\+Server\+::get\+Round\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00046}{46}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a9ff572c2cd4099c8c92359604a1c772f}\index{GameServer@{GameServer}!getWeatherCardIndex@{getWeatherCardIndex}}
+\index{getWeatherCardIndex@{getWeatherCardIndex}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{getWeatherCardIndex()}{getWeatherCardIndex()}}
+{\footnotesize\ttfamily \label{classGameServer_a9ff572c2cd4099c8c92359604a1c772f} 
+int Game\+Server\+::get\+Weather\+Card\+Index (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00095}{95}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a6e9b40848cc449f7b01527a49b339e89}\index{GameServer@{GameServer}!handleResourcesReport@{handleResourcesReport}}
+\index{handleResourcesReport@{handleResourcesReport}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{handleResourcesReport()}{handleResourcesReport()}}
+{\footnotesize\ttfamily \label{classGameServer_a6e9b40848cc449f7b01527a49b339e89} 
+void Game\+Server\+::handle\+Resources\+Report (\begin{DoxyParamCaption}\item[{const QString \&}]{message}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00583}{583}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a6adf752c507c725269849265c02f8ded}\index{GameServer@{GameServer}!initSickPlayersMap@{initSickPlayersMap}}
+\index{initSickPlayersMap@{initSickPlayersMap}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{initSickPlayersMap()}{initSickPlayersMap()}}
+{\footnotesize\ttfamily \label{classGameServer_a6adf752c507c725269849265c02f8ded} 
+void Game\+Server\+::init\+Sick\+Players\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00570}{570}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a3c21334890c174221b1e179ac51e97bf}\index{GameServer@{GameServer}!isPlayerEliminated@{isPlayerEliminated}}
+\index{isPlayerEliminated@{isPlayerEliminated}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{isPlayerEliminated()}{isPlayerEliminated()}}
+{\footnotesize\ttfamily \label{classGameServer_a3c21334890c174221b1e179ac51e97bf} 
+bool Game\+Server\+::is\+Player\+Eliminated (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00529}{529}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a7e5fa61a3a49d1208fea193b66884deb}\index{GameServer@{GameServer}!lastRound@{lastRound}}
+\index{lastRound@{lastRound}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{lastRound}{lastRound}}
+{\footnotesize\ttfamily \label{classGameServer_a7e5fa61a3a49d1208fea193b66884deb} 
+void Game\+Server\+::last\+Round (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00416}{416}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a54edad2ca504c9fb262c1b19d19c7959}\index{GameServer@{GameServer}!newRoundDecrease@{newRoundDecrease}}
+\index{newRoundDecrease@{newRoundDecrease}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{newRoundDecrease()}{newRoundDecrease()}}
+{\footnotesize\ttfamily \label{classGameServer_a54edad2ca504c9fb262c1b19d19c7959} 
+void Game\+Server\+::new\+Round\+Decrease (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00387}{387}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a93a427486824c56556d37dca5d104884}\index{GameServer@{GameServer}!newRoundResources@{newRoundResources}}
+\index{newRoundResources@{newRoundResources}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{newRoundResources}{newRoundResources}}
+{\footnotesize\ttfamily \label{classGameServer_a93a427486824c56556d37dca5d104884} 
+void Game\+Server\+::new\+Round\+Resources (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00404}{404}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a6bf6e26edc19c79ae992a7894aafb951}\index{GameServer@{GameServer}!onClientDisconnected@{onClientDisconnected}}
+\index{onClientDisconnected@{onClientDisconnected}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onClientDisconnected}{onClientDisconnected}}
+{\footnotesize\ttfamily \label{classGameServer_a6bf6e26edc19c79ae992a7894aafb951} 
+void Game\+Server\+::on\+Client\+Disconnected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00222}{222}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a7f687851d7eaf092b14b3d0b43852ed0}\index{GameServer@{GameServer}!onLastRoundLogic@{onLastRoundLogic}}
+\index{onLastRoundLogic@{onLastRoundLogic}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onLastRoundLogic}{onLastRoundLogic}}
+{\footnotesize\ttfamily \label{classGameServer_a7f687851d7eaf092b14b3d0b43852ed0} 
+void Game\+Server\+::on\+Last\+Round\+Logic (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00235}{235}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_ab281155160076a18c0fa41c48d731376}\index{GameServer@{GameServer}!onNewClientConnected@{onNewClientConnected}}
+\index{onNewClientConnected@{onNewClientConnected}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onNewClientConnected}{onNewClientConnected}}
+{\footnotesize\ttfamily \label{classGameServer_ab281155160076a18c0fa41c48d731376} 
+void Game\+Server\+::on\+New\+Client\+Connected (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00212}{212}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a356c8f10c910b8ce9c08871447c4af73}\index{GameServer@{GameServer}!onPlayerChanged@{onPlayerChanged}}
+\index{onPlayerChanged@{onPlayerChanged}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onPlayerChanged}{onPlayerChanged}}
+{\footnotesize\ttfamily \label{classGameServer_a356c8f10c910b8ce9c08871447c4af73} 
+void Game\+Server\+::on\+Player\+Changed (\begin{DoxyParamCaption}\item[{int}]{new\+Player\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00139}{139}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a1d75189340c125ede8ca8af3bce31da2}\index{GameServer@{GameServer}!onReadyRead@{onReadyRead}}
+\index{onReadyRead@{onReadyRead}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onReadyRead}{onReadyRead}}
+{\footnotesize\ttfamily \label{classGameServer_a1d75189340c125ede8ca8af3bce31da2} 
+void Game\+Server\+::on\+Ready\+Read (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00231}{231}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a79af9187c3bde3114bde698c63309ff0}\index{GameServer@{GameServer}!onVotingStarted@{onVotingStarted}}
+\index{onVotingStarted@{onVotingStarted}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onVotingStarted}{onVotingStarted}}
+{\footnotesize\ttfamily \label{classGameServer_a79af9187c3bde3114bde698c63309ff0} 
+void Game\+Server\+::on\+Voting\+Started (\begin{DoxyParamCaption}\item[{const QSet$<$ QString $>$ \&}]{eligible\+Players}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00420}{420}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_ad50d9320fbbd0ea64666a6e88447952e}\index{GameServer@{GameServer}!onWeatherCardRequest@{onWeatherCardRequest}}
+\index{onWeatherCardRequest@{onWeatherCardRequest}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{onWeatherCardRequest()}{onWeatherCardRequest()}}
+{\footnotesize\ttfamily \label{classGameServer_ad50d9320fbbd0ea64666a6e88447952e} 
+void Game\+Server\+::on\+Weather\+Card\+Request (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00136}{136}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a7837454cefdd756122e0c5cda542ea8d}\index{GameServer@{GameServer}!playerEliminatedSignal@{playerEliminatedSignal}}
+\index{playerEliminatedSignal@{playerEliminatedSignal}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{playerEliminatedSignal}{playerEliminatedSignal}}
+{\footnotesize\ttfamily \label{classGameServer_a7837454cefdd756122e0c5cda542ea8d} 
+void Game\+Server\+::player\+Eliminated\+Signal (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00390}{390}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a414f425b2026b07069cd0acb16cc837d}\index{GameServer@{GameServer}!printSickPlayersMap@{printSickPlayersMap}}
+\index{printSickPlayersMap@{printSickPlayersMap}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{printSickPlayersMap()}{printSickPlayersMap()}}
+{\footnotesize\ttfamily \label{classGameServer_a414f425b2026b07069cd0acb16cc837d} 
+void Game\+Server\+::print\+Sick\+Players\+Map (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00576}{576}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a7c72d6864f5a3d3d4ede1593675f1b07}\index{GameServer@{GameServer}!roundStarted@{roundStarted}}
+\index{roundStarted@{roundStarted}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{roundStarted}{roundStarted}}
+{\footnotesize\ttfamily \label{classGameServer_a7c72d6864f5a3d3d4ede1593675f1b07} 
+void Game\+Server\+::round\+Started (\begin{DoxyParamCaption}\item[{int}]{round\+Number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00363}{363}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a7541d2150861921b542667ae748af395}\index{GameServer@{GameServer}!startNextRound@{startNextRound}}
+\index{startNextRound@{startNextRound}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{startNextRound()}{startNextRound()}}
+{\footnotesize\ttfamily \label{classGameServer_a7541d2150861921b542667ae748af395} 
+void Game\+Server\+::start\+Next\+Round (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00181}{181}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a1bd33a7778e46c064dc3d49ebe23d769}\index{GameServer@{GameServer}!startVoteIfNeeded@{startVoteIfNeeded}}
+\index{startVoteIfNeeded@{startVoteIfNeeded}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{startVoteIfNeeded()}{startVoteIfNeeded()}}
+{\footnotesize\ttfamily \label{classGameServer_a1bd33a7778e46c064dc3d49ebe23d769} 
+void Game\+Server\+::start\+Vote\+If\+Needed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00408}{408}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_ad15cec665e7d2078ef85ccd2d9c9e1ac}\index{GameServer@{GameServer}!startVoteSignal@{startVoteSignal}}
+\index{startVoteSignal@{startVoteSignal}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{startVoteSignal}{startVoteSignal}}
+{\footnotesize\ttfamily \label{classGameServer_ad15cec665e7d2078ef85ccd2d9c9e1ac} 
+void Game\+Server\+::start\+Vote\+Signal (\begin{DoxyParamCaption}\item[{const QString\+List \&}]{vote\+Targets}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00383}{383}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a449f54ccc4af6897340e3be298dc9b25}\index{GameServer@{GameServer}!startVoting@{startVoting}}
+\index{startVoting@{startVoting}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{startVoting()}{startVoting()}}
+{\footnotesize\ttfamily \label{classGameServer_a449f54ccc4af6897340e3be298dc9b25} 
+void Game\+Server\+::start\+Voting (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{classGameServer_a817c7a5f67b2ecfdec906a297a60e404}\index{GameServer@{GameServer}!submitVote@{submitVote}}
+\index{submitVote@{submitVote}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{submitVote()}{submitVote()}}
+{\footnotesize\ttfamily \label{classGameServer_a817c7a5f67b2ecfdec906a297a60e404} 
+void Game\+Server\+::submit\+Vote (\begin{DoxyParamCaption}\item[{const QString \&}]{voter}{, }\item[{const QString \&}]{target}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00426}{426}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a50f2076254b514c47d60068abb8359b2}\index{GameServer@{GameServer}!thisPlayerIsSick@{thisPlayerIsSick}}
+\index{thisPlayerIsSick@{thisPlayerIsSick}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{thisPlayerIsSick}{thisPlayerIsSick}}
+{\footnotesize\ttfamily \label{classGameServer_a50f2076254b514c47d60068abb8359b2} 
+void Game\+Server\+::this\+Player\+Is\+Sick (\begin{DoxyParamCaption}\item[{QString}]{current\+Player}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00370}{370}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a3ccc485e17f61f63c21c41b9deb9772e}\index{GameServer@{GameServer}!triggerNextVoting@{triggerNextVoting}}
+\index{triggerNextVoting@{triggerNextVoting}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{triggerNextVoting}{triggerNextVoting}}
+{\footnotesize\ttfamily \label{classGameServer_a3ccc485e17f61f63c21c41b9deb9772e} 
+void Game\+Server\+::trigger\+Next\+Voting (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00502}{502}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a4215f5bb147082b531c27656865150f2}\index{GameServer@{GameServer}!updateSickPlayersMap@{updateSickPlayersMap}}
+\index{updateSickPlayersMap@{updateSickPlayersMap}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{updateSickPlayersMap()}{updateSickPlayersMap()}}
+{\footnotesize\ttfamily \label{classGameServer_a4215f5bb147082b531c27656865150f2} 
+void Game\+Server\+::update\+Sick\+Players\+Map (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8cpp_source_l00564}{564}} of file \mbox{\hyperlink{gameserver_8cpp_source}{gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_aa6931e79a8e6fe62e2028652a63258f7}\index{GameServer@{GameServer}!voteResultSignal@{voteResultSignal}}
+\index{voteResultSignal@{voteResultSignal}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{voteResultSignal}{voteResultSignal}}
+{\footnotesize\ttfamily \label{classGameServer_aa6931e79a8e6fe62e2028652a63258f7} 
+void Game\+Server\+::vote\+Result\+Signal (\begin{DoxyParamCaption}\item[{const QString \&}]{player\+Name}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00397}{397}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a4eb3bf8174ca8c0b089eedae82d63f71}\index{GameServer@{GameServer}!votingAgain@{votingAgain}}
+\index{votingAgain@{votingAgain}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{votingAgain}{votingAgain}}
+{\footnotesize\ttfamily \label{classGameServer_a4eb3bf8174ca8c0b089eedae82d63f71} 
+void Game\+Server\+::voting\+Again (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00410}{410}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+\Hypertarget{classGameServer_a79559e902c64d55a502e024e84c91b16}\index{GameServer@{GameServer}!weatherCardChanged@{weatherCardChanged}}
+\index{weatherCardChanged@{weatherCardChanged}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{weatherCardChanged}{weatherCardChanged}}
+{\footnotesize\ttfamily \label{classGameServer_a79559e902c64d55a502e024e84c91b16} 
+void Game\+Server\+::weather\+Card\+Changed (\begin{DoxyParamCaption}\item[{int}]{new\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+Definition at line \mbox{\hyperlink{moc__gameserver_8cpp_source_l00349}{349}} of file \mbox{\hyperlink{moc__gameserver_8cpp_source}{moc\+\_\+gameserver.\+cpp}}.
+
+
+
+\label{doc-variable-members}
+\Hypertarget{classGameServer_doc-variable-members}
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classGameServer_ad7bb6aa9a11fdd6e9f884274e15b0a47}\index{GameServer@{GameServer}!clientSockets@{clientSockets}}
+\index{clientSockets@{clientSockets}!GameServer@{GameServer}}
+\doxysubsubsection{\texorpdfstring{clientSockets}{clientSockets}}
+{\footnotesize\ttfamily \label{classGameServer_ad7bb6aa9a11fdd6e9f884274e15b0a47} 
+QList$<$QTcp\+Socket\texorpdfstring{$\ast$}{*}$>$ Game\+Server\+::client\+Sockets}
+
+
+
+Definition at line \mbox{\hyperlink{gameserver_8h_source_l00033}{33}} of file \mbox{\hyperlink{gameserver_8h_source}{gameserver.\+h}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+server/\mbox{\hyperlink{gameserver_8h}{gameserver.\+h}}\item 
+server/build/\+Desktop\+\_\+\+Qt\+\_\+6\+\_\+7\+\_\+3-\/\+Debug/server\+\_\+autogen/\+EWIEGA46\+WW/\mbox{\hyperlink{moc__gameserver_8cpp}{moc\+\_\+gameserver.\+cpp}}\item 
+server/\mbox{\hyperlink{gameserver_8cpp}{gameserver.\+cpp}}\end{DoxyCompactItemize}
