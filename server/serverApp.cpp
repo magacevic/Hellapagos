@@ -288,14 +288,20 @@ void Server::onDisconnected()
     if (!senderSocket) return;
 
     // Properly disconnect and remove client from map
+
     QString playerName;
-    for (auto it = playerSocketMap.begin(); it != playerSocketMap.end(); ++it) {
+    for (auto it = playerSocketMap.constBegin(); it != playerSocketMap.constEnd(); ++it) {
         if (it.value() == senderSocket) {
             playerName = it.key();
-            playerSocketMap.erase(it);
             break;
         }
     }
+
+    // Sada ukloni element po ključu
+    if (!playerName.isEmpty()) {
+        playerSocketMap.remove(playerName);
+    }
+
 
     qDebug() << "Client disconnected!";
     clientSockets.removeAll(senderSocket);
@@ -337,6 +343,7 @@ void Server::onCurrentAndNextPlayerUpdated(const QString& currentPlayer, const Q
 
     if (playerSocketMap.contains(nextPlayer)) {
         QTcpSocket* nextPlayerSocket = playerSocketMap[nextPlayer];
+        qDebug() << "Next player socket:" << nextPlayerSocket;
         // Notify the next player or update their turn
     } else {
         qDebug() << "Next player not found in the map!";

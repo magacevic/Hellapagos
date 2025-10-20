@@ -39,8 +39,8 @@ void Voting::reset()
 int Voting::getVoteCountFor(const QString& player) const
 {
     int count = 0;
-    for (const QString& votedFor : votes.values()) {
-        if (votedFor == player) {
+    for (auto it = votes.constBegin(); it != votes.constEnd(); ++it) {
+        if (it.value() == player) {
             ++count;
         }
     }
@@ -48,11 +48,13 @@ int Voting::getVoteCountFor(const QString& player) const
 }
 QStringList Voting::getPlayersWithMostVotes() const {
     QMap<QString, int> voteCounts;
-    for (const QString& target : votes.values()) {
+    for (auto it = votes.cbegin(); it != votes.cend(); ++it) {
+        const QString &target = it.value();
         if (!target.isEmpty()) {
             voteCounts[target]++;
         }
     }
+
 
     int maxVotes = -1;
     QStringList topCandidates;

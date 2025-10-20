@@ -568,14 +568,14 @@ void GameServer::updateSickPlayersMap(const QString &playerName)
 
 
 void GameServer::initSickPlayersMap(){
-    for(QString playerName:players){
+    for(const QString &playerName:players){
         sickPlayers[playerName]=0;
     }
 }
 
 void GameServer::printSickPlayersMap() const {
     qDebug() << "Sick Players Map:";
-    for(QString playerName:players){
+    for(const QString &playerName:players){
         qDebug()<< playerName<< ": "<<sickPlayers[playerName]<<"-----";
     }
 }
@@ -592,6 +592,12 @@ void GameServer::handleResourcesReport(const QString& message) {
     int water = parts[3].mid(QString("water=").length()).toInt();
     int wood = parts[4].mid(QString("wood=").length()).toInt();
     int total = parts[5].mid(QString("total=").length()).toInt();
+
+    qDebug() << "Food at start: " << food;
+    qDebug() << "Water at start: " << water;
+    qDebug() << "Wood at start: " << wood;
+
+
 
     playerTotalResources[playerName] = total;
     qDebug()<<QString(" %1 : total %2 ").arg(playerName).arg(playerTotalResources[playerName]);
